@@ -67,3 +67,33 @@ nav {
     color: #fff;
     font-size: 48px;
 }
+
+.container {
+    padding: 56px 0;
+}
+
+.row {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; 
+}
+
+/* QUOTE */
+#quote {
+    background-color: #fff;
+}
+
+/* GALLERY */
+#gallery {
+    background-color: #4d4d4d;
+}
+
+/* GET INVOLVED */
+#get-involved {
+    background-color: #fff;
+}
+
+/* FOOTER */
+footer {
+    background-color: #1f1f1f;
+}
