@@ -104,6 +104,18 @@ button {
     text-align: center;
 }
 
+.gciConnect__logo {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.logo__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* GALLERY */
 #gallery {
     background-color: #4d4d4d;
@@ -162,13 +174,27 @@ button {
 
 .get-involved__title {
     margin-top: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
-
-
 
 
 /* FOOTER */
 footer {
     background-color: #1f1f1f;
+}
+
+.footer__wrapper {
+    margin: 50px 0;
+}
+
+.footer__link {
+    color: #fff;
+    font-weight: 600;
+    padding: 0 8px;
+}
+
+.footer__list {
+    margin: 20px 0 24px 0 ;
+    display: flex;
+    justify-content: center;
 }
