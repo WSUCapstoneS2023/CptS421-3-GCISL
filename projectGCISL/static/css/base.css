@@ -79,14 +79,14 @@ nav {
 .row {
     width: 100%;
     max-width: 1000px;
-    margin: 0 auto; 
+    margin: 0 auto;
+    display: flex;
 }
 
 button {
     cursor: pointer;
     background-color: #ca1237;
     color: white;
-    padding: 12px 80px;
     font-size: 16px;
     border-radius: 12px;
     border: none;
@@ -112,12 +112,31 @@ button {
 
 .gallery__title {
     color: #fff;
+    margin-bottom: 20px;
+}
+
+.gallery__left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .gallery__button {
-    
+    padding: 12px 80px;
 }
 
+
+.gallery__right {
+    width: 60%;
+}
+
+.gallery__image {
+    max-width: 512px;
+    border-radius: 12px;
+}
 
 /* GET INVOLVED */
 #get-involved {
@@ -125,8 +144,9 @@ button {
 }
 
 .get-involved__button {
-
+    padding: 12px 96px;
 }
+
 /* FOOTER */
 footer {
     background-color: #1f1f1f;
