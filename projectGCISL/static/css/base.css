@@ -10,6 +10,11 @@
 .crimson {
     color: #A60F2D;
 }
+
+body {
+    scroll-behavior: smooth;
+}
+
 nav {
     height: 80px;
     display: flex;
