@@ -3,4 +3,59 @@
 * {
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    height: 80px;
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+}
+
+.nav__container {
+    width: 100%;
+    max-width: 1800px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+nav {
+    background: #000;
+}
+
+.nav__link {
+    margin-left: 16px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 8px;
+    color: #fff;
+}
+
+.header__container {
+    height: 700px;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__description {
+    color: #fff;
+    font-size: 48px;
 }
