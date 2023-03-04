@@ -24,6 +24,10 @@ a {
     text-decoration: none;
 }
 
+h1 {
+    font-size: 48px;
+}
+
 ul {
     display: flex;
 }
@@ -69,13 +73,24 @@ nav {
 }
 
 .container {
-    padding: 56px 0;
+    padding: 112px 0;
 }
 
 .row {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto; 
+}
+
+button {
+    cursor: pointer;
+    background-color: #ca1237;
+    color: white;
+    padding: 12px 80px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
 }
 
 /* QUOTE */
@@ -83,16 +98,35 @@ nav {
     background-color: #fff;
 }
 
+.quotes__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 /* GALLERY */
 #gallery {
     background-color: #4d4d4d;
 }
+
+.gallery__title {
+    color: #fff;
+}
+
+.gallery__button {
+    
+}
+
 
 /* GET INVOLVED */
 #get-involved {
     background-color: #fff;
 }
 
+.get-involved__button {
+
+}
 /* FOOTER */
 footer {
     background-color: #1f1f1f;
