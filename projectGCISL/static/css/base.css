@@ -73,14 +73,13 @@ nav {
 }
 
 .container {
-    padding: 112px 0;
+    padding: 80px 0;
 }
 
 .row {
     width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    display: flex;
 }
 
 button {
@@ -108,6 +107,10 @@ button {
 /* GALLERY */
 #gallery {
     background-color: #4d4d4d;
+}
+
+.gallery__wrapper {
+    display: flex;
 }
 
 .gallery__title {
@@ -138,14 +141,32 @@ button {
     border-radius: 12px;
 }
 
+
+
 /* GET INVOLVED */
 #get-involved {
     background-color: #fff;
 }
 
 .get-involved__button {
-    padding: 12px 96px;
+    padding: 16px 96px;
+    margin-bottom: 50px;
 }
+
+.get-involved__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.get-involved__title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+
+
 
 /* FOOTER */
 footer {
