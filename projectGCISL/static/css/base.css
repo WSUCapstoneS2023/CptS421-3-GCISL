@@ -7,6 +7,9 @@
     margin: 0;
 }
 
+.crimson {
+    color: #A60F2D;
+}
 nav {
     height: 80px;
     display: flex;
