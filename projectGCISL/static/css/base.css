@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -7,18 +8,18 @@
     margin: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .crimson {
     color: #A60F2D;
 }
 
-body {
-    scroll-behavior: smooth;
+.ubuntu {
+    font-family: 'Ubuntu', sans-serif;
 }
 
-nav {
-    height: 80px;
-    display: flex;
-}
 
 a {
     text-decoration: none;
@@ -47,6 +48,8 @@ li {
 }
 
 nav {
+    height: 80px;
+    display: flex;
     background: #000;
 }
 
