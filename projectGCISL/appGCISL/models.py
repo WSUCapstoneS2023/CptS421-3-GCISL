@@ -46,21 +46,26 @@ class UserManager(BaseUserManager):
         return user
 
 class GCISLUser(AbstractBaseUser):
-    username = models.CharField(max_length=30, unique=True)
+    email = models.EmailField(verbose_name="email", max_length=60, unique=True)
     first_name = models.CharField(verbose_name= "first", max_length=30)
     last_name = models.CharField(verbose_name= "last", max_length=30)
     phone = models.CharField(unique= True, max_length=10, help_text="Enter phone number, example: 1234567890")
-    email = models.EmailField(verbose_name="email", max_length=60, unique=True)
+   
+   # identifiers only one can be true and false not both true
     faculty = models.BooleanField(default=False)
     resident = models.BooleanField(default=False)
 
     #possibly use this for admin too?
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first', 'last', 'email']
+    REQUIRED_FIELDS = ['first', 'last']
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
+    
+    def get_Email(self):
+        return self.email
+    
     
     # checks for whether the user is resident, returns false if not
     @property
