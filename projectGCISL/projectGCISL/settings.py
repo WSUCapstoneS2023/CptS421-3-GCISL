@@ -67,6 +67,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'appGCISL.GCISLUser'
+
 WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 
 
