@@ -1,0 +1,84 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .square {
+    position: relative;
+    width: 60vmin;
+    background-color: #4d4d4d;
+    box-sizing: border-box;
+    border-radius: 15px;
+    padding-top: 50px;
+  }
+  
+  .square:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+  
+  .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  input[type=text] {
+    width: 65%;
+    padding: 10px 10px;
+    margin: 18px 78px;
+    box-sizing: border-box;
+    border: 2px;
+    border-radius: 15px;
+  }
+  
+  button {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .buttonshift{
+    padding-top: 0px;
+    padding-left: 20px;
+    padding-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .signin{
+    padding-left: 500px;
+  }
