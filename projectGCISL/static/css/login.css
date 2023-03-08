@@ -15,7 +15,7 @@ html, body {
   
   .square {
     position: relative;
-    width: 60vmin;
+    width: 70vmin;
     background-color: #4d4d4d;
     box-sizing: border-box;
     border-radius: 15px;
@@ -54,7 +54,7 @@ html, body {
   }
   
   button {
-    background-color: red;
+    background-color: #a60f2d ;
     color: white;
     border: none;
     cursor: pointer;
@@ -64,6 +64,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
   
   .buttonshift{
@@ -82,4 +83,8 @@ html, body {
   .signin{
     padding-left: 500px;
 
+  }
+
+  .space{
+    padding-top: 20px;
   }
