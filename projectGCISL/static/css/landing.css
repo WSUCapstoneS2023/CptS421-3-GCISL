@@ -61,6 +61,10 @@ nav {
     color: #fff;
 }
 
+.nav__link:hover {
+    text-decoration: underline;
+}
+
 .header__container {
     height: 100vh;
     display: flex;
@@ -91,6 +95,11 @@ button {
     border-radius: 12px;
     border: none;
     font-weight: 600;
+}
+
+button:hover {
+   opacity: 0.8; 
+   transition: all 300ms ease;
 }
 
 .landing__container {
@@ -133,8 +142,9 @@ button {
 } */
 
 /* QUOTE */
-#quote {
-    background-color: #fff;
+#quotes {
+    background-color: white;
+    padding: 50px 0;
 }
 
 .quotes__title {
@@ -229,6 +239,10 @@ footer {
     color: #fff;
     font-weight: 600;
     padding: 0 8px;
+}
+
+.footer__link:hover {
+    text-decoration: underline;
 }
 
 .footer__list {
