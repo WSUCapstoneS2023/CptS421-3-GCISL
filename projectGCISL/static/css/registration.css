@@ -55,4 +55,63 @@ body {
     float: right;
   }
 
+  .header-middle {
+    text-align: center;
+    color: white;
+  }
+
+  .body1{
+    text-align: center;
+    padding-top: 100px;
+    font-size: 40px;
+  }
+
+  .body2{
+    padding-left: 80px;
+    padding-top: 20px;
+    font-size: 24px;
+    padding-bottom: 20px;
+  }
+
+  .body3{
+    text-align: center;
+    padding-top: 100px;
+    font-size: 12px;
+    padding-bottom: 30px;
+  }
+
+  .buttonshift{
+    padding-top: 0px;
+    padding-left: 20px;
+    padding-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button {
+    background-color: #a60f2d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Ubuntu;
+  }
+
+  .separator{
+    padding-bottom: 50px;
+  }
   
+  footer {
+    padding-bottom: 200px;
+    text-align: center;
+    padding: 3px;
+    background-color: #2b2b2b ;
+    color: white;
+    height: 200px;
+  }
