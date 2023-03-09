@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from appGCISL import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.landing_view, name='landing'),
+    path('register/', views.register_view, name='register'),
+    path('login/', views.login_view, name='login'),
 ]
