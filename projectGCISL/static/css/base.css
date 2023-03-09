@@ -50,7 +50,6 @@ li {
 nav {
     height: 80px;
     display: flex;
-    background: #000;
 }
 
 .nav__link {
@@ -63,8 +62,7 @@ nav {
 }
 
 .header__container {
-    height: 700px;
-    background-color: #000;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,6 +92,45 @@ button {
     border: none;
     font-weight: 600;
 }
+
+.landing__container {
+    background: #000;
+}
+
+/* SLIDER */
+
+/* .slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    z-index: -1;
+}
+
+.slider__images {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    animation: slide 2000ms infinite;
+}
+
+.image__container {
+    float: left;
+} */
+
+/* @keyframes slide {
+    0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-1000px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+} */
 
 /* QUOTE */
 #quote {
@@ -155,8 +192,6 @@ button {
     max-width: 512px;
     border-radius: 12px;
 }
-
-
 
 /* GET INVOLVED */
 #get-involved {
