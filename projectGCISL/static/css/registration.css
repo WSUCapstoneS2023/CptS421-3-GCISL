@@ -40,6 +40,7 @@ body{
 
 /* changes the color of the button when the cursor is hovering over the element */
   
+.header a:hover {  
     background-color: #ddd;
     color: black;
   }
@@ -51,6 +52,7 @@ body{
   }
   
 
+  .header-right {
     float: right;
   }
 
