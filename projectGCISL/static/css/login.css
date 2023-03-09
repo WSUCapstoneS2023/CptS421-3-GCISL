@@ -65,6 +65,15 @@ input[type=text] {
     border-radius: 15px;
   }
   
+  input[type=password] {
+    width: 65%;
+    padding: 10px 10px;
+    margin: 18px 78px;
+    box-sizing: border-box;
+    border: 2px;
+    border-radius: 15px;
+  }
+
   button {
     background-color: #a60f2d ;
     color: white;
