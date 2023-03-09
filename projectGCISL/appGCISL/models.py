@@ -51,7 +51,7 @@ class GCISLUser(AbstractBaseUser):
     last_name = models.CharField(verbose_name= "last", max_length=30)
     phone = models.CharField(unique= True, max_length=10, help_text="Enter phone number, example: 1234567890")
    
-   # identifiers only one can be true and false not both true
+   # identifiers only one can be true and false not both true, will be set when created.
     faculty = models.BooleanField(default=False)
     resident = models.BooleanField(default=False)
 

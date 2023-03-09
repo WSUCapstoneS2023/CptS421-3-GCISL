@@ -20,6 +20,6 @@ from appGCISL import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.landing_view, name='landing'),
-    path('register/', views.register_view, name='register'),
+    path('register/', views.registration_view, name='register'),
     path('login/', views.login_view, name='login'),
 ]

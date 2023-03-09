@@ -14,21 +14,23 @@
             <div class = "imgcontainer">
                 <img class = "avatar" src="/projectGCISL/static/assets/relative pictures/icon.png" alt="">
             </div>
-            <label for="fname"></label>
-            <input type="text" id="fname" name="fname" placeholder = "Username">
-            <label for="lname"></label>
-            <input type="text" id="lname" name="lname" placeholder = "Password">    
-            <div class = "space">
-
-            </div>
-            <div class = "buttonshift">
-                <button type="submit">Login</button>
-            </div>
+            <form action="/login/" method="post">
+              <label for="fname"></label>
+              <input type="text" id="fname" name="fname" placeholder = "Username">
+              <label for="lname"></label>
+              <input type="text" id="lname" name="lname" placeholder = "Password">    
+              <div class = "space">
+              
+              </div>
+              <div class = "buttonshift">
+                  <button type="submit" formmethod="post">Login</button>
+              </div>
+            </form>
         </div>
       </div>
     </div> 
     <div class = "signin">
-        Don't have an account? <a href = "#"> Sign up </a> now!
+        Don't have an account? <a href = "/register"> Sign up </a> now!
       </div>
 
 </body>
