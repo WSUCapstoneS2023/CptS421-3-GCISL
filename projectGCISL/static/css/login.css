@@ -1,21 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 
+/* basic initlization for the body of the html file */
 html, body {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
   }
-  
-  .container {
+
+/* makes sure that everything within this class stays in the middle */ 
+.container {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
-  .square {
+
+/* create the square shape */
+.square {
     position: relative;
     width: 70vmin;
     background-color: #4d4d4d;
@@ -23,30 +26,37 @@ html, body {
     border-radius: 15px;
     padding-top: 50px;
   }
-  
-  .square:after {
+
+/* :after does this after the initial element */
+.square:after {
     content: "";
     display: block;
     padding-bottom: 100%;
   }
   
-  .content {
+/* the content of the page */
+.content {
     position: absolute;
     width: 100%;
     height: 100%;
   }
   
-  .imgcontainer {
+
+/* hold the image for the login icon */
+.imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
   }
-  
-  img.avatar {
+
+/* creates the circle shape for the login*/ 
+img.avatar {
     width: 40%;
     border-radius: 50%;
   }
   
-  input[type=text] {
+
+/* input box for the username and login along with styling */
+input[type=text] {
     width: 65%;
     padding: 10px 10px;
     margin: 18px 78px;
@@ -69,7 +79,8 @@ html, body {
     text-align: center;
   }
   
-  .buttonshift{
+/* shifts the button over to be in the center of the square*/
+.buttonshift{
     padding-top: 0px;
     padding-left: 20px;
     padding-bottom: 0px;
@@ -77,18 +88,19 @@ html, body {
     align-items: center;
     justify-content: center;
   }
-  
-  button:hover {
+
+/* changes the opacity of the button when the cursor is resting on it */
+button:hover {
     opacity: 0.8;
-  }
+}
   
-  .signin{
+.signin{
     text-align: center;
     font-family: Ubuntu;
     font-size: 15px;
     padding-bottom: 15px;
   }
 
-  .space{
+.space{
     padding-top: 20px;
   }
