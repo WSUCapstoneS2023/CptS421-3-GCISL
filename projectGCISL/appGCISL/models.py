@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 # Create your models here.
-
 # user model, with all fields neccessary for first milestone
 class UserManager(BaseUserManager):
     def create_Resident(self, firstname, lastname, phonenum, email, password=None):
@@ -54,8 +53,9 @@ class GCISLUser(AbstractBaseUser):
    # identifiers only one can be true and false not both true, will be set when created.
     faculty = models.BooleanField(default=False)
     resident = models.BooleanField(default=False)
-
     #possibly use this for admin too?
+
+    objects= UserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first', 'last']

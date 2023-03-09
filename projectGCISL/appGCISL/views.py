@@ -28,7 +28,6 @@ def registration_view(request):
 
 # Login
 # citation: (documentation for user login that I followed) https://docs.djangoproject.com/en/4.1/topics/auth/default/
-@ensure_csrf_cookie
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['fname']
