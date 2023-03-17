@@ -12,6 +12,7 @@
   </head>
   <body>
     <section id="landing">
+      <div class="landing__container">
         <nav>
           <div class="nav__container">
             <div class="logo__wrapper"></div>
@@ -24,48 +25,48 @@
           </div>
         </nav>
 
+        <div id="landing__carousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#landing__carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#landing__carousel" data-slide-to="1"></li>
+            <li data-target="#landing__carousel" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <figure class="picture">
+                  <img src="/static/assets/relative pictures/IMG-8864.JPG" alt="" class="image">
+              </figure>
+            </div>
+            <div class="carousel-item">
+              <figure class="picture">
+                  <img src="/static/assets/relative pictures/Retired grandmas- out to lunch.jpg" alt="" class="image">
+              </figure>
+            </div>
+            <div class="carousel-item">
+              <figure class="picture">
+                  <img src="/static/assets/relative pictures/GMA weaver +sisters_christmas 2021.jpg" alt="" class="image">
+              </figure>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#landing__carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#landing__carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
        
         <header>
           <div class="header__container">
-            <div id="landing__carousel" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#landing__carousel" data-slide-to="0" class="active"></li>
-                <li data-target="#landing__carousel" data-slide-to="1"></li>
-                <li data-target="#landing__carousel" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <figure class="picture">
-                      <img src="/static/assets/relative pictures/IMG-8864.JPG" alt="" class="image">
-                  </figure>
-                </div>
-                <div class="carousel-item">
-                  <figure class="picture">
-                      <img src="/static/assets/relative pictures/Retired grandmas- out to lunch.jpg" alt="" class="image">
-                  </figure>
-                </div>
-                <div class="carousel-item">
-                  <figure class="picture">
-                      <img src="/static/assets/relative pictures/GMA weaver +sisters_christmas 2021.jpg" alt="" class="image">
-                  </figure>
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#landing__carousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#landing__carousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
             <div class="header__description">
               <h1>Welcome to <a class="crimson ubuntu">gciConnect!</a></h1>
             </div>
             </div>
           </div>
         </header>
-      
+      </div>
     </section>
 
     <main>
