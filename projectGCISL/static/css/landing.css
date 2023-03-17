@@ -51,6 +51,11 @@ li {
 nav {
     height: 80px;
     display: flex;
+    background-color: #1f1f1f;
+}
+
+.nav__links {
+    padding-top: 20px;
 }
 
 .nav__link {
@@ -67,15 +72,18 @@ nav {
 }
 
 .header__container {
+    background-color: #4d4d4d;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .header__description {
     color: #fff;
     font-size: 48px;
+    z-index: 2;
 }
 
 .section__container {
@@ -103,8 +111,21 @@ button:hover {
    transition: all 300ms ease;
 }
 
-.landing__container {
-    background: #000;
+/* CAROUSEL */
+#landing__carousel {
+    position: absolute;
+}
+
+.image {
+    width: 100%;
+    max-width: 500px;
+}
+
+.picture {
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
 }
 
 /* QUOTE */
