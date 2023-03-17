@@ -39,12 +39,7 @@ li {
 }
 
 #landing {
-    background-color: #000;
-}
-
-.landing__container {
-    height: 100vh;
-    background-color: #000;
+    background-color: #4d4d4d;
 }
 
 .nav__container {
@@ -77,6 +72,7 @@ nav {
 }
 
 .nav__link:hover {
+    color: #ca1237 !important;
     text-decoration: underline !important;
 }
 
@@ -128,9 +124,10 @@ button:hover {
 }
 
 .image__wrapper {
+    margin-top: 20px;
     position: relative;
-    border-radius: 20px;
-    box-shadow: 0 20px 80px 0 rgba(0,0,0,0.45);
+    /* border-radius: 20px; */
+    /* box-shadow: 0 20px 80px 0 rgba(0,0,0,0.45); */
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -140,6 +137,7 @@ button:hover {
 .image {
     width: 100%;
     max-width: 60vh;
+    filter: blur(6px);
 }
 
 
