@@ -41,6 +41,7 @@ li {
 .landing__container {
     position: relative ;
     height: 125vh;
+    background-color: #000;
 }
 
 .nav__container {
@@ -56,7 +57,6 @@ li {
 nav {
     height: 80px;
     display: flex;
-    background-color: #000;
 }
 
 .nav__links {
@@ -78,7 +78,6 @@ nav {
 }
 
 .header__container {
-    background-color: #000;
     height: calc(100vh - 80px);
     display: flex;
     align-items: center;
@@ -137,7 +136,8 @@ button:hover {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    filter: blur(2px);
+    filter: blur(1px);
+    opacity: 0.5;
 }
 
 /* QUOTE */
