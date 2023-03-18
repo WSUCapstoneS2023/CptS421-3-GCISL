@@ -195,7 +195,6 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
 
 .gallery__button {
@@ -207,9 +206,27 @@ button:hover {
     width: 60%;
 }
 
+.gallery__image--wrapper {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 20px 80px 0 rgba(0,0,0,0.45);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .gallery__image {
-    max-width: 512px;
+    max-width: 100%;
     border-radius: 12px;
+    transition: all 600ms ease;
+    filter: blur(5px);
+}
+
+.gallery__image--wrapper:hover .gallery__image {
+    transform: scale(1.07);
+    filter: blur(0);
+    
 }
 
 /* GET INVOLVED */
