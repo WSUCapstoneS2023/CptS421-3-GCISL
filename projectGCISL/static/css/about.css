@@ -71,3 +71,51 @@ nav {
     color: #ca1237;
     text-decoration: underline;
 }
+
+/* WHO ARE WE */
+.section__container {
+    padding: 80px 0;
+}
+
+.section__row {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.section__title {
+    margin-bottom: 20px;
+
+}
+
+.section__para {
+    text-align:center;
+    max-width: 500px;
+    font-weight: 600;
+}
+
+.section__wrapper {
+    display: flex;
+}
+
+.section__left {
+    width: 50%;
+}
+
+.section__right {
+    width: 50%;
+}
+
+
+
+/* VISION */
+
+/* MISSION */
+
+/* GALLERY */
+
+/* FOOTER */
