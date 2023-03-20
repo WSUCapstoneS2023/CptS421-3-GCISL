@@ -93,8 +93,9 @@ nav {
 }
 
 .section__para {
+    margin-top: 20px;
     text-align:center;
-    max-width: 500px;
+    max-width: 400px;
     font-weight: 600;
 }
 
@@ -110,7 +111,9 @@ nav {
     width: 50%;
 }
 
-
+.logo {
+    width: 100%;
+}
 
 /* VISION */
 
@@ -119,3 +122,35 @@ nav {
 /* GALLERY */
 
 /* FOOTER */
+footer {
+    background-color: #1f1f1f;
+}
+
+.footer__logo {
+    text-align: center;
+    color: #fff;
+}
+
+.gciConnect__logo{
+    color: #A60F2D;
+}
+
+.footer__wrapper {
+    margin: 50px 0;
+}
+
+.footer__link {
+    color: #fff ;
+    font-weight: 600;
+    padding: 0 8px;
+}
+
+.footer__link:hover {
+    text-decoration: underline ;
+}
+
+.footer__list {
+    margin: 20px 0 24px 0 ;
+    display: flex;
+    justify-content: center;
+}
