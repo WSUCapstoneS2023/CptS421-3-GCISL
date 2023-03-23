@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 * {box-sizing: border-box;}
 
@@ -61,133 +62,124 @@ body{
     color: white;
   }
 
+  /* Styling the Body element i.e. Color,
+        Font, Alignment */
+        body {
+          background-color: white;
+          font-family: Verdana;
+          text-align: center;
+      }
+
+      /* Styling the Form (Color, Padding, Shadow) */
+      form {
+          background-color: #fff;
+          max-width: 900px;
+          margin: 50px auto;
+          padding: 20px;
+          box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+          border-radius: 15px;
+      }
+
+      /* Styling form-control Class */
+      .form-control {
+          text-align: left;
+          margin-bottom: 25px;
+          font-family: ubuntu;
+      }
+
+      /* Styling form-control Label */
+      .form-control label {
+          display: block;
+          margin-bottom: 10px;
+          font-family: ubuntu;
+      }
+
+      /* Styling form-control input,
+      select, textarea */
+      .form-control input,
+      .form-control select,
+      .form-control textarea {
+          border: 1px solid #777;
+          border-radius: 15px;
+          font-family: ubuntu;
+          padding: 10px;
+          display: block;
+          width: 95%;
+      }
+
+      /* Styling form-control Radio
+      button and Checkbox */
+      .form-control input[type="radio"],
+      .form-control input[type="checkbox"] {
+          display: inline-block;
+          width: auto;
+          border-radius: 15px;
+      }
+
+      /* Styling Button */
+      button {
+          background-color: #a60f2d;
+          border: 1px solid #777;
+          border-radius: 15px;
+          font-family: inherit;
+          font-size: 21px;
+          display: block;
+          width: 100%;
+          margin-top: 50px;
+          margin-bottom: 20px;
+          font-family: Ubuntu;
+  
+      }
+
 
   .body1{
     text-align: center;
-    padding-top: 100px;
-    font-size: 40px;
-  }
-
-  .body2{
-    padding-left: 80px;
-    padding-top: 20px;
-    font-size: 24px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bolder;
   }
 
   .body3{
+    padding-left: 80px;
+    padding-top: 20px;
+    font-size: 10px;
+    padding-bottom: 20px;
     text-align: center;
-    padding-top: 100px;
+  }
+
+  .body2{
+    text-align: center;
+    padding-top: 0px;
     font-size: 12px;
     padding-bottom: 30px;
+    font-family: "Montserrat", sans-serif;
   }
 
-  /*shifting button over to the middle*/
-  .buttonshift{
-    padding-top: 0px;
-    padding-left: 20px;
-    padding-bottom: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
-  button {
-    background-color: white;
-    color: gray;
-    border: none;
-    cursor: pointer;
-    width: 150px;
-    height: 40px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Ubuntu;
-  }
+  /* FOOTER */
+footer {
+  background-color: #1f1f1f;
+  height: 120px;
+}
 
-  /*adding space between elements*/
+.footer__wrapper {
+  margin: 50px 0;
+  padding-top: 10px;
+}
 
-  .separator{
-    padding-bottom: 50px;
-  }
-  
-  /*footer styling*/
-  footer {
-    padding-bottom: 200px;
-    text-align: center;
-    background-color: #2b2b2b ;
-    color: white;
-    height: 200px;
-    width: auto;
-    overflow: hidden;
-  }
+.footer__link {
+  color: #fff !important;
+  font-weight: 600;
+  padding: 0 8px;
+}
 
-  /*styling for input box*/
-  input[type=text] {
-    width: 51%;
-    padding: 12px 10px;
-    margin: 18px 0;
-    margin-left: 96px;
-    box-sizing: border-box;
-    border: 2px;
-    border-radius: 15px;
-  }
+.footer__link:hover {
+  text-decoration: underline !important;
+}
 
-  /*drop down button styling*/
-
-  .dropbtn {
-    width: 60%;
-    padding: 12px 10px;
-    margin: 18px 78px;
-    box-sizing: border-box;
-    border: 2px;
-    border-radius: 15px;
-    justify-content: center;
-  }
-  
-  .dropdown1 {
-    position: relative;
-    display: inline-block;
-    width: 85%; 
-    margin-left: 12px;
-
-  }
-  
-  .dropdown2 {
-    position: relative;
-    display: inline-block;
-    width: 85%; 
-
-  }
-  /*content styling from dropdown menu*/
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-
-  /*text styling for content*/
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  /*hover*/
-  
-  .dropdown-content a:hover {background-color: #f1f1f1}
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  .dropdown:hover .dropbtn {
-    background-color:#d2d2d2;
-  }
+.footer__list {
+  margin: 20px 0 24px 0 ;
+  display: flex;
+  justify-content: center;
+}
