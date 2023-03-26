@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 # Create your models here.
 # user model, with all fields neccessary for first milestone
 class UserManager(BaseUserManager):
-    def create_Resident(self, firstname, lastname, usernme, email, age, ulocation, password=None):
+    def create_Resident(self, firstname, lastname, usernme, email, age, ulocation, uphone, password=None):
         if not email:
             raise ValueError('Resident must have an email address.')
         if not firstname:
@@ -20,14 +20,15 @@ class UserManager(BaseUserManager):
             username=usernme,
             email=self.normalize_email(email),
             age_range=age,
-            location=ulocation
+            location=ulocation,
+            phone=uphone
         )
         user.resident = True
         user.set_password(password)
         user.save(using=self._db)
         return user
     
-    def create_Faculty(self, firstname, lastname, usernme, email, age, ulocation, password=None):
+    def create_Faculty(self, firstname, lastname, usernme, email, age, ulocation, uphone, password=None):
         if not email:
             raise ValueError('Resident must have an email address.')
         if not firstname:
@@ -43,7 +44,8 @@ class UserManager(BaseUserManager):
             username=usernme,
             email=self.normalize_email(email),
             age_range=age,
-            location=ulocation
+            location=ulocation,
+            phone=uphone
         )
         user.faculty = True
         user.set_password(password)
@@ -57,6 +59,7 @@ class GCISLUser(AbstractBaseUser):
     last_name = models.CharField(verbose_name= "last", max_length=30)
     age_range = models.CharField(verbose_name="age", max_length=20)
     location = models.CharField(verbose_name="location", max_length=250)
+    phone = models.CharField(verbose_name="phone", max_length=20)
    
    # identifiers only one can be true and false not both true, will be set when created.
     faculty = models.BooleanField(default=False)

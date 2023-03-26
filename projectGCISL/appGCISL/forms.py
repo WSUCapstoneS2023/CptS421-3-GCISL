@@ -13,7 +13,7 @@ class RegistrationForm(UserCreationForm):
     
     class Meta:
         model = GCISLUser
-        fields = ['email', 'first_name', 'last_name', 'username', 'age_range', 'location']
+        fields = ['email', 'first_name', 'last_name', 'username', 'age_range', 'location', 'phone']
     
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
