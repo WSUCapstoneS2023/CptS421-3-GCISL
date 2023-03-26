@@ -5,7 +5,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.views.generic import TemplateView, CreateView
 import datetime
 from .forms import RegistrationForm
-from django.views.decorators.csrf import ensure_csrf_cookie
+from .models import UserManager
 
 # Create your views here.
 # home view
@@ -15,12 +15,10 @@ def landing_view(request):
 # Register
 def registration_view(request):
     if request.method == 'POST':
-        form = RegistrationForm(request.POST)
+        form = RegistrationForm()
         if form.is_valid():
-            # save to the db
-            form.save()
-            # redirect the user to login (appname is temporary until merge)
-            return redirect('/landing')
+            form.save()     
+        return redirect('/login')
     else:
         form = RegistrationForm()
         return render(request, 'registration.html', {'rform': form})
@@ -42,7 +40,7 @@ def login_view(request):
                 # these will be different in future based off status
                 return redirect('/landing')
         else:
-            messages.error(request,'Username or password not incorrect!')
+            messages.error(request,'Username or password not correct!')
             return redirect('/login')
     else:
         return render(request, 'login.html')
