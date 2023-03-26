@@ -14,7 +14,7 @@ class UserManager(BaseUserManager):
         if not usernme:
             raise ValueError('Resident must have a unique username.')
         
-        user = self.model(
+        user = GCISLUser(
             first_name=firstname,
             last_name=lastname,
             username=usernme,
@@ -38,7 +38,7 @@ class UserManager(BaseUserManager):
         if not usernme:
             raise ValueError('Resident must have a unique username.')
         
-        user = self.model(
+        user = GCISLUser(
             first_name=firstname,
             last_name=lastname,
             username=usernme,
@@ -81,9 +81,15 @@ class GCISLUser(AbstractBaseUser):
     # checks for whether the user is resident, returns false if not
     @property
     def is_Resident(self):
-        return self.resident
+        field_name = 'resident'
+        obj = GCISLUser.objects.first()
+        field_object = GCISLUser._meta.get_field(field_name)
+        return getattr(obj, field_object.attname)
     
     # checks for whether the user is faculty, returns false if not
     @property
     def is_Faculty(self):
-        return self.faculty
+        field_name = 'faculty'
+        obj = GCISLUser.objects.first()
+        field_object = GCISLUser._meta.get_field(field_name)
+        return getattr(obj, field_object.attname)

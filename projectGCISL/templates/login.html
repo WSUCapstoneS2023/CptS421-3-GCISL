@@ -15,10 +15,14 @@
                 <img class = "avatar" src="/static/assets/general/icon.png" alt="">
             </div>
             <form action="/login/" method="post">
+            {% csrf_token %}
+              {% for message in messages %}
+                {{message}}
+              {% endfor %}
               <label for="fname"></label>
-              <input type="text" id="fname" name="fname" placeholder = "Username">
+              {{lform.username}}
               <label for="lname"></label>
-              <input type="text" id="lname" name="lname" placeholder = "Password">    
+              {{lform.password}}  
               <div class = "space">
               
               </div>
