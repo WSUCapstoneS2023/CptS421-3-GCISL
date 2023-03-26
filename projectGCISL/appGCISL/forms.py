@@ -6,15 +6,24 @@ from .models import GCISLUser
 # followed implementation from 
 class RegistrationForm(UserCreationForm):
     password1 = forms.CharField(label=("Password"),
-        widget=forms.PasswordInput)
+        widget=forms.PasswordInput  (attrs={'placeholder':'Password'}))
     password2 = forms.CharField(label=("Password confirmation"),
-        widget=forms.PasswordInput,
-        help_text=("Enter the same password as above, for verification."))
+        widget=forms.PasswordInput (attrs={'placeholder':'Confirm Password'}))
     
     class Meta:
         model = GCISLUser
         fields = ['email', 'first_name', 'last_name', 'username', 'age_range', 'location', 'phone']
     
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({'placeholder':('Username')})
+        self.fields['email'].widget.attrs.update({'placeholder':('Email')})
+        self.fields['last_name'].widget.attrs.update({'placeholder':('Last Initial')})        
+        self.fields['first_name'].widget.attrs.update({'placeholder':('First Name')})
+        self.fields['age_range'].widget.attrs.update({'placeholder':('Age Range')})
+        self.fields['location'].widget.attrs.update({'placeholder':('Location')})        
+        self.fields['phone'].widget.attrs.update({'placeholder':('Phone Number')})
+
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
