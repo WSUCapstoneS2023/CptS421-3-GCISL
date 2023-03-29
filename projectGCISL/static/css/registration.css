@@ -9,7 +9,7 @@ body {
   * {
     box-sizing: border-box;
   }
-  
+
   .column {
     float: left;
     width: 50%;
@@ -109,7 +109,7 @@ body {
   }
 
   .space{
-    padding-top: 20px;
+    padding-top: 540px;
     text-align: center;
   }
 
@@ -226,7 +226,11 @@ body {
     .dropdown-spacing{
       padding-top: 410px;
       justify-content: center;
-      padding-left: 20px;
+      padding-left: 40px;
+      position: absolute;
+      display: block;
+      width: 100%;
     }
+
 
   
