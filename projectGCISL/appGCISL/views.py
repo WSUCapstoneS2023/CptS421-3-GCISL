@@ -32,7 +32,7 @@ def login_view(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            user = GCISLUser.objects.get(username=username)
+            user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
                 if user.is_Resident:
