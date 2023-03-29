@@ -45,15 +45,19 @@
             <div class="contact__half contact__right">
               <form id="contact__form">
                 <div class="form__item">
-                  <label class="form__item--label">Name</label>
+                  <label class="form__item--label">Name*</label>
                   <input type="text" class="input" name="user_name" required></input>
               </div>
               <div class="form__item">
-                  <label class="form__item--label">Email Address</label>
+                  <label class="form__item--label">Email Address*</label>
                   <input type="email" class="input" name="user_email" required></input>
               </div>
               <div class="form__item">
-                  <label class="form__item--label">Message</label>
+                <label class="form__item--label">Phone Number*</label>
+                <input type="text" class="input" name="user_phone" required></input>
+            </div>
+              <div class="form__item">
+                  <label class="form__item--label">Message*</label>
                   <textarea type="text" class="input" name="message" required></textarea>
               </div>
               <button id="contact__submit" class="form__submit">Submit</button>
