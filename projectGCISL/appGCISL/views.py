@@ -41,8 +41,11 @@ def login_view(request):
                 if user.is_Faculty:
                     # these will be different in future based off status
                     return redirect('landing')
+            else:
+                messages.error(request,'Username or password not correct!')
+                return redirect('/login')
         else:
-            messages.error(request,'Username or password not correct!')
+            messages.error(request,'Please fill in all fields!')
             return redirect('/login')
     else:
         form = LoginAuthForm()
