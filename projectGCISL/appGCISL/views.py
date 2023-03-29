@@ -17,7 +17,7 @@ def getinvolved_view(request):
     return render(request, 'getinvolved.html')
 
 # Survey
-def getinvolved_view(request):
+def survey_view(request):
     return render(request, 'survey.html')
 
 # Contact
