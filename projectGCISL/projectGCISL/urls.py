@@ -23,4 +23,8 @@ urlpatterns = [
     path('', views.landing_view, name='landing'),
     path('login/registration/', views.registration_view, name='register'),
     path('login/', views.login_view, name='login'),
+    path('about/', views.about_view, name='about'),
+    path('contact/', views.contact_view, name='contact'),
+    path('get_involved/', views.getinvolved_view, name='get_involved'),
+    path('survey/', views.surver_view, name='survey')
 ]
