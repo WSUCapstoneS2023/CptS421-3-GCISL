@@ -12,6 +12,22 @@ from .models import GCISLUser
 def landing_view(request):
     return render(request, 'landing.html')
 
+# Get Involved
+def getinvolved_view(request):
+    return render(request, 'getinvolved.html')
+
+# Survey
+def getinvolved_view(request):
+    return render(request, 'survey.html')
+
+# Contact
+def contact_view(request):
+    return render(request, 'contact.html')
+
+# About
+def about_view(request):
+    return render(request, 'about.html')
+
 # Register
 def registration_view(request):
     if request.method == 'POST':
