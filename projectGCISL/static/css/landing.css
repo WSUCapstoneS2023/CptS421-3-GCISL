@@ -117,6 +117,18 @@ button:hover {
    transition: all 300ms ease;
 }
 
+/* FOR LOGGED VIEW */
+.profile__picture--wrapper {
+    height: 0px;
+    width: 40px;
+    margin-left: 16px;
+}
+
+.profile__picture {
+    width: 100%;
+    border-radius: 50%;
+}
+
 /* CAROUSEL */
 #landing__carousel {
     position: absolute;
