@@ -54,7 +54,6 @@ nav {
 }
 
 .nav__links {
-    padding-top: 20px;
     z-index: 2;
 }
 
@@ -70,6 +69,18 @@ nav {
 .nav__link:hover {
     color: #ca1237;
     text-decoration: underline;
+}
+
+/* FOR LOGGED VIEW */
+.profile__picture--wrapper {
+    height: 0px;
+    width: 40px;
+    margin-left: 16px;
+}
+
+.profile__picture {
+    width: 100%;
+    border-radius: 50%;
 }
 
 /* WHO ARE WE */
