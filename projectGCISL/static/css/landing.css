@@ -39,8 +39,7 @@ li {
 }
 
 #landing {
-    background-color: #000;
-    overflow: hidden;
+    background-color: #4d4d4d;
 }
 
 .nav__container {
@@ -56,6 +55,7 @@ li {
 nav {
     height: 80px;
     display: flex;
+    background-color: #A60F2D;
 }
 
 .nav__links {
@@ -73,23 +73,18 @@ nav {
 }
 
 .nav__link:hover {
-    color: #ca1237 !important;
+    color: #4d4d4d !important;
     text-decoration: underline !important;
 }
 
 .header__container {
-    height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 }
 
 .header__description {
-    color: #fff;
-    font-size: 48px;
-    z-index: 2;
-    position: absolute;
+
 }
 
 .section__container {
@@ -131,14 +126,9 @@ button:hover {
 
 /* CAROUSEL */
 #landing__carousel {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-}
+} 
 
 .landing__container {
-    position: relative;
 }
 
 .image__wrapper {
@@ -156,7 +146,6 @@ button:hover {
     max-width: 100%;
     height: 100vh;
     /* max-width: 100vh; */
-    filter: blur(6px);
 }
 
 
