@@ -137,6 +137,11 @@ nav {
 /* MISSION */
 
 /* GALLERY */
+.gallery__wrapper {
+    display: flex;
+    margin: 48px;
+}
+
 .gallery__image--wrapper {
     position: relative;
     border-radius: 20px;
@@ -151,13 +156,10 @@ nav {
     max-width: 100%;
     border-radius: 12px;
     transition: all 600ms ease;
-    filter: blur(5px);
 }
 
 .gallery__image--wrapper:hover .gallery__image {
     transform: scale(1.07);
-    filter: blur(0);
-    
 }
 
 
