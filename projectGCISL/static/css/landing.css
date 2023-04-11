@@ -6,6 +6,7 @@
     font-family: "Montserrat", sans-serif !important;
     padding: 0;
     margin: 0;
+    z-index: 2;
 }
 
 html {
@@ -193,6 +194,7 @@ button:hover {
 /* GALLERY */
 #gallery {
     background-color: #4d4d4d;
+    position: relative;
 }
 
 .gallery__wrapper {
@@ -270,6 +272,7 @@ button:hover {
 /* FOOTER */
 footer {
     background-color: #1f1f1f;
+    position: relative;
 }
 
 .footer__wrapper {
@@ -291,3 +294,25 @@ footer {
     display: flex;
     justify-content: center;
 }
+
+/* SHAPES */
+
+.shape {
+    position: fixed;
+    opacity: 1;
+    max-width: 150px;
+    max-height: 150px;
+    z-index: 1;
+}
+
+
+.shape--0 {
+    top: 15vh;
+    left: 88vw;
+}
+
+.shape--1 {
+    top: 80vh;
+    left: 5vw;
+}
+
