@@ -9,7 +9,9 @@ class RegistrationForm(UserCreationForm):
         widget=forms.PasswordInput  (attrs={'placeholder':'Password'}))
     password2 = forms.CharField(label=("Password confirmation"),
         widget=forms.PasswordInput (attrs={'placeholder':'Confirm Password'}))
-    
+    phone2 = forms.CharField(label=("Phone2"),
+        widget=forms.TextInput(attrs={'placeholder': 'Phone Check'}))
+
     class Meta:
         model = GCISLUser
         fields = ['email', 'first_name', 'last_name', 'username', 'phone']
@@ -20,8 +22,7 @@ class RegistrationForm(UserCreationForm):
         self.fields['email'].widget.attrs.update({'placeholder':('Email')})
         self.fields['last_name'].widget.attrs.update({'placeholder':('Last Initial')})        
         self.fields['first_name'].widget.attrs.update({'placeholder':('First Name')})
-        # self.fields['age_range'].widget.attrs.update({'placeholder':('Age Range')})
-        # self.fields['location'].widget.attrs.update({'placeholder':('Location')})        
+        self.fields['age_range'].widget.attrs.update({'placeholder':('Age Range')})       
         self.fields['phone'].widget.attrs.update({'placeholder':('Phone Number')})
 
     def clean_password2(self):
