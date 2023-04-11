@@ -137,6 +137,9 @@ nav {
 /* MISSION */
 
 /* GALLERY */
+#gallery {
+    position: relative;
+}
 .gallery__wrapper {
     display: flex;
     margin: 48px;
@@ -196,3 +199,25 @@ footer {
     display: flex;
     justify-content: center;
 }
+
+/* SHAPES */
+
+.shape {
+    position: absolute;
+    opacity: 1;
+    max-width: 150px;
+    max-height: 150px;
+    z-index: 1;
+}
+
+
+.shape--0 {
+    top: 20vh;
+    left: 80vw;
+}
+
+.shape--1 {
+    top: 70vh;
+    left: 14vw;
+}
+
