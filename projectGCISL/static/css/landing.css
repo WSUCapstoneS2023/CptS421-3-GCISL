@@ -316,3 +316,45 @@ footer {
     left: 5vw;
 }
 
+/* RESPONSIVE DESIGN */
+/* Small phones, tablets, large smart phones */
+@media (max-width: 768px) {
+    #landing__carousel {
+        max-width: 600px;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title, 
+    .title--secondary {
+        font-size: 52px;
+    }
+    
+    .header__para {
+        font-size: 18px;
+    }
+
+    .nav__link:first-child {
+        display: none;
+    }
+
+    .project__description--para {
+        display: none;
+    }
+
+    .project__description {
+        left: 0;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .project__description--sub-title {
+        margin-bottom: 8px;
+    }
+
+    .modal__half {
+        padding: 40px;
+    }
+}
