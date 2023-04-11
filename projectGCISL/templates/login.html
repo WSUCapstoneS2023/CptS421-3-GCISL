@@ -15,19 +15,23 @@
                 <img class = "avatar" src="/static/assets/general/icon.png" alt="">
             </div>
             <form action="/login/" method="post">
-            {% csrf_token %}
+              {% csrf_token %}
               {% for message in messages %}
                 {{message}}
               {% endfor %}
-              <label for="fname"></label>
-              {{lform.username}}
-              <label for="lname"></label>
-              {{lform.password}}  
-              <div class = "space">
-              
+              <div class="input-wrapper">
+                <label for="fname"></label>
+                {{lform.username}}
               </div>
-              <div class = "buttonshift">
+              <div class="input-wrapper">
+                <label for="lname"></label>
+                {{lform.password}}  
+              </div>
+
+              <div class = "button-container">
+                <div>
                   <button type="submit" formmethod="post">Login</button>
+                </div>
               </div>
             </form>
         </div>
