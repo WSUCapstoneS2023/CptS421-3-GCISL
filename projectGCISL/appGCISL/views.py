@@ -9,16 +9,17 @@ from .models import GCISLUser
 
 # Create your views here.
 # home view
+# Note to Ali, to access user data, call {{ user.(datafield) }} - data fields could be the first name or other attributes
 def landing_view(request):
     if request.user.is_authenticated:
-        return render(request, 'landing-logged.html')
+        return render(request, 'landing-logged.html', {'user': request.user})
     else:
         return render(request, 'landing.html')
 
 # Get Involved
 def getinvolved_view(request):
     if request.user.is_authenticated:
-        return render(request, 'getinvolved-logged.html')
+        return render(request, 'getinvolved-logged.html', {'user': request.user})
     else:
         return render(request, 'getinvolved.html')
 
@@ -29,14 +30,14 @@ def survey_view(request):
 # Contact
 def contact_view(request):
     if request.user.is_authenticated:
-        return render(request, 'contact-logged.html')
+        return render(request, 'contact-logged.html', {'user': request.user})
     else:
         return render(request, 'contact.html')
 
 # About
 def about_view(request):
     if request.user.is_authenticated:
-        return render(request, 'about-logged.html')
+        return render(request, 'about-logged.html', {'user': request.user})
     else:
         return render(request, 'about.html')
 
