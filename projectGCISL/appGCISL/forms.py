@@ -9,20 +9,39 @@ class RegistrationForm(UserCreationForm):
         widget=forms.PasswordInput  (attrs={'placeholder':'Password'}))
     password2 = forms.CharField(label=("Password confirmation"),
         widget=forms.PasswordInput (attrs={'placeholder':'Confirm Password'}))
-    
+    phone2 = forms.CharField(label=("Phone2"),
+        widget=forms.TextInput(attrs={'placeholder': 'Phone Check'}))
+    username = forms.CharField(label=("Username"), 
+        widget=forms.TextInput(attrs={'placeholder': 'Username'}) )
+
     class Meta:
         model = GCISLUser
-        fields = ['email', 'first_name', 'last_name', 'username', 'phone']
-    
+        fields = ['email', 'first_name', 'last_name', 'phone', 'age_range']
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'placeholder':('Username')})
         self.fields['email'].widget.attrs.update({'placeholder':('Email')})
         self.fields['last_name'].widget.attrs.update({'placeholder':('Last Initial')})        
         self.fields['first_name'].widget.attrs.update({'placeholder':('First Name')})
-        # self.fields['age_range'].widget.attrs.update({'placeholder':('Age Range')})
-        # self.fields['location'].widget.attrs.update({'placeholder':('Location')})        
+        self.fields['age_range'].widget.attrs.update({'placeholder':('Age Range')})       
         self.fields['phone'].widget.attrs.update({'placeholder':('Phone Number')})
+
+    def check_phone(self):
+        phone1 = self.cleaned_data.get("phone")
+        phone2 = self.cleaned_data.get("phone2")
+        if phone1 == phone2:
+            return True
+        else:
+            return False
+    
+    def check_user_email(self):
+        # username and password should be the same
+        usrn = self.cleaned_data.get("username")
+        email = self.cleaned_data.get("email")
+        if email != usrn:
+            return False
+        else:
+            return True
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -35,10 +54,12 @@ class RegistrationForm(UserCreationForm):
         return password2
 
     def save(self):
+        #checking for faculty email/ may use different method later but for iteration 1 this is the main method
+        create = UserManager()
         if '@wsu.edu' in self.cleaned_data.get('email'):
-            user = UserManager().create_Faculty(self.cleaned_data.get('first_name'), self.cleaned_data.get('last_name'), self.cleaned_data.get('username'), self.cleaned_data.get('email'), "None", "None", self.cleaned_data.get('phone'), self.cleaned_data.get('password2'))
+            user = create.create_Faculty(self.cleaned_data.get('first_name'), self.cleaned_data.get('last_name'), self.cleaned_data.get('username'), self.cleaned_data.get('email'), self.cleaned_data.get('age'), self.cleaned_data.get('phone'), self.cleaned_data.get('password2'))
         else:
-            user = UserManager().create_Resident(self.cleaned_data.get('first_name'), self.cleaned_data.get('last_name'), self.cleaned_data.get('username'), self.cleaned_data.get('email'), "None", "None", self.cleaned_data.get('phone'), self.cleaned_data.get('password2'))
+            user = create.create_Resident(self.cleaned_data.get('first_name'), self.cleaned_data.get('last_name'), self.cleaned_data.get('username'), self.cleaned_data.get('email'), self.cleaned_data.get('age'), self.cleaned_data.get('phone'), self.cleaned_data.get('password2'))
         return user
 
 class LoginAuthForm(forms.Form):
