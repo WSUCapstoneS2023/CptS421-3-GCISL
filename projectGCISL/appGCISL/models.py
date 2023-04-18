@@ -4,55 +4,50 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 # Create your models here.
 # user model, with all fields neccessary for first milestone
 class UserManager(BaseUserManager):
-    def create_Resident(self, firstname, lastname, usernme, email, age, uphone, password=None):
+    def create_Resident(self, firstname, lastname, email, age, uphone, password=None):
         if not email:
             raise ValueError('Resident must have an email address.')
         if not firstname:
             raise ValueError('Resident must have first name.')
         if not lastname:
             raise ValueError('Resident must have last name.')
-        if not usernme:
-            raise ValueError('Resident must have a unique username.')
         
         user = GCISLUser(
             first_name=firstname,
             last_name=lastname,
-            username=usernme,
             email=self.normalize_email(email),
             age_range=age,
-            phone=uphone
+            phone=uphone,
+            resident=True
         )
-        user.resident = True
         user.set_password(password)
         user.save(using=self._db)
         return user
     
-    def create_Faculty(self, firstname, lastname, usernme, email, age, uphone, password=None):
+    def create_Faculty(self, firstname, lastname, email, age, uphone, password=None):
         if not email:
             raise ValueError('Resident must have an email address.')
         if not firstname:
             raise ValueError('Resident must have first name.')
         if not lastname:
             raise ValueError('Resident must have last name.')
-        if not usernme:
-            raise ValueError('Resident must have a unique username.')
         
         user = GCISLUser(
             first_name=firstname,
             last_name=lastname,
-            username=usernme,
             email=self.normalize_email(email),
             age_range=age,
-            phone=uphone
+            phone=uphone,
+            faculty=True
         )
-        user.faculty = True
         user.set_password(password)
         user.save(using=self._db)
         return user
 
 class GCISLUser(AbstractBaseUser):
-    username = models.CharField(verbose_name="username", max_length=25, unique=True)
-    email = models.CharField(verbose_name="email", max_length=60, unique=True)
+    # unique needs to be false considering email and user must be same
+    email = models.EmailField(verbose_name="email", max_length=60, unique=True)
+    
     first_name = models.CharField(verbose_name= "first", max_length=30)
     last_name = models.CharField(verbose_name= "last", max_length=30)
     
@@ -61,6 +56,7 @@ class GCISLUser(AbstractBaseUser):
         FIRST = "1", "55-65"
         SECOND = "2", "66-75"
         THIRD = "3", "75+"
+    
     age_range = models.CharField(verbose_name="age", choices=Ages.choices, max_length=10)
     phone = models.CharField(verbose_name="phone", max_length=20)
     # profile picture for the user profile
@@ -72,8 +68,8 @@ class GCISLUser(AbstractBaseUser):
 
     objects= UserManager()
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['first', 'last', 'email', 'age', 'phone', ]
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['first', 'last', 'age', 'phone']
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
