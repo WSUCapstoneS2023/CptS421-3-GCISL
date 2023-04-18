@@ -178,7 +178,7 @@
         class="shape shape--1"
       />
     </section>
-    
+
     <section id="get-started">
       <div class="section__container">
         <div class="section__row">
@@ -189,7 +189,11 @@
             <h1 class="crimson get-started__title">
               Click the button below to start filling our survey!
             </h1>
-            <button class="get-started__button">Take Survey</button>
+            <form method="GET" action="/get_involved/survey/">
+              <button type="submit" class="get-started__button">
+                Take Survey
+              </button>
+            </form>
           </div>
         </div>
       </div>
