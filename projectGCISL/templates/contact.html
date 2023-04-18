@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us!</title>
+    <script src="/static/js/contact.js" defer></script>
     <link rel="stylesheet" href="/static/css/contact.css" />
-</head>
-<body>
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("IoiwiKiSBN_lWY9MM");
+      })();
+    </script>
+  </head>
+  <body>
     <section id="contact-us">
-        <nav>
-            <div class="nav__container">
-                <div class="logo__wrapper">
-                    <a href="./landing.html">
-                      <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                    </a>
-                  </div>
-                  <ul class="nav__links">
-                    <li><a href="./getinvolved.html" class="nav__link">Get Involved!</a></li>
-                    <li><a href="./contact.html" class="nav__link">Contact Us</a></li>
-                    <li><a href="./about.html" class="nav__link">About</a></li>
-                    <li><a href="./login.html" class="nav__link">Log in</a></li>
-                </ul>
-            </div>
-        </nav>
+      <nav>
+        <div class="nav__container">
+          <div class="logo__wrapper">
+            <a href="/">
+              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+            </a>
+          </div>
+          <ul class="nav__links">
+            <li><a href="/get_involved" class="nav__link">Get Involved!</a></li>
+            <li><a href="/contact" class="nav__link">Contact Us</a></li>
+            <li><a href="/about" class="nav__link">About</a></li>
+            <li><a href="/login" class="nav__link">Log in</a></li>
+          </ul>
+        </div>
+      </nav>
     </section>
 
     <section id="contact">
@@ -34,61 +48,78 @@
               <h3 class="contact__title">Contact us!</h3>
               <p class="contact__para">
                 Have questions or suggestions?
-                <br>
+                <br />
                 Please fill in this form to let our team know.
-                <br>
-                <br>
+                <br />
+                <br />
                 We highly value your input.
               </p>
             </div>
 
             <div class="contact__half contact__right">
-              <form id="contact__form">
+              <form onsubmit="contact(event)" id="contact__form">
                 <div class="form__item">
                   <label class="form__item--label">Name*</label>
-                  <input type="text" class="input" name="user_name" required></input>
-              </div>
-              <div class="form__item">
+                  <input type="text" class="input" name="user_name" required />
+                </div>
+                <div class="form__item">
                   <label class="form__item--label">Email Address*</label>
-                  <input type="email" class="input" name="user_email" required></input>
-              </div>
-              <div class="form__item">
-                <label class="form__item--label">Phone Number*</label>
-                <input type="text" class="input" name="user_phone" required></input>
-            </div>
-              <div class="form__item">
+                  <input
+                    type="email"
+                    class="input"
+                    name="user_email"
+                    required
+                  />
+                </div>
+                <div class="form__item">
+                  <label class="form__item--label">Phone Number*</label>
+                  <input type="text" class="input" name="user_phone" required />
+                </div>
+                <div class="form__item">
                   <label class="form__item--label">Message*</label>
-                  <textarea type="text" class="input" name="message" required></textarea>
-              </div>
-              <button id="contact__submit" class="form__submit">Submit</button>
+                  <textarea
+                    type="text"
+                    class="input"
+                    name="message"
+                    required
+                  ></textarea>
+                </div>
+                <button id="contact__submit" class="form__submit">
+                  Submit
+                </button>
               </form>
+              <div class="contact__overlay contact__overlay--loading">
+                <i class="fas fa-spinner"></i>
+              </div>
+              <div class="contact__overlay contact__overlay--success">
+                <h1>Thank you for the message! 
+                <br>
+                I hope you have a nice day!
+              </h1> 
+              </div>
             </div>
-
           </div>
         </div>
       </div>
     </section>
-    
+
     <footer>
-        <div class="section__container">
-          <div class="section__row">
-            <div class="footer__wrapper">
-              <div class="footer_logo--wrapper">
-                <a href="#">
-                  <h1 class="footer__logo ubuntu">gciConnect!</h1>
-                </a>
-              </div>
-              <div class="footer__list">
-                <a href="get_involved/" class="footer__link">Get Involved!</a>
-                <a href="contact/" class="footer__link">Contact Us</a>
-                <a href="about/" class="footer__link">About</a>
-              </div>
+      <div class="section__container">
+        <div class="section__row">
+          <div class="footer__wrapper">
+            <div class="footer_logo--wrapper">
+              <a href="/">
+                <h1 class="footer__logo ubuntu">gciConnect!</h1>
+              </a>
+            </div>
+            <div class="footer__list">
+              <a href="/get_involved" class="footer__link">Get Involved!</a>
+              <a href="/contact" class="footer__link">Contact Us</a>
+              <a href="/about" class="footer__link">About</a>
             </div>
           </div>
         </div>
-      </footer>
-    
-</body>
-</html>
-</body>
+      </div>
+    </footer>
+  </body>
 </html>

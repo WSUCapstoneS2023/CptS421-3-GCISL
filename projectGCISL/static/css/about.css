@@ -126,11 +126,45 @@ nav {
     width: 100%;
 }
 
+.gatherlab__logo {
+    width: 50%;
+    margin-top: 24px;
+    padding-top: 24px;
+}
+
 /* VISION */
 
 /* MISSION */
 
 /* GALLERY */
+#gallery {
+    position: relative;
+}
+.gallery__wrapper {
+    display: flex;
+    margin: 48px;
+}
+
+.gallery__image--wrapper {
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 20px 80px 0 rgba(0,0,0,0.45);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery__image {
+    max-width: 100%;
+    border-radius: 12px;
+    transition: all 600ms ease;
+}
+
+.gallery__image--wrapper:hover .gallery__image {
+    transform: scale(1.07);
+}
+
 
 /* FOOTER */
 footer {
@@ -165,3 +199,25 @@ footer {
     display: flex;
     justify-content: center;
 }
+
+/* SHAPES */
+
+.shape {
+    position: absolute;
+    opacity: 1;
+    max-width: 150px;
+    max-height: 150px;
+    z-index: 1;
+}
+
+
+.shape--0 {
+    top: 20vh;
+    left: 80vw;
+}
+
+.shape--1 {
+    top: 70vh;
+    left: 14vw;
+}
+
