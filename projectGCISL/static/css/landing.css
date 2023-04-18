@@ -143,8 +143,7 @@ button:hover {
     overflow: hidden;
     display: flex;
     padding: 20px;
-    min-width: 1600px;
-    max-width: 1600px;
+    max-width: 1400px;
     background-color: #4d4d4d;
 
 }
