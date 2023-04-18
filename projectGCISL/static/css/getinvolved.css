@@ -144,19 +144,19 @@ nav {
 }
 
 /* RESEARCH INVOLVEMENT */
-.card__wrapper--outer {
+#research-involvement .card__wrapper--outer {
     background-color: #A60F2D;
     border-radius: 20px;
 }
 
-.card__wrapper--inner {
+#research-involvement .card__wrapper--inner {
     background-color: #4d4d4d;
     padding: 20px;
-    margin: 0 15px 20px 0;
+    margin: 0 20px 20px 0;
     border-radius: 20px;
     color: #fff;
     max-width: 600px;
-    height: 800px;
+    max-height: 1000px;
     text-align: center;
 }
 
@@ -170,7 +170,22 @@ nav {
     font-weight: 600;
 }
 
+/* TEACHING MENTORSHIP AND LEARNING */
+#teaching-mentorship-learning .card__wrapper--outer {
+    background-color: #A60F2D;
+    border-radius: 20px;
+}
 
+#teaching-mentorship-learning .card__wrapper--inner {
+    background-color: #4d4d4d;
+    padding: 20px;
+    margin: 0 0 20px 20px;
+    border-radius: 20px;
+    color: #fff;
+    max-width: 600px;
+    max-height: 1000px;
+    text-align: center;
+}
 
 /* GET STARTED */
 .get-started__wrapper {
