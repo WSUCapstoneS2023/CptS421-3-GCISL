@@ -167,7 +167,7 @@ nav {
     background-color: #A60F2D;
     color: #fff; 
 }
-.modal__overlay {
+.contact__overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -179,18 +179,18 @@ nav {
     z-index: 0;
 } 
 
-.modal__overlay--visible {
+.contact__overlay--visible {
     z-index: 1;
     display: flex;
 }
 
-.modal__overlay--loading {
+.contact__overlay--loading {
     background-color: #242424;
     font-size: 80px;
 }
 
-.modal__overlay--success {
-    background-color: green;
+.contact__overlay--success {
+    background-color: #A60F2D;
     font-size: 40px;
     font-weight: 700;
     text-align: center;
