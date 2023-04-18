@@ -138,7 +138,6 @@ nav {
     box-shadow: 0 20px 20px 0 rgba(0,0,0,0.45);
     border-radius: 20px;
     overflow: hidden;
-    z-index: 1;
 }
 
 .contact__half {
@@ -147,6 +146,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
     border-radius: 20px;
 }
 
@@ -165,10 +165,51 @@ nav {
 
 .contact__right {
     background-color: #A60F2D;
-    color: #fff;
-    
+    color: #fff; 
+}
+.contact__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+} 
+
+.contact__overlay--visible {
+    z-index: 1;
+    display: flex;
 }
 
+.contact__overlay--loading {
+    background-color: #242424;
+    font-size: 80px;
+}
+
+.contact__overlay--success {
+    background-color: #A60F2D;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    padding: 28px;
+}
+
+.fa-spinner {
+    animation: spinner 750ms infinite linear;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    
+}
 .form__item {
     margin-bottom: 20px;
 }
