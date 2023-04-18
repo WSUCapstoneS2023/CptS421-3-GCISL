@@ -157,71 +157,130 @@ body{
   }
 
 
-  /* FOOTER */
-footer {
-  background-color: #1f1f1f;
-  height: 120px;
+  * {
+    box-sizing: border-box !important;
+    font-family: "Montserrat", sans-serif !important;
+    padding: 0;
+    margin: 0;
 }
 
-.footer__wrapper {
-  margin: 50px 0;
-  padding-top: 10px;
+button {
+    cursor: pointer;
+    background-color: #ca1237;
+    color: white;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
 }
 
-.footer__link {
-  color: #fff !important;
-  font-weight: 600;
-  padding: 0 8px;
-}
-
-.footer__link:hover {
-  text-decoration: underline !important;
-}
-
-.footer__list {
-  margin: 20px 0 24px 0 ;
-  display: flex;
-  justify-content: center;
-}
-
-* {
-  box-sizing: border-box !important;
-  font-family: "Montserrat", sans-serif !important;
-  padding: 0;
-  margin: 0;
+button:hover {
+   opacity: 0.8; 
+   transition: all 300ms ease;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 .crimson {
-  color: #A60F2D !important;
+    color: #A60F2D;
 }
 
 .ubuntu {
-  font-family: 'Ubuntu', sans-serif !important;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 
 a {
-  text-decoration: none !important; 
+    text-decoration: none; 
 }
 
 h1 {
-  font-size: 48px !important;
-  font-weight: 700 !important; 
+    font-size: 48px;
+    font-weight: 700; 
 }
 
 ul {
-  display: flex !important;
+    display: flex;
 }
 
 li {
-  list-style-type: none !important;
+    list-style-type: none;
 }
 
-#landing {
-  background-color: #000;
-  overflow: hidden;
+.nav__container {
+    width: 100%;
+    max-width: 1800px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+/* GET INVOLVED! */
+.section__container {
+    padding: 80px 0;
+}
+
+.section__row {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* GET INVOLVED NOW */
+.section__container {
+    padding: 80px 0;
+}
+
+.section__row {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+/* FOOTER */
+footer {
+    background-color: #1f1f1f;
+}
+
+.footer__logo {
+    text-align: center;
+    color: #fff;
+}
+
+.gciConnect__logo{
+    color: #A60F2D;
+}
+
+.footer__wrapper {
+    margin: 50px 0;
+}
+
+.footer__link {
+    color: #fff ;
+    font-weight: 600;
+    padding: 0 8px;
+}
+
+.footer__link:hover {
+    text-decoration: underline ;
+}
+
+.footer__list {
+    margin: 20px 0 24px 0 ;
+    display: flex;
+    justify-content: center;
 }
