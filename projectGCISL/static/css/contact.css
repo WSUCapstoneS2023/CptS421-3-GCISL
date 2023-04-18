@@ -138,8 +138,6 @@ nav {
     box-shadow: 0 20px 20px 0 rgba(0,0,0,0.45);
     border-radius: 20px;
     overflow: hidden;
-    z-index: 1;
-    transition: visibility 1s, z-index 1s, box-shadow 0.5s ease;
 }
 
 .contact__half {
@@ -169,8 +167,7 @@ nav {
     background-color: #A60F2D;
     color: #fff; 
 }
-
-.contact__overlay {
+.modal__overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -179,20 +176,20 @@ nav {
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: -1;
-}
+    z-index: 0;
+} 
 
-.contact__overlay--visible {
+.modal__overlay--visible {
     z-index: 1;
     display: flex;
 }
 
-.contact__overlay--loading {
+.modal__overlay--loading {
     background-color: #242424;
     font-size: 80px;
 }
 
-.contact__overlay--success {
+.modal__overlay--success {
     background-color: green;
     font-size: 40px;
     font-weight: 700;
@@ -210,9 +207,9 @@ nav {
     }
     100% {
         transform: rotate(360deg);
-    }    
+    }
+    
 }
-
 .form__item {
     margin-bottom: 20px;
 }
