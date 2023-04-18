@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-YU6DRH0y3fUz+NCU8YwY6HtsGZfQ2lmc1AnQ2D+u5X9e5MQ5ct5S5+LS7Vv5mNNa4/bVJ/cbs4BNf6/0U6Xopg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/static/css/login.css">
     <title>Login</title>
-</head>
-<body>  
+  </head>
+  <body>  
     <div class="container">
-        <div class="square">
-          <div class="content">
-            <div class = "imgcontainer">
-                <img class = "avatar" src="/static/assets/general/icon.png" alt="">
-            </div>
-            <form action="/login/" method="post">
-              {% csrf_token %}
-              {% for message in messages %}
-                {{message}}
-              {% endfor %}
-              <div class="input-wrapper">
-                <label for="fname"></label>
-                {{lform.username}}
-              </div>
-              <div class="input-wrapper">
-                <label for="lname"></label>
-                {{lform.password}}  
-              </div>
-
-              <div class = "button-container">
-                <div>
-                  <button type="submit" formmethod="post">Login</button>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-8">
+          <div class="card-deck">
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <div class = "imgcontainer">
+                  <img class="avatar" src="/static/assets/general/icon.png" alt="">
                 </div>
               </div>
-            </form>
+              <form action="/login/" method="post">
+                {% csrf_token %}
+                {% for message in messages %}
+                  {{message}}
+                {% endfor %}
+                <div class="mb-3">
+                  {{lform.username}}
+                </div>
+                <div class="mb-3">
+                  {{lform.password}}  
+                </div>
+                <div class="d-grid gap-2 mb-3">
+                  <div class = "space">
+                  </div>
+                  <button class="btn btn-primary" type="submit" formmethod="post">Login</button>
+                </div>
+              </form>
+              <div class="text-center">
+                <p class="text-muted mb-0" style="display: inline-block; padding-top: 60px;">Don't have an account?</p>
+                <a href="/login/registration/" class="link-primary" style="display: inline-block; margin-left: 10px;">Sign up</a> now!
+              </div>             
+            </div>
+          </div>
         </div>
       </div>
     </div> 
-    <div class = "signin">
-        Don't have an account? <a href = "/login/registration/"> Sign up </a> now!
-      </div>
-
-</body>
+    <!-- Import Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.min.js" integrity="sha512-4H4vCxK9yToRKIYamYbH5A67l7d5UMoDZV7jK2W8H0oXNRMg0rhK7h1rsWbfxv+Hx2OZ42tA3FtW8PvKFm9Rbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
 </html>

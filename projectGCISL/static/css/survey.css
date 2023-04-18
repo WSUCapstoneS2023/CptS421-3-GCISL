@@ -183,3 +183,45 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+* {
+  box-sizing: border-box !important;
+  font-family: "Montserrat", sans-serif !important;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.crimson {
+  color: #A60F2D !important;
+}
+
+.ubuntu {
+  font-family: 'Ubuntu', sans-serif !important;
+}
+
+
+a {
+  text-decoration: none !important; 
+}
+
+h1 {
+  font-size: 48px !important;
+  font-weight: 700 !important; 
+}
+
+ul {
+  display: flex !important;
+}
+
+li {
+  list-style-type: none !important;
+}
+
+#landing {
+  background-color: #000;
+  overflow: hidden;
+}

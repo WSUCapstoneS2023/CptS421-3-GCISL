@@ -27,5 +27,10 @@ urlpatterns = [
     path('contact/', views.contact_view, name='contact'),
     path('get_involved/', views.getinvolved_view, name='get_involved'),
     path('survey/', views.survey_view, name='survey'),
+<<<<<<< HEAD
     path('logout/', view=views.logout_view, name='logout')
+=======
+    path('get_involved/survey/', views.survey_view, name='survey2')
+
+>>>>>>> 358a47f544880a70fe4c491595802a866a534110
 ]
