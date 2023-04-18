@@ -316,3 +316,10 @@ footer {
     left: 5vw;
 }
 
+/* RESPONSIVE DESIGN */
+/* Small phones, tablets, large smart phones */
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+}
