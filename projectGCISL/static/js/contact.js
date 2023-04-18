@@ -12,7 +12,7 @@ function contact(event) {
             'IoiwiKiSBN_lWY9MM'
         ).then(() => {
             // loading.classList.remove("modal__overlay--visible")
-            setTimeout(3000)
+            setTimeout(function(){}, 3000)
         }).catch(() => {
             // loading.classList.remove("modal__overlay--visible")
             alert(

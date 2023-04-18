@@ -5,7 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us!</title>
+    <script src="/static/js/contact.js" defer></script>
     <link rel="stylesheet" href="/static/css/contact.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("IoiwiKiSBN_lWY9MM");
+      })();
+    </script>
 </head>
 <body>
     <section id="contact-us">
@@ -45,18 +55,18 @@
             </div>
 
             <div class="contact__half contact__right">
-              <form id="contact__form">
+              <form onsubmit="contact(event)" id="contact__form">
                 <div class="form__item">
                   <label class="form__item--label">Name*</label>
-                  <input type="text" class="input" name="user_name" required></input>
+                  <input type="text" class="input" name="user_name" required>
               </div>
               <div class="form__item">
                   <label class="form__item--label">Email Address*</label>
-                  <input type="email" class="input" name="user_email" required></input>
+                  <input type="email" class="input" name="user_email" required>
               </div>
               <div class="form__item">
                 <label class="form__item--label">Phone Number*</label>
-                <input type="text" class="input" name="user_phone" required></input>
+                <input type="text" class="input" name="user_phone" required>
             </div>
               <div class="form__item">
                   <label class="form__item--label">Message*</label>
@@ -90,7 +100,5 @@
         </div>
       </footer>
     
-</body>
-</html>
 </body>
 </html>
