@@ -18,7 +18,8 @@ class UserManager(BaseUserManager):
             email=self.normalize_email(email),
             age_range=age,
             phone=uphone,
-            resident=True
+            resident=True,
+            faculty=False
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -38,7 +39,8 @@ class UserManager(BaseUserManager):
             email=self.normalize_email(email),
             age_range=age,
             phone=uphone,
-            faculty=True
+            faculty=True,
+            resident=False
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -81,15 +83,9 @@ class GCISLUser(AbstractBaseUser):
     # checks for whether the user is resident, returns false if not
     @property
     def is_Resident(self):
-        field_name = 'resident'
-        obj = GCISLUser.objects.first()
-        field_object = GCISLUser._meta.get_field(field_name)
-        return getattr(obj, field_object.attname)
+        return self.resident
     
     # checks for whether the user is faculty, returns false if not
     @property
     def is_Faculty(self):
-        field_name = 'faculty'
-        obj = GCISLUser.objects.first()
-        field_object = GCISLUser._meta.get_field(field_name)
-        return getattr(obj, field_object.attname)
+        return self.faculty
