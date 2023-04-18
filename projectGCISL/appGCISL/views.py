@@ -79,3 +79,7 @@ def login_view(request):
     else:
         form = LoginAuthForm()
         return render(request, 'login.html', {'lform':form})
+    
+def logout_view(request):
+    logout(request)
+    return redirect('landing')
