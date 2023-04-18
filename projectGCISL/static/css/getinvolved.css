@@ -144,6 +144,10 @@ nav {
 }
 
 /* RESEARCH INVOLVEMENT */
+#research-involvement {
+    position: relative;
+}
+
 #research-involvement .card__wrapper--outer {
     background-color: #A60F2D;
     border-radius: 20px;
@@ -171,6 +175,10 @@ nav {
 }
 
 /* TEACHING MENTORSHIP AND LEARNING */
+#teaching-mentorship-learning {
+   position: relative;
+}
+
 #teaching-mentorship-learning .card__wrapper--outer {
     background-color: #A60F2D;
     border-radius: 20px;
@@ -201,6 +209,26 @@ nav {
 .get-started__button {
     padding: 16px 96px;
     margin: 28px;
+}
+
+/* SHAPES */
+.shape {
+    position: absolute;
+    opacity: 1;
+    max-width: 150px;
+    max-height: 150px;
+    z-index: 1;
+}
+
+
+.shape--0 {
+    top: 20vh;
+    left: 80vw;
+}
+
+.shape--1 {
+    top: 70vh;
+    left: 14vw;
 }
 
 /* FOOTER */
