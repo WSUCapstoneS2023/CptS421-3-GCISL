@@ -75,8 +75,9 @@ nav {
 }
 
 .nav__link:hover {
-    color: #000 !important;
-    text-decoration: underline !important;
+    background-color: #ddd;
+    color: black;
+    border-radius: 10px;
 }
 
 .header__container {

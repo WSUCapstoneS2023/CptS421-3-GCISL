@@ -67,8 +67,15 @@ nav {
 }
 
 .nav__link:hover {
-    color: #ca1237;
-    text-decoration: underline;
+    background-color: #ddd;
+    color: black;
+    border-radius: 10px;
+}
+
+.nav__link.active {
+    background-color: #a60f2d;
+    color: white;
+    border-radius: 10px;
 }
 
 /* FOR LOGGED VIEW */
