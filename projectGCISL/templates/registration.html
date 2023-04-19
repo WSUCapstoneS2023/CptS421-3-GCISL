@@ -12,41 +12,50 @@
   <div class="text">
     Please fill in your information below to sign up!
   </div>
-    <form action="" method="post">
-      {% csrf_token %}
-        <div class="container">
-          <div class = "text2">
-            <p>Note that * indicates required fields.</p>
-          </div>
-        <div class = "text3">
-          <div class="column">
-            <label for="fname"><b>First Name*</b></label>
-            {{ rform.first_name }}
-            
-            <label for="email"><b>Email Address*</b></label>
-            {{ rform.email }}
-          
-            <label for="phone"><b>Phone Number*</b></label>
-            {{ rform.phone }}
-      
-            <label for="password"><b>Password*</b></label>
-            {{ rform.password1 }}
-          </div>
-
-          <div class="column">
-            <label for="lastname"><b>Last Name Initial*</b></label>
-            {{ rform.last_name }}
-      
-            <label for="email-confirm"><b>Confirm Email Address*</b></label>
-            {{ rform.username }}
-            
-            <label for="phone-confirm"><b>Confirm Phone Number*</b></label>
-            {{ rform.phone2 }}
-      
-            <label for="psw-confirm"><b>Confirm Password*</b></label>
-            {{ rform.password2 }}
-          </div>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <label for="fname"><b>First Name*</b></label>
+          {{ rform.first_name }}
+        </div>
+        <div class="col">
+          <label for="lastname"><b>Last Name Initial*</b></label>
+          {{ rform.last_name }}
+        </div>
       </div>
+      <div class="row">
+        <div class="col">
+          <label for="email"><b>Email Address*</b></label>
+          {{ rform.email }}
+        </div>
+        <div class="col">
+          <label for="email-confirm"><b>Confirm Email Address*</b></label>
+          {{ rform.username }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="phone"><b>Phone Number*</b></label>
+          {{ rform.phone }}
+        </div>
+        <div class="col">
+          <label for="phone-confirm"><b>Confirm Phone Number*</b></label>
+          <input type="text" placeholder="Confirm Phone Number" name="psw" id="psw" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="password"><b>Password*</b></label>
+          {{ rform.password1 }}
+        </div>
+        <div class="col">
+          <label for="psw-confirm"><b>Confirm Password*</b></label>
+          {{ rform.password2 }}
+        </div>
+      </div>
+      <div class = "space4">
       <div class = "age_range">
         <p>Age Range*</p>
       </div>
@@ -78,3 +87,4 @@
   </form>
   
 </body>
+</html>

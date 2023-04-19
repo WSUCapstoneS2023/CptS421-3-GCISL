@@ -51,7 +51,7 @@ body {
   }
 
   /* Full-width input fields */
-  input[type=text], input[type=password] {
+  input[type=email], input[type=text], input[type=password] {
     width: 90%;
     height: 40px;
     padding: 15px;
@@ -63,7 +63,7 @@ body {
 
   }
   
-  input[type=text]:focus, input[type=password]:focus {
+  input[type=email],input[type=text]:focus, input[type=password]:focus {
     background-color: white;
     outline: none;
   }
