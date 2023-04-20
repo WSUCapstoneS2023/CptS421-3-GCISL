@@ -6,6 +6,7 @@ setup()
 
 # Create your tests here.
 from .models import GCISLUser, UserManager
+from .forms import LoginAuthForm, RegistrationForm
 
 # testing class for user creation
 class TestGCISLUserCreation(TestCase):
