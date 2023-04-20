@@ -283,59 +283,45 @@ footer {
     justify-content: center;
 }
 
-@media screen and (max-width: 768px) {
-    .nav__link {
-        font-size: 16px;
-        margin: 8px;
-        padding: 4px;
-    }
-
-    .shape {
-        opacity: 0.3;
-        max-width: 120px;
-        max-height: 120px;
-      }
-      
-      .shape--0 {
-        top: 15vh;
-        left: 70vw;
-      }
-      
-      .shape--1 {
-        top: 50vh;
-        right: 5vw;
-      }
-      
-}
-
-@media screen and (max-width: 480px) {
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 900px) {
     .nav__container {
         flex-direction: column;
         align-items: center;
     }
+
     .nav__links {
         margin-top: 20px;
     }
+
+    .nav__link {
+        font-size: 16px;
+        margin-left: 12px;
+        padding: 4px;
+    }
+
+    .profile__picture--wrapper {
+        margin-left: 12px;
+    } 
+}
+
+@media screen and (max-width: 550px) {
+    .nav__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav__links {
+        margin-top: 20px;
+    }
+
     .nav__link {
         font-size: 8px;
         margin: 8px;
         padding: 4px;
     }
 
-    .shape {
-        opacity: 0.3;
-        max-width: 120px;
-        max-height: 120px;
-      }
-      
-      .shape--0 {
-        top: 15vh;
-        left: 70vw;
-      }
-      
-      .shape--1 {
-        top: 50vh;
-        right: 5vw;
-      }
-      
+    .profile__picture--wrapper {
+        margin-left: 8px;
+    } 
 }
