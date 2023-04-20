@@ -9,7 +9,7 @@ class UserManager(BaseUserManager):
         if not email:
             raise ValueError('The Email field must be set')
         email = self.normalize_email(email)
-        user = self.model(email=email, **extra_fields)
+        user = GCISLUser(email=email, **extra_fields)
         user.is_resident = True
         user.is_staff = False
         user.set_password(password)
@@ -20,7 +20,7 @@ class UserManager(BaseUserManager):
         if not email:
             raise ValueError('The Email field must be set')
         email = self.normalize_email(email)
-        user = self.model(email=email, **extra_fields)
+        user = GCISLUser(email=email, **extra_fields)
         user.is_resident = False
         user.is_staff = True
         user.set_password(password)
