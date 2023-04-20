@@ -6,6 +6,8 @@ setup()
 
 # Create your tests here.
 from .models import GCISLUser, UserManager
+from django.apps import apps
+GCISLUser = apps.get_model('appGCISL', 'GCISLUser')
 
 # testing class for user creation
 class TestGCISLUserCreation(TestCase):
