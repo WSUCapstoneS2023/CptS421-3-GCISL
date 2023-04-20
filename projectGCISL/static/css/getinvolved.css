@@ -173,7 +173,6 @@ nav {
   border-radius: 20px;
   color: #fff;
   max-width: 600px;
-  max-height: 1000px;
   text-align: center;
 }
 
@@ -204,7 +203,6 @@ nav {
   border-radius: 20px;
   color: #fff;
   max-width: 600px;
-  max-height: 1000px;
   text-align: center;
 }
 
@@ -353,11 +351,16 @@ footer {
     right: 5vw;
   }
 
-  .card__wrapper--inner, .card__wrapper--outer {
-    height: 100vh;
+ #get-involved-now.section__row {
+    max-width: 300px;
   }
 
   h1 {
     text-align: center;
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 12px;
   }
 }
