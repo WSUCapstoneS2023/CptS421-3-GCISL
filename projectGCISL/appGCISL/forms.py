@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm 
 from .models import GCISLUser, UserManager
-from django.core.exceptions import ValidationError
 
 # create your forms here
 # followed implementation from 
@@ -28,25 +27,25 @@ class RegistrationForm(UserCreationForm):
         self.fields['phone'].widget.attrs.update({'placeholder':('Phone Number')})
 
     def check_phone(self):
-        phone1 = self.cleaned_data['phone']
-        phone2 = self.cleaned_data['phone2']
+        phone1 = self.cleaned_data.get("phone")
+        phone2 = self.cleaned_data.get("phone2")
         if phone1 == phone2:
             return True
         else:
             return False
     
-    def username_clean(self):
+    def check_user_email(self):
         # username and password should be the same
-        username = self.cleaned_data['username'].lower()
-        user = GCISLUser.objects.filter(email = username)
-        if user.count():
+        usrn = self.cleaned_data.get("username")
+        email = self.cleaned_data.get("email")
+        if email != usrn:
             return False
         else:
             return True
 
     def clean_password2(self):
-        password1 = self.cleaned_data['password1']
-        password2 = self.cleaned_data['password2']
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError(
                 self.error_messages['password_mismatch'],
@@ -57,10 +56,10 @@ class RegistrationForm(UserCreationForm):
     def save(self):
         #checking for faculty email/ may use different method later but for iteration 1 this is the main method
         create = UserManager()
-        if '@wsu.edu' in self.cleaned_data['email'] and self.clean_password2() and self.username_clean():
-            user = create.create_Faculty(self.cleaned_data['first_name'], self.cleaned_data['last_name'], self.cleaned_data['email'], self.cleaned_data['age_range'], self.cleaned_data['phone'], self.cleaned_data['password2'])
+        if '@wsu.edu' in self.cleaned_data.get('email'):
+            user = create.create_Faculty(self.cleaned_data.get('first_name'), self.cleaned_data.get('last_name'), self.cleaned_data.get('username'), self.cleaned_data.get('email'), self.cleaned_data.get('age'), self.cleaned_data.get('phone'), self.cleaned_data.get('password2'))
         else:
-            user = create.create_Resident(self.cleaned_data['first_name'], self.cleaned_data['last_name'], self.cleaned_data['email'], self.cleaned_data['age_range'], self.cleaned_data['phone'], self.cleaned_data['password2'])
+            user = create.create_Resident(self.cleaned_data.get('first_name'), self.cleaned_data.get('last_name'), self.cleaned_data.get('username'), self.cleaned_data.get('email'), self.cleaned_data.get('age'), self.cleaned_data.get('phone'), self.cleaned_data.get('password2'))
         return user
 
 class LoginAuthForm(forms.Form):

@@ -47,15 +47,10 @@ def registration_view(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()     
-            return redirect('login')
-        else:
-            messages.error(request, form.errors, form.non_field_errors())
-            return redirect('register')
+        return redirect('/login')
     else:
         form = RegistrationForm()
         return render(request, 'registration.html', {'rform': form})
-    
-    
 
 
 # Login
@@ -64,8 +59,8 @@ def login_view(request):
     if request.method == 'POST':
         form = LoginAuthForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
@@ -77,10 +72,10 @@ def login_view(request):
                     return redirect('landing')
             else:
                 messages.error(request,'Username or password not correct!')
-                return redirect('login')
+                return redirect('/login')
         else:
             messages.error(request,'Please fill in all fields!')
-            return redirect('login')
+            return redirect('/login')
     else:
         form = LoginAuthForm()
         return render(request, 'login.html', {'lform':form})
