@@ -1,7 +1,10 @@
 from django import forms
+from django.apps import apps
 from django.contrib.auth.forms import UserCreationForm 
 from .models import GCISLUser, UserManager
 from django.core.exceptions import ValidationError
+
+GCISLUser = apps.get_model('appGCISL', 'GCISLUser')
 
 # create your forms here
 # followed implementation from 
@@ -58,9 +61,9 @@ class RegistrationForm(UserCreationForm):
         #checking for faculty email/ may use different method later but for iteration 1 this is the main method
         create = UserManager()
         if '@wsu.edu' in self.cleaned_data['email'] and self.clean_password2() and self.username_clean():
-            user = create.create_Faculty(self.cleaned_data['first_name'], self.cleaned_data['last_name'], self.cleaned_data['email'], self.cleaned_data['age_range'], self.cleaned_data['phone'], self.cleaned_data['password2'])
+            user = create.create_Faculty(self.cleaned_data['email'], self.cleaned_data['password2'], first_name = self.cleaned_data['first_name'], last_name = self.cleaned_data['last_name'], age_range = self.cleaned_data['age_range'], phone = self.cleaned_data['phone'])
         else:
-            user = create.create_Resident(self.cleaned_data['first_name'], self.cleaned_data['last_name'], self.cleaned_data['email'], self.cleaned_data['age_range'], self.cleaned_data['phone'], self.cleaned_data['password2'])
+            user = create.create_Resident(self.cleaned_data['email'], self.cleaned_data['password2'], first_name = self.cleaned_data['first_name'], last_name = self.cleaned_data['last_name'], age_range = self.cleaned_data['age_range'], phone = self.cleaned_data['phone'])
         return user
 
 class LoginAuthForm(forms.Form):

@@ -5,7 +5,6 @@ from django.contrib.auth import login, logout, authenticate
 from django.views.generic import TemplateView, CreateView
 import datetime
 from .forms import RegistrationForm, LoginAuthForm
-from .models import GCISLUser
 
 # Create your views here.
 # home view

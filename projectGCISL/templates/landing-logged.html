@@ -21,6 +21,11 @@
         <div class="nav__container">
           <div class="logo__wrapper"></div>
           <ul class="nav__links">
+            {% if user.is_superuser %}
+              <li>
+                <a href="/admin" class="nav__link">Admin</a>
+              </li>
+            {% endif %}
             <li>
               <a href="/get_involved" class="nav__link">Get Involved!</a>
             </li>
