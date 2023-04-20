@@ -71,7 +71,7 @@ class GCISLUser(AbstractBaseUser,PermissionsMixin):
     objects= UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'age', 'phone']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'age_range', 'phone']
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
@@ -79,11 +79,10 @@ class GCISLUser(AbstractBaseUser,PermissionsMixin):
     def get_Email(self):
         return self.email
     
-    
     # checks for whether the user is resident, returns false if not
     @property
     def is_Resident(self):
-        return self.resident
+        return self.is_resident
     
     # checks for whether the user is faculty, returns false if not
     @property
