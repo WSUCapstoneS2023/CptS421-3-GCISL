@@ -27,7 +27,7 @@ a {
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 48px !important;
     font-weight: 700 !important; 
 }
 
@@ -414,7 +414,7 @@ footer {
     }
 
     h1 {
-        font-size: 36px;
+        font-size: 36px !important;
     }
 
     #landing__carousel {
