@@ -1,52 +1,48 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 # user model, with all fields neccessary for first milestone
-class UserManager(BaseUserManager, PermissionsMixin):
-    def create_Resident(self, firstname, lastname, email, age, uphone, password=None):
+class UserManager(BaseUserManager):
+    def create_Resident(self, email, password=None, **extra_fields):
         if not email:
-            raise ValueError('Resident must have an email address.')
-        if not firstname:
-            raise ValueError('Resident must have first name.')
-        if not lastname:
-            raise ValueError('Resident must have last name.')
-        
-        user = GCISLUser(
-            first_name=firstname,
-            last_name=lastname,
-            email=self.normalize_email(email),
-            age_range=age,
-            phone=uphone,
-            is_resident=True,
-            is_staff=False
-        )
+            raise ValueError('The Email field must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.is_resident = True
+        user.is_staff = False
         user.set_password(password)
         user.save(using=self._db)
         return user
     
-    def create_Faculty(self, firstname, lastname, email, age, uphone, password=None):
+    def create_Faculty(self, email, password=None, **extra_fields):
         if not email:
-            raise ValueError('Resident must have an email address.')
-        if not firstname:
-            raise ValueError('Resident must have first name.')
-        if not lastname:
-            raise ValueError('Resident must have last name.')
-        
-        user = GCISLUser(
-            first_name=firstname,
-            last_name=lastname,
-            email=self.normalize_email(email),
-            age_range=age,
-            phone=uphone,
-            is_staff=True,
-            is_resident=False
-        )
+            raise ValueError('The Email field must be set')
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
+        user.is_resident = False
+        user.is_staff = True
         user.set_password(password)
         user.save(using=self._db)
         return user
+    
+    def create_superuser(self, email, password=None, **extra_fields):
+        if "@wsu.edu" not in email:
+            raise ValidationError("Email is not a Washington State Univeristy email, please use a staff Washington State University email.")
+        
+        if not GCISLUser.objects.filter(email=email).exists() :
+            extra_fields.setdefault('is_staff', True)
+            extra_fields.setdefault('is_superuser', True)
+            return self.create_Faculty(email, password, **extra_fields)
+        else:
+            if not GCISLUser.objects.get(email).is_Resident:
+                user = GCISLUser.objects.get(email)
+                user.is_superuser = True
+                return user
 
-class GCISLUser(AbstractBaseUser):
+
+class GCISLUser(AbstractBaseUser,PermissionsMixin):
     # unique needs to be false considering email and user must be same
     email = models.EmailField(verbose_name="email", max_length=60, unique=True, )
     
