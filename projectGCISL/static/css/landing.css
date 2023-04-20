@@ -46,7 +46,7 @@ li {
 
 .nav__container {
     width: 100%;
-    max-width: 1800px;
+    max-width: 1200px;
     padding: 0 24px;
     display: flex;
     justify-content: space-between;
@@ -150,7 +150,7 @@ button:hover {
     overflow: hidden;
     display: flex;
     padding: 20px;
-    max-width: 1400px;
+    max-width: 1200px;
     background-color: #4d4d4d;
 
 }
@@ -342,6 +342,10 @@ footer {
     .profile__picture--wrapper {
         margin-left: 12px;
     } 
+
+    #landing__carousel {
+        max-width: 800px;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -363,4 +367,8 @@ footer {
     .profile__picture--wrapper {
         margin-left: 8px;
     } 
+
+    #landing__carousel {
+        max-width: 100vw;
+    }
 }
