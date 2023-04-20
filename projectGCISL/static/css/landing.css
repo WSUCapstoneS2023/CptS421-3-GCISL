@@ -362,6 +362,29 @@ footer {
         width: 100%;
     }
 
+    .section__row {
+        max-width: 600px;
+    }
+
+    .gallery__wrapper {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gallery__left {
+        width: 100%;
+        margin: 20px;
+    }
+
+    .gallery__right {
+        width: 100%;
+        margin: 20px;
+    }
+
+    .get-involved__title {
+        text-align: center;
+    }
 
 }
 
@@ -408,4 +431,30 @@ footer {
         border-radius: 20px;
         width: 100%;
     }
+
+    .section__row {
+        max-width: 300px;
+    }
+
+    .gallery__wrapper {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gallery__left {
+        width: 100%;
+        margin: 20px;
+    }
+
+    .gallery__right {
+        width: 100%;
+        margin: 20px;
+    }
+
+    .get-involved__title {
+        text-align: center;
+    }
+
+
 }
