@@ -290,3 +290,55 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 900px) {
+  .nav__container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .nav__links {
+      margin-top: 20px;
+  }
+
+  .nav__link {
+      font-size: 16px;
+      margin-left: 12px;
+      padding: 4px;
+  }
+
+  .profile__picture--wrapper {
+      margin-left: 12px;
+  } 
+
+  .body1 {
+    margin-top: 40px;
+  }
+}
+
+
+@media screen and (max-width: 550px) {
+  .nav__container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .nav__links {
+      margin-top: 20px;
+  }
+
+  .nav__link {
+      font-size: 8px;
+      margin: 8px;
+      padding: 4px;
+  }
+
+  .profile__picture--wrapper {
+      margin-left: 8px;
+  } 
+
+  h1 {
+    font-size: 36px;
+  }
+}
