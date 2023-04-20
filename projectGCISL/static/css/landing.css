@@ -14,7 +14,7 @@ html {
 }
 
 .crimson {
-    color: #A60F2D !important;
+    color: #ca1237 !important;
 }
 
 .ubuntu {
@@ -27,7 +27,7 @@ a {
 }
 
 h1 {
-    font-size: 48px !important;
+    font-size: 48px;
     font-weight: 700 !important; 
 }
 
@@ -343,9 +343,26 @@ footer {
         margin-left: 12px;
     } 
 
+    .header__description {
+        text-align: center;
+    }
+
     #landing__carousel {
         max-width: 800px;
+        flex-direction: column;
     }
+
+    .image__container--wrapper {
+        width: 100%;
+    }
+    
+    .image {
+        height: 800px;
+        border-radius: 20px;
+        width: 100%;
+    }
+
+
 }
 
 @media screen and (max-width: 550px) {
@@ -364,11 +381,31 @@ footer {
         padding: 4px;
     }
 
+    
     .profile__picture--wrapper {
         margin-left: 8px;
     } 
 
+    .header__description {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
     #landing__carousel {
-        max-width: 100vw;
+        max-width: 500px;
+        flex-direction: column;
+    }
+
+    .image__container--wrapper {
+        width: 100%;
+    }
+    
+    .image {
+        height: 300px;
+        border-radius: 20px;
+        width: 100%;
     }
 }
