@@ -52,7 +52,6 @@ input:focus, textarea:focus {
     border-color: #000;
 }
 
-
 a {
     text-decoration: none; 
 }
@@ -107,6 +106,12 @@ nav {
 .nav__link.active {
     background-color: #a60f2d;
     color: white;
+    border-radius: 10px;
+}
+
+.nav__link.logout {
+    background-color: #1f1f1f;
+    color: #fff;
     border-radius: 10px;
 }
 

@@ -80,6 +80,12 @@ nav {
     border-radius: 10px;
 }
 
+.nav__link.logout {
+    background-color: #1f1f1f;
+    color: #fff;
+    border-radius: 10px;
+}
+
 .header__container {
     display: flex;
     justify-content: center;

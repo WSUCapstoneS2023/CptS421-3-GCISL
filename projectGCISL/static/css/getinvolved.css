@@ -97,6 +97,12 @@ nav {
     border-radius: 10px;
 }
 
+.nav__link.logout {
+    background-color: #1f1f1f;
+    color: #fff;
+    border-radius: 10px;
+}
+
 /* GET INVOLVED! */
 .section__container {
     padding: 80px 0;
