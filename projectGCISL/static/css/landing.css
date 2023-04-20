@@ -82,7 +82,7 @@ nav {
 
 .nav__link.logout {
     background-color: #1f1f1f;
-    color: #fff;
+    color: #fff !important;
     border-radius: 10px;
 }
 
