@@ -4,12 +4,16 @@
 body {
     font-family: "Montserrat", sans-serif;
     background-color: white;
+    color: white;
   }
   
   * {
     box-sizing: border-box;
   }
 
+  .text {
+    color: black;
+  }
   .column {
     float: left;
     width: 50%;
@@ -225,7 +229,7 @@ body {
 
 /*text styling for content*/
 .dropdown-content a {
-  color: black;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
