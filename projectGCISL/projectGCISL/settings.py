@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os 
 
 from pathlib import Path
 
@@ -21,11 +22,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
+# DEFAULT
 # SECRET_KEY = 'django-insecure-(yh5@=2o*9##m02-u5hnyh+l&p2hx)8edc1f@x_x_%_d=&z6yo'
 
-SECRET_KEY = '(yh5@=2o*9##m02-u5hnyh+l&p2hx)8edc1f@x_x_%_d=&z6yo'
+# DEPLOYMENT
+# SECRET_KEY = '(yh5@=2o*9##m02-u5hnyh+l&p2hx)8edc1f@x_x_%_d=&z6yo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+# DEFAULT
+# DEBUG = True
+
+# ALLOWED_HOSTS = ['']
+
+# # DEPLOYMENT
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
@@ -42,6 +52,14 @@ SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_PRELOAD = True
 
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+# RENDER SETTINGS
+SECRET_KEY = os.environ.get('SECRET_KEY', default='(yh5@=2o*9##m02-u5hnyh+l&p2hx)8edc1f@x_x_%_d=&z6yo')
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 # Application definition
 
 INSTALLED_APPS = [
