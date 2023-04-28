@@ -16,7 +16,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -36,9 +35,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ALLOWED_HOSTS = ['']
 
 # # DEPLOYMENT
-DEBUG = False
-
-ALLOWED_HOSTS = ['*']
+DEBUG = 'RENDER' not in os.environ
 
 CSRF_COOKIE_SECURE = True
 
@@ -55,6 +52,8 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 # RENDER SETTINGS
 SECRET_KEY = os.environ.get('SECRET_KEY', default='(yh5@=2o*9##m02-u5hnyh+l&p2hx)8edc1f@x_x_%_d=&z6yo')
+
+ALLOWED_HOSTS = []
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
