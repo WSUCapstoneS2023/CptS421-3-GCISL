@@ -20,35 +20,35 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(yh5@=2o*9##m02-u5hnyh+l&p2hx)8edc1f@x_x_%_d=&z6yo'
+# SECRET_KEY = 'django-insecure-(yh5@=2o*9##m02-u5hnyh+l&p2hx)8edc1f@x_x_%_d=&z6yo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 # DEPLOYMENT
 
-# SECRET_KEY = '(yh5@=2o*9##m02-u5hnyh+l&p2hx)8edc1f@x_x_%_d=&z6yo'
+SECRET_KEY = '(yh5@=2o*9##m02-u5hnyh+l&p2hx)8edc1f@x_x_%_d=&z6yo'
 
-# DEBUG = False
+DEBUG = False
 
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
-# DEBUG = 'RENDER' not in os.environ
+DEBUG = 'RENDER' not in os.environ
 
-# CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
-# SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
-# SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = True
 
 # # # Set SECURE_HSTS_SECONDS tp one year
-# SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_SECONDS = 31536000
 
-# SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_PRELOAD = True
 
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 # Application definition
 
