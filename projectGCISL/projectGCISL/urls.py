@@ -31,3 +31,8 @@ urlpatterns = [
     path('logout/', view=views.logout_view, name='logout')
 
 ]
+
+# 
+admin.site.site_header  =  "gcislconnect admin"  
+admin.site.site_title  =  "gcislconnect admin site"
+admin.site.index_title  =  "GCISLConnect Admin"
