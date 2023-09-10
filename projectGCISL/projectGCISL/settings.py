@@ -104,7 +104,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     },
     'survey': {
-        'NAME': 'survey',
+        'NAME': 'surveyDatabase',
         'ENGINE': 'django.db.backends.sqlite3',
         'USER': 'postgres',
         'PASSWORD': 'test123',
