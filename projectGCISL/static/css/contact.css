@@ -285,6 +285,10 @@ footer {
   justify-content: center;
 }
 
+.logo {
+  width: 100%;
+}
+
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 900px) {
   .nav__container {

@@ -169,7 +169,12 @@ button:hover {
     width: 120%;
 }
 
-
+.footer_image {
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto; 
+}
 
 /* QUOTE */
 #quotes {
@@ -299,6 +304,10 @@ footer {
     margin: 20px 0 24px 0 ;
     display: flex;
     justify-content: center;
+}
+
+.logo {
+    width: 100%;
 }
 
 /* SHAPES */
