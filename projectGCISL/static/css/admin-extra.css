@@ -10,7 +10,7 @@
 }
 
 .ubuntu {
-    font-family: 'Ubuntu', sans-serif !important;
+    font-family: 48px, 'Ubuntu', sans-serif !important;
 }
 
 #header {
@@ -22,10 +22,20 @@
 #site-name h1 a {
     font-family: "Ubuntu", sans-serif !important; 
     color: white; 
+    font-size: 48px !important;
+    font-weight: 700 !important; 
 }
 
 #branding h1.ubuntu a:link, #branding h1 a:visited {
     color: var(--accent);
+}
+
+#branding h1 {
+    padding: 0;
+    margin: 0 20px 0 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--header-branding-color);
 }
 
 a{
@@ -73,7 +83,7 @@ a{
     --selected-row: #ffc;
     --button-fg: #fff;
     --button-bg: var(--primary);
-    --button-hover-bg: #609ab6;
+    --button-hover-bg: rgb(70, 70, 70);
     --default-button-bg: var(--secondary);
     --default-button-hover-bg: #205067;
     --close-button-bg: #888;
