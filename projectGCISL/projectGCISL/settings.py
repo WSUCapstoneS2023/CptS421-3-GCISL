@@ -100,8 +100,12 @@ WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'iakvhaso',
+        'USER' : 'iakvhaso',
+        'PASSWORD': '3aXyp7AwTBHNVElrCP00AGcvBVM2FWHf',
+        'HOST': 'jelani.db.elephantsql.com',
+        'PORT' : '5432'
     }
 }
 
