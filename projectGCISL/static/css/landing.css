@@ -200,12 +200,18 @@ button:hover {
     color: #fff;
     font-size: 28px;
     font-weight: 700 !important;
+    margin-right: 20px;
 }
 
 .logo__wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.logo {
+    margin-left: 20px;
+    max-width: 35%;
 }
 
 /* GALLERY */
@@ -310,10 +316,6 @@ footer {
     margin: 20px 0 24px 0 ;
     display: flex;
     justify-content: center;
-}
-
-.logo {
-    width: 100%;
 }
 
 
@@ -471,6 +473,4 @@ footer {
     .get-involved__title {
         text-align: center;
     }
-
-
 }
