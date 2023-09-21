@@ -103,6 +103,17 @@ nav {
   border-radius: 10px;
 }
 
+.header_logo {
+  max-width: 50%;
+  height: 8vh;
+  margin-left: 20px;
+}
+
+.logo__wrapper {
+  display: flex;
+  align-items: center;
+}
+
 /* GET INVOLVED! */
 .section__container {
   padding: 80px 0;
@@ -247,13 +258,20 @@ footer {
 }
 
 .footer__logo {
-  text-align: center;
-  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.gciConnect__logo {
-  color: #a60f2d;
+.gciConnect__logo{
+  color: #A60F2D;
 }
+
+.logo {
+  margin-left: 20px;
+  max-width: 35%;
+}
+
 
 .footer__wrapper {
   margin: 50px 0;
