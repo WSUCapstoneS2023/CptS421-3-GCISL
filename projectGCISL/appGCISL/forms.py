@@ -15,8 +15,8 @@ class RegistrationForm(UserCreationForm):
         widget=forms.PasswordInput (attrs={'placeholder':'Confirm Password'}))
     phone2 = forms.CharField(label=("Phone2"),
         widget=forms.TextInput(attrs={'placeholder': 'Phone Check'}))
-    username = forms.CharField(label=("Username"), 
-        widget=forms.TextInput(attrs={'placeholder': 'Username'}) )
+    email2 = forms.CharField(label=("Email"), 
+        widget=forms.TextInput(attrs={'placeholder': 'Email'}) )
 
     class Meta:
         model = GCISLUser
@@ -25,7 +25,7 @@ class RegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['email'].widget.attrs.update({'placeholder':('Email')})
-        self.fields['last_name'].widget.attrs.update({'placeholder':('Last Initial')})        
+        self.fields['last_name'].widget.attrs.update({'placeholder':('Last Initial')})    
         self.fields['first_name'].widget.attrs.update({'placeholder':('First Name')})
         self.fields['age_range'].widget.attrs.update({'placeholder':('Age Range')})       
         self.fields['phone'].widget.attrs.update({'placeholder':('Phone Number')})
@@ -40,8 +40,8 @@ class RegistrationForm(UserCreationForm):
     
     def username_clean(self):
         # username and password should be the same
-        username = self.cleaned_data['username'].lower()
-        user = GCISLUser.objects.filter(email = username)
+        email = self.cleaned_data['email2'].lower()
+        user = GCISLUser.objects.filter(email = email)
         if user.count():
             return False
         else:
@@ -67,7 +67,7 @@ class RegistrationForm(UserCreationForm):
         return user
 
 class LoginAuthForm(forms.Form):
-    username = forms.CharField(label="Username", widget=forms.TextInput (attrs={'placeholder':'Username'}))
+    email = forms.CharField(label="Email Address", widget=forms.TextInput (attrs={'placeholder':'Email Address'}))
     password = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={'placeholder':'Password'}))
 
     

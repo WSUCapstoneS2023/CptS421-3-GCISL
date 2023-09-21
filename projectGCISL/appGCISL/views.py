@@ -61,9 +61,9 @@ def login_view(request):
     if request.method == 'POST':
         form = LoginAuthForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
             password = form.cleaned_data['password']
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(request, email=email, password=password)
             if user is not None:
                 login(request, user)
                 if user.is_Resident:
@@ -73,7 +73,7 @@ def login_view(request):
                     # these will be different in future based off status
                     return redirect('landing')
             else:
-                messages.error(request,'Username or password not correct!')
+                messages.error(request,'Email or password not correct!')
                 return redirect('login')
         else:
             messages.error(request,'Please fill in all fields!')
