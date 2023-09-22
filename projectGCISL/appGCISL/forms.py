@@ -1,22 +1,29 @@
-from django import forms
+# https://docs.djangoproject.com/en/4.2/topics/forms/modelforms/
+# good website for understanding these forms
+from django.forms import ModelForm, Form, CharField, PasswordInput, TextInput
 from django.apps import apps
 from django.contrib.auth.forms import UserCreationForm 
-from .models import GCISLUser, UserManager
+from .models import GCISLUser, UserManager, Survey, Question, Choice, Response
 from django.core.exceptions import ValidationError
 
 GCISLUser = apps.get_model('appGCISL', 'GCISLUser')
+Survey = apps.get_model('appGCISL', 'Survey')
+Question = apps.get_model('appGCISL', 'Question')
+Choice = apps.get_model('appGCISL', 'Choice')
+Response = apps.get_model('appGCISL', 'Response')
+
 
 # create your forms here
 # followed implementation from 
 class RegistrationForm(UserCreationForm):
-    password1 = forms.CharField(label=("Password"),
-        widget=forms.PasswordInput  (attrs={'placeholder':'Password'}))
-    password2 = forms.CharField(label=("Password confirmation"),
-        widget=forms.PasswordInput (attrs={'placeholder':'Confirm Password'}))
-    phone2 = forms.CharField(label=("Phone2"),
-        widget=forms.TextInput(attrs={'placeholder': 'Phone Check'}))
-    username = forms.CharField(label=("Username"), 
-        widget=forms.TextInput(attrs={'placeholder': 'Username'}) )
+    password1 = CharField(label=("Password"),
+        widget=PasswordInput  (attrs={'placeholder':'Password'}))
+    password2 = CharField(label=("Password confirmation"),
+        widget=PasswordInput (attrs={'placeholder':'Confirm Password'}))
+    phone2 = CharField(label=("Phone2"),
+        widget=TextInput(attrs={'placeholder': 'Phone Check'}))
+    email2 = CharField(label=("Email"), 
+        widget=TextInput(attrs={'placeholder': 'Email'}) )
 
     class Meta:
         model = GCISLUser
@@ -25,7 +32,7 @@ class RegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['email'].widget.attrs.update({'placeholder':('Email')})
-        self.fields['last_name'].widget.attrs.update({'placeholder':('Last Initial')})        
+        self.fields['last_name'].widget.attrs.update({'placeholder':('Last Initial')})    
         self.fields['first_name'].widget.attrs.update({'placeholder':('First Name')})
         self.fields['age_range'].widget.attrs.update({'placeholder':('Age Range')})       
         self.fields['phone'].widget.attrs.update({'placeholder':('Phone Number')})
@@ -40,8 +47,8 @@ class RegistrationForm(UserCreationForm):
     
     def username_clean(self):
         # username and password should be the same
-        username = self.cleaned_data['username'].lower()
-        user = GCISLUser.objects.filter(email = username)
+        email = self.cleaned_data['email2'].lower()
+        user = GCISLUser.objects.filter(email = email)
         if user.count():
             return False
         else:
@@ -66,8 +73,26 @@ class RegistrationForm(UserCreationForm):
             user = create.create_Resident(email=self.cleaned_data['email'], password=self.cleaned_data['password2'], first_name = self.cleaned_data['first_name'], last_name = self.cleaned_data['last_name'], age_range = self.cleaned_data['age_range'], phone = self.cleaned_data['phone'])
         return user
 
-class LoginAuthForm(forms.Form):
-    username = forms.CharField(label="Username", widget=forms.TextInput (attrs={'placeholder':'Username'}))
-    password = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={'placeholder':'Password'}))
+class LoginAuthForm(Form):
+    email = CharField(label="Email Address", widget=TextInput (attrs={'placeholder':'Email Address'}))
+    password = CharField(label="Password", widget=PasswordInput(attrs={'placeholder':'Password'}))
 
-    
+class SurveyForm(ModelForm):
+    class Meta:
+        model = Survey
+        fields = ['title', 'description', 'startdate', 'enddate']
+
+class QuestionForm(ModelForm):
+    class Meta:
+        model = Question
+        fields = ['surveyid', 'questiontext', 'questiontype']
+
+class ChoiceForm(ModelForm):
+    class Meta:
+        model = Choice
+        fields = ['questionid', 'choicetext']
+
+class ResponseForm(ModelForm):
+    class Meta:
+        model = Response
+        fields = ['surveyid', 'questionid', 'respondentname', 'respondentemail', 'responsetext', 'responsenumeric', 'choiceid']

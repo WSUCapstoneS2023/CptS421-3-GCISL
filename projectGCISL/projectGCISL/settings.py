@@ -100,21 +100,14 @@ WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'iakvhaso',
+        'USER' : 'iakvhaso',
+        'PASSWORD': '3aXyp7AwTBHNVElrCP00AGcvBVM2FWHf',
+        'HOST': 'jelani.db.elephantsql.com',
+        'PORT' : '5432'
+    }
 }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "demo",
-#         "USER": "postgres",
-#         "PASSWORD": "test123",
-#         "HOST": "127.0.0.1",
-#         "PORT": "5433",
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

@@ -53,6 +53,17 @@ nav {
     display: flex;
 }
 
+.header_logo {
+    max-width: 50%;
+    height: 8vh;
+    padding-left: 20px;
+}
+  
+.logo__wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .nav__links {
     z-index: 2;
 }
@@ -135,9 +146,6 @@ nav {
     width: 50%;
 }
 
-.logo {
-    width: 100%;
-}
 
 .gatherlab__logo {
     width: 50%;
@@ -185,12 +193,23 @@ footer {
 }
 
 .footer__logo {
-    text-align: center;
-    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .gciConnect__logo{
     color: #A60F2D;
+}
+
+.footer__gci__logo{
+    margin-left: 20px;
+    max-width: 35%;
+}
+
+.logo {
+    margin-left: 20px;
+    max-width: 100%;
 }
 
 .footer__wrapper {

@@ -88,3 +88,101 @@ class GCISLUser(AbstractBaseUser,PermissionsMixin):
     @property
     def is_Faculty(self):
         return self.is_staff
+
+class Survey(models.Model):
+    surveyid = models.IntegerField(primary_key=True)
+    title = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    startdate = models.DateField(blank=True, null=True)
+    enddate = models.DateField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'survey'
+
+class Question(models.Model):
+    questionid = models.IntegerField(primary_key=True)
+    surveyid = models.ForeignKey('Survey', models.DO_NOTHING, db_column='surveyid', blank=True, null=True)
+    questiontext = models.TextField()
+    questiontype = models.TextField(blank=True, null=True)  # This field type is a guess.
+
+    class Meta:
+        managed = False
+        db_table = 'question'
+        
+
+class Choice(models.Model):
+    choiceid = models.IntegerField(primary_key=True)
+    questionid = models.ForeignKey('Question', models.DO_NOTHING, db_column='questionid', blank=True, null=True)
+    choicetext = models.TextField()
+
+    class Meta:
+        managed = False
+        db_table = 'choice'
+
+class Response(models.Model):
+    responseid = models.IntegerField(primary_key=True)
+    surveyid = models.ForeignKey('Survey', models.DO_NOTHING, db_column='surveyid', blank=True, null=True)
+    questionid = models.ForeignKey('Question', models.DO_NOTHING, db_column='questionid', blank=True, null=True)
+    respondentname = models.CharField(max_length=255, blank=True, null=True)
+    respondentemail = models.CharField(max_length=255, blank=True, null=True)
+    responsetext = models.TextField(blank=True, null=True)
+    responsenumeric = models.IntegerField(blank=True, null=True)
+    choiceid = models.ForeignKey('Choice', models.DO_NOTHING, db_column='choiceid', blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'response'
+
+   
+
+# class Survey(models.Model):
+#     survey_id = models.IntegerField(verbose_name='survey_id', primary_key=True)
+#     title = models.CharField(verbose_name='title', max_length=255)
+#     description = models.TextField(verbose_name='description')
+#     start_date = models.DateTimeField(verbose_name='start_date')
+#     end_date = models.DateTimeField(verbose_name='end_date')
+
+#     def str(self):
+#         return f"Response by {self.title}"  # String representation of the response
+
+#     class Meta:
+#         db_table = 'Survey'  # Specify the database table name
+
+# class Question(models.Model):
+#     question_id = models.IntegerField(verbose_name='question_id', primary_key=True)
+#     survey_id = models.ForeignKey("Survey", on_delete=models.SET_NULL)
+#     question_text = models.TextField(verbose_name='question_text')
+#     question_type = models.TextChoices("Multiple Choice", "Text", "Numeric")
+
+#     def str(self):
+#         return f"Response by {self.question_text}"  # String representation of the response
+
+#     class Meta:
+#         db_table = 'Question'  # Specify the database table name
+
+# class Choice(models.Model):
+#     choice_id = models.AutoField(verbose_name='choice_id',primary_key=True)  # Primary key, auto-generated
+#     question_id = models.ForeignKey("Question", on_delete=models.SET_NULL)  # Foreign key to the Question table (adjust field type as needed)
+#     choice_text = models.TextField(verbose_name='choice_text', null=False)  # Text field for the choice text
+
+#     def str(self):
+#         return self.choice_text  # String representation of the choice
+
+#     class Meta:
+#         db_table = 'Choice'  # Specify the database table name
+
+# class Response(models.Model):
+#     survey_id = models.ForeignKey("Survey", on_delete=models.SET_NULL)
+#     question_id = models.ForeignKey("Question", on_delete=models.SET_NULL) 
+#     respondent_name = models.CharField(verbose_name='respondent_name', max_length=255)
+#     respondent_email = models.EmailField(verbose_name='respondent_email',max_length=255)
+#     response_text = models.TextField(verbose_name='response_text')
+#     response_numeric = models.IntegerField(verbose_name='response_numeric')
+#     choice_id = models.ForeignKey("Choices", on_delete=models.SET_NULL)
+
+#     def str(self):
+#         return f"Response by {self.respondent_name}"  # String representation of the response
+
+#     class Meta:
+#         db_table = 'Response'  # Specify the database table name

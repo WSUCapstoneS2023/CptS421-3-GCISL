@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-YU6DRH0y3fUz+NCU8YwY6HtsGZfQ2lmc1AnQ2D+u5X9e5MQ5ct5S5+LS7Vv5mNNa4/bVJ/cbs4BNf6/0U6Xopg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-    <link rel="stylesheet" href="/static/css/survey.css">
+    <link rel="stylesheet" href="\projectGCISL\static\css\survey.css">
     <title>Survey</title>
 </head>
 <body>
@@ -61,8 +61,36 @@
     </div>
 
     <!-- Create Form -->
-    <form id="form" action="process_response.php" method="post">
-        <input type="hidden" name="survey_id" value="1">
+    <form id="dynamic-form">
+        <!-- Container for questions and choices -->
+        <div id="questions-container">
+            <!-- Initial question and choice -->
+            <div class="question" data-index="0">
+                <div class="form-control">
+                    <label for="question" class="question-label">Question 1</label>
+                    <input type="text" class="question-input" name="question[0][text]" placeholder="Enter the question">
+                </div>
+                <div class="form-control">
+                    <label for="questiontype">Question Type:</label>
+                    <select class="questiontype" name="question[0][type]">
+                        <option value="text">Text</option>
+                        <option value="multiple_choice">Multiple Choice</option>
+                        <option value="dropdown">Checkbox</option>
+                        <option value="checkbox">Numeric</option>
+                    </select>
+                </div>
+                <div class="choices">
+                    <div class="choice">
+                        <input type="text" class="choice-input" name="choice[0][choices][]" placeholder="Choice 1">
+                    </div>
+                </div>
+                <button type="button" class="add-choice">Add Choice</button>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="add-question">Add Question</button>
+    <button type="submit">Submit</button>
+
         <!-- Details -->
         <div class="form-control">
             <label for="name" id="label-name">
@@ -486,5 +514,85 @@
           </div>
         </div>
       </footer>
+      <script>
+        
+        // Adds choice when 'Add Button' is clicked
+        function addChoice(question) {
+            // selects container element with class 'choices' in specific question
+            // question parameter is a reference to the question where choice is added
+            // holds choices together to make it easier to add/delete
+            const choicesContainer = question.querySelector('.choices');
+
+            // new choice to be added. div contains choice input field
+            const newChoice = document.createElement('div');
+
+            // adds choice to div element
+            newChoice.classList.add('choice');
+
+            // used to create and append new elements
+            newChoice.innerHTML = `<input type="text" class="choice-input" name="choice[${question.dataset.index}][]" placeholder="Choice ${choicesContainer.children.length + 1}">`;
+            
+            // adds the element to the list of choices
+            choicesContainer.appendChild(newChoice);
+        }
+
+        let questionIndex = 2; // Initialize the question index
+
+        // Adds new question to the survey form when clicked
+        function addQuestion() {
+            // selects element by ID, which will store all questions in the survey
+            // holds all questions in a container. makes it easier to store questions and manage them dynamically
+            const questionsContainer = document.getElementById('questions-container');
+            
+            // the div represents new question in survey
+            const newQuestion = document.createElement('div');
+
+            // adds questions class to the newQuestion element 
+            newQuestion.classList.add('question');
+            newQuestion.dataset.index = questionIndex; // Set the question index
+            
+            // sets HTML content of our new question
+            newQuestion.innerHTML = `
+                <div class="form-control">
+                    <label for="question" class="question-label">Question ${questionIndex}</label>
+                    <input type="text" class="question-input" name="question[${questionIndex}][text]" placeholder="Enter the question">
+                </div>
+                <div class="form-control">
+                    <label for="question-type">Question Type:</label>
+                    <select class="question-type" name="question[${questionIndex}][type]">
+                        <option value="text">Text</option>
+                        <option value="multiple_choice">Multiple Choice</option>
+                        <option value="dropdown">Dropdown</option>
+                        <option value="checkbox">Checkbox</option>
+                        <option value="numeric">Numeric</option>
+                    </select>
+                </div>
+                <div class="choices">
+                    <div class="choice">
+                        <input type="text" class="choice-input" name="choice[${questionIndex}][]" placeholder="Choice 1">
+                    </div>
+                </div>
+                <button type="button" class="add-choice">Add Choice</button>
+            `;
+
+            // add newQuestion element to the container
+            questionsContainer.appendChild(newQuestion);
+            
+            // increment the question index so next question number increments
+            questionIndex++; // Increment the question index
+        }
+        
+        // Add event listener to the initial "Add Question" button
+        document.querySelector('.add-question').addEventListener('click', addQuestion);
+        
+        // Add event listener for "Add Choice" buttons
+        // Dynamically add choices to questions when Add choice button is clicked.
+        document.getElementById('questions-container').addEventListener('click', function(event) {
+            if (event.target && event.target.classList.contains('add-choice')) {
+                const question = event.target.closest('.question');
+                addChoice(question);
+            }
+        });
+    </script>
 </body>
 </html>
