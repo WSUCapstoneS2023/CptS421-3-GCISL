@@ -71,8 +71,8 @@
                     <input type="text" class="question-input" name="question[0][text]" placeholder="Enter the question">
                 </div>
                 <div class="form-control">
-                    <label for="question-type">Question Type:</label>
-                    <select class="question-type" name="question[0][type]">
+                    <label for="questiontype">Question Type:</label>
+                    <select class="questiontype" name="question[0][type]">
                         <option value="text">Text</option>
                         <option value="multiple_choice">Multiple Choice</option>
                         <option value="dropdown">Checkbox</option>
@@ -90,6 +90,7 @@
     </div>
     <button type="button" class="add-question">Add Question</button>
     <button type="submit">Submit</button>
+
         <!-- Details -->
         <div class="form-control">
             <label for="name" id="label-name">
@@ -592,7 +593,6 @@
                 addChoice(question);
             }
         });
-        
     </script>
 </body>
 </html>

@@ -1,9 +1,14 @@
+from django.forms import ValidationError
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.views.generic import TemplateView, CreateView
 import datetime
+
+from psycopg2 import IntegrityError
+
+from projectGCISL.appGCISL.models import Choice, Question
 from .forms import RegistrationForm, LoginAuthForm
 
 # Create your views here.
@@ -86,9 +91,46 @@ def logout_view(request):
     logout(request)
     return redirect('landing')
 
+def survey_faculty_view(request):
+    return render(request, 'survey-faculty.html')
+
+def create_question(request):
+    if request.method == 'POST':
+        try:
+            # Validate the form data
+            question_text = request.POST['questiontext']
+            question_type = request.POST['questiontype']
+            choices = request.POST.getlist('choices')  # Assuming you have a form field for choices
+
+            # Create a new Question
+            question = Question(
+                questiontext=question_text,
+                questiontype=question_type,
+            )
+            question.save()
+
+            # Create Choices associated with the Question
+            for choice_text in choices:
+                choice = Choice(
+                    questionid=question,
+                    choicetext=choice_text,
+                )
+                choice.save()
+
+            return redirect('/?msg=success')
+        except ValidationError as e:
+            return redirect(f'/?msg={str(e)}')
+        except IntegrityError as e:
+            return redirect(f'/?msg={str(e)}')
+    
+    # Handle GET requests here (render a form or a page to create questions)
+
+    return render(request, 'survey-faculty.html')
+  
 # Create views for customized survey page
 def create_question(request):
     if request.method == 'POST':
         pass
     else:
         pass    
+
