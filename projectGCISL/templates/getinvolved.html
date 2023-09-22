@@ -6,8 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get Involved!</title>
     <link rel="stylesheet" href="/static/css/getinvolved.css" />
+     <style>
+      .popup {
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: none;
+    }
+    
+    .popup-content {
+        background-color: #4d4d4d;
+        margin: 10% auto;
+        padding: 40px;
+        padding-top: 80px;
+        padding-bottom: 150px;
+        border: 1px solid #888888;
+        width: 50%; /* Adjust the width as needed */
+        max-width: 600px; /* Add a maximum width to avoid excessive width on larger screens */
+        height: 45%;
+        font-weight: bolder;
+        color: white;
+        border-radius: 20px;
+        text-align: center; /* Center the content horizontally */
+        font-size: 20px;
+        font-family: "Montserrat", sans-serif;
+    }
+    
+    .popup-content button {
+        display: block;
+        margin: 0 auto; /* Center the button horizontally */
+        width: 100px;
+        height: 40px;
+        color: #000;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .padding {
+      padding-top: 80px;
+    }
+    
+    .show {
+        display: block;
+    }
+            
+    </style>
   </head>
-  <body>
+<body>
     <section id="get-involved">
       <nav>
         <div class="nav__container">
@@ -183,8 +233,14 @@
               <button type="submit" class="get-started__button">
                 Take Survey
               </button>
-            </form>
-          </div>
+              <div id="myPopup" class="popup">
+                <div class="popup-content">
+                <p>Sorry! You must be logged in to access and take the survey! Please login below.</p>
+                <div class = "padding">
+                <button id="closePopup">
+                  <li><a href="/login">Login</a></li>
+                </button>
+              </div>
         </div>
       </div>
     </section>
