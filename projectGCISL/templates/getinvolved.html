@@ -229,21 +229,20 @@
             <h1 class="crimson get-started__title">
               Click the button below to start filling our survey!
             </h1>
-            <form method="GET" action="/get_involved/survey/">
-              <button type="submit" class="get-started__button">
-                Take Survey
+            <button id="myButton" class = "get-started__button">
+              Take Survey!
+            </button>
+            <div id="myPopup" class="popup">
+              <div class="popup-content">
+              <p>Sorry! You must login to view the survey. Please login below.</p>
+              <div class = "padding">
+              <button id="closePopup">
+                <li><a href="/login">Login</a></li>
               </button>
-              <div id="myPopup" class="popup">
-                <div class="popup-content">
-                <p>Sorry! You must be logged in to access and take the survey! Please login below.</p>
-                <div class = "padding">
-                <button id="closePopup">
-                  <li><a href="/login">Login</a></li>
-                </button>
-              </div>
-        </div>
+            </div>
       </div>
-    </section>
+  </div> 
+  </section>
 
     <footer>
       <div class="section__container">
@@ -262,5 +261,19 @@
         </div>
       </div>
     </footer>
+    <script>
+      // JavaScript code to handle the popup
+      const myButton = document.getElementById('myButton');
+      const myPopup = document.getElementById('myPopup');
+      const closePopup = document.getElementById('closePopup');
+  
+      myButton.addEventListener('click', function () {
+          myPopup.style.display = 'block'; // Display the popup when the button is clicked
+      });
+  
+      closePopup.addEventListener('click', function () {
+          myPopup.style.display = 'none'; // Close the popup when the close button is clicked
+      });
+  </script>
   </body>
 </html>
