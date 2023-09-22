@@ -88,3 +88,31 @@ class GCISLUser(AbstractBaseUser,PermissionsMixin):
     @property
     def is_Faculty(self):
         return self.is_staff
+    
+class Choice(models.Model):
+    ChoiceID = models.AutoField(primary_key=True)  # Primary key, auto-generated
+    QuestionID = models.IntegerField()  # Foreign key to the Question table (adjust field type as needed)
+    ChoiceText = models.TextField()  # Text field for the choice text
+
+    def __str__(self):
+        return self.ChoiceText  # String representation of the choice
+
+    class Meta:
+        db_table = 'Choice'  # Specify the database table name
+        
+class Response(models.Model):
+    survey_id = models.IntegerField()
+    question_id = models.IntegerField() 
+    respondent_name = models.CharField(max_length=255)
+    respondent_email = models.EmailField(max_length=255)
+    response_text = models.TextField()
+    response_numeric = models.IntegerField()
+    choice_id = models.IntegerField()
+    
+    def __str__(self):
+        return f"Response by {self.respondent_name}"  # String representation of the response
+    
+    class Meta:
+        db_table = 'Response'  # Specify the database table name
+    
+    
