@@ -8,7 +8,7 @@ import datetime
 
 from psycopg2 import IntegrityError
 
-from projectGCISL.appGCISL.models import Choice, Question
+from .models import Choice, Question
 from .forms import RegistrationForm, LoginAuthForm
 
 # Create your views here.
