@@ -4,7 +4,7 @@ from django.forms import ModelForm, Form, CharField, PasswordInput, TextInput
 from django.apps import apps
 from django.contrib.auth.forms import UserCreationForm 
 from .models import GCISLUser, UserManager, Survey, Question, Choice, Response
-from django.core.exceptions import ValidationError, 
+from django.core.exceptions import ValidationError
 
 GCISLUser = apps.get_model('appGCISL', 'GCISLUser')
 Survey = apps.get_model('appGCISL', 'Survey')

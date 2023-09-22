@@ -85,3 +85,10 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('landing')
+
+# Create views for customized survey page
+def create_question(request):
+    if request.method == 'POST':
+        pass
+    else:
+        pass    
