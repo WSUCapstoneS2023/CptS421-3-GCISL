@@ -1,5 +1,6 @@
 # https://docs.djangoproject.com/en/4.2/topics/forms/modelforms/
 # good website for understanding these forms
+from django import forms
 from django.forms import ModelForm, Form, CharField, PasswordInput, TextInput
 from django.apps import apps
 from django.contrib.auth.forms import UserCreationForm 
