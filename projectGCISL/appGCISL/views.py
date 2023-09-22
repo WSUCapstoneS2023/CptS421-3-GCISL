@@ -126,3 +126,11 @@ def create_question(request):
     # Handle GET requests here (render a form or a page to create questions)
 
     return render(request, 'survey-faculty.html')
+  
+# Create views for customized survey page
+def create_question(request):
+    if request.method == 'POST':
+        pass
+    else:
+        pass    
+

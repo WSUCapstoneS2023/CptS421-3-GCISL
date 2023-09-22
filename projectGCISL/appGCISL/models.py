@@ -109,6 +109,7 @@ class Question(models.Model):
     class Meta:
         managed = False
         db_table = 'question'
+        
 
 class Choice(models.Model):
     choiceid = models.IntegerField(primary_key=True)
@@ -133,7 +134,7 @@ class Response(models.Model):
         managed = False
         db_table = 'response'
 
-
+   
 
 # class Survey(models.Model):
 #     survey_id = models.IntegerField(verbose_name='survey_id', primary_key=True)
