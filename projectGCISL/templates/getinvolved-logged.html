@@ -6,6 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get Involved!</title>
     <link rel="stylesheet" href="/static/css/getinvolved.css" />
+    <style>
+    .popup {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: none;
+  }
+  
+  .popup-content {
+      background-color: #4d4d4d;
+      margin: 10% auto;
+      padding: 40px;
+      padding-top: 50px;
+      padding-bottom: 180px;
+      border: 1px solid #888888;
+      width: 50%; /* Adjust the width as needed */
+      max-width: 600px; /* Add a maximum width to avoid excessive width on larger screens */
+      height: 45%;
+      font-weight: bolder;
+      color: white;
+      border-radius: 20px;
+      text-align: center; /* Center the content horizontally */
+      font-size: 16px;
+      font-family: ubuntu;
+  }
+  
+  .popup-content button {
+      display: block;
+      margin: 0 auto; /* Center the button horizontally */
+      width: 100px;
+      height: 40px;
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+  }
+
+  .padding {
+    padding-top: 25px;
+  }
+  
+  .show {
+      display: block;
+  }
+</style>
   </head>
   <body>
     <section id="get-involved">
@@ -187,14 +236,20 @@
             <h1 class="crimson get-started__title">
               Click the button below to start filling our survey!
             </h1>
-            <form method="GET" action="/get_involved/survey/">
-              <button type="submit" class="get-started__button">
-                Take Survey
+            <button id="myButton" class = "get-started__button">
+                Take Survey!
+            </button>
+            <div id="myPopup" class="popup">
+              <div class="popup-content">
+              <p>You are about to take part in a survey that collects personal information that will be viewed by our staff. Please ensure that you agree to all terms and conditions before proceeding.</p>
+              <p><a href="/">Terms And Conditions</a></p>
+              <div class = "padding">
+              <button id="closePopup">
+                <li><a href="/survey">I Agree</a></li>
               </button>
-            </form>
-          </div>
-        </div>
+            </div>
       </div>
+  </div> 
     </section>
 
     <footer>
@@ -214,5 +269,18 @@
         </div>
       </div>
     </footer>
+    <script>
+      myButton.addEventListener("click", function () {
+          myPopup.classList.add("show");
+      });
+      closePopup.addEventListener("click", function () {
+          myPopup.classList.remove("show");
+      });
+      window.addEventListener("click", function (event) {
+          if (event.target == myPopup) {
+              myPopup.classList.remove("show");
+          }
+      });
+  </script>
   </body>
 </html>

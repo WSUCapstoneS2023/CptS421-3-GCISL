@@ -293,6 +293,14 @@ footer {
   justify-content: center;
 }
 
+.space{
+  padding-top: 50px;
+  text-align: center;
+  color: black;
+}
+
+
+
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 900px) {
   .nav__container {
@@ -330,7 +338,9 @@ footer {
     top: 50vh;
     right: 5vw;
   }
+
 }
+
 
 @media screen and (max-width: 550px) {
   .nav__container {
