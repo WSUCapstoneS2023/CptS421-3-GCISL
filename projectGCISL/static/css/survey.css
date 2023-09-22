@@ -133,6 +133,7 @@ button {
   margin-bottom: 20px;
 }
 
+
 .body1 {
   text-align: center;
   padding-top: 10px;
@@ -312,6 +313,60 @@ footer {
 .logo {
   width: 100%;
 }
+
+/* Add your CSS styles here */
+/* Example styles */
+body {
+  font-family: Ubuntu;
+}
+
+.form-control {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.question-label {
+  font-weight: bold;
+}
+
+.add-question {
+  margin-top: 10px;
+  width: 20%;
+  height: 20%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+}
+
+
+.add-choice {
+  margin-top: 10px;
+  width: 20%;
+  height: 20%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+}
+
+.choices {
+  margin-top: 10px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 15px;
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.choice-input {
+  padding-left: 10px;
+  margin-top: 10px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 15px;
+  width: 40%;
+  height: 35px;
+  margin-right: auto; /* Add this line to move them to the left */
+}
+
+
+/* ... Add more styles as needed ... */
+
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 900px) {

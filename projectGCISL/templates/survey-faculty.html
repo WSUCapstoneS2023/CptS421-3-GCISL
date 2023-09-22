@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-YU6DRH0y3fUz+NCU8YwY6HtsGZfQ2lmc1AnQ2D+u5X9e5MQ5ct5S5+LS7Vv5mNNa4/bVJ/cbs4BNf6/0U6Xopg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="\projectGCISL\static\css\survey.css">
+    <title>Survey</title>
+</head>
+<body>
+    <!-- <div class="header">
+        <a href="#default" class="logo">gciConnect!</a>
+        <div class="header-right">
+          <a class="active" href="#home">Get Involved!</a>
+          <a href="/contact">Contact Us</a>
+          <a href="/about">About</a>
+          <figure class="profile__picture--wrapper">
+            <img
+              src="/static/assets/general/icon.png"
+              alt=""
+              class="profile__picture"
+              id="profile-picture"
+            />
+          </figure>
+        </div>
+    </div> -->
+    <section id="survey">
+        <nav>
+          <div class="nav__container">
+            <a href="/" class="logo__wrapper">
+                <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+                <img src="/static/assets/logo/GCISL_logo_fullcolor.png" alt="" class="header_logo"/>
+              </a>
+            <ul class="nav__links">
+              <li><a href="/get_involved" class="nav__link active">Get Involved!</a></li>
+              <li><a href="/contact" class="nav__link">Contact Us</a></li>
+              <li><a href="/about" class="nav__link">About</a></li>
+              <li>
+                <figure class="profile__picture--wrapper">
+                  <img
+                    src="/static/assets/general/icon.png"
+                    alt=""
+                    class="profile__picture"
+                    id="profile-picture"
+                  />
+                </figure>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </section>
+
+    <div class = "body1">
+        <p>Please fill in the information below</p>
+    </div>
+
+    <div class = "body2">
+        <p>Please note that by submitting this survey, you confirm that all the information </p>
+        <p> provided is correct and accurate to the best of your knowledge </p>
+    </div>
+
+    <!-- Create Form -->
+    <form id="dynamic-form">
+        <!-- Container for questions and choices -->
+        <div id="questions-container">
+            <!-- Initial question and choice -->
+            <div class="question" data-index="0">
+                <div class="form-control">
+                    <label for="question" class="question-label">Question 1</label>
+                    <input type="text" class="question-input" name="question[0][text]" placeholder="Enter the question">
+                </div>
+                <div class="form-control">
+                    <label for="question-type">Question Type:</label>
+                    <select class="question-type" name="question[0][type]">
+                        <option value="text">Text</option>
+                        <option value="multiple_choice">Multiple Choice</option>
+                        <option value="dropdown">Checkbox</option>
+                        <option value="checkbox">Numeric</option>
+                    </select>
+                </div>
+                <div class="choices">
+                    <div class="choice">
+                        <input type="text" class="choice-input" name="choice[0][choices][]" placeholder="Choice 1">
+                    </div>
+                </div>
+                <button type="button" class="add-choice">Add Choice</button>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="add-question">Add Question</button>
+    <button type="submit">Submit</button>
+        <!-- Details -->
+        <div class="form-control">
+            <label for="name" id="label-name">
+                Name
+            </label>
+ 
+            <!-- Input Type Text -->
+            <input type="text"
+                   id="name"
+                   placeholder="Enter your name" />
+        </div>
+  
+        <div class="form-control">
+            <label for="email" id="label-email">
+                Email
+            </label>
+ 
+            <!-- Input Type Email-->
+            <input type="email"
+                   id="email"
+                   placeholder="Enter your email" />
+        </div>
+  
+        <div class="form-control">
+            <label for="role" id="label-role">
+                Age Range
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="role" id="role">
+                <option value="55-65">55-65</option>
+                <option value="66-75">66-75</option>
+                <option value="76+">
+                    76+
+                </option>
+            </select>
+        </div>
+  
+        <div class="form-control">
+            <label for="role" id="label-role">
+                Which option best describes your interests?
+            </label>
+             
+            <!-- Dropdown options -->
+            <select name="role" id="role">
+                <option value="research">Research Involvement</option>
+                <option value="teach">Teaching, Mentorship, & Learning</option>
+                <option value="support">
+                    Outreach & Support
+                </option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+  
+        <div class="form-control">
+            <label>
+                Which gender do you identify with?
+            </label>
+ 
+            <!-- Input Type Radio Button -->
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed">Male</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Female</input>
+            </label>
+            <label for="recommed-3">
+                <input type="radio"
+                       id="recommed-3"
+                       name="recommed">Other</input>
+                       <div class="form-control">
+     
+                        <!-- Input Type Email-->
+                        <input type="other"
+                               id="other"
+                               placeholder="" />
+                    </div>
+            </label>
+        
+            
+        </div>
+  
+        <div class="form-control">
+            <label>Which group(s) best describe you?
+                <small>(Check all that apply)</small>
+            </label>
+            <!-- Input Type Checkbox -->
+            <label for="inp-1">
+                <input type="checkbox"
+                       name="inp">White</input></label>
+            <label for="inp-2">
+                <input type="checkbox"
+                       name="inp">Hispanic, Latinx, or Spanish origin</input></label>
+            <label for="inp-3">
+                <input type="checkbox"
+                       name="inp">American Indian or Alaska Native</input></label>
+            <label for="inp-4">
+                <input type="checkbox"
+                       name="inp">Asian</input></label>
+            <label for="inp-5">
+                <input type="checkbox"
+                       name="inp">Middle Eastern or North African</input></label>
+            <label for="inp-6">
+                <input type="checkbox"
+                       name="inp">Native Hawaiian or Other Pacific Islander</input></label>
+            <label for="inp-7">
+                <input type="checkbox"
+                       name="inp">Black or African American</input></label>
+                       <label for="inp-7">
+                        <input type="checkbox"
+                               name="inp">Prefer not to answer</input></label>
+                       <label for="inp-7">
+                <input type="checkbox"
+                       name="inp">Other</input></label>
+                       <div class="form-control">
+     
+                        <!-- Input Type Email-->
+                        <input type="other"
+                               id="other"
+                               placeholder="" />
+                    </div>
+        </div>
+
+        <div class="form-control">
+            <label>
+                Please indicate your political preference, if any:
+            </label>
+ 
+            <!-- Input Type Radio Button -->
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed">Apolitical</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Democrat</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Republican</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Independent</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Prefer not to answer</input>
+            </label>
+            <label for="recommed-3">
+                <input type="radio"
+                       id="recommed-3"
+                       name="recommed">Other</input>
+                       <div class="form-control">
+     
+                        <!-- Input Type Email-->
+                        <input type="other"
+                               id="other"
+                               placeholder="" />
+                    </div>
+            </label>   
+        </div>
+
+        <div class="form-control">
+            <label>
+                Please indicate your religious preference, if any:
+            </label>
+ 
+            <!-- Input Type Radio Button -->
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed">Agnostic</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Atheist</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Buddhist</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Christian (Catholic, Protestant, or any other Christian denomination)</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Hindu</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Jewish</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Muslim</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Orthodox, such as Greek or Russian</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Spiritual, non-religious</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Nothing in particular</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Prefer not to answer</input>
+            </label>
+            <label for="recommed-3">
+                <input type="radio"
+                       id="recommed-3"
+                       name="recommed">Other</input>
+                       <div class="form-control">
+     
+                        <!-- Input Type Email-->
+                        <input type="other"
+                               id="other"
+                               placeholder="" />
+                    </div>
+            </label>   
+        </div>
+
+        <div class="form-control">
+            <label>
+                What is your employment status?
+            </label>
+ 
+            <!-- Input Type Radio Button -->
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed">Not employed</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Part-time</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Full-time</input>
+            </label>
+            <label for="recommed-3">
+                <input type="radio"
+                       id="recommed-3"
+                       name="recommed">Other</input>
+                       <div class="form-control">
+     
+                        <!-- Input Type Email-->
+                        <input type="other"
+                               id="other"
+                               placeholder="" />
+                    </div>
+            </label>
+        
+            
+        </div>
+        
+        <div class="form-control">
+            <label>
+                Your family's socioeconmoic status:
+            </label>
+ 
+            <!-- Input Type Radio Button -->
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed">Upper class</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Middle class</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Working class</input>
+            </label>
+            <label for="recommed-3">
+                <input type="radio"
+                       id="recommed-3"
+                       name="recommed">Working poor</input>
+            </label>
+            <label for="recommed-3">
+                <input type="radio"
+                       id="recommed-3"
+                       name="recommed">Poverty level</input>
+            </label>
+        
+            
+        </div>
+
+        <div class="form-control">
+            <label>
+                In general, you would say your physical health is:
+            </label>
+ 
+            <!-- Input Type Radio Button -->
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed">Poor</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Fair</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Good</input>
+            </label>
+            <label for="recommed-3">
+                <input type="radio"
+                       id="recommed-3"
+                       name="recommed">Very Good</input>
+            </label>
+            <label for="recommed-3">
+                <input type="radio"
+                       id="recommed-3"
+                       name="recommed">Excellent</input>
+            </label>
+        
+            
+        </div>
+
+        <div class="form-control">
+            <label>
+                In general, you would say your mental health is:
+            </label>
+ 
+            <!-- Input Type Radio Button -->
+            <label for="recommed-1">
+                <input type="radio"
+                       id="recommed-1"
+                       name="recommed">Poor</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Fair</input>
+            </label>
+            <label for="recommed-2">
+                <input type="radio"
+                       id="recommed-2"
+                       name="recommed">Good</input>
+            </label>
+            <label for="recommed-3">
+                <input type="radio"
+                       id="recommed-3"
+                       name="recommed">Very Good</input>
+            </label>
+            <label for="recommed-3">
+                <input type="radio"
+                       id="recommed-3"
+                       name="recommed">Excellent</input>
+            </label>
+        
+            
+        </div>
+        
+  
+        <div class="form-control">
+            <label for="comment">
+                Additional comments, questions, or concerns?
+            </label>
+ 
+            <!-- multi-line text input control -->
+            <textarea name="comment" id="comment"
+                placeholder="Enter your comment here">
+            </textarea>
+        </div>
+  
+        <!-- Multi-line Text Input Control -->
+        <button type="submit" value="submit">
+            Submit
+        </button>
+    </form>
+    <footer>
+        <div class="section__container">
+          <div class="section__row">
+            <div class="footer__wrapper">
+                <a href="/" class="footer__logo">
+                  <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+                  <img src="/static/assets/logo/GCISL_logo_white.png" alt="" class="logo"/>
+                </a>
+              <div class="footer__list">
+                <a href="/get_involved" class="footer__link">Get Involved!</a>
+                <a href="/contact" class="footer__link">Contact Us</a>
+                <a href="/about" class="footer__link">About</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script>
+        
+        // Adds choice when 'Add Button' is clicked
+        function addChoice(question) {
+            // selects container element with class 'choices' in specific question
+            // question parameter is a reference to the question where choice is added
+            // holds choices together to make it easier to add/delete
+            const choicesContainer = question.querySelector('.choices');
+
+            // new choice to be added. div contains choice input field
+            const newChoice = document.createElement('div');
+
+            // adds choice to div element
+            newChoice.classList.add('choice');
+
+            // used to create and append new elements
+            newChoice.innerHTML = `<input type="text" class="choice-input" name="choice[${question.dataset.index}][]" placeholder="Choice ${choicesContainer.children.length + 1}">`;
+            
+            // adds the element to the list of choices
+            choicesContainer.appendChild(newChoice);
+        }
+
+        let questionIndex = 2; // Initialize the question index
+
+        // Adds new question to the survey form when clicked
+        function addQuestion() {
+            // selects element by ID, which will store all questions in the survey
+            // holds all questions in a container. makes it easier to store questions and manage them dynamically
+            const questionsContainer = document.getElementById('questions-container');
+            
+            // the div represents new question in survey
+            const newQuestion = document.createElement('div');
+
+            // adds questions class to the newQuestion element 
+            newQuestion.classList.add('question');
+            newQuestion.dataset.index = questionIndex; // Set the question index
+            
+            // sets HTML content of our new question
+            newQuestion.innerHTML = `
+                <div class="form-control">
+                    <label for="question" class="question-label">Question ${questionIndex}</label>
+                    <input type="text" class="question-input" name="question[${questionIndex}][text]" placeholder="Enter the question">
+                </div>
+                <div class="form-control">
+                    <label for="question-type">Question Type:</label>
+                    <select class="question-type" name="question[${questionIndex}][type]">
+                        <option value="text">Text</option>
+                        <option value="multiple_choice">Multiple Choice</option>
+                        <option value="dropdown">Dropdown</option>
+                        <option value="checkbox">Checkbox</option>
+                        <option value="numeric">Numeric</option>
+                    </select>
+                </div>
+                <div class="choices">
+                    <div class="choice">
+                        <input type="text" class="choice-input" name="choice[${questionIndex}][]" placeholder="Choice 1">
+                    </div>
+                </div>
+                <button type="button" class="add-choice">Add Choice</button>
+            `;
+
+            // add newQuestion element to the container
+            questionsContainer.appendChild(newQuestion);
+            
+            // increment the question index so next question number increments
+            questionIndex++; // Increment the question index
+        }
+        
+        // Add event listener to the initial "Add Question" button
+        document.querySelector('.add-question').addEventListener('click', addQuestion);
+        
+        // Add event listener for "Add Choice" buttons
+        // Dynamically add choices to questions when Add choice button is clicked.
+        document.getElementById('questions-container').addEventListener('click', function(event) {
+            if (event.target && event.target.classList.contains('add-choice')) {
+                const question = event.target.closest('.question');
+                addChoice(question);
+            }
+        });
+        
+    </script>
+</body>
+</html>
