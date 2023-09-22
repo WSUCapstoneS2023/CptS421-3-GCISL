@@ -88,3 +88,54 @@ class GCISLUser(AbstractBaseUser,PermissionsMixin):
     @property
     def is_Faculty(self):
         return self.is_staff
+    
+class Survey(models.Model):
+    SurveyID = models.IntegerField(verbose_name='survey_id', primary_key=True)
+    Title = models.CharField(verbose_name='title', max_length=255)
+    Description = models.TextField(verbose_name='description')
+    StartDate = models.DateTimeField(verbose_name='start_date')
+    EndDate = models.DateTimeField(verbose_name='end_date')
+
+    def str(self):
+        return f"Response by {self.Title}"  # String representation of the response
+
+    class Meta:
+        db_table = 'Survey'  # Specify the database table name
+
+class Question(models.Model):
+    QuestionID = models.IntegerField(verbose_name='question_id', primary_key=True)
+    SurveyID = models.ForeignKey("Survey", on_delete=models.SET_NULL)
+    QuestionText = models.TextField(verbose_name='question_text')
+    QuestionType = models.TextChoices("Multiple Choice", "Text", "Numeric")
+
+    def str(self):
+        return f"Response by {self.QuestionText}"  # String representation of the response
+
+    class Meta:
+        db_table = 'Question'  # Specify the database table name
+
+class Choice(models.Model):
+    ChoiceID = models.AutoField(verbose_name='choice_id',primary_key=True)  # Primary key, auto-generated
+    QuestionID = models.ForeignKey("Question", on_delete=models.SET_NULL)  # Foreign key to the Question table (adjust field type as needed)
+    ChoiceText = models.TextField(verbose_name='choice_text', null=False)  # Text field for the choice text
+
+    def str(self):
+        return self.ChoiceText  # String representation of the choice
+
+    class Meta:
+        db_table = 'Choice'  # Specify the database table name
+
+class Response(models.Model):
+    SurveyID = models.ForeignKey("Survey", on_delete=models.SET_NULL)
+    QuestionID = models.ForeignKey("Question", on_delete=models.SET_NULL) 
+    RespondentName = models.CharField(verbose_name='respondent_name', max_length=255)
+    RespondentEmail = models.EmailField(verbose_name='respondent_email',max_length=255)
+    ResponseText = models.TextField(verbose_name='response_text')
+    ResponseNumeric = models.IntegerField(verbose_name='response_numeric')
+    ChoiceID = models.ForeignKey("Choices", on_delete=models.SET_NULL)
+
+    def str(self):
+        return f"Response by {self.RespondentName}"  # String representation of the response
+
+    class Meta:
+        db_table = 'Response'  # Specify the database table name
