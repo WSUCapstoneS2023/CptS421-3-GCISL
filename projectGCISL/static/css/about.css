@@ -202,6 +202,10 @@ footer {
     color: #A60F2D;
 }
 
+.footer__logo .gciConnect__logo {
+    color: #fff;
+}
+
 .footer__gci__logo{
     margin-left: 20px;
     max-width: 35%;
