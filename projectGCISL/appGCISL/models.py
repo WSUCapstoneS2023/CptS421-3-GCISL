@@ -90,38 +90,38 @@ class GCISLUser(AbstractBaseUser,PermissionsMixin):
         return self.is_staff
 
 class Survey(models.Model):
-    surveyid = models.IntegerField(primary_key=True)
+    surveyid = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     startdate = models.DateField(blank=True, null=True)
     enddate = models.DateField(blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'survey'
 
 class Question(models.Model):
-    questionid = models.IntegerField(primary_key=True)
+    questionid = models.AutoField(primary_key=True)
     surveyid = models.ForeignKey('Survey', models.DO_NOTHING, db_column='surveyid', blank=True, null=True)
     questiontext = models.TextField()
     questiontype = models.TextField(blank=True, null=True)  # This field type is a guess.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'question'
         
 
 class Choice(models.Model):
-    choiceid = models.IntegerField(primary_key=True)
+    choiceid = models.AutoField(primary_key=True)
     questionid = models.ForeignKey('Question', models.DO_NOTHING, db_column='questionid', blank=True, null=True)
     choicetext = models.TextField()
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'choice'
 
 class Response(models.Model):
-    responseid = models.IntegerField(primary_key=True)
+    responseid = models.AutoField(primary_key=True)
     surveyid = models.ForeignKey('Survey', models.DO_NOTHING, db_column='surveyid', blank=True, null=True)
     questionid = models.ForeignKey('Question', models.DO_NOTHING, db_column='questionid', blank=True, null=True)
     respondentname = models.CharField(max_length=255, blank=True, null=True)
@@ -131,7 +131,7 @@ class Response(models.Model):
     choiceid = models.ForeignKey('Choice', models.DO_NOTHING, db_column='choiceid', blank=True, null=True)
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'response'
 
    
