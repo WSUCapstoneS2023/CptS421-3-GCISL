@@ -97,7 +97,6 @@ class Survey(models.Model):
     enddate = models.DateField(blank=True, null=True)
 
     class Meta:
-        managed = True
         db_table = 'survey'
 
 class Question(models.Model):
@@ -107,7 +106,6 @@ class Question(models.Model):
     questiontype = models.TextField(blank=True, null=True)  # This field type is a guess.
 
     class Meta:
-        managed = True
         db_table = 'question'
         
 
@@ -117,7 +115,6 @@ class Choice(models.Model):
     choicetext = models.TextField()
 
     class Meta:
-        managed = True
         db_table = 'choice'
 
 class Response(models.Model):
@@ -131,7 +128,6 @@ class Response(models.Model):
     choiceid = models.ForeignKey('Choice', models.DO_NOTHING, db_column='choiceid', blank=True, null=True)
 
     class Meta:
-        managed = True
         db_table = 'response'
 
    
