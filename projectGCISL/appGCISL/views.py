@@ -109,7 +109,6 @@ def survey_faculty_view(request, survey_id):
             if qform.is_valid():
                 qform.instance.surveyid = Survey.objects.get(surveyid=survey_id)
                 question = qform.save()
-                print(question.surveyid)
                 return redirect(f'/survey-faculty/{survey_id}/')
         elif 'CreateChoiceButton' in request.POST:
             cform = ChoiceForm(request.POST)
@@ -125,20 +124,28 @@ def survey_faculty_view(request, survey_id):
         else:
             return HttpResponse('<h1>Custom Error</h1>', status=418)
     else:
-        sform = SurveyForm()
-        qform = QuestionForm()
-        cform = ChoiceForm()
-        if request.user.is_authenticated and request.user.is_staff:
-            # get survey data, all questions attached, and choices that belong to the survey
-            survey = getSurvey(survey_id)
-            allSurveys = Survey.objects.all()
-            questions = getQuestions(survey_id)
-            choices = Choice.objects.all()
-            print(survey.title)
-            return render(request, 'survey-faculty.html', {'sform': sform, 'qform' : qform, 'cform' : cform, 'survey' : survey, 'questions': questions, 'choices' : choices, 'allSurveys' : allSurveys})
+        # survey gets filtered
+        if 'titles' in request.GET:
+            selected_survey_id = request.GET.get('titles')
+            # check for None case
+            if selected_survey_id != None:
+                return redirect(f'/survey-faculty/{selected_survey_id}')
+        # normal get request to render the page
         else:
-            # user is not faculty, should not be able to view the survey customize screen!
-            return render(request, 'getinvolved-logged.html')
+            sform = SurveyForm()
+            qform = QuestionForm()
+            cform = ChoiceForm()
+            if request.user.is_authenticated and request.user.is_staff:
+                # get survey data, all questions attached, and choices that belong to the survey
+                survey = getSurvey(survey_id)
+                allSurveys = Survey.objects.all()
+                questions = getQuestions(survey_id)
+                choices = Choice.objects.all()
+                return render(request, 'survey-faculty.html', {'sform': sform, 'qform' : qform, 'cform' : cform, 'survey' : survey, 'questions': questions, 'choices' : choices, 'allSurveys' : allSurveys})
+            else:
+                # user is not faculty, should not be able to view the survey customize screen!
+                return render(request, 'getinvolved-logged.html')
+
 
 ## helpers
 # function returns survey with specific id
