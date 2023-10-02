@@ -8,8 +8,8 @@ import datetime
 
 from psycopg2 import IntegrityError
 
-from .models import Choice, Question
-from .forms import RegistrationForm, LoginAuthForm
+from .models import Choice, Question, Survey
+from .forms import RegistrationForm, LoginAuthForm, QuestionForm, SurveyForm, ChoiceForm, ResponseForm
 
 # Create your views here.
 # home view
@@ -91,46 +91,85 @@ def logout_view(request):
     logout(request)
     return redirect('landing')
 
-def survey_faculty_view(request):
-    return render(request, 'survey-faculty.html')
-
-def create_question(request):
+## the view that processes new Survey creations, Question Creations, and Choice creations
+def survey_faculty_view(request, survey_id):
     if request.method == 'POST':
-        try:
-            # Validate the form data
-            question_text = request.POST['questiontext']
-            question_type = request.POST['questiontype']
-            choices = request.POST.getlist('choices')  # Assuming you have a form field for choices
-
-            # Create a new Question
-            question = Question(
-                questiontext=question_text,
-                questiontype=question_type,
-            )
-            question.save()
-
-            # Create Choices associated with the Question
-            for choice_text in choices:
-                choice = Choice(
-                    questionid=question,
-                    choicetext=choice_text,
-                )
-                choice.save()
-
-            return redirect('/?msg=success')
-        except ValidationError as e:
-            return redirect(f'/?msg={str(e)}')
-        except IntegrityError as e:
-            return redirect(f'/?msg={str(e)}')
-    
-    # Handle GET requests here (render a form or a page to create questions)
-
-    return render(request, 'survey-faculty.html')
-  
-# Create views for customized survey page
-def create_question(request):
-    if request.method == 'POST':
-        pass
+        ## check for creation of a new survey, new question, or new choice
+        if 'CreateSurveyButton' in request.POST:
+            sform = SurveyForm(request.POST)
+            if sform.is_valid():
+                # form is valid save the new survey and redirect to the new survey screen!
+                sform.instance.startdate = datetime.date.today()
+                survey = sform.save()
+                return redirect(f'/survey-faculty/{survey.surveyid}/', survey=survey)
+            else:
+                print(sform.errors)
+        elif 'CreateQuestionButton' in request.POST:
+            qform = QuestionForm(request.POST)
+            if qform.is_valid():
+                qform.instance.surveyid = Survey.objects.get(surveyid=survey_id)
+                question = qform.save()
+                return redirect(f'/survey-faculty/{survey_id}/')
+        elif 'CreateChoiceButton' in request.POST:
+            cform = ChoiceForm(request.POST)
+            # set current survey Id to the choice
+            questionid = request.POST.get('questionid')
+            # cform.instance.questionid = Question.objects.get(questionid=int(questionid))
+            if cform.is_valid():
+                cform.instance.questionid = Question.objects.get(questionid=int(questionid))
+                choice = cform.save()
+                return redirect(f'/survey-faculty/{survey_id}/')
+            else:
+                print(cform.errors)
+        else:
+            return HttpResponse('<h1>Custom Error</h1>', status=418)
     else:
-        pass    
+        # survey gets filtered
+        if 'titles' in request.GET:
+            selected_survey_id = request.GET.get('titles')
+            # check for None case
+            if selected_survey_id != None:
+                return redirect(f'/survey-faculty/{selected_survey_id}')
+        # normal get request to render the page
+        else:
+            sform = SurveyForm()
+            qform = QuestionForm()
+            cform = ChoiceForm()
+            if request.user.is_authenticated and request.user.is_staff:
+                # get survey data, all questions attached, and choices that belong to the survey
+                survey = getSurvey(survey_id)
+                allSurveys = Survey.objects.all()
+                questions = getQuestions(survey_id)
+                choices = Choice.objects.all()
+                return render(request, 'survey-faculty.html', {'sform': sform, 'qform' : qform, 'cform' : cform, 'survey' : survey, 'questions': questions, 'choices' : choices, 'allSurveys' : allSurveys})
+            else:
+                # user is not faculty, should not be able to view the survey customize screen!
+                return render(request, 'getinvolved-logged.html')
+
+
+## helpers
+# function returns survey with specific id
+def getSurvey(survey_id):
+    try:
+        survey = Survey.objects.get(surveyid=survey_id)
+        print(survey.title)
+        return survey 
+    except Survey.DoesNotExist:
+        return None
+
+# returns the collection of questions
+def getQuestions(survey_id):
+    try:
+        return Question.objects.filter(surveyid=survey_id).order_by('questionid')
+    except Question.DoesNotExist:
+        return None
+
+# # returns the collection of choices matching the survey and question
+# def getQuestionChoices(survey_id):
+#     try:
+#         return Choice.objects.filter(surveyid=survey_id).order_by('choiceid')
+#     except Choice.DoesNotExist:
+#         return None
+
+        
 

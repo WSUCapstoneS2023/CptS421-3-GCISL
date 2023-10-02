@@ -77,7 +77,7 @@ ROOT_URLCONF = 'projectGCISL.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,13 +99,17 @@ WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'iakvhaso',
+    #     'USER' : 'iakvhaso',
+    #     'PASSWORD': '3aXyp7AwTBHNVElrCP00AGcvBVM2FWHf',
+    #     'HOST': 'jelani.db.elephantsql.com',
+    #     'PORT' : '5432'
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'iakvhaso',
-        'USER' : 'iakvhaso',
-        'PASSWORD': '3aXyp7AwTBHNVElrCP00AGcvBVM2FWHf',
-        'HOST': 'jelani.db.elephantsql.com',
-        'PORT' : '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'C:\School\CptS 421\GCISL Capstone Repo\CptS421-3-GCISL\projectGCISL\db.sqlite3'),  # Update the path to your SQLite database file
     }
 }
 

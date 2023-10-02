@@ -83,7 +83,22 @@ class SurveyForm(ModelForm):
         model = Survey
         fields = ['title', 'description', 'startdate', 'enddate']
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['title'].widget.attrs.update({'class': 'custom-input'})
+        self.fields['enddate'].widget=forms.DateInput(attrs={'type': 'date'})
+
 class QuestionForm(ModelForm):
+    QUESTION_TYPE_CHOICES = [
+        ('multiple_choice', 'Multiple Choice'),
+        ('text', 'Text'),
+        ('checkbox', 'Checkbox'),
+        ('numeric', 'Numeric')
+        # Add more choices as needed
+    ]
+
+    questiontype = forms.ChoiceField(choices=QUESTION_TYPE_CHOICES)  # Add a CSS class for styling
+
     class Meta:
         model = Question
         fields = ['surveyid', 'questiontext', 'questiontype']
