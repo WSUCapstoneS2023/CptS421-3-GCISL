@@ -98,14 +98,17 @@
     <!-- load the java script function to refresh page when a new survey is selected-->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Your code here
+        // survey function call after the file is loaded
         dropDownSurveyTitle();
       });
 
       function dropDownSurveyTitle() {
+        // get the dropdown element
         const elem = document.getElementById('survey-titles');
+        // look for a change in the selection
         elem.addEventListener('change', function() {
-            document.getElementById('filter-form').submit();
+          // submit the form after the change  
+          document.getElementById('filter-form').submit();
         });
       }
     </script>

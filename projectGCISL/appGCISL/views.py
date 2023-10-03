@@ -6,7 +6,6 @@ from django.contrib.auth import login, logout, authenticate
 from django.views.generic import TemplateView, CreateView
 import datetime
 
-from psycopg2 import IntegrityError
 
 from .models import Choice, Question, Survey
 from .forms import RegistrationForm, LoginAuthForm, QuestionForm, SurveyForm, ChoiceForm, ResponseForm
@@ -29,7 +28,29 @@ def getinvolved_view(request):
 
 # Survey
 def survey_view(request):
-    return render(request, 'survey.html')
+    # not sure how we are planning on identifying the current survey.
+    survey = getCurrentSurvey()
+    questions = getQuestions(survey)
+    count = 0
+    for question in questions:
+        count = count + 1
+    # will hold all forms required for each question
+    rforms = [ResponseForm(surveyid=survey) for i in range(count)]
+
+    # handle post methods
+    if request.method == "POST":
+        for rform in rforms:
+            if rform.is_valid():
+                rform.save()
+        return redirect('getinvolved')
+    # handle get request
+    elif request.method == "GET":
+        # passing in the current survey, questions related to the survey, and an array of 
+        return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'rforms': rforms})
+    else:
+        pass
+    
+
 
 # Contact
 def contact_view(request):
@@ -163,6 +184,18 @@ def getQuestions(survey_id):
         return Question.objects.filter(surveyid=survey_id).order_by('questionid')
     except Question.DoesNotExist:
         return None
+
+def getCurrentSurvey():
+        today = datetime.datetime.now()
+        surveys = Survey.objects.all()
+        for survey in surveys:
+            d2 = datetime.datetime.strptime(survey.enddate, "%d/%m/%Y").date()
+            if d2 > today:
+                # date is valid return current survey
+                return survey
+        # case where no surveys are valid return None
+        return None
+
 
 # # returns the collection of choices matching the survey and question
 # def getQuestionChoices(survey_id):
