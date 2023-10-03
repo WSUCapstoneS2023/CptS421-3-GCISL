@@ -34,8 +34,10 @@ def survey_view(request):
     count = 0
     for question in questions:
         count = count + 1
+    
     # will hold all forms required for each question
-    rforms = [ResponseForm(surveyid=survey) for i in range(count)]
+    rforms = [ResponseForm({'surveyid': survey, 'respondentname': request.user.first_name + " " + request.user.last_name, 'respondentemail': request.user.email}) for _ in range(count)]
+
 
     # handle post methods
     if request.method == "POST":
@@ -45,8 +47,10 @@ def survey_view(request):
         return redirect('getinvolved')
     # handle get request
     elif request.method == "GET":
-        # passing in the current survey, questions related to the survey, and an array of 
-        return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'rforms': rforms})
+        # passing in the current survey, questions related to the survey, and an array of
+        # checks also if user is authenticated and user is resident
+        if request.user.is_athenticated and request.user.is_resident: 
+            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'rforms': rforms})
     else:
         pass
     
@@ -186,10 +190,10 @@ def getQuestions(survey_id):
         return None
 
 def getCurrentSurvey():
-        today = datetime.datetime.now()
+        today = datetime.datetime.now().date()
         surveys = Survey.objects.all()
         for survey in surveys:
-            d2 = datetime.datetime.strptime(survey.enddate, "%d/%m/%Y").date()
+            d2 = datetime.datetime.strptime(str(survey.enddate.day)+"/"+str(survey.enddate.month)+"/"+str(survey.enddate.year), "%d/%m/%Y").date()
             if d2 > today:
                 # date is valid return current survey
                 return survey
