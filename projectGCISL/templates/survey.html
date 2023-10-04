@@ -45,102 +45,41 @@
 
     <!-- Create Form -->
     <form id="form" action="" method="post">
-
         {% csrf_token %}
-        <!-- Details -->
-        <div class="form-control">
-            <label for="name" id="label-name">
-                Name
-            </label>
-
-            <!-- Input Type Text -->
-            <input type="text" id="name" name="name" placeholder="Enter your name" />
-        </div>
-
-        <div class="form-control">
-            <label for="email" id="label-email">
-                Email
-            </label>
-
-            <!-- Input Type Email-->
-            <input type="email" id="email" name="email" placeholder="Enter your email" />
-        </div>
-
-        <div class="form-control">
-            <label for="interests" id="label-interests">
-                Which option best describes your interests?
-            </label>
-
-            <!-- Dropdown options -->
-            <select name="interests" id="interests">
-                <option value="research">Research Involvement</option>
-                <option value="teach">Teaching, Mentorship, & Learning</option>
-                <option value="support">Outreach & Support</option>
-                <option value="other">Other</option>
-            </select>
-        </div>
-
-        <div class="form-control">
-            <label>
-                In what ways are you interested in getting involved? Check all that apply:
-                <small>(Check all that apply)</small>
-            </label>
-            <!-- Input Type Checkbox -->
-            <label for="research">
-                <input type="checkbox" name="groups" value="Research"> Research
-            </label>
-            <label for="teaching">
-                <input type="checkbox" name="groups" value="Hispanic"> Teaching
-            </label>
-            <label for="outreach">
-                <input type="checkbox" name="groups" value="American Indian"> Outreach
-            </label>
-            <label for="group-other">
-                <input type="checkbox" name="groups" value="Other"> Other
-                <div class="form-control">
-                    <!-- Input Type Text -->
-                    <br/>
-                    <input type="text" id="other-groups" name="other_groups" placeholder="Specify other" />
-                </div>
-            </label>
-        </div>
-
-        <input type="hidden" name="user_id" value="{{ user_id }}">
-        <input type="hidden" name="survey_id" value="{{ survey.id }}">
         
         {% for question in questions %}
-    <div class="question">
-        <input type="hidden" name="question_text_{{ question.id }}" value="{{ question.text }}">
-        <input type="hidden" name="question_type_{{ question.id }}" value="{{ question.question_type }}">
-        
-        <p>{{ question.text }}</p>
-        {% if question.question_type == 'multiple_choice' %}
-            <ul>
-                {% for choice in question.choice_set.all %}
-                    <li>
-                        <label>
-                            <input type="radio" name="question_{{ question.id }}" value="{{ choice.id }}">
-                            {{ choice.text }}
-                        </label>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% elif question.question_type == 'checkbox' %}
-            <ul>
-                {% for choice in question.choice_set.all %}
-                    <li>
-                        <label>
-                            <input type="checkbox" name="question_{{ question.id }}_{{ choice.id }}" value="{{ choice.id }}">
-                            {{ choice.text }}
-                        </label>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% elif question.question_type == 'text' %}
-            <textarea name="question_{{ question.id }}"></textarea>
-        {% endif %}
-    </div>
-{% endfor %}
+            <div class="question">
+                <input type="hidden" name="question_text_{{ question.id }}" value="{{ question.text }}">
+                <input type="hidden" name="question_type_{{ question.id }}" value="{{ question.question_type }}">
+                
+                <p>{{ question.questiontext }}</p>
+                {% if question.questiontype == 'multiple_choice' %}
+                    <ul>
+                        {% for choice in question.choice_set.all %}
+                            <li>
+                                <label>
+                                    <input type="radio" name="question_{{ question.id }}" value="{{ choice.id }}">
+                                    {{ choice.text }}
+                                </label>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% elif question.question_type == 'checkbox' %}
+                    <ul>
+                        {% for choice in question.choice_set.all %}
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="question_{{ question.id }}_{{ choice.id }}" value="{{ choice.id }}">
+                                    {{ choice.text }}
+                                </label>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% elif question.question_type == 'text' %}
+                    <textarea name="question_{{ question.id }}"></textarea>
+                {% endif %}
+            </div>
+        {% endfor %}
 
         
         <input type="submit" value="Submit">

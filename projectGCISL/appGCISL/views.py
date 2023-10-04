@@ -37,8 +37,6 @@ def survey_view(request):
     
     # will hold all forms required for each question
     rforms = [ResponseForm({'surveyid': survey, 'respondentname': request.user.first_name + " " + request.user.last_name, 'respondentemail': request.user.email}) for _ in range(count)]
-
-
     # handle post methods
     if request.method == "POST":
         for rform in rforms:
@@ -47,12 +45,13 @@ def survey_view(request):
         return redirect('getinvolved')
     # handle get request
     elif request.method == "GET":
+        rforms = mapQuestionsToResponseForms(rforms, questions)
         # passing in the current survey, questions related to the survey, and an array of
         # checks also if user is authenticated and user is resident
-        if request.user.is_athenticated and request.user.is_resident: 
+        if request.user.is_authenticated and request.user.is_resident: 
             return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'rforms': rforms})
     else:
-        pass
+        return HttpResponse("User doesn't have privaledges.")
     
 
 
@@ -198,6 +197,17 @@ def getCurrentSurvey():
                 # date is valid return current survey
                 return survey
         # case where no surveys are valid return None
+        return None
+
+def mapQuestionsToResponseForms(rforms, questions):
+    # iterate each form assigning the form a  specific questionid
+    if rforms != None and questions != None:
+        formIter = iter(rforms)
+        for question in questions:
+            rform = next(formIter)
+            rform.fields['questionid'].initial = question
+        return rforms
+    else:
         return None
 
 
