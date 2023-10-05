@@ -29,7 +29,8 @@ urlpatterns = [
     path('survey/', views.survey_view, name='survey'),
     path('get_involved/survey/', views.survey_view, name='survey2'),
     path('logout/', view=views.logout_view, name='logout'),
-    path('survey-faculty/<int:survey_id>/', view=views.survey_faculty_view, name='custom_survey')
+    path('survey-faculty/<int:survey_id>/', view=views.survey_faculty_view, name='custom_survey'),
+    # path('survey-faculty/builder/', vi)
 ]
 
 # 

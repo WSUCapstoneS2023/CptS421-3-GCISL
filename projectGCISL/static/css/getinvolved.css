@@ -141,6 +141,10 @@ nav {
   border-radius: 50%;
 }
 
+.section__wrapper{
+  display: flex;
+  flex-direction: column;
+}
 /* GET INVOLVED NOW */
 .section__container {
   padding: 80px 0;
