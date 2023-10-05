@@ -259,6 +259,10 @@ nav {
   padding: 80px 0;
 }
 
+.section__wrapper {
+  flex-direction: column;
+  display: flex;
+}
 .section__row {
   width: 100%;
   max-width: 1000px;

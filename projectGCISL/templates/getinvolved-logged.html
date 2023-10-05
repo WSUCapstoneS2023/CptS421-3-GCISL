@@ -7,54 +7,54 @@
     <title>Get Involved!</title>
     <link rel="stylesheet" href="/static/css/getinvolved.css" />
     <style>
-    .popup {
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.4);
-      display: none;
-  }
-  
-  .popup-content {
-      background-color: #4d4d4d;
-      margin: 10% auto;
-      padding: 40px;
-      padding-top: 50px;
-      padding-bottom: 180px;
-      border: 1px solid #888888;
-      width: 50%; /* Adjust the width as needed */
-      max-width: 600px; /* Add a maximum width to avoid excessive width on larger screens */
-      height: 45%;
-      font-weight: bolder;
-      color: white;
-      border-radius: 20px;
-      text-align: center; /* Center the content horizontally */
-      font-size: 16px;
-      font-family: ubuntu;
-  }
-  
-  .popup-content button {
-      display: block;
-      margin: 0 auto; /* Center the button horizontally */
-      width: 100px;
-      height: 40px;
-      color: #000;
-      font-weight: 600;
-      text-decoration: none;
-  }
+      .popup {
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: none;
+      }
 
-  .padding {
-    padding-top: 25px;
-  }
-  
-  .show {
-      display: block;
-  }
-</style>
+      .popup-content {
+        background-color: #4d4d4d;
+        margin: 10% auto;
+        padding: 40px;
+        padding-top: 50px;
+        padding-bottom: 180px;
+        border: 1px solid #888888;
+        width: 50%; /* Adjust the width as needed */
+        max-width: 600px; /* Add a maximum width to avoid excessive width on larger screens */
+        height: 45%;
+        font-weight: bolder;
+        color: white;
+        border-radius: 20px;
+        text-align: center; /* Center the content horizontally */
+        font-size: 16px;
+        font-family: ubuntu;
+      }
+
+      .popup-content button {
+        display: block;
+        margin: 0 auto; /* Center the button horizontally */
+        width: 100px;
+        height: 40px;
+        color: #000;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .padding {
+        padding-top: 25px;
+      }
+
+      .show {
+        display: block;
+      }
+    </style>
   </head>
   <body>
     <section id="get-involved">
@@ -62,20 +62,26 @@
         <div class="nav__container">
           <a href="/" class="logo__wrapper">
             <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-            <img src="/static/assets/logo/GCISL_logo_fullcolor.png" alt="" class="header_logo"/>
+            <img
+              src="/static/assets/logo/GCISL_logo_fullcolor.png"
+              alt=""
+              class="header_logo"
+            />
           </a>
           <ul class="nav__links">
-            <li><a href="/get_involved" class="nav__link active">Get Involved!</a></li>
+            <li>
+              <a href="/get_involved" class="nav__link active">Get Involved!</a>
+            </li>
             <li><a href="/contact" class="nav__link">Contact Us</a></li>
             <li><a href="/about" class="nav__link">About</a></li>
-              <figure class="profile__picture--wrapper">
-                <img
-                  src="/static/assets/general/icon.png"
-                  alt=""
-                  class="profile__picture"
-                  id="profile-picture"
-                />
-              </figure>
+            <figure class="profile__picture--wrapper">
+              <img
+                src="/static/assets/general/icon.png"
+                alt=""
+                class="profile__picture"
+                id="profile-picture"
+              />
+            </figure>
             <li><a href="/logout" class="nav__link logout">Logout</a></li>
           </ul>
         </div>
@@ -91,8 +97,7 @@
         class="shape shape--1"
       />
     </section>
-    
-    
+
     <section id="get-involved-now">
       <div class="section__container">
         <div class="section__row">
@@ -120,101 +125,91 @@
       </div>
     </section>
 
-    <div class="section__wrapper">
-    <section id="research-involvement">
+    <section id="content">
       <div class="section__container">
         <div class="section__row">
-          <div class="card__wrapper--outer">
-            <div class="card__wrapper--inner">
-              <h1 class="card__title">Research Involvement</h1>
-              <p class="card__para">
-                1. The aging population has changed the landscape of our world!
-                WSU researchers are actively working to answer many scientific
-                questions about how we will adapt. Some of the questions are:
-                <br />
-                a. What are the best evidence-based practices for increasing
-                healthspan? How will family relationships between older and
-                younger generations be affected by increased longevity? How will
-                we develop equitable policies and design and deliver services
-                that best support older adults and their families? How will our
-                communities adapt to an aging population? How can we support
-                people to age with dignity? How can older adults stay engaged
-                and connected?
-                <br />
-                <br />
-                2. These are critical questions as we look to the future because
-                aging is the foundation for a healthy society! These are just a
-                few of the questions WSU researchers are trying to answer. We
-                need YOU!
-                <br />
-                <br />
-                3. Why should you be involved in gciCONNECT?
-                <br />
-                a. You have a unique chance to stand up and take action. Your
-                participation helps others and contributes to moving science
-                forward. You have the power to share your lived experiences and
-                make a difference - take an active role in society.
-              </p>
+          <div class="section__wrapper">
+          <div id="research-involvement">
+            <div class="card__wrapper--outer">
+              <div class="card__wrapper--inner">
+                <h1 class="card__title">Research Involvement</h1>
+                <p class="card__para">
+                  1. The aging population has changed the landscape of our
+                  world! WSU researchers are actively working to answer many
+                  scientific questions about how we will adapt. Some of the
+                  questions are:
+                  <br />
+                  a. What are the best evidence-based practices for increasing
+                  healthspan? How will family relationships between older and
+                  younger generations be affected by increased longevity? How
+                  will we develop equitable policies and design and deliver
+                  services that best support older adults and their families?
+                  How will our communities adapt to an aging population? How can
+                  we support people to age with dignity? How can older adults
+                  stay engaged and connected?
+                  <br />
+                  <br />
+                  2. These are critical questions as we look to the future
+                  because aging is the foundation for a healthy society! These
+                  are just a few of the questions WSU researchers are trying to
+                  answer. We need YOU!
+                  <br />
+                  <br />
+                  3. Why should you be involved in gciCONNECT?
+                  <br />
+                  a. You have a unique chance to stand up and take action. Your
+                  participation helps others and contributes to moving science
+                  forward. You have the power to share your lived experiences
+                  and make a difference - take an active role in society.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <img
-        src="/static/assets/general/circle.svg"
-        alt=""
-        class="shape shape--0"
-      />
-      <img
-        src="/static/assets/general/circle.svg"
-        alt=""
-        class="shape shape--1"
-      />
-    </section>
 
-    <section id="teaching-mentorship-learning">
-      <div class="section__container">
-        <div class="section__row">
-          <div class="card__wrapper--outer">
-            <div class="card__wrapper--inner">
-              <h1 class="card__title">Teaching, Mentorship, and Learning</h1>
-              <p class="card__para">
-                1. “Learn continually. There is always ‘one more thing’ to
-                learn!” - Steve Jobs
-                <br />
-                <br />
-                2. WSU’s educational mission is to help students become more
-                aware, engaged, and creative. WSU strives to make its expertise
-                available to anyone who seeks to benefit from it, regardless of
-                where they live, where they come from, what they believe, or
-                what their life experiences have been.
-                <br />
-                <br />
-                3. gciCONNECT aims to support lifelong learning and
-                intergenerational connections.
-                <br />
-                a. Do you have special skills, knowledge, or background/training
-                that you want to share with others? Do you want to connect with
-                students to enhance their learning and stay engaged with a
-                campus community? Sometimes faculty members may be looking for
-                mentorship opportunities within their class, or guest speaker
-                opportunities; or people to be interviewed for a class project.
-                Are you interested in connecting with undergraduates? If so, we
-                invite you to complete our intake survey and we’ll follow up
-                with you!
-                <br />
-                <br />
-                4. Outreach and Support
-                <br />
-                Outreach: share your knowledge and experienceof working with the
-                Granger Cobb Institute at Washington State University with your
-                family & peers.
-                <br />
-                Support: fund student scholarships or experiential learning
-                projects.
-              </p>
+          <div id="teaching-mentorship-learning">
+            <div class="card__wrapper--outer">
+              <div class="card__wrapper--inner">
+                <h1 class="card__title">Teaching, Mentorship, and Learning</h1>
+                <p class="card__para">
+                  1. “Learn continually. There is always ‘one more thing’ to
+                  learn!” - Steve Jobs
+                  <br />
+                  <br />
+                  2. WSU’s educational mission is to help students become more
+                  aware, engaged, and creative. WSU strives to make its
+                  expertise available to anyone who seeks to benefit from it,
+                  regardless of where they live, where they come from, what they
+                  believe, or what their life experiences have been.
+                  <br />
+                  <br />
+                  3. gciCONNECT aims to support lifelong learning and
+                  intergenerational connections.
+                  <br />
+                  a. Do you have special skills, knowledge, or
+                  background/training that you want to share with others? Do you
+                  want to connect with students to enhance their learning and
+                  stay engaged with a campus community? Sometimes faculty
+                  members may be looking for mentorship opportunities within
+                  their class, or guest speaker opportunities; or people to be
+                  interviewed for a class project. Are you interested in
+                  connecting with undergraduates? If so, we invite you to
+                  complete our intake survey and we’ll follow up with you!
+                  <br />
+                  <br />
+                  4. Outreach and Support
+                  <br />
+                  Outreach: share your knowledge and experienceof working with
+                  the Granger Cobb Institute at Washington State University with
+                  your family & peers.
+                  <br />
+                  Support: fund student scholarships or experiential learning
+                  projects.
+                </p>
+              </div>
             </div>
           </div>
         </div>
+      </div>
       </div>
       <img
         src="/static/assets/general/circle.svg"
@@ -227,7 +222,6 @@
         class="shape shape--1"
       />
     </section>
-    </div>
 
     <section id="get-started">
       <div class="section__container">
@@ -239,30 +233,43 @@
             <h1 class="crimson get-started__title">
               Click the button below to start filling our survey!
             </h1>
-            <button id="myButton" class = "get-started__button">
-                Take Survey!
+            <button id="myButton" class="get-started__button">
+              Take Survey!
             </button>
             <div id="myPopup" class="popup">
               <div class="popup-content">
-              <p>You are about to take part in a survey that collects personal information that will be viewed by our staff. Please ensure that you agree to all terms and conditions before proceeding.</p>
-              <p><a href="/" style="color: #ca1237;">Terms And Conditions</a></p>
-              <div class = "padding">
-              <button id="closePopup">
-                <li><a href="/survey" style="color: #fff;">I Agree</a></li>
-              </button>
+                <p>
+                  You are about to take part in a survey that collects personal
+                  information that will be viewed by our staff. Please ensure
+                  that you agree to all terms and conditions before proceeding.
+                </p>
+                <p>
+                  <a href="/" style="color: #ca1237">Terms And Conditions</a>
+                </p>
+                <div class="padding">
+                  <button id="closePopup">
+                    <li><a href="/survey" style="color: #fff">I Agree</a></li>
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
       </div>
-  </div> 
     </section>
 
     <footer>
       <div class="section__container">
         <div class="section__row">
           <div class="footer__wrapper">
-              <a href="/" class="footer__logo">
-                <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="/static/assets/logo/GCISL_logo_white.png" alt="" class="logo"/>
-              </a>
+            <a href="/" class="footer__logo">
+              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+              <img
+                src="/static/assets/logo/GCISL_logo_white.png"
+                alt=""
+                class="logo"
+              />
+            </a>
             <div class="footer__list">
               <a href="/get_involved" class="footer__link">Get Involved!</a>
               <a href="/contact" class="footer__link">Contact Us</a>
@@ -274,17 +281,17 @@
     </footer>
     <script>
       // JavaScript code to handle the popup
-      const myButton = document.getElementById('myButton');
-      const myPopup = document.getElementById('myPopup');
-      const closePopup = document.getElementById('closePopup');
-  
-      myButton.addEventListener('click', function () {
-          myPopup.style.display = 'block'; // Display the popup when the button is clicked
+      const myButton = document.getElementById("myButton");
+      const myPopup = document.getElementById("myPopup");
+      const closePopup = document.getElementById("closePopup");
+
+      myButton.addEventListener("click", function () {
+        myPopup.style.display = "block"; // Display the popup when the button is clicked
       });
-  
-      closePopup.addEventListener('click', function () {
-          myPopup.style.display = 'none'; // Close the popup when the close button is clicked
+
+      closePopup.addEventListener("click", function () {
+        myPopup.style.display = "none"; // Close the popup when the close button is clicked
       });
-  </script>
+    </script>
   </body>
 </html>
