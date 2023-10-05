@@ -6,7 +6,6 @@ from django.contrib.auth import login, logout, authenticate
 from django.views.generic import TemplateView, CreateView
 import datetime
 
-from psycopg2 import IntegrityError
 
 from .models import Choice, Question, Survey
 from .forms import RegistrationForm, LoginAuthForm, QuestionForm, SurveyForm, ChoiceForm, ResponseForm
@@ -29,7 +28,32 @@ def getinvolved_view(request):
 
 # Survey
 def survey_view(request):
-    return render(request, 'survey.html')
+    # not sure how we are planning on identifying the current survey.
+    survey = getCurrentSurvey()
+    questions = getQuestions(survey)
+    count = 0
+    for question in questions:
+        count = count + 1
+    
+    # will hold all forms required for each question
+    rforms = [ResponseForm({'surveyid': survey, 'respondentname': request.user.first_name + " " + request.user.last_name, 'respondentemail': request.user.email}) for _ in range(count)]
+    # handle post methods
+    if request.method == "POST":
+        for rform in rforms:
+            if rform.is_valid():
+                rform.save()
+        return redirect('getinvolved')
+    # handle get request
+    elif request.method == "GET":
+        rforms = mapQuestionsToResponseForms(rforms, questions)
+        # passing in the current survey, questions related to the survey, and an array of
+        # checks also if user is authenticated and user is resident
+        if request.user.is_authenticated and request.user.is_resident: 
+            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'rforms': rforms})
+    else:
+        return HttpResponse("User doesn't have privaledges.")
+    
+
 
 # Contact
 def contact_view(request):
@@ -163,6 +187,29 @@ def getQuestions(survey_id):
         return Question.objects.filter(surveyid=survey_id).order_by('questionid')
     except Question.DoesNotExist:
         return None
+
+def getCurrentSurvey():
+        today = datetime.datetime.now().date()
+        surveys = Survey.objects.all()
+        for survey in surveys:
+            d2 = datetime.datetime.strptime(str(survey.enddate.day)+"/"+str(survey.enddate.month)+"/"+str(survey.enddate.year), "%d/%m/%Y").date()
+            if d2 > today:
+                # date is valid return current survey
+                return survey
+        # case where no surveys are valid return None
+        return None
+
+def mapQuestionsToResponseForms(rforms, questions):
+    # iterate each form assigning the form a  specific questionid
+    if rforms != None and questions != None:
+        formIter = iter(rforms)
+        for question in questions:
+            rform = next(formIter)
+            rform.fields['questionid'].initial = question
+        return rforms
+    else:
+        return None
+
 
 # # returns the collection of choices matching the survey and question
 # def getQuestionChoices(survey_id):
