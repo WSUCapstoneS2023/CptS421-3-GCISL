@@ -50,33 +50,42 @@
         {% for question in questions %}
             <div class="question">
                 <input type="hidden" name="question_text_{{ question.id }}" value="{{ question.text }}">
-                <input type="hidden" name="question_type_{{ question.id }}" value="{{ question.question_type }}">
-                
+                <input type="hidden" name="question_type_{{ question.id }}" value="{{ question.question_type }}">  
                 <p>{{ question.questiontext }}</p>
                 {% if question.questiontype == 'multiple_choice' %}
                     <ul>
-                        {% for choice in question.choice_set.all %}
-                            <li>
-                                <label>
-                                    <input type="radio" name="question_{{ question.id }}" value="{{ choice.id }}">
-                                    {{ choice.text }}
-                                </label>
-                            </li>
+                        {% for choice in choices %}
+                            {% if choice.questionid == question.id %}
+                                <li>
+                                    <label>
+                                        <input type="radio" name="question_{{ question.id }}" value="{{ choice.id }}">
+                                        {{ choice.text }}
+                                    </label>
+                                </li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 {% elif question.question_type == 'checkbox' %}
                     <ul>
-                        {% for choice in question.choice_set.all %}
-                            <li>
-                                <label>
-                                    <input type="checkbox" name="question_{{ question.id }}_{{ choice.id }}" value="{{ choice.id }}">
-                                    {{ choice.text }}
-                                </label>
-                            </li>
+                        {% for choice in choices %}
+                            {% if choice.questionid == question.id %}
+                                <li>
+                                    <label>
+                                        <input type="checkbox" name="question_{{ question.id }}_{{ choice.id }}" value="{{ choice.id }}">
+                                        {{ choice.text }}
+                                    </label>
+                                </li>
+                            {% endif %}
                         {% endfor %}
                     </ul>
                 {% elif question.question_type == 'text' %}
-                    <textarea name="question_{{ question.id }}"></textarea>
+                    {% for question in questions %}
+                        {% for rform in rforms %}
+                            {% if question == rform.questionid %}
+                                <textarea name="question_{{ question.id }}">{{rform.responsetext}}</textarea>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
                 {% endif %}
             </div>
         {% endfor %}
