@@ -48,8 +48,11 @@ def survey_view(request):
         rforms = mapQuestionsToResponseForms(rforms, questions)
         # passing in the current survey, questions related to the survey, and an array of
         # checks also if user is authenticated and user is resident
-        if request.user.is_authenticated and request.user.is_resident: 
-            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'rforms': rforms})
+        if request.user.is_authenticated and request.user.is_resident:
+            choices = {}
+            for question in questions:
+                choices[question.questionid] = filter_choice(question.questionid)
+            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'rforms': rforms, 'choices': choices})
     else:
         return HttpResponse("User doesn't have privaledges.")
     
@@ -216,7 +219,14 @@ def mapQuestionsToResponseForms(rforms, questions):
 #     try:
 #         return Choice.objects.filter(surveyid=survey_id).order_by('choiceid')
 #     except Choice.DoesNotExist:
-#         return None
+#         return Node
+
+def filter_choice(questionid):
+    filter_choice = []
+    for choice in Choice.objects.all():
+        if choice.questionid == questionid:
+            filter_choice.append(choice)
+    return filter_choice
 
         
 
