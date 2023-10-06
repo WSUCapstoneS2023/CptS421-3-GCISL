@@ -272,15 +272,18 @@ nav {
  
 
 input, textarea {
-  resize: vertical;
-  height: 100px;
-  margin-top: 8px;
   outline: none;
   border: 1px solid #c0c4cc;
   border-top: none;
   border-left: none;
   border-right: none;
-  height: 20px;
+  height: 40px;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+  margin-top: 8px;
 }
 
 .question-label {
