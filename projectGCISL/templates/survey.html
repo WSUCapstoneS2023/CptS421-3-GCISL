@@ -49,8 +49,8 @@
         <h2>{{survey.title}}</h2>
         {% for question in questions %}
             <div class="question">
-                <input type="hidden" name="question_text_{{ question.questionid }}" value="{{ question.questiontext }}">
-                <input type="hidden" name="question_type_{{ question.questionid }}" value="{{ question.questiontype }}">  
+                <!-- <input type="hidden" name="question_text_{{ question.questionid }}" value="{{ question.questiontext }}">
+                <input type="hidden" name="question_type_{{ question.questionid }}" value="{{ question.questiontype }}">   -->
                 <p>{{ question.questiontext }}</p>
                 {% if question.questiontype == 'multiple_choice' %}
                     <ul>
@@ -59,7 +59,7 @@
                                 {% for choice in choices_list %}
                                     <li>
                                         <label>
-                                            <input type="radio" name="question_{{ question.questionid }}" value="{{ choice.choiceid }}">
+                                            <input type="radio" name="question_{{ question.questionid }}_{{ choice.choiceid }}" value="{{ choice.choiceid }}">
                                             {{ choice.choicetext }}
                                         </label>
                                     </li>
@@ -83,18 +83,13 @@
                         {% endfor %}
                     </ul>
                 {% elif question.questiontype == 'numeric' %}
-                    <ul>
-                        {% for key, choices_list in choices.items %}
-                            {% if key == question.pk %}
-                                <li>
-                                    <label>
-                                        <input type="number" name="question_{{ question.questionid }}" value="{{ choice.choiceid }}">
-                                        {{ choice.choicetext }}
-                                    </label>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
+                    <!-- <ul>
+                        <li>
+                            <label> -->
+                                <input type="number" name="question_{{ question.questionid }}">
+                            <!-- </label>
+                        </li>
+                    </ul> -->
                 {% elif question.questiontype == 'text' %}
                     <textarea name="question_{{ question.questionid }}"></textarea>
                 {% endif %}
