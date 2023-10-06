@@ -107,6 +107,10 @@
             document.getElementById('filter-form').submit();
         });
       }
+
+      function handleMultipleChoice(){
+
+      }
     </script>
     <form method="post" id="question-form">
       {% csrf_token %}
@@ -123,7 +127,7 @@
         <h2>Question Choice Editor</h2>
         {% for question in questions %}
           <h3>Question {{forloop.counter}}: {{question.questiontext}}</h3>
-            <label class="question-label" style="align-items: center;">Choices</label>
+            <label class="question-label" >Choices</label>
               {% for choice in choices %}
                 {% if choice.questionid.pk == question.pk %}
                   <div>Choice {{forloop.counter}}: {{choice.choicetext}}</div>
