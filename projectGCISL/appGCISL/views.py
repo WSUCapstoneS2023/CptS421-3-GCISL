@@ -32,16 +32,20 @@ def survey_view(request):
     survey = getCurrentSurvey()
     questions = getQuestions(survey)
     count = 0
+    
+    # create a count for number of questions
     for question in questions:
         count = count + 1
     
+    # get all choices in a dictionary
+    choices = {}
+    for question in questions:
+        choices[question.questionid] = filter_choice(question.questionid)
     # will hold all forms required for each question
     rforms = [ResponseForm({'surveyid': survey, 'respondentname': request.user.first_name + " " + request.user.last_name, 'respondentemail': request.user.email}) for _ in range(count)]
     # handle post methods
     if request.method == "POST":
-        for rform in rforms:
-            if rform.is_valid():
-                rform.save()
+        # get all values
         return redirect('getinvolved')
     # handle get request
     elif request.method == "GET":
@@ -49,10 +53,8 @@ def survey_view(request):
         # passing in the current survey, questions related to the survey, and an array of
         # checks also if user is authenticated and user is resident
         if request.user.is_authenticated and request.user.is_resident:
-            choices = {}
-            for question in questions:
-                choices[question.questionid] = filter_choice(question.questionid)
-            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'rforms': rforms, 'choices': choices})
+
+            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'choices': choices})
     else:
         return HttpResponse("User doesn't have privaledges.")
     
@@ -132,7 +134,9 @@ def survey_faculty_view(request, survey_id):
             else:
                 print(sform.errors)
         elif 'CreateQuestionButton' in request.POST:
+            # create new question form with request data
             qform = QuestionForm(request.POST)
+            # validate and save the form
             if qform.is_valid():
                 qform.instance.surveyid = Survey.objects.get(surveyid=survey_id)
                 question = qform.save()
@@ -238,7 +242,7 @@ def mapQuestionsToResponseForms(rforms, questions):
 def filter_choice(questionid):
     filter_choice = []
     for choice in Choice.objects.all():
-        if choice.questionid == questionid:
+        if choice.questionid.pk == questionid:
             filter_choice.append(choice)
     return filter_choice
 

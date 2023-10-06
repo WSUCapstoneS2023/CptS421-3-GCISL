@@ -82,6 +82,8 @@
       
         <form id="filter-form" method="GET">
           {% csrf_token %}
+          <h2>Filter Surveys</h2>
+          <br>
             <label for="survey-titles">Survey List</label>
             <select name="titles" id="survey-titles">
               <option value="{{survey.pk}}">{{survey.title}}</option>
@@ -121,9 +123,11 @@
         {% for question in questions %}
           <h3>Question {{forloop.counter}}: {{question.questiontext}}</h3>
             <label class="question-label" style="align-items: center;" id="question_{{question.pk}}">Choices</label>
+              {% set choice_count = 1 %}
               {% for choice in choices %}
                 {% if choice.questionid.pk == question.pk %}
-                  <div>Choice {{forloop.counter}}: {{choice.choicetext}}</div>
+                  <div>Choice {{choice_count}}: {{choice.choicetext}}</div>
+                  {% set choice_count = choice_count + 1 %}
                 {% endif %}
               {% endfor %}
           <label>Add choice:</label>
@@ -136,6 +140,7 @@
     </form>
     <form method="post" id="question-form">
       {% csrf_token %}
+      <h2>Question Maker</h2>
         <label>Question Text</label>
         <div>{{qform.questiontext}}</div>
         <label>Question Type</label>
