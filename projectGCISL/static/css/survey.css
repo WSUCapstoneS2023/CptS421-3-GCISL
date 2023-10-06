@@ -280,6 +280,9 @@ input, textarea {
   height: 40px;
 }
 
+label{
+  vertical-align: middle;
+}
 textarea {
   resize: vertical;
   height: 100px;

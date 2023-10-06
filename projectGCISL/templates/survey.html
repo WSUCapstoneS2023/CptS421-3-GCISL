@@ -6,6 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/survey.css">
     <title>Survey</title>
+    <style>
+        /* Style the body of the form */
+.body1 {
+    padding-top: 15px;
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.body2 {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Style the questions and inputs */
+.question {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.choice {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+  background-color: #ca1237;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+/* Style the choice container */
+.choice-container {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Align items vertically */
+  margin-bottom: 10px; /* Add some spacing between each choice */
+}
+
+/* Style the checkbox and radio input */
+.choice-container input[type="checkbox"],
+.choice-container input[type="radio"] {
+  margin: 0; /* Reset margin */
+  vertical-align: middle; /* Align the checkbox/radio vertically with the label text */
+}
+
+/* Style the label text for choices */
+.choice-container label {
+  font-size: 16px;
+  vertical-align: middle;
+  margin-left: 5px; /* Add some spacing between the checkbox/radio and label text */
+}
+
+    </style>
 </head>
 <body>
     <section id="survey">
@@ -19,21 +92,11 @@
               <li><a href="/get_involved" class="nav__link active">Get Involved!</a></li>
               <li><a href="/contact" class="nav__link">Contact Us</a></li>
               <li><a href="/about" class="nav__link">About</a></li>
-              <li>
-                <figure class="profile__picture--wrapper">
-                  <img
-                    src="/static/assets/general/icon.png"
-                    alt=""
-                    class="profile__picture"
-                    id="profile-picture"
-                  />
-                </figure>
-              </li>
             </ul>
           </div>
         </nav>
       </section>
-
+      <br/>
     <div class="body1">
         <p>Please fill in the information below</p>
     </div>
@@ -57,7 +120,7 @@
                         {% for key, choices_list in choices.items %}
                             {% if key == question.pk %}
                                 {% for choice in choices_list %}
-                                    <li>
+                                    <li class="choice-container">
                                         <label>
                                             <input type="radio" name="question_{{ question.questionid }}_{{ choice.choiceid }}" value="{{ choice.choiceid }}">
                                             {{ choice.choicetext }}
@@ -72,7 +135,7 @@
                         {% for key, choices_list in choices.items %}
                             {% if key == question.pk %}
                                 {% for choice in choices_list %}
-                                    <li>
+                                    <li class="choice-container">
                                         <label>
                                             <input type="checkbox" name="question_{{ question.questionid }}_{{ choice.choiceid }}" value="{{ choice.choiceid }}">
                                             {{ choice.choicetext }}
