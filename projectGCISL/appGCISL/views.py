@@ -220,6 +220,8 @@ def survey_manager_view(request, survey_id):
                 # user is not faculty, should not be able to view the survey customize screen!
                 return render(request, 'getinvolved-logged.html')
 
+def survey_landing_view(request):
+    return render(request, 'survey-landing.html')
 
 ## helpers
 # function returns survey with specific id
