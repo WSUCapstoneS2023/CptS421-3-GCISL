@@ -271,7 +271,7 @@ nav {
 }
  
 
-input, textarea {
+input, select, textarea {
   outline: none;
   border: 1px solid #c0c4cc;
   border-top: none;

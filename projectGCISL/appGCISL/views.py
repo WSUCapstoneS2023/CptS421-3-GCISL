@@ -54,8 +54,10 @@ def survey_view(request):
         # checks also if user is authenticated and user is resident
         if request.user.is_authenticated and request.user.is_resident:
             return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'choices': choices})
+        elif request.user.is_authenticated and request.user.is_staff:
+            return render(request, 'survey-landing.html')
     else:
-        return HttpResponse("User doesn't have privaledges.")
+        return HttpResponse("User doesn't have privileges.")
     
 
 
