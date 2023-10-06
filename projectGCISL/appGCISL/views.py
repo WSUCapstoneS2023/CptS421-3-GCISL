@@ -301,11 +301,10 @@ def mapResponses(request, questions, choice_dict):
                     break
         else:
             # numeric
-            for choice in choice_dict[question.pk]:
-                if f'question_{question.pk}' in request.POST:
-                    num = request.POST.get(f'question_{question.pk}_{choice.pk}')
-                    response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsenumeric=int(num), choiceid=choice)
-                    response.save()
-                    break
+            if f'question_{question.pk}' in request.POST:
+                num = request.POST.get(f'question_{question.pk}')
+                response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsenumeric=int(num), choiceid=choice)
+                response.save()
+                break
     return
 
