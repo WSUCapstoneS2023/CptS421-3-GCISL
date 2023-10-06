@@ -54,8 +54,10 @@ def survey_view(request):
         # checks also if user is authenticated and user is resident
         if request.user.is_authenticated and request.user.is_resident:
             return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'choices': choices})
-    else:
-        return HttpResponse("User doesn't have privaledges.")
+        elif request.user.is_authenticated and request.user.is_staff:
+            return render(request, 'survey-landing.html')
+        else:
+            return HttpResponse("User doesn't have privaledges.")
     
 
 
@@ -221,7 +223,14 @@ def survey_manager_view(request, survey_id):
                 return render(request, 'getinvolved-logged.html')
 
 def survey_landing_view(request):
-    return render(request, 'survey-landing.html')
+    if request.method == 'GET':
+        surveys = Survey.objects.all()
+        return render(request, 'survey-landing.html', {'surveys': surveys})
+    # button clicks will be post requests
+    elif request.method == 'POST':
+        if 'DeleteSurvey' in request.POST:
+            # delete survey button has been selected
+            pass
 
 ## helpers
 # function returns survey with specific id
