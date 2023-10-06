@@ -76,11 +76,9 @@
         </div>
         <button type="submit" name="CreateSurveyButton" id="createnewsurvey">Create New Survey</button>
     </form>
-<<<<<<< HEAD
-=======
 
     <!-- The survey title thats active -->
-    <div>
+    <!-- <div>
       
         <form id="filter-form" method="GET">
           {% csrf_token %}
@@ -98,8 +96,7 @@
         </form>
       <h1 id="survey_{{survey.pk}}">Survey Title: {{survey.title}}</h1>
       <h3 class="question-label">Survey Description: {{survey.description}}</h3>
-    </div>
->>>>>>> 4eb427c3855bbc72d25592577a8cf9b35f618a83
+    </div> -->
     <!-- load the java script function to refresh page when a new survey is selected-->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -119,14 +116,13 @@
     </script>
     <!-- question addition -->
     <!-- <form method="post" id="question-form">
-      {% csrf_token %}
         <label>Question Text</label>
         <div>{{qform.questiontext}}</div>
         <label>Question Type</label>
         <div>{{qform.questiontype}}</div>
         <button type="submit" name="CreateQuestionButton" id="createnewquestion">Create New Question</button>
     </form>
-    <!-- load current questions that have been created with edit and delete features 
+    <!-- load current questions that have been created with edit and delete features -->
     
     <form method="post" id="choice-form">
         {% csrf_token %}
@@ -147,11 +143,6 @@
           <input type="hidden" name="surveyid" value="{{question.surveyid.pk}}">
           <button type="submit" name="CreateChoiceButton" id="createchoicebutton_{{question.pk}}">Create New Choice</button>
         {% endfor %}
-<<<<<<< HEAD
-        <button type="submit" name="CreateChoiceButton" id="createchoicebutton">Create New Choice</button>
-    </form> -->
-    
-=======
         
     </form>
     <form method="post" id="question-form">
@@ -163,7 +154,6 @@
         <div>{{qform.questiontype}}</div>
         <button type="submit" name="CreateQuestionButton" id="createnewquestion">Create New Question</button>
     </form>
->>>>>>> 4eb427c3855bbc72d25592577a8cf9b35f618a83
     <footer>
         <div class="section__container">
           <div class="section__row">

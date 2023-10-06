@@ -131,7 +131,6 @@ def survey_faculty_view(request):
                 # form is valid save the new survey and redirect to the new survey screen!
                 sform.instance.startdate = datetime.date.today()
                 survey = sform.save()
-<<<<<<< HEAD
                 return redirect(f'/survey-faculty/manager/{survey.surveyid}/', survey=survey)
             else:
                 print(sform.errors)
@@ -164,9 +163,6 @@ def survey_manager_view(request, survey_id):
                 sform.instance.startdate = datetime.date.today()
                 survey = sform.save()
                 return redirect(f'/survey-faculty/manager/{survey.surveyid}/', survey=survey)
-=======
-                return redirect(f'/survey-faculty/{survey.surveyid}/#survey_{survey.pk}', survey=survey)
->>>>>>> 4eb427c3855bbc72d25592577a8cf9b35f618a83
             else:
                 print(sform.errors)
         elif 'CreateQuestionButton' in request.POST:
@@ -176,11 +172,7 @@ def survey_manager_view(request, survey_id):
             if qform.is_valid():
                 qform.instance.surveyid = Survey.objects.get(surveyid=survey_id)
                 question = qform.save()
-<<<<<<< HEAD
                 return redirect(f'/survey-faculty/manager/{survey_id}/')
-=======
-                return redirect(f'/survey-faculty/{survey_id}/#question_{question.pk}')
->>>>>>> 4eb427c3855bbc72d25592577a8cf9b35f618a83
         elif 'CreateChoiceButton' in request.POST:
             cform = ChoiceForm(request.POST)
             
@@ -201,12 +193,7 @@ def survey_manager_view(request, survey_id):
             if cform.is_valid():
                 cform.instance.questionid = Question.objects.get(questionid=int(questionid))
                 choice = cform.save()
-<<<<<<< HEAD
                 return redirect(f'/survey-faculty/manager/{survey_id}/')
-=======
-                # redirect back to the same place
-                return redirect(f'/survey-faculty/{survey_id}/#question_{questionid}')
->>>>>>> 4eb427c3855bbc72d25592577a8cf9b35f618a83
             else:
                 print(cform.errors)
                 return HttpResponse(f'{cform.errors}', status=418)

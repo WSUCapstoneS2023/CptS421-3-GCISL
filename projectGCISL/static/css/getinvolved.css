@@ -172,6 +172,26 @@ nav {
   font-weight: 600;
 }
 
+/* Outreach & Contributions */
+#outreach-contributions {
+  position: relative;
+}
+
+#outreach-contributions .card__wrapper--outer {
+  background-color: #a60f2d;
+  border-radius: 20px;
+}
+
+#outreach-contributions .card__wrapper--inner {
+  background-color: #4d4d4d;
+  padding: 20px;
+  margin: 0 20px 20px 0;
+  border-radius: 20px;
+  color: #fff;
+  max-width: 600px;
+  text-align: center;
+}
+
 /* RESEARCH INVOLVEMENT */
 #research-involvement {
   position: relative;
@@ -268,11 +288,11 @@ footer {
   justify-content: center;
 }
 
-.gciConnect__logo{
-  color: #A60F2D;
+.gciConnect__logo {
+  color: #a60f2d;
 }
 
-.footer__logo .gciConnect__logo{
+.footer__logo .gciConnect__logo {
   color: #fff;
 }
 
@@ -280,7 +300,6 @@ footer {
   margin-left: 20px;
   max-width: 35%;
 }
-
 
 .footer__wrapper {
   margin: 50px 0;
@@ -302,13 +321,11 @@ footer {
   justify-content: center;
 }
 
-.space{
+.space {
   padding-top: 50px;
   text-align: center;
   color: black;
 }
-
-
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 900px) {
@@ -347,9 +364,7 @@ footer {
     top: 50vh;
     right: 5vw;
   }
-
 }
-
 
 @media screen and (max-width: 550px) {
   .nav__container {
@@ -388,7 +403,7 @@ footer {
     right: 5vw;
   }
 
- #get-involved-now.section__row {
+  #get-involved-now.section__row {
     max-width: 300px;
   }
 
