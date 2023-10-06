@@ -101,7 +101,7 @@ class Survey(models.Model):
 
 class Question(models.Model):
     questionid = models.AutoField(primary_key=True)
-    surveyid = models.ForeignKey('Survey', models.DO_NOTHING, db_column='surveyid', blank=True, null=True)
+    surveyid = models.ForeignKey('Survey', on_delete=models.CASCADE, db_column='surveyid', blank=True, null=True)
     questiontext = models.TextField()
     questiontype = models.TextField(blank=True, null=True)  # This field type is a guess.
 
@@ -111,7 +111,7 @@ class Question(models.Model):
 
 class Choice(models.Model):
     choiceid = models.AutoField(primary_key=True)
-    questionid = models.ForeignKey('Question', models.DO_NOTHING, db_column='questionid', blank=True, null=True)
+    questionid = models.ForeignKey('Question', on_delete=models.CASCADE, db_column='questionid', blank=True, null=True)
     choicetext = models.TextField()
 
     class Meta:
@@ -119,13 +119,13 @@ class Choice(models.Model):
 
 class Response(models.Model):
     responseid = models.AutoField(primary_key=True)
-    surveyid = models.ForeignKey('Survey', models.DO_NOTHING, db_column='surveyid', blank=True, null=True)
-    questionid = models.ForeignKey('Question', models.DO_NOTHING, db_column='questionid', blank=True, null=True)
+    surveyid = models.ForeignKey('Survey', on_delete=models.CASCADE, db_column='surveyid', blank=True, null=True)
+    questionid = models.ForeignKey('Question', on_delete=models.CASCADE, db_column='questionid', blank=True, null=True)
     respondentname = models.CharField(max_length=255, blank=True, null=True)
     respondentemail = models.CharField(max_length=255, blank=True, null=True)
     responsetext = models.TextField(blank=True, null=True)
     responsenumeric = models.IntegerField(blank=True, null=True)
-    choiceid = models.ForeignKey('Choice', models.DO_NOTHING, db_column='choiceid', blank=True, null=True)
+    choiceid = models.ForeignKey('Choice', on_delete=models.CASCADE, db_column='choiceid', blank=True, null=True)
 
     class Meta:
         db_table = 'response'

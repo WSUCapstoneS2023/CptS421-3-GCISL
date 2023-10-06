@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-YU6DRH0y3fUz+NCU8YwY6HtsGZfQ2lmc1AnQ2D+u5X9e5MQ5ct5S5+LS7Vv5mNNa4/bVJ/cbs4BNf6/0U6Xopg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-    <link rel="stylesheet" href="\static\css\survey.css">
-    <title>Survey</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-YU6DRH0y3fUz+NCU8YwY6HtsGZfQ2lmc1AnQ2D+u5X9e5MQ5ct5S5+LS7Vv5mNNa4/bVJ/cbs4BNf6/0U6Xopg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="\static\css\survey.css" />
+    <title>Survey</title>
+  </head>
+  <body>
     <!-- <div class="header">
         <a href="#default" class="logo">gciConnect!</a>
         <div class="header-right">
@@ -28,31 +27,37 @@
         </div>
     </div> -->
     <section id="survey">
-        <nav>
-          <div class="nav__container">
-            <a href="/" class="logo__wrapper">
-                <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="/static/assets/logo/GCISL_logo_fullcolor.png" alt="" class="header_logo"/>
-              </a>
-            <ul class="nav__links">
-              <li><a href="/get_involved" class="nav__link active">Get Involved!</a></li>
-              <li><a href="/contact" class="nav__link">Contact Us</a></li>
-              <li><a href="/about" class="nav__link">About</a></li>
-              <li>
-                <figure class="profile__picture--wrapper">
-                  <img
-                    src="/static/assets/general/icon.png"
-                    alt=""
-                    class="profile__picture"
-                    id="profile-picture"
-                  />
-                </figure>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </section>
-<!-- 
+      <nav>
+        <div class="nav__container">
+          <a href="/" class="logo__wrapper">
+            <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+            <img
+              src="/static/assets/logo/GCISL_logo_fullcolor.png"
+              alt=""
+              class="header_logo"
+            />
+          </a>
+          <ul class="nav__links">
+            <li>
+              <a href="/get_involved" class="nav__link active">Get Involved!</a>
+            </li>
+            <li><a href="/contact" class="nav__link">Contact Us</a></li>
+            <li><a href="/about" class="nav__link">About</a></li>
+            <li>
+              <figure class="profile__picture--wrapper">
+                <img
+                  src="/static/assets/general/icon.png"
+                  alt=""
+                  class="profile__picture"
+                  id="profile-picture"
+                />
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+    <!-- 
     <div class = "body1">
         <p>Create your </p>
     </div>
@@ -61,12 +66,14 @@
         <p>Please note that by submitting this survey, you confirm that all the information </p>
         <p> provided is correct and accurate to the best of your knowledge </p>
     </div> -->
-
-    <!-- Create Form -->
-     <h1 class="section__title">Survey Manager</h1>
-    <p class="section__para">Manage your surveys below</p>
-  <!-- New Survey Creation -->
-    <!-- <form method="post" id="survey-form">
+    <section id="surveymanager">
+      <div class="section__container">
+        <div class="section__row">
+          <!-- Create Form -->
+          <h1 class="section__title">Survey Manager</h1>
+          <p class="section__para">Manage your surveys below</p>
+          <!-- New Survey Creation -->
+          <!-- <form method="post" id="survey-form">
         {% csrf_token %}
        
         <div style="text-align: left;">
@@ -77,85 +84,96 @@
         <button type="submit" name="CreateSurveyButton" id="createnewsurvey">Create New Survey</button>
     </form> -->
 
-    <!-- The survey title thats active -->
-    <div>
-        <form id="filter-form" method="GET">
-          {% csrf_token %}
-            <label for="survey-titles">Survey List</label>
-            <select name="titles" id="survey-titles">
-              <option value="{{survey.pk}}">{{survey.title}}</option>
-              {% for survey_piece in allSurveys %}
-                {% if survey_piece.pk != survey.pk %}
-                  <option value="{{survey_piece.pk}}">{{survey_piece.title}}</option>
-                {% endif %}
-              {% endfor %}
-            </select>
-        </form>
-      <h1>Survey Title: {{survey.title}}</h1>
-      <h3 class="question-label">Survey Description: {{survey.description}}</h3>
-    </div>
+          <!-- The survey title thats active -->
+          <div>
+            <form id="filter-form" method="GET">
+              {% csrf_token %}
+              <label for="survey-titles">Survey List</label>
+              <select name="titles" id="survey-titles">
+                <option value="{{survey.pk}}">{{survey.title}}</option>
+                {% for survey_piece in allSurveys %} {% if survey_piece.pk !=
+                survey.pk %}
+                <option value="{{survey_piece.pk}}">
+                  {{survey_piece.title}}
+                </option>
+                {% endif %} {% endfor %}
+              </select>
+            </form>
+            <h1>Survey Title: {{survey.title}}</h1>
+            <h3 class="question-label">
+              Survey Description: {{survey.description}}
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- load the java script function to refresh page when a new survey is selected-->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         // Your code here
         dropDownSurveyTitle();
       });
 
       function dropDownSurveyTitle() {
-        const elem = document.getElementById('survey-titles');
-        elem.addEventListener('change', function() {
-            document.getElementById('filter-form').submit();
+        const elem = document.getElementById("survey-titles");
+        elem.addEventListener("change", function () {
+          document.getElementById("filter-form").submit();
         });
       }
 
-      function handleMultipleChoice(){
-
-      }
+      function handleMultipleChoice() {}
     </script>
     <form method="post" id="question-form">
       {% csrf_token %}
-        <label>Question Text</label>
-        <div>{{qform.questiontext}}</div>
-        <label>Question Type</label>
-        <div>{{qform.questiontype}}</div>
-        <button type="submit" name="CreateQuestionButton" id="createnewquestion">Create New Question</button>
+      <label>Question Text</label>
+      <div>{{qform.questiontext}}</div>
+      <label>Question Type</label>
+      <div>{{qform.questiontype}}</div>
+      <button type="submit" name="CreateQuestionButton" id="createnewquestion">
+        Create New Question
+      </button>
     </form>
     <!-- load current questions that have been created with edit and delete features -->
     <!-- question addition -->
     <form method="post" id="choice-form">
-        {% csrf_token %}
-        <h2>Question Choice Editor</h2>
-        {% for question in questions %}
-          <h3>Question {{forloop.counter}}: {{question.questiontext}}</h3>
-            <label class="question-label" >Choices</label>
-              {% for choice in choices %}
-                {% if choice.questionid.pk == question.pk %}
-                  <div>Choice {{forloop.counter}}: {{choice.choicetext}}</div>
-                {% endif %}
-              {% endfor %}
-          <label>Add choice:</label>
-          <div>{{cform.choicetext}}</div>
-          <input type="hidden" name="questionid" value="{{question.pk}}">
-        {% endfor %}
-        <button type="submit" name="CreateChoiceButton" id="createchoicebutton">Create New Choice</button>
+      {% csrf_token %}
+      <h2>Question Choice Editor</h2>
+      {% for question in questions %}
+      <h3>Question {{forloop.counter}}: {{question.questiontext}}</h3>
+      <label class="question-label">Choices</label>
+      {% for choice in choices %} {% if choice.questionid.pk == question.pk %}
+      <div>Choice {{forloop.counter}}: {{choice.choicetext}}</div>
+      {% endif %} {% endfor %}
+      <label>Add choice:</label>
+      <div>{{cform.choicetext}}</div>
+      <input type="hidden" name="questionid" value="{{question.pk}}" />
+      {% endfor %}
+      <button type="submit" name="CreateChoiceButton" id="createchoicebutton">
+        Create New Choice
+      </button>
     </form>
-    
+
     <footer>
-        <div class="section__container">
-          <div class="section__row">
-            <div class="footer__wrapper">
-                <a href="/" class="footer__logo">
-                  <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                  <img src="/static/assets/logo/GCISL_logo_white.png" alt="" class="logo"/>
-                </a>
-              <div class="footer__list">
-                <a href="/get_involved" class="footer__link">Get Involved!</a>
-                <a href="/contact" class="footer__link">Contact Us</a>
-                <a href="/about" class="footer__link">About</a>
-              </div>
+      <div class="section__container">
+        <div class="section__row">
+          <div class="footer__wrapper">
+            <a href="/" class="footer__logo">
+              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+              <img
+                src="/static/assets/logo/GCISL_logo_white.png"
+                alt=""
+                class="logo"
+              />
+            </a>
+            <div class="footer__list">
+              <a href="/get_involved" class="footer__link">Get Involved!</a>
+              <a href="/contact" class="footer__link">Contact Us</a>
+              <a href="/about" class="footer__link">About</a>
             </div>
           </div>
         </div>
-      </footer>
-</body>
+      </div>
+    </footer>
+  </body>
 </html>
