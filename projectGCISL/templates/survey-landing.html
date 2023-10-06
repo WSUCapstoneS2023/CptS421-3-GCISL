@@ -64,9 +64,8 @@
           <!-- Create Form -->
           <h1 class="section__title">Welcome to Survey Manager</h1>
           <p class="section__para">Manage your surveys below</p>
-          <button>Create New Survey</button>
-          <button>Edit Survey</button>
-          <button>Delete Existing Survey</button>
+          <button id="createSurvey" onclick="handleCreateSurvey()">Create New Survey</button>
+          <button id="editSurvey" onclick="handleEditSurvey()">Edit Survey</button>
         </div>
       </div>
     </section>
@@ -82,6 +81,17 @@
         const elem = document.getElementById("survey-titles");
         elem.addEventListener("change", function () {
           document.getElementById("filter-form").submit();
+        });
+      }
+
+      function handleCreateSurvey(){
+        document.getElementById("createSurvey").addEventListener("click", function() {
+            window.location.href = 'builder/';
+        });
+      }
+      function handleEditSurvey(){
+        document.getElementById("editSurvey").addEventListener("click", function() {
+            window.location.href = 'manager/1';
         });
       }
     </script>
