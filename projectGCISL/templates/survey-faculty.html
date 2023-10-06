@@ -92,7 +92,7 @@
               {% endfor %}
             </select>
         </form>
-      <h1>Survey Title: {{survey.title}}</h1>
+      <h1 id="survey_{{survey.pk}}">Survey Title: {{survey.title}}</h1>
       <h3 class="question-label">Survey Description: {{survey.description}}</h3>
     </div>
     <!-- load the java script function to refresh page when a new survey is selected-->
@@ -120,17 +120,19 @@
         <h2>Question Choice Editor</h2>
         {% for question in questions %}
           <h3>Question {{forloop.counter}}: {{question.questiontext}}</h3>
-            <label class="question-label" style="align-items: center;">Choices</label>
+            <label class="question-label" style="align-items: center;" id="question_{{question.pk}}">Choices</label>
               {% for choice in choices %}
                 {% if choice.questionid.pk == question.pk %}
                   <div>Choice {{forloop.counter}}: {{choice.choicetext}}</div>
                 {% endif %}
               {% endfor %}
           <label>Add choice:</label>
-          <div>{{cform.choicetext}}</div>
-          <input type="hidden" name="questionid" value="{{question.pk}}">
+          <input type="text" name="choicetext_{{question.pk}}">
+          <input type="hidden" name="questionid_{{question.pk}}" value="{{question.pk}}">
+          <input type="hidden" name="surveyid" value="{{question.surveyid.pk}}">
+          <button type="submit" name="CreateChoiceButton" id="createchoicebutton_{{question.pk}}">Create New Choice</button>
         {% endfor %}
-        <button type="submit" name="CreateChoiceButton" id="createchoicebutton">Create New Choice</button>
+        
     </form>
     <form method="post" id="question-form">
       {% csrf_token %}

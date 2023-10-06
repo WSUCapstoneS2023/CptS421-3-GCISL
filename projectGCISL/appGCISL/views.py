@@ -128,7 +128,7 @@ def survey_faculty_view(request, survey_id):
                 # form is valid save the new survey and redirect to the new survey screen!
                 sform.instance.startdate = datetime.date.today()
                 survey = sform.save()
-                return redirect(f'/survey-faculty/{survey.surveyid}/', survey=survey)
+                return redirect(f'/survey-faculty/{survey.surveyid}/#survey_{survey.pk}', survey=survey)
             else:
                 print(sform.errors)
         elif 'CreateQuestionButton' in request.POST:
@@ -136,18 +136,32 @@ def survey_faculty_view(request, survey_id):
             if qform.is_valid():
                 qform.instance.surveyid = Survey.objects.get(surveyid=survey_id)
                 question = qform.save()
-                return redirect(f'/survey-faculty/{survey_id}/')
+                return redirect(f'/survey-faculty/{survey_id}/#question_{question.pk}')
         elif 'CreateChoiceButton' in request.POST:
             cform = ChoiceForm(request.POST)
-            # set current survey Id to the choice
-            questionid = request.POST.get('questionid')
-            # cform.instance.questionid = Question.objects.get(questionid=int(questionid))
+            
+            # get the question with the text input and get the text from that choice
+            questionGroup = Question.objects.filter(surveyid = request.POST.get('surveyid'))
+            for question in questionGroup:
+                if request.POST.get(f'choicetext_{question.pk}') != '':
+                    questionid = request.POST.get(f'questionid_{question.pk}')
+                    break
+            choicetext = request.POST.get(f'choicetext_{questionid}')
+            
+            # update the current form choicetext field with the text
+            updated_request = request.POST.copy()
+            updated_request.update({'choicetext': choicetext})
+            cform = ChoiceForm(updated_request)
+
+            # validate and save to the database
             if cform.is_valid():
                 cform.instance.questionid = Question.objects.get(questionid=int(questionid))
                 choice = cform.save()
-                return redirect(f'/survey-faculty/{survey_id}/')
+                # redirect back to the same place
+                return redirect(f'/survey-faculty/{survey_id}/#question_{questionid}')
             else:
                 print(cform.errors)
+                return HttpResponse(f'{cform.errors}', status=418)
         else:
             return HttpResponse('<h1>Custom Error</h1>', status=418)
     else:
