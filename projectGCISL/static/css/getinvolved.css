@@ -156,6 +156,11 @@ nav {
   flex-direction: column;
 }
 
+.section__row .content__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .section__title {
   margin-bottom: 20px;
 }
