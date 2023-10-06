@@ -145,8 +145,8 @@
       <div>Choice {{forloop.counter}}: {{choice.choicetext}}</div>
       {% endif %} {% endfor %}
       <label>Add choice:</label>
-      <div>{{cform.choicetext}}</div>
-      <input type="hidden" name="questionid" value="{{question.pk}}" />
+      <input type="text" name="choicetext_{{question.pk}}">
+      <input type="hidden" name="questionid_{{question.pk}}" value="{{question.pk}}" />
       {% endfor %}
       <button type="submit" name="CreateChoiceButton" id="createchoicebutton">
         Create New Choice

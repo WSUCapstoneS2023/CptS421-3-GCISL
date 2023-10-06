@@ -174,29 +174,18 @@ def survey_manager_view(request, survey_id):
                 question = qform.save()
                 return redirect(f'/survey-faculty/manager/{survey_id}/')
         elif 'CreateChoiceButton' in request.POST:
-            cform = ChoiceForm(request.POST)
-            
+            choicetext = ""
             # get the question with the text input and get the text from that choice
-            questionGroup = Question.objects.filter(surveyid = request.POST.get('surveyid'))
+            questionGroup = Question.objects.filter(surveyid = survey_id)
             for question in questionGroup:
-                if request.POST.get(f'choicetext_{question.pk}') != '':
-                    questionid = request.POST.get(f'questionid_{question.pk}')
-                    break
-            choicetext = request.POST.get(f'choicetext_{questionid}')
-            
-            # update the current form choicetext field with the text
-            updated_request = request.POST.copy()
-            updated_request.update({'choicetext': choicetext})
-            cform = ChoiceForm(updated_request)
+                if request.POST.get(f'choicetext_{question.pk}') != '':            
+                    choicetext = request.POST.get(f'choicetext_{question.pk}')
+                    # check to make sure choice passed in correctly
+                    if choicetext != "":
+                        choice = Choice(questionid = question, choicetext = choicetext)
+                        choice.save()
 
-            # validate and save to the database
-            if cform.is_valid():
-                cform.instance.questionid = Question.objects.get(questionid=int(questionid))
-                choice = cform.save()
-                return redirect(f'/survey-faculty/manager/{survey_id}/')
-            else:
-                print(cform.errors)
-                return HttpResponse(f'{cform.errors}', status=418)
+            return redirect(f'/survey-faculty/manager/{survey_id}/')
         else:
             return HttpResponse('<h1>Custom Error</h1>', status=418)
     else:

@@ -112,8 +112,8 @@ input[type="submit"] {
         <h2>{{survey.title}}</h2>
         {% for question in questions %}
             <div class="question">
-                <!-- <input type="hidden" name="question_text_{{ question.questionid }}" value="{{ question.questiontext }}">
-                <input type="hidden" name="question_type_{{ question.questionid }}" value="{{ question.questiontype }}">   -->
+                <input type="hidden" name="question_text_{{ question.questionid }}" value="{{ question.questiontext }}">
+                <input type="hidden" name="question_type_{{ question.questionid }}" value="{{ question.questiontype }}">  
                 <p>{{ question.questiontext }}</p>
                 {% if question.questiontype == 'multiple_choice' %}
                     <ul>
