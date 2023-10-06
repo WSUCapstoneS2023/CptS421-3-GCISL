@@ -7,7 +7,7 @@ from django.views.generic import TemplateView, CreateView
 import datetime
 
 
-from .models import Choice, Question, Survey
+from .models import Choice, Question, Survey, Response
 from .forms import RegistrationForm, LoginAuthForm, QuestionForm, SurveyForm, ChoiceForm, ResponseForm
 
 # Create your views here.
@@ -32,24 +32,30 @@ def survey_view(request):
     survey = getCurrentSurvey()
     questions = getQuestions(survey)
     count = 0
+    
+    # create a count for number of questions
     for question in questions:
         count = count + 1
     
+    # get all choices in a dictionary
+    choices = {}
+    for question in questions:
+        choices[question.questionid] = filter_choice(question.questionid)
     # will hold all forms required for each question
     rforms = [ResponseForm({'surveyid': survey, 'respondentname': request.user.first_name + " " + request.user.last_name, 'respondentemail': request.user.email}) for _ in range(count)]
     # handle post methods
     if request.method == "POST":
-        for rform in rforms:
-            if rform.is_valid():
-                rform.save()
-        return redirect('getinvolved')
+        # map responses to the database responses
+        mapResponses(request, questions, choices)
+        return redirect('get_involved')
     # handle get request
     elif request.method == "GET":
         rforms = mapQuestionsToResponseForms(rforms, questions)
         # passing in the current survey, questions related to the survey, and an array of
         # checks also if user is authenticated and user is resident
-        if request.user.is_authenticated and request.user.is_resident: 
-            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'rforms': rforms})
+        if request.user.is_authenticated and request.user.is_resident:
+
+            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'choices': choices})
     else:
         return HttpResponse("User doesn't have privaledges.")
     
@@ -125,26 +131,42 @@ def survey_faculty_view(request, survey_id):
                 # form is valid save the new survey and redirect to the new survey screen!
                 sform.instance.startdate = datetime.date.today()
                 survey = sform.save()
-                return redirect(f'/survey-faculty/{survey.surveyid}/', survey=survey)
+                return redirect(f'/survey-faculty/{survey.surveyid}/#survey_{survey.pk}', survey=survey)
             else:
                 print(sform.errors)
         elif 'CreateQuestionButton' in request.POST:
+            # create new question form with request data
             qform = QuestionForm(request.POST)
+            # validate and save the form
             if qform.is_valid():
                 qform.instance.surveyid = Survey.objects.get(surveyid=survey_id)
                 question = qform.save()
-                return redirect(f'/survey-faculty/{survey_id}/')
+                return redirect(f'/survey-faculty/{survey_id}/#question_{question.pk}')
         elif 'CreateChoiceButton' in request.POST:
             cform = ChoiceForm(request.POST)
-            # set current survey Id to the choice
-            questionid = request.POST.get('questionid')
-            # cform.instance.questionid = Question.objects.get(questionid=int(questionid))
+            
+            # get the question with the text input and get the text from that choice
+            questionGroup = Question.objects.filter(surveyid = request.POST.get('surveyid'))
+            for question in questionGroup:
+                if request.POST.get(f'choicetext_{question.pk}') != '':
+                    questionid = request.POST.get(f'questionid_{question.pk}')
+                    break
+            choicetext = request.POST.get(f'choicetext_{questionid}')
+            
+            # update the current form choicetext field with the text
+            updated_request = request.POST.copy()
+            updated_request.update({'choicetext': choicetext})
+            cform = ChoiceForm(updated_request)
+
+            # validate and save to the database
             if cform.is_valid():
                 cform.instance.questionid = Question.objects.get(questionid=int(questionid))
                 choice = cform.save()
-                return redirect(f'/survey-faculty/{survey_id}/')
+                # redirect back to the same place
+                return redirect(f'/survey-faculty/{survey_id}/#question_{questionid}')
             else:
                 print(cform.errors)
+                return HttpResponse(f'{cform.errors}', status=418)
         else:
             return HttpResponse('<h1>Custom Error</h1>', status=418)
     else:
@@ -216,7 +238,46 @@ def mapQuestionsToResponseForms(rforms, questions):
 #     try:
 #         return Choice.objects.filter(surveyid=survey_id).order_by('choiceid')
 #     except Choice.DoesNotExist:
-#         return None
+#         return Node
 
-        
+def filter_choice(questionid):
+    filter_choice = []
+    for choice in Choice.objects.all():
+        if choice.questionid.pk == questionid:
+            filter_choice.append(choice)
+    return filter_choice
+
+# this function recieves the answers from the users and saves them once the form is submitted
+def mapResponses(request, questions, choice_dict):
+    # check which choice was picked in each question
+    checkbox_string = ""
+    for question in questions:
+        # check for text answer, if it is get the answer and save to response
+        if question.questiontype == "text":
+            text_answer = request.POST.get(f'question_{question.pk}')
+            response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=text_answer)
+            response.save()
+        elif question.questiontype == "checkbox":
+            for choice in choice_dict[question.pk]:
+                if f'question_{question.pk}_{choice.pk}' in request.POST:
+                    choicet = Choice.objects.get(choiceid=choice.pk)
+                    checkbox_string = checkbox_string + choicet.choicetext + ", "
+            response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=checkbox_string)
+            response.save()
+        elif question.questiontype == "multiple_choice":
+            for choice in choice_dict[question.pk]:
+                if f'question_{question.pk}_{choice.pk}' in request.POST:
+                    choicet = Choice.objects.get(choiceid=choice.pk)
+                    response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=choicet.choicetext, choiceid=choice)
+                    response.save()
+                    break
+        else:
+            # numeric
+            for choice in choice_dict[question.pk]:
+                if f'question_{question.pk}_{choice.pk}' in request.POST:
+                    num = request.POST.get(f'question_{question.pk}_{choice.pk}')
+                    response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsenumeric=int(num), choiceid=choice)
+                    response.save()
+                    break
+    return
 
