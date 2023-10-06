@@ -63,29 +63,24 @@
     </div> -->
 
     <!-- Create Form -->
-    <h1 class="section__title">Create your form</form></h1>
-    <p class="section__para">
-
-    <form method="post" id="survey-form">
+     <h1 class="section__title">Survey Manager</h1>
+    <p class="section__para">Manage your surveys below</p>
+  <!-- New Survey Creation -->
+    <!-- <form method="post" id="survey-form">
         {% csrf_token %}
-        <!-- New Survey Creation -->
-        <div class="form__wrapper"">
-          <div class="question-label">Survey Title: {{sform.title}}</div>
+       
+        <div style="text-align: left;">
+          <div class="question-label" style="align-items: center; padding: 10px;">Survey Title: {{sform.title}}</div>
+          <div class="question-label" style="padding: 10px; display: flex;">Survey Description: {{sform.description}}</div>
           <div class="question-label" type="date">Survey End Date: {{sform.enddate}}</div>
-          <div class="question-label">Survey Description: {{sform.description}}</div>
         </div>
         <button type="submit" name="CreateSurveyButton" id="createnewsurvey">Create New Survey</button>
-    </form>
-<<<<<<< HEAD
-=======
+    </form> -->
 
     <!-- The survey title thats active -->
     <div>
-      
         <form id="filter-form" method="GET">
           {% csrf_token %}
-          <h2>Filter Surveys</h2>
-          <br>
             <label for="survey-titles">Survey List</label>
             <select name="titles" id="survey-titles">
               <option value="{{survey.pk}}">{{survey.title}}</option>
@@ -96,29 +91,28 @@
               {% endfor %}
             </select>
         </form>
-      <h1 id="survey_{{survey.pk}}">Survey Title: {{survey.title}}</h1>
+      <h1>Survey Title: {{survey.title}}</h1>
       <h3 class="question-label">Survey Description: {{survey.description}}</h3>
     </div>
->>>>>>> 4eb427c3855bbc72d25592577a8cf9b35f618a83
     <!-- load the java script function to refresh page when a new survey is selected-->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // survey function call after the file is loaded
+        // Your code here
         dropDownSurveyTitle();
       });
 
       function dropDownSurveyTitle() {
-        // get the dropdown element
         const elem = document.getElementById('survey-titles');
-        // look for a change in the selection
         elem.addEventListener('change', function() {
-          // submit the form after the change  
-          document.getElementById('filter-form').submit();
+            document.getElementById('filter-form').submit();
         });
       }
+
+      function handleMultipleChoice(){
+
+      }
     </script>
-    <!-- question addition -->
-    <!-- <form method="post" id="question-form">
+    <form method="post" id="question-form">
       {% csrf_token %}
         <label>Question Text</label>
         <div>{{qform.questiontext}}</div>
@@ -126,44 +120,26 @@
         <div>{{qform.questiontype}}</div>
         <button type="submit" name="CreateQuestionButton" id="createnewquestion">Create New Question</button>
     </form>
-    <!-- load current questions that have been created with edit and delete features 
-    
+    <!-- load current questions that have been created with edit and delete features -->
+    <!-- question addition -->
     <form method="post" id="choice-form">
         {% csrf_token %}
         <h2>Question Choice Editor</h2>
         {% for question in questions %}
           <h3>Question {{forloop.counter}}: {{question.questiontext}}</h3>
-            <label class="question-label" style="align-items: center;" id="question_{{question.pk}}">Choices</label>
-              {% set choice_count = 1 %}
+            <label class="question-label" >Choices</label>
               {% for choice in choices %}
                 {% if choice.questionid.pk == question.pk %}
-                  <div>Choice {{choice_count}}: {{choice.choicetext}}</div>
-                  {% set choice_count = choice_count + 1 %}
+                  <div>Choice {{forloop.counter}}: {{choice.choicetext}}</div>
                 {% endif %}
               {% endfor %}
           <label>Add choice:</label>
-          <input type="text" name="choicetext_{{question.pk}}">
-          <input type="hidden" name="questionid_{{question.pk}}" value="{{question.pk}}">
-          <input type="hidden" name="surveyid" value="{{question.surveyid.pk}}">
-          <button type="submit" name="CreateChoiceButton" id="createchoicebutton_{{question.pk}}">Create New Choice</button>
+          <div>{{cform.choicetext}}</div>
+          <input type="hidden" name="questionid" value="{{question.pk}}">
         {% endfor %}
-<<<<<<< HEAD
         <button type="submit" name="CreateChoiceButton" id="createchoicebutton">Create New Choice</button>
-    </form> -->
+    </form>
     
-=======
-        
-    </form>
-    <form method="post" id="question-form">
-      {% csrf_token %}
-      <h2>Question Maker</h2>
-        <label>Question Text</label>
-        <div>{{qform.questiontext}}</div>
-        <label>Question Type</label>
-        <div>{{qform.questiontype}}</div>
-        <button type="submit" name="CreateQuestionButton" id="createnewquestion">Create New Question</button>
-    </form>
->>>>>>> 4eb427c3855bbc72d25592577a8cf9b35f618a83
     <footer>
         <div class="section__container">
           <div class="section__row">

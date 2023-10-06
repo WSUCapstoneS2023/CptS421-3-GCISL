@@ -259,6 +259,39 @@ nav {
   padding: 80px 0;
 }
 
+.section__wrapper {
+  flex-direction: column;
+  display: flex;
+}
+
+.form__wrapper {
+  text-align: left;
+  justify-content: space-between;
+  height: calc(30vh);
+}
+ 
+
+input, textarea {
+  outline: none;
+  border: 1px solid #c0c4cc;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 40px;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+  margin-top: 8px;
+}
+
+.question-label {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+}
+
 .section__row {
   width: 100%;
   max-width: 1000px;
