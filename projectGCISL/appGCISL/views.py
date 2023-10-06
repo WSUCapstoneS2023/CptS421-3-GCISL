@@ -50,11 +50,9 @@ def survey_view(request):
         return redirect('get_involved')
     # handle get request
     elif request.method == "GET":
-        rforms = mapQuestionsToResponseForms(rforms, questions)
         # passing in the current survey, questions related to the survey, and an array of
         # checks also if user is authenticated and user is resident
         if request.user.is_authenticated and request.user.is_resident:
-
             return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'choices': choices})
     else:
         return HttpResponse("User doesn't have privaledges.")
@@ -304,7 +302,7 @@ def mapResponses(request, questions, choice_dict):
         else:
             # numeric
             for choice in choice_dict[question.pk]:
-                if f'question_{question.pk}_{choice.pk}' in request.POST:
+                if f'question_{question.pk}' in request.POST:
                     num = request.POST.get(f'question_{question.pk}_{choice.pk}')
                     response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsenumeric=int(num), choiceid=choice)
                     response.save()
