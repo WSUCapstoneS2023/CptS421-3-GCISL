@@ -92,7 +92,7 @@ def logout_view(request):
     return redirect('landing')
 
 ## the view that processes new Survey creations, Question Creations, and Choice creations
-def survey_faculty_view(request, survey_id):
+def survey_faculty_view(request):
     if request.method == 'POST':
         ## check for creation of a new survey, new question, or new choice
         if 'CreateSurveyButton' in request.POST:
@@ -101,26 +101,9 @@ def survey_faculty_view(request, survey_id):
                 # form is valid save the new survey and redirect to the new survey screen!
                 sform.instance.startdate = datetime.date.today()
                 survey = sform.save()
-                return redirect(f'/survey-faculty/{survey.surveyid}/', survey=survey)
+                return redirect(f'/survey-faculty/manager/{survey.surveyid}/', survey=survey)
             else:
                 print(sform.errors)
-        elif 'CreateQuestionButton' in request.POST:
-            qform = QuestionForm(request.POST)
-            if qform.is_valid():
-                qform.instance.surveyid = Survey.objects.get(surveyid=survey_id)
-                question = qform.save()
-                return redirect(f'/survey-faculty/{survey_id}/')
-        elif 'CreateChoiceButton' in request.POST:
-            cform = ChoiceForm(request.POST)
-            # set current survey Id to the choice
-            questionid = request.POST.get('questionid')
-            # cform.instance.questionid = Question.objects.get(questionid=int(questionid))
-            if cform.is_valid():
-                cform.instance.questionid = Question.objects.get(questionid=int(questionid))
-                choice = cform.save()
-                return redirect(f'/survey-faculty/{survey_id}/')
-            else:
-                print(cform.errors)
         else:
             return HttpResponse('<h1>Custom Error</h1>', status=418)
     else:
@@ -129,74 +112,13 @@ def survey_faculty_view(request, survey_id):
             selected_survey_id = request.GET.get('titles')
             # check for None case
             if selected_survey_id != None:
-                return redirect(f'/survey-faculty/{selected_survey_id}')
+                return redirect(f'/survey-faculty/manager/{selected_survey_id}')
         # normal get request to render the page
         else:
             sform = SurveyForm()
-            qform = QuestionForm()
-            cform = ChoiceForm()
             if request.user.is_authenticated and request.user.is_staff:
                 # get survey data, all questions attached, and choices that belong to the survey
-                survey = getSurvey(survey_id)
-                allSurveys = Survey.objects.all()
-                questions = getQuestions(survey_id)
-                choices = Choice.objects.all()
-                return render(request, 'survey-faculty.html', {'sform': sform, 'qform' : qform, 'cform' : cform, 'survey' : survey, 'questions': questions, 'choices' : choices, 'allSurveys' : allSurveys})
-            else:
-                # user is not faculty, should not be able to view the survey customize screen!
-                return render(request, 'getinvolved-logged.html')
-
-#render form builder
-def form_builder_view(request, survey_id):
-    if request.method == 'POST':
-        ## check for creation of a new survey, new question, or new choice
-        if 'CreateSurveyButton' in request.POST:
-            sform = SurveyForm(request.POST)
-            if sform.is_valid():
-                # form is valid save the new survey and redirect to the new survey screen!
-                sform.instance.startdate = datetime.date.today()
-                survey = sform.save()
-                return redirect(f'/survey-faculty/{survey.surveyid}/', survey=survey)
-            else:
-                print(sform.errors)
-        elif 'CreateQuestionButton' in request.POST:
-            qform = QuestionForm(request.POST)
-            if qform.is_valid():
-                qform.instance.surveyid = Survey.objects.get(surveyid=survey_id)
-                question = qform.save()
-                return redirect(f'/survey-faculty/{survey_id}/')
-        elif 'CreateChoiceButton' in request.POST:
-            cform = ChoiceForm(request.POST)
-            # set current survey Id to the choice
-            questionid = request.POST.get('questionid')
-            # cform.instance.questionid = Question.objects.get(questionid=int(questionid))
-            if cform.is_valid():
-                cform.instance.questionid = Question.objects.get(questionid=int(questionid))
-                choice = cform.save()
-                return redirect(f'/survey-faculty/{survey_id}/')
-            else:
-                print(cform.errors)
-        else:
-            return HttpResponse('<h1>Custom Error</h1>', status=418)
-    else:
-        # survey gets filtered
-        if 'titles' in request.GET:
-            selected_survey_id = request.GET.get('titles')
-            # check for None case
-            if selected_survey_id != None:
-                return redirect(f'/survey-faculty/{selected_survey_id}')
-        # normal get request to render the page
-        else:
-            sform = SurveyForm()
-            qform = QuestionForm()
-            cform = ChoiceForm()
-            if request.user.is_authenticated and request.user.is_staff:
-                # get survey data, all questions attached, and choices that belong to the survey
-                survey = getSurvey(survey_id)
-                allSurveys = Survey.objects.all()
-                questions = getQuestions(survey_id)
-                choices = Choice.objects.all()
-                return render(request, 'survey-faculty.html', {'sform': sform, 'qform' : qform, 'cform' : cform, 'survey' : survey, 'questions': questions, 'choices' : choices, 'allSurveys' : allSurveys})
+                return render(request, 'survey-faculty.html', {'sform': sform})
             else:
                 # user is not faculty, should not be able to view the survey customize screen!
                 return render(request, 'getinvolved-logged.html')
