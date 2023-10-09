@@ -38,8 +38,14 @@
             />
           </a>
           <ul class="nav__links">
+            {% if user.is_superuser %}
+              <li>
+                <a href="/admin" class="nav__link">Admin</a>
+                <li><a href="/survey-faculty/builder/" class="nav__link">Survey Builder!</a></li>
+              </li>
+            {% endif %}
             <li>
-              <a href="/get_involved" class="nav__link active">Get Involved!</a>
+              <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
             </li>
             <li><a href="/contact" class="nav__link">Contact Us</a></li>
             <li><a href="/about" class="nav__link">About</a></li>
@@ -110,7 +116,7 @@
               />
             </a>
             <div class="footer__list">
-              <a href="/get_involved" class="footer__link">Get Involved!</a>
+              <a href="/survey-faculty/builder/" class="footer__link">Survey Builder!</a>
               <a href="/contact" class="footer__link">Contact Us</a>
               <a href="/about" class="footer__link">About</a>
             </div>
