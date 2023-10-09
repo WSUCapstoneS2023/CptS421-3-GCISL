@@ -33,15 +33,26 @@
             {% if user.is_superuser %}
               <li>
                 <a href="/admin" class="nav__link">Admin</a>
-                <li><a href="/survey-faculty/builder/" class="nav__link">Survey Builder!</a></li>
+                <li><a href="/survey-faculty/" class="nav__link">Survey Manager</a></li>
+                <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
+                <li><a href="/about" class="nav__link">About</a></li>
+                <li><a href="/logout" class="nav__link logout">Logout</a></li>
+          </ul>
               </li>
-            {% endif %}
+            {% else %}
             <li>
               <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
             </li>
             <li><a href="/contact" class="nav__link active">Contact Us</a></li>
             <li><a href="/about" class="nav__link">About</a></li>
             <li><a href="/logout" class="nav__link logout">Logout</a></li>
+            {% endif %}
+            {% comment %} <li>
+              <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
+            </li>
+            <li><a href="/contact" class="nav__link active">Contact Us</a></li>
+            <li><a href="/about" class="nav__link">About</a></li>
+            <li><a href="/logout" class="nav__link logout">Logout</a></li> {% endcomment %}
           </ul>
         </div>
       </nav>
