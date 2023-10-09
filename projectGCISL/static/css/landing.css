@@ -342,13 +342,36 @@ footer {
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 900px) {
+    h1 {
+        font-size: 36px !important;
+        font-weight: 700 !important; 
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    #landing {
+        height: auto;
+    }
+
+    header {
+        margin: 20px;
+    }
+
+    .header__container{
+        height: auto;
+    }
+
+    .header_logo {
+        width: 100%;
+        height: 80px;
+        margin-top: 10px;
+    }
+
     .nav__container {
         flex-direction: column;
         align-items: center;
-    }
-
-    .nav__links {
-        margin-top: 20px;
     }
 
     .nav__link {
@@ -363,9 +386,14 @@ footer {
 
     .header__description {
         text-align: center;
+        font-size: 16px;
     }
 
+    #quotes{
+        margin: 20px;
+    }
     #landing__carousel {
+        margin-top: 80px;
         max-width: 800px;
         flex-direction: column;
     }
@@ -375,9 +403,9 @@ footer {
     }
     
     .image {
-        height: 800px;
         border-radius: 20px;
         width: 100%;
+        height: 100%;
     }
 
     .section__row {
@@ -406,37 +434,65 @@ footer {
 
 }
 
+
 @media screen and (max-width: 550px) {
+    h1 {
+        font-size: 36px !important;
+        font-weight: 700 !important; 
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    #landing {
+        height: auto;
+    }
+
+    header {
+        margin: 20px;
+    }
+
+    nav {
+        height: auto;
+    }
+    
+    .header__container{
+        height: auto;
+    }
+
+    .header_logo {
+        width: 100%;
+        height: 80px;
+        margin-top: 10px;
+    }
+
     .nav__container {
         flex-direction: column;
         align-items: center;
     }
 
-    .nav__links {
-        margin-top: 20px;
-    }
-
     .nav__link {
-        font-size: 8px;
-        margin: 8px;
+        font-size: 16px;
+        margin-left: 12px;
         padding: 4px;
     }
 
-    
     .profile__picture--wrapper {
-        margin-left: 8px;
+        margin-left: 12px;
     } 
 
     .header__description {
         text-align: center;
+        font-size: 12px;
     }
 
-    h1 {
-        font-size: 36px !important;
+    #quotes{
+        margin: 20px;
     }
-
     #landing__carousel {
-        max-width: 500px;
+        margin-top: 80px;
+        max-width: 800px;
         flex-direction: column;
     }
 
@@ -445,13 +501,13 @@ footer {
     }
     
     .image {
-        height: 300px;
         border-radius: 20px;
         width: 100%;
+        height: 100%;
     }
 
     .section__row {
-        max-width: 300px;
+        max-width: 600px;
     }
 
     .gallery__wrapper {
@@ -473,4 +529,99 @@ footer {
     .get-involved__title {
         text-align: center;
     }
+
+}
+
+
+@media screen and (max-width: 390px) {
+    h1 {
+        font-size: 36px !important;
+        font-weight: 700 !important; 
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    #landing {
+        height: auto;
+    }
+
+    header {
+        margin: 20px 0;
+    }
+
+    .header__container{
+        height: auto;
+    }
+
+    .header_logo {
+        width: 100%;
+        height: 80px;
+        margin-top: 10px;
+    }
+
+    .nav__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav__link {
+        font-size: 12px;
+        margin-left: 12px;
+        padding: 4px;
+    }
+
+    .profile__picture--wrapper {
+        margin-left: 12px;
+    } 
+
+    .header__description {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    #quotes{
+        margin: 20px;
+    }
+    #landing__carousel {
+        margin-top: 80px;
+        max-width: 800px;
+        flex-direction: column;
+    }
+
+    .image__container--wrapper {
+        width: 100%;
+    }
+    
+    .image {
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .section__row {
+        max-width: 600px;
+    }
+
+    .gallery__wrapper {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gallery__left {
+        width: 100%;
+        margin: 20px;
+    }
+
+    .gallery__right {
+        width: 100%;
+        margin: 20px;
+    }
+
+    .get-involved__title {
+        text-align: center;
+    }
+
 }
