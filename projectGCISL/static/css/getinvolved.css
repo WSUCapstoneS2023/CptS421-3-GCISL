@@ -329,13 +329,13 @@ footer {
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 900px) {
+  nav {
+    height: auto;
+  }
+
   .nav__container {
     flex-direction: column;
     align-items: center;
-  }
-
-  .nav__links {
-    margin-top: 20px;
   }
 
   .nav__link {

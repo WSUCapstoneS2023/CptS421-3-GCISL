@@ -356,11 +356,7 @@ footer {
     }
 
     header {
-        margin: 20px;
-    }
-
-    .header__container{
-        height: auto;
+        margin: 40px;
     }
 
     .header_logo {
@@ -369,9 +365,14 @@ footer {
         margin-top: 10px;
     }
 
+    .header__container {
+        margin-top: 80px;
+    }
+
     .nav__container {
         flex-direction: column;
         align-items: center;
+        margin: 20px;
     }
 
     .nav__link {
@@ -456,7 +457,7 @@ footer {
     nav {
         height: auto;
     }
-    
+
     .header__container{
         height: auto;
     }

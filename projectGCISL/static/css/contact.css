@@ -273,11 +273,11 @@ footer {
   justify-content: center;
 }
 
-.gciConnect__logo{
-  color: #A60F2D;
+.gciConnect__logo {
+  color: #a60f2d;
 }
 
-.footer__logo .gciConnect__logo{
+.footer__logo .gciConnect__logo {
   color: #fff;
 }
 
@@ -285,7 +285,6 @@ footer {
   margin-left: 20px;
   max-width: 35%;
 }
-
 
 .footer__wrapper {
   margin: 50px 0;
@@ -313,13 +312,13 @@ footer {
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 900px) {
+  nav {
+        height: auto;
+    }
+  
   .nav__container {
     flex-direction: column;
     align-items: center;
-  }
-
-  .nav__links {
-    margin-top: 20px;
   }
 
   .nav__link {
