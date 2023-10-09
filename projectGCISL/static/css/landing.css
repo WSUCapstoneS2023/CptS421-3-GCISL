@@ -422,11 +422,6 @@ footer {
         padding: 4px;
     }
 
-    
-    .profile__picture--wrapper {
-        margin-left: 8px;
-    } 
-
     .header__description {
         text-align: center;
     }
@@ -452,6 +447,10 @@ footer {
 
     .section__row {
         max-width: 300px;
+    }
+
+    .gciConnect__logo {
+        margin-right: 0; /* Remove right margin */
     }
 
     .gallery__wrapper {
