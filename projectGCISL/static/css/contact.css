@@ -119,7 +119,6 @@ nav {
 }
 
 .header_logo {
-  max-width: 50%;
   height: 8vh;
   margin-left: 20px;
 }
@@ -321,6 +320,10 @@ footer {
     align-items: center;
   }
 
+  .nav__links {
+    margin: 20px;
+  }
+  
   .nav__link {
     font-size: 16px;
     margin-left: 12px;
