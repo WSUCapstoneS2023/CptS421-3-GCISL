@@ -294,7 +294,7 @@ def mapResponses(request, questions, choice_dict):
             response.save()
         elif question.questiontype == "multiple_choice":
             for choice in choice_dict[question.pk]:
-                if f'question_{question.pk}_{choice.pk}' in request.POST:
+                if f'question_{question.pk}' in request.POST:
                     choicet = Choice.objects.get(choiceid=choice.pk)
                     response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=choicet.choicetext, choiceid=choice)
                     response.save()

@@ -122,7 +122,7 @@ input[type="submit"] {
                                 {% for choice in choices_list %}
                                     <li class="choice-container">
                                         <label>
-                                            <input type="radio" name="question_{{ question.questionid }}_{{ choice.choiceid }}" value="{{ choice.choiceid }}">
+                                            <input type="radio" name="question_{{ question.questionid }}" value="{{ choice.choiceid }}">
                                             {{ choice.choicetext }}
                                         </label>
                                     </li>
