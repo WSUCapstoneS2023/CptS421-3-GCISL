@@ -341,7 +341,7 @@ footer {
 
   .contact__wrapper {
     flex-direction: column;
-    height: 65vh;
+    height: 70vh;
     max-width: 100vw;
   }
 
@@ -357,6 +357,16 @@ footer {
   .contact__right {
     width: 100%;
     height: 100vh;
+  }
+
+  .contact__title {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .contact__para {
+    font-size: 20px;
+    font-weight: 600;
   }
 }
 
