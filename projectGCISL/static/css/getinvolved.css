@@ -328,6 +328,10 @@ footer {
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 900px) {
+.logo__wrapper {
+  margin: 10px;
+}
+
   .nav__container {
     flex-direction: column;
     align-items: center;

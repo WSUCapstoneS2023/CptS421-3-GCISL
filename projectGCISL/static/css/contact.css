@@ -336,19 +336,22 @@ footer {
 
   .section__row {
     max-width: 100vw;
+    display: block;
   }
 
   .contact__wrapper {
     flex-direction: column;
-    height: 100vh;
+    height: 65vh;
     max-width: 100vw;
   }
 
   .contact__half {
     width: 100%;
   }
+  
   .contact__left {
     width: 100%;
+    text-align: center;
   }
 
   .contact__right {
