@@ -460,6 +460,7 @@ footer {
 
     .header__container{
         height: auto;
+        
     }
 
     .header_logo {
@@ -549,11 +550,11 @@ footer {
     }
 
     header {
-        margin: 20px 0;
+        margin: 10px 0;
     }
 
     .header__container{
-        height: auto;
+        margin-top: 0;
     }
 
     .header_logo {
@@ -568,8 +569,8 @@ footer {
     }
 
     .nav__link {
-        font-size: 12px;
-        margin-left: 12px;
+        font-size: 10px;
+        margin-left: 10px;
         padding: 4px;
     }
 
@@ -585,6 +586,7 @@ footer {
     #quotes{
         margin: 20px;
     }
+    
     #landing__carousel {
         margin-top: 80px;
         max-width: 800px;
