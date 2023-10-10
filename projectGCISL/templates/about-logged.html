@@ -32,21 +32,29 @@
             <img src="/static/assets/logo/GCISL_logo_fullcolor.png" alt="" class="header_logo"/>
           </a>
           <ul class="nav__links">
-            <li><a href="/get_involved" class="nav__link">Get Involved!</a></li>
+            {% if user.is_superuser %}
+              <li>
+                <a href="/admin" class="nav__link">Admin</a>
+                <li><a href="/survey-faculty/" class="nav__link">Survey Manager</a></li>
+                <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
+                <li><a href="/about" class="nav__link active">About</a></li>
+                <li><a href="/logout" class="nav__link logout">Logout</a></li>
+          </ul>
+              </li>
+            {% else %}
+            <li>
+              <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
+            </li>
             <li><a href="/contact" class="nav__link">Contact Us</a></li>
             <li><a href="/about" class="nav__link active">About</a></li>
             <li><a href="/logout" class="nav__link logout">Logout</a></li>
-            <li>
-              <figure class="profile__picture--wrapper">
-                <img
-                  src="/static/assets/general/icon.png"
-                  alt=""
-                  class="profile__picture"
-                  id="profile-picture"
-                />
-              </figure>
+            {% endif %}
+            {% comment %} <li>
+              <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
             </li>
-          </ul>
+            <li><a href="/contact" class="nav__link">Contact Us</a></li>
+            <li><a href="/about" class="nav__link active">About</a></li> {% endcomment %}
+
         </div>
       </nav>
       <img
@@ -260,7 +268,7 @@
                 <img src="/static/assets/logo/GCISL_logo_white.png" alt="" class="footer__gci__logo"/>
               </a>
             <div class="footer__list">
-              <a href="/get_involved" class="footer__link">Get Involved!</a>
+              <a href="/survey-faculty/builder/" class="footer__link">Survey Builder!</a>
               <a href="/contact" class="footer__link">Contact Us</a>
               <a href="/about" class="footer__link">About</a>
             </div>

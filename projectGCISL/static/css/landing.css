@@ -451,6 +451,9 @@ footer {
   nav {
     height: auto;
   }
+  .header__description {
+    text-align: center;
+  }
 
   .header__container {
     height: auto;
@@ -475,6 +478,15 @@ footer {
 
   .profile__picture--wrapper {
     margin-left: 12px;
+  }
+  .gciConnect__logo {
+    margin-right: 0; /* Remove right margin */
+  }
+
+  .gallery__wrapper {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
   }
 
   .header__description {

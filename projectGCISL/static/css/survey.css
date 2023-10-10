@@ -255,6 +255,12 @@ nav {
     border-radius: 10px;
 }
 
+.nav__link.logout {
+  background-color: #1f1f1f;
+  color: #fff;
+  border-radius: 10px;
+}
+
 .section__container {
   padding: 80px 0;
 }
@@ -406,7 +412,6 @@ body {
 
 
 /* ... Add more styles as needed ... */
-
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 900px) {
