@@ -119,7 +119,6 @@ nav {
 }
 
 .header_logo {
-  max-width: 50%;
   height: 8vh;
   margin-left: 20px;
 }
@@ -273,11 +272,11 @@ footer {
   justify-content: center;
 }
 
-.gciConnect__logo{
-  color: #A60F2D;
+.gciConnect__logo {
+  color: #a60f2d;
 }
 
-.footer__logo .gciConnect__logo{
+.footer__logo .gciConnect__logo {
   color: #fff;
 }
 
@@ -285,7 +284,6 @@ footer {
   margin-left: 20px;
   max-width: 35%;
 }
-
 
 .footer__wrapper {
   margin: 50px 0;
@@ -315,13 +313,17 @@ footer {
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 900px) {
+  nav {
+    height: auto;
+  }
+
   .nav__container {
     flex-direction: column;
     align-items: center;
   }
 
   .nav__links {
-    margin-top: 20px;
+    margin: 20px;
   }
 
   .nav__link {
@@ -336,28 +338,44 @@ footer {
 
   .section__row {
     max-width: 100vw;
+    display: block;
   }
 
   .contact__wrapper {
     flex-direction: column;
-    height: 100vh;
+    height: 70vh;
     max-width: 100vw;
   }
 
   .contact__half {
     width: 100%;
   }
+
   .contact__left {
     width: 100%;
+    text-align: center;
   }
 
   .contact__right {
     width: 100%;
     height: 100vh;
   }
+
+  .contact__title {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .contact__para {
+    font-size: 20px;
+    font-weight: 600;
+  }
 }
 
 @media screen and (max-width: 550px) {
+  .logo__wrapper {
+    margin: 10px;
+  }
   .nav__container {
     flex-direction: column;
     align-items: center;
@@ -400,5 +418,16 @@ footer {
 
   h1 {
     font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  .header_logo {
+    width: 50%;
+    height: 4vh;
   }
 }
