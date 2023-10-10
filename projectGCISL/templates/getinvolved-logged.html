@@ -296,6 +296,8 @@
       />
     </section>
 
+    {% if user.is_superuser %}
+    {% else %}
     <section id="get-started">
       <div class="section__container">
         <div class="section__row">
@@ -321,7 +323,7 @@
       </div>
   </div> 
     </section>
-
+    {% endif %}
     <footer>
       <div class="section__container">
         <div class="section__row">
