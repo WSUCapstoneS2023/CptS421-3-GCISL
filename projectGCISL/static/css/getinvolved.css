@@ -330,7 +330,6 @@ footer {
 @media screen and (max-width: 900px) {
 .logo__wrapper {
   margin: 10px;
-  width: 50%;
 }
 
   .nav__container {
