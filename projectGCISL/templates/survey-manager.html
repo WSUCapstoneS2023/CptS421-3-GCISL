@@ -140,13 +140,23 @@
       <h2>Question Choice Editor</h2>
       {% for question in questions %}
       <h3>Question {{forloop.counter}}: {{question.questiontext}}</h3>
-      <label class="question-label">Choices</label>
-      {% for choice in choices %} {% if choice.questionid.pk == question.pk %}
-      <div>Choice {{forloop.counter}}: {{choice.choicetext}}</div>
-      {% endif %} {% endfor %}
+      {% if question.questiontype != "text" and question.questiontype != "numeric" %}
+      <label class="question-label">Choices:</label>
+        {% for choice in choices %} 
+          {% if choice.questionid.pk == question.pk %}
+            <!-- For some reason its not formattiong correctly so I just did this for now - Luke -->
+            <li>- {{choice.choicetext}}</li>
+          {% endif %} 
+        {% endfor %}
       <label>Add choice:</label>
       <input type="text" name="choicetext_{{question.pk}}">
       <input type="hidden" name="questionid_{{question.pk}}" value="{{question.pk}}" />
+      {% else %}
+      <div style="margin-bottom: 20px;">
+        Question type {{question.questiontype}} doesn't take choices.
+      </div>
+      {% endif %}
+      <br>
       {% endfor %}
       <button type="submit" name="CreateChoiceButton" id="createchoicebutton">
         Create New Choice

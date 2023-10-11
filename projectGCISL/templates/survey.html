@@ -122,7 +122,7 @@ input[type="submit"] {
                                 {% for choice in choices_list %}
                                     <li class="choice-container">
                                         <label>
-                                            <input type="radio" name="question_{{ question.questionid }}_{{ choice.choiceid }}" value="{{ choice.choiceid }}">
+                                            <input type="radio" name="question_{{ question.questionid }}" value="{{ choice.choiceid }}" required>
                                             {{ choice.choicetext }}
                                         </label>
                                     </li>
@@ -137,7 +137,7 @@ input[type="submit"] {
                                 {% for choice in choices_list %}
                                     <li class="choice-container">
                                         <label>
-                                            <input type="checkbox" name="question_{{ question.questionid }}_{{ choice.choiceid }}" value="{{ choice.choiceid }}">
+                                            <input type="checkbox" name="question_{{ question.questionid }}" value="{{ choice.choiceid }}">
                                             {{ choice.choicetext }}
                                         </label>
                                     </li>
@@ -149,12 +149,12 @@ input[type="submit"] {
                     <!-- <ul>
                         <li>
                             <label> -->
-                                <input type="number" name="question_{{ question.questionid }}">
+                                <input type="number" name="question_{{ question.questionid }}" required>
                             <!-- </label>
                         </li>
                     </ul> -->
                 {% elif question.questiontype == 'text' %}
-                    <textarea name="question_{{ question.questionid }}"></textarea>
+                    <textarea name="question_{{ question.questionid }}" required></textarea>
                 {% endif %}
             </div>
         {% endfor %}
