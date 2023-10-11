@@ -286,12 +286,15 @@ def mapResponses(request, questions, choice_dict):
             response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=text_answer)
             response.save()
         elif question.questiontype == "checkbox":
-            for choice in choice_dict[question.pk]:
-                if f'question_{question.pk}_{choice.pk}' in request.POST:
-                    choicet = Choice.objects.get(choiceid=choice.pk)
-                    checkbox_string = checkbox_string + choicet.choicetext + ", "
-            response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=checkbox_string)
-            response.save()
+            checkbox_string = ""
+            choices = request.POST.getlist(f'question_{question.pk}')
+            for choice in choices:
+                selected_choice = Choice.objects.get(choiceid=int(choice))
+                if selected_choice != None:
+                    checkbox_string = checkbox_string + selected_choice.choicetext + ", "
+            if checkbox_string != "":
+                response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=checkbox_string)
+                response.save()
         elif question.questiontype == "multiple_choice":
             for choice in choice_dict[question.pk]:
                 if f'question_{question.pk}' in request.POST:
@@ -303,8 +306,7 @@ def mapResponses(request, questions, choice_dict):
             # numeric
             if f'question_{question.pk}' in request.POST:
                 num = request.POST.get(f'question_{question.pk}')
-                response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsenumeric=int(num), choiceid=choice)
+                response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsenumeric=int(num))
                 response.save()
-                break
     return
 
