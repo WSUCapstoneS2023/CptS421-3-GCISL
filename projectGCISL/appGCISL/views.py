@@ -181,7 +181,7 @@ def survey_manager_view(request, survey_id):
                 if request.POST.get(f'choicetext_{question.pk}') != '':            
                     choicetext = request.POST.get(f'choicetext_{question.pk}')
                     # check to make sure choice passed in correctly
-                    if choicetext != "":
+                    if choicetext != None:
                         choice = Choice(questionid = question, choicetext = choicetext)
                         choice.save()
 
