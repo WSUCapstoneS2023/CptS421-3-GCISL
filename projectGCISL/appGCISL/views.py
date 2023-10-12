@@ -84,7 +84,7 @@ def registration_view(request):
             return redirect('login')
         else:
             messages.error(request, form.errors, form.non_field_errors())
-            return redirect('register')
+            return redirect('login')
     else:
         form = RegistrationForm()
         return render(request, 'registration.html', {'rform': form})
