@@ -38,7 +38,7 @@
             />
           </a>
           <ul class="nav__links">
-            {% if user.is_superuser %}
+            {% if user.is_superuser or user.is_staff %}
               <li>
                 <a href="/admin" class="nav__link">Admin</a>
                 <li><a href="/survey-faculty/" class="nav__link active">Survey Manager</a></li>
