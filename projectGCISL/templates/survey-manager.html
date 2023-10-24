@@ -86,6 +86,10 @@
 
           <!-- The survey title thats active -->
           <div>
+            <form method="post" action="{% url 'set_active_survey' survey.pk %}">
+              {% csrf_token %}
+              <button type="submit" class="set-active-button">Set as Active</button>
+          </form>
             <form id="filter-form" method="GET">
               {% csrf_token %}
               <label for="survey-titles">Survey List</label>
@@ -100,7 +104,7 @@
             </form>
             <h1>Survey Title: {{survey.title}}</h1>
             <h3 class="question-label">
-              Survey Description: {{survey.description}}
+              Survey Description: {{survey.description}}         
             </h3>
           </div>
         </div>

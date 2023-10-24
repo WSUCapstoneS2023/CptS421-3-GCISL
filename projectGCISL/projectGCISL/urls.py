@@ -31,7 +31,9 @@ urlpatterns = [
     path('logout/', view=views.logout_view, name='logout'),
     path('survey-faculty/builder/', view=views.survey_faculty_view, name='custom_survey'),
     path('survey-faculty/manager/<int:survey_id>/', view=views.survey_manager_view, name='survey_manager'),
-    path('survey-faculty/', view=views.survey_landing_view, name='survey_landing')
+    path('survey-faculty/', view=views.survey_landing_view, name='survey_landing'),
+    path('survey/set_active/<int:survey_id>/', views.set_active_survey, name='set_active_survey')
+
 ]
 
 # 

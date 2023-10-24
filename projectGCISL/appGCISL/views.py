@@ -1,6 +1,6 @@
 from django.forms import ValidationError
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import Http404, HttpResponse
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.views.generic import TemplateView, CreateView
@@ -27,38 +27,39 @@ def getinvolved_view(request):
         return render(request, 'getinvolved.html')
 
 # Survey
-def survey_view(request):
-    # not sure how we are planning on identifying the current survey.
-    survey = getCurrentSurvey()
-    questions = getQuestions(survey)
-    count = 0
-    
-    # create a count for number of questions
-    for question in questions:
-        count = count + 1
-    
-    # get all choices in a dictionary
+def survey_view(request, survey_id):
+    # You need to get the survey with the given ID
+    try:
+        survey = Survey.objects.get(pk=survey_id)
+    except Survey.DoesNotExist:
+        raise Http404("Survey does not exist")
+
+    questions = getQuestions(survey)  # You need to get questions for this survey
+
+    # Count the number of questions
+    count = len(questions)
+
+    # Get choices for each question
     choices = {}
     for question in questions:
         choices[question.questionid] = filter_choice(question.questionid)
-    # will hold all forms required for each question
+
+    # Create response forms for each question
     rforms = [ResponseForm({'surveyid': survey, 'respondentname': request.user.first_name + " " + request.user.last_name, 'respondentemail': request.user.email}) for _ in range(count)]
-    # handle post methods
+
     if request.method == "POST":
-        # map responses to the database responses
+        # Handle form submissions (map responses to the database responses)
         mapResponses(request, questions, choices)
         return redirect('get_involved')
-    # handle get request
-    elif request.method == "GET":
-        # passing in the current survey, questions related to the survey, and an array of
-        # checks also if user is authenticated and user is resident
-        if request.user.is_authenticated and request.user.is_resident:
-            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'choices': choices})
-        elif request.user.is_authenticated and request.user.is_staff:
-            return render(request, 'survey-landing.html')
-    else:
-        return HttpResponse("User doesn't have privileges.")
+
+    # Check user's authentication and role
+    if request.user.is_authenticated:
+        if request.user.is_resident:
+            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'choices': choices, 'rforms': rforms})
+        elif request.user.is_staff:
+            redirect('set_active_survey', survey_id=survey_id)
     
+    return HttpResponse("User doesn't have privileges.")
 
 
 # Contact
@@ -221,6 +222,21 @@ def survey_landing_view(request):
             # delete survey button has been selected
             pass
 
+def set_active_survey(request, survey_id):
+    if request.method == "POST":
+        survey_id = request.POST.get("survey_id")
+        if survey_id:
+            try:
+                selected_survey = Survey.objects.get(pk=survey_id)
+                Survey.objects.exclude(pk=survey_id).update(status=False)
+                selected_survey.status = True
+                selected_survey.save()
+                return render(request, 'survey-manager.html', {'selected_survey': selected_survey})
+            except Survey.DoesNotExist:
+                raise Http404("Survey does not exist")
+        else:
+            return HttpResponse("Invalid survey ID.")
+    return HttpResponse("Invalid request method.")  # You may customize the response here as needed
 ## helpers
 # function returns survey with specific id
 def getSurvey(survey_id):
