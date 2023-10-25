@@ -166,6 +166,9 @@ def survey_manager_view(request, survey_id):
                 return redirect(f'/survey-faculty/manager/{survey.surveyid}/', survey=survey)
             else:
                 print(sform.errors)
+        if 'Set-Active-Button' in request.POST:
+            set_active_survey(request, survey_id)
+            return redirect(f'/survey-faculty/manager/{survey_id}/')
         elif 'CreateQuestionButton' in request.POST:
             # create new question form with request data
             qform = QuestionForm(request.POST)
@@ -223,20 +226,18 @@ def survey_landing_view(request):
             pass
 
 def set_active_survey(request, survey_id):
-    if request.method == "POST":
-        survey_id = request.POST.get("survey_id")
-        if survey_id:
-            try:
-                selected_survey = Survey.objects.get(pk=survey_id)
-                Survey.objects.exclude(pk=survey_id).update(status=False)
-                selected_survey.status = True
-                selected_survey.save()
-                return render(request, 'survey-manager.html', {'selected_survey': selected_survey})
-            except Survey.DoesNotExist:
-                raise Http404("Survey does not exist")
-        else:
-            return HttpResponse("Invalid survey ID.")
-    return HttpResponse("Invalid request method.")  # You may customize the response here as needed
+    # Just decided to embed it into the survey manager view to help
+    if survey_id:
+        try:
+            selected_survey = Survey.objects.get(pk=survey_id)
+            Survey.objects.exclude(pk=survey_id).update(status=False)
+            selected_survey.status = True
+            selected_survey.save()
+            return selected_survey
+        except Survey.DoesNotExist:
+            raise Http404("Survey does not exist")
+    else:
+        return HttpResponse("Invalid survey ID.")
 ## helpers
 # function returns survey with specific id
 def getSurvey(survey_id):
