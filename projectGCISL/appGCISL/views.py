@@ -221,6 +221,11 @@ def survey_landing_view(request):
             # delete survey button has been selected
             pass
 
+def response_view(request):
+    if request.method == 'GET':
+        response = Response.objects.all()
+        return render(request, 'response.html', {'response': response})
+
 ## helpers
 # function returns survey with specific id
 def getSurvey(survey_id):
