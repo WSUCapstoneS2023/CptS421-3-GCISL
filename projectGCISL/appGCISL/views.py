@@ -27,10 +27,11 @@ def getinvolved_view(request):
         return render(request, 'getinvolved.html')
 
 # Survey
-def survey_view(request, survey_id):
+def survey_view(request):
     # You need to get the survey with the given ID
     try:
-        survey = Survey.objects.get(pk=survey_id)
+        survey = Survey.objects.get(status=True)
+        
     except Survey.DoesNotExist:
         raise Http404("Survey does not exist")
 
@@ -238,6 +239,15 @@ def set_active_survey(request, survey_id):
             raise Http404("Survey does not exist")
     else:
         return HttpResponse("Invalid survey ID.")
+    
+
+# def your_view_function(request):
+#     # Retrieve the active survey
+#     active_survey = Survey.objects.filter(status=True).first()
+
+#     # Pass the active survey to the template
+#     return render(request, 'getinvolved-logged.html', {'active_survey': active_survey})
+
 ## helpers
 # function returns survey with specific id
 def getSurvey(survey_id):
