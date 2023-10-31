@@ -323,12 +323,13 @@ def mapResponses(request, questions, choice_dict):
                 response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=checkbox_string)
                 response.save()
         elif question.questiontype == "multiple_choice":
-            for choice in choice_dict[question.pk]:
                 if f'question_{question.pk}' in request.POST:
-                    choicet = Choice.objects.get(choiceid=choice.pk)
-                    response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=choicet.choicetext, choiceid=choice)
+                    # get the choice from the db
+                    choicet = Choice.objects.get(choiceid=int(request.POST.get(f'question_{question.pk}')))
+                    response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=choicet.choicetext, choiceid=choicet)
                     response.save()
-                    break
+                else:
+                    return Exception("Multiple choice not answered.")
         else:
             # numeric
             if f'question_{question.pk}' in request.POST:
