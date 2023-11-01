@@ -41,11 +41,10 @@ def survey_view(request):
     choices = {}
     for question in questions:
         choices[question.questionid] = filter_choice(question.questionid)
-    # will hold all forms required for each question
-    rforms = [ResponseForm({'surveyid': survey, 'respondentname': request.user.first_name + " " + request.user.last_name, 'respondentemail': request.user.email}) for _ in range(count)]
     # handle post methods
     if request.method == "POST":
         # map responses to the database responses
+        print("Responses are being recorded!")
         mapResponses(request, questions, choices)
         return redirect('get_involved')
     # handle get request
@@ -296,12 +295,10 @@ def mapResponses(request, questions, choice_dict):
                 response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=checkbox_string)
                 response.save()
         elif question.questiontype == "multiple_choice":
-            for choice in choice_dict[question.pk]:
-                if f'question_{question.pk}' in request.POST:
-                    choicet = Choice.objects.get(choiceid=choice.pk)
-                    response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=choicet.choicetext, choiceid=choice)
-                    response.save()
-                    break
+            if f'question_{question.pk}' in request.POST:
+                choicet = Choice.objects.get(choiceid=int(request.POST.get(f'question_{question.pk}')))
+                response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=choicet.choicetext, choiceid=choicet)
+                response.save()
         else:
             # numeric
             if f'question_{question.pk}' in request.POST:

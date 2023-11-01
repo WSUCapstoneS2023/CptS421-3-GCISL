@@ -95,7 +95,7 @@ class Survey(models.Model):
     description = models.TextField(blank=True, null=True)
     startdate = models.DateField(blank=True, null=True)
     enddate = models.DateField(blank=True, null=True)
-
+    status = models.BooleanField(default=True)
     class Meta:
         db_table = 'survey'
 
