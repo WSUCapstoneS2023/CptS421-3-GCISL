@@ -55,6 +55,38 @@
               </select>
             </form>
             <h1>Survey Title: {{survey.title}}</h1>
+            <table border="1">
+              <thead>
+                  <tr>
+                      <th>Response ID</th>
+                      <th>Survey ID</th>
+                      <th>Question ID</th>
+                      <th>Respondent Name</th>
+                      <th>Respondent Email</th>
+                      <th>Response Text</th>
+                      <th>Response Numeric</th>
+                      <th>Choice ID</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for response in responses %}
+                  <tr>
+                      <td>{{ response.responseid }}</td>
+                      <td>{{ response.surveyid }}</td>
+                      <td>{{ response.questionid }}</td>
+                      <td>{{ response.respondentname }}</td>
+                      <td>{{ response.respondentemail }}</td>
+                      <td>{{ response.responsetext }}</td>
+                      <td>{{ response.responsenumeric }}</td>
+                      <td>{{ response.choiceid }}</td>
+                  </tr>
+                  {% empty %}
+                  <tr>
+                      <td colspan="8">No responses available.</td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
           </div>
         </div>
       </div>

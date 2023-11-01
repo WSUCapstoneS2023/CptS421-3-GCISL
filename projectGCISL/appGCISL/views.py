@@ -242,11 +242,12 @@ def response_view(request, survey_id):
             cform = ChoiceForm()
             if request.user.is_authenticated and request.user.is_staff:
                 # get survey data, all questions attached, and choices that belong to the survey
+                response = Response.objects.all()
                 survey = getSurvey(survey_id)
                 allSurveys = Survey.objects.all()
                 questions = getQuestions(survey_id)
                 choices = Choice.objects.all()
-                return render(request, 'responses.html', {'sform': sform, 'qform' : qform, 'cform' : cform, 'survey' : survey, 'questions': questions, 'choices' : choices, 'allSurveys' : allSurveys})
+                return render(request, 'responses.html', {'rform':rform, 'sform': sform, 'qform' : qform, 'cform' : cform, 'response':response, 'survey' : survey, 'questions': questions, 'choices' : choices, 'allSurveys' : allSurveys})
             else:
                 # user is not faculty, should not be able to view the survey customize screen!
                 return render(request, 'getinvolved-logged.html')
