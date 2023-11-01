@@ -6,10 +6,13 @@ from django.contrib.auth import login, logout, authenticate
 from django.views.generic import TemplateView, CreateView
 import datetime
 
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
+from django.views import generic
 
 from .models import Choice, Question, Survey, Response
 from .forms import RegistrationForm, LoginAuthForm, QuestionForm, SurveyForm, ChoiceForm, ResponseForm
-
 # Create your views here.
 # home view
 # Note to Ali, to access user data, call {{ user.(datafield) }} - data fields could be the first name or other attributes
@@ -221,10 +224,32 @@ def survey_landing_view(request):
             # delete survey button has been selected
             pass
 
-def response_view(request):
-    if request.method == 'GET':
-        response = Response.objects.all()
-        return render(request, 'response.html', {'response': response})
+def response_view(request, survey_id):
+    if request.method == 'POST':
+        return HttpResponse('<h1>Custom Error</h1>', status=418)
+    else:
+        # survey gets filtered
+        if 'titles' in request.GET:
+            selected_survey_id = request.GET.get('titles')
+            # check for None case
+            if selected_survey_id != None:
+                return redirect(f'/survey-faculty/manager/{selected_survey_id}/response')
+        # normal get request to render the page
+        else:
+            rform = ResponseForm()
+            sform = SurveyForm()
+            qform = QuestionForm()
+            cform = ChoiceForm()
+            if request.user.is_authenticated and request.user.is_staff:
+                # get survey data, all questions attached, and choices that belong to the survey
+                survey = getSurvey(survey_id)
+                allSurveys = Survey.objects.all()
+                questions = getQuestions(survey_id)
+                choices = Choice.objects.all()
+                return render(request, 'responses.html', {'sform': sform, 'qform' : qform, 'cform' : cform, 'survey' : survey, 'questions': questions, 'choices' : choices, 'allSurveys' : allSurveys})
+            else:
+                # user is not faculty, should not be able to view the survey customize screen!
+                return render(request, 'getinvolved-logged.html')
 
 ## helpers
 # function returns survey with specific id
