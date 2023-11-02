@@ -236,18 +236,14 @@ def response_view(request, survey_id):
                 return redirect(f'/survey-faculty/manager/{selected_survey_id}/response')
         # normal get request to render the page
         else:
-            rform = ResponseForm()
-            sform = SurveyForm()
-            qform = QuestionForm()
-            cform = ChoiceForm()
             if request.user.is_authenticated and request.user.is_staff:
                 # get survey data, all questions attached, and choices that belong to the survey
-                response = Response.objects.all()
+                responses = Response.objects.all()
                 survey = getSurvey(survey_id)
                 allSurveys = Survey.objects.all()
                 questions = getQuestions(survey_id)
                 choices = Choice.objects.all()
-                return render(request, 'responses.html', {'rform':rform, 'sform': sform, 'qform' : qform, 'cform' : cform, 'response':response, 'survey' : survey, 'questions': questions, 'choices' : choices, 'allSurveys' : allSurveys})
+                return render(request, 'responses.html', {'responses':responses, 'survey' : survey, 'questions': questions, 'choices' : choices, 'allSurveys' : allSurveys})
             else:
                 # user is not faculty, should not be able to view the survey customize screen!
                 return render(request, 'getinvolved-logged.html')

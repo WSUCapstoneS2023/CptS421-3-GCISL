@@ -59,27 +59,29 @@
               <thead>
                   <tr>
                       <th>Response ID</th>
-                      <th>Survey ID</th>
-                      <th>Question ID</th>
+                      <th>Survey Name</th>
+                      <th>Question</th>
                       <th>Respondent Name</th>
                       <th>Respondent Email</th>
                       <th>Response Text</th>
                       <th>Response Numeric</th>
-                      <th>Choice ID</th>
+                      <th>Response Multiple Choice</th>
                   </tr>
               </thead>
               <tbody>
-                  {% for response in responses %}
+                {% for response in responses %}
+                  {% if response.surveyid.pk == survey.pk %}
                   <tr>
                       <td>{{ response.responseid }}</td>
-                      <td>{{ response.surveyid }}</td>
-                      <td>{{ response.questionid }}</td>
+                      <td>{{ response.surveyid.title }}</td>
+                      <td>{{ response.questionid.questiontext }}</td>
                       <td>{{ response.respondentname }}</td>
                       <td>{{ response.respondentemail }}</td>
                       <td>{{ response.responsetext }}</td>
                       <td>{{ response.responsenumeric }}</td>
-                      <td>{{ response.choiceid }}</td>
+                      <td>{{ response.choiceid.choicetext }}</td>
                   </tr>
+                  {% endif %}
                   {% empty %}
                   <tr>
                       <td colspan="8">No responses available.</td>
@@ -113,5 +115,18 @@
         </div>
       </div>
     </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Your code here
+        dropDownSurveyTitle();
+      });
+
+      function dropDownSurveyTitle() {
+        const elem = document.getElementById("survey-titles");
+        elem.addEventListener("change", function () {
+          document.getElementById("filter-form").submit();
+        });
+      }
+    </script>
   </body>
 </html>
