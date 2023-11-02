@@ -13,6 +13,7 @@ from django.views import generic
 
 from .models import Choice, Question, Survey, Response
 from .forms import RegistrationForm, LoginAuthForm, QuestionForm, SurveyForm, ChoiceForm, ResponseForm
+
 # Create your views here.
 # home view
 # Note to Ali, to access user data, call {{ user.(datafield) }} - data fields could be the first name or other attributes
