@@ -42,7 +42,7 @@ class UserManager(BaseUserManager):
                 return user
 
 
-class GCISLUser(AbstractBaseUser,PermissionsMixin):
+class GCISLUser(AbstractBaseUser, PermissionsMixin):
     # unique needs to be false considering email and user must be same
     email = models.EmailField(verbose_name="email", max_length=60, unique=True, )
     

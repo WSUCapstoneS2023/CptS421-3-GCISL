@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import GCISLUser, Survey, Choice, Question, Response
 from django.apps import apps
+
 GCISLUser = apps.get_model('appGCISL', 'GCISLUser')
 Survey = apps.get_model('appGCISL', 'Survey')
 Question = apps.get_model('appGCISL', 'Question')
