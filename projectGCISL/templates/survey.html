@@ -146,13 +146,7 @@ input[type="submit"] {
                         {% endfor %}
                     </ul>
                 {% elif question.questiontype == 'numeric' %}
-                    <!-- <ul>
-                        <li>
-                            <label> -->
-                                <input type="number" name="question_{{ question.questionid }}" required>
-                            <!-- </label>
-                        </li>
-                    </ul> -->
+                    <input type="number" name="question_{{ question.questionid }}" required>
                 {% elif question.questiontype == 'text' %}
                     <textarea name="question_{{ question.questionid }}" required></textarea>
                 {% endif %}
