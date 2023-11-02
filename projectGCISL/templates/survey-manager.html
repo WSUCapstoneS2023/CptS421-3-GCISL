@@ -106,6 +106,7 @@
             <h3 class="question-label">
               Survey Description: {{survey.description}}         
             </h3>
+            <button id="viewResponse">View Response</button>
           </div>
         </div>
       </div>
@@ -125,7 +126,6 @@
         });
       }
 
-      function handleMultipleChoice() {}
     </script>
     <form method="post" id="question-form">
       {% csrf_token %}
@@ -144,6 +144,7 @@
       <h2>Question Choice Editor</h2>
       {% for question in questions %}
       <h3>Question {{forloop.counter}}: {{question.questiontext}}</h3>
+      <button id="deleteQuestion">Delete Question</button>
       {% if question.questiontype != "text" and question.questiontype != "numeric" %}
       <label class="question-label">Choices:</label>
         {% for choice in choices %} 

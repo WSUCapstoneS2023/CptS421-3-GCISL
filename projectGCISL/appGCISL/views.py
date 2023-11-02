@@ -61,7 +61,7 @@ def survey_view(request):
         if request.user.is_resident:
             return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'choices': choices, 'rforms': rforms})
         elif request.user.is_staff:
-            redirect('set_active_survey', survey_id=survey_id)
+            redirect('set_active_survey', survey_id=survey.pk)
     
     return HttpResponse("User doesn't have privileges.")
 

@@ -3,30 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-YU6DRH0y3fUz+NCU8YwY6HtsGZfQ2lmc1AnQ2D+u5X9e5MQ5ct5S5+LS7Vv5mNNa4/bVJ/cbs4BNf6/0U6Xopg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="\static\css\survey.css">
     <title>Survey</title>
 </head>
 <body>
 
-    <!-- <div class="header">
-        <a href="#default" class="logo">gciConnect!</a>
-        <div class="header-right">
-          <a class="active" href="#home">Get Involved!</a>
-          <a href="/contact">Contact Us</a>
-          <a href="/about">About</a>
-          <figure class="profile__picture--wrapper">
-            <img
-              src="/static/assets/general/icon.png"
-              alt=""
-              class="profile__picture"
-              id="profile-picture"
-            />
-          </figure>
-        </div>
-    </div> -->
     <section id="survey">
         <nav>
           <div class="nav__container">
@@ -53,15 +35,6 @@
           </div>
         </nav>
       </section>
-<!-- 
-    <div class = "body1">
-        <p>Create your </p>
-    </div>
-
-    <div class = "body2">
-        <p>Please note that by submitting this survey, you confirm that all the information </p>
-        <p> provided is correct and accurate to the best of your knowledge </p>
-    </div> -->
 
     <section id="createform">
       <div class="section__container">
@@ -72,7 +45,7 @@
     <form method="post" id="survey-form">
         {% csrf_token %}
         <!-- New Survey Creation -->
-        <div class="form__wrapper"">
+        <div class="form__wrapper">
           <div class="question-label">Survey Title: {{sform.title}}</div>
           <div class="question-label" type="date">Survey End Date: {{sform.enddate}}</div>
           <div class="question-label">Survey Description: {{sform.description}}</div>
@@ -82,27 +55,7 @@
         </div>
       </div>
 </section>
-    <!-- The survey title thats active -->
-    <!-- <div>
-      
-        <form id="filter-form" method="GET">
-          {% csrf_token %}
-          <h2>Filter Surveys</h2>
-          <br>
-            <label for="survey-titles">Survey List</label>
-            <select name="titles" id="survey-titles">
-              <option value="{{survey.pk}}">{{survey.title}}</option>
-              {% for survey_piece in allSurveys %}
-                {% if survey_piece.pk != survey.pk %}
-                  <option value="{{survey_piece.pk}}">{{survey_piece.title}}</option>
-                {% endif %}
-              {% endfor %}
-            </select>
-        </form>
-      <h1 id="survey_{{survey.pk}}">Survey Title: {{survey.title}}</h1>
-      <h3 class="question-label">Survey Description: {{survey.description}}</h3>
-    </div> -->
-    <!-- load the java script function to refresh page when a new survey is selected-->
+    
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         // survey function call after the file is loaded
@@ -119,15 +72,6 @@
         });
       }
     </script>
-    <!-- question addition -->
-    <!-- <form method="post" id="question-form">
-        <label>Question Text</label>
-        <div>{{qform.questiontext}}</div>
-        <label>Question Type</label>
-        <div>{{qform.questiontype}}</div>
-        <button type="submit" name="CreateQuestionButton" id="createnewquestion">Create New Question</button>
-    </form>
-    <!-- load current questions that have been created with edit and delete features -->
     
     <footer>
         <div class="section__container">
