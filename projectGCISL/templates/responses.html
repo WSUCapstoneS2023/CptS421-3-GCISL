@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="\static\css\survey.css" />
+    <title>Survey</title>
+  </head>
+  <body>
+    <section id="survey">
+      <nav>
+        <div class="nav__container">
+          <a href="/" class="logo__wrapper">
+            <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+            <img
+              src="/static/assets/logo/GCISL_logo_fullcolor.png"
+              alt=""
+              class="header_logo"
+            />
+          </a>
+          <ul class="nav__links">
+            <li><a href="/admin" class="nav__link">Admin</a></li>
+            <li>
+              <a href="/survey-faculty/" class="nav__link active"
+                >Survey Manager</a
+              >
+            </li>
+            <li>
+              <a href="/get_involved/" class="nav__link">Get Involved!</a>
+            </li>
+            <li><a href="/about" class="nav__link">About</a></li>
+            <li><a href="/logout" class="nav__link logout">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
+    <section id="responses">
+      <div class="section__container">
+        <div class="section__row">
+          <h1 class="section__title">Survey Responses</h1>
+          <p class="section__para">View your responses here!</p>
+          <div>
+            <form id="filter-form" method="GET">
+              {% csrf_token %}
+              <label for="survey-titles">Survey List</label>
+              <select name="titles" id="survey-titles">
+                <option value="{{survey.pk}}">{{survey.title}}</option>
+                {% for survey_piece in allSurveys %}
+                  {% if survey_piece.pk != survey.pk %}
+                    <option value="{{survey_piece.pk}}">{{survey_piece.title}}</option>
+                  {% endif %} 
+                {% endfor %}
+              </select>
+            </form>
+            <h1>Survey Title: {{survey.title}}</h1>
+            <table border="1">
+              <thead>
+                  <tr>
+                      <th>Response ID</th>
+                      <th>Survey Name</th>
+                      <th>Question</th>
+                      <th>Respondent Name</th>
+                      <th>Respondent Email</th>
+                      <th>Response Text</th>
+                      <th>Response Numeric</th>
+                      <th>Response Multiple Choice</th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% for response in responses %}
+                  {% if response.surveyid.pk == survey.pk %}
+                  <tr>
+                      <td>{{ response.responseid }}</td>
+                      <td>{{ response.surveyid.title }}</td>
+                      <td>{{ response.questionid.questiontext }}</td>
+                      <td>{{ response.respondentname }}</td>
+                      <td>{{ response.respondentemail }}</td>
+                      <td>{{ response.responsetext }}</td>
+                      <td>{{ response.responsenumeric }}</td>
+                      <td>{{ response.choiceid.choicetext }}</td>
+                  </tr>
+                  {% endif %}
+                  {% empty %}
+                  <tr>
+                      <td colspan="8">No responses available.</td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="section__container">
+        <div class="section__row">
+          <div class="footer__wrapper">
+            <a href="/" class="footer__logo">
+              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+              <img
+                src="/static/assets/logo/GCISL_logo_white.png"
+                alt=""
+                class="logo"
+              />
+            </a>
+            <div class="footer__list">
+              <a href="/get_involved/" class="footer__link">Get Involved!</a>
+              <a href="/contact" class="footer__link">Contact Us</a>
+              <a href="/about" class="footer__link">About</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Your code here
+        dropDownSurveyTitle();
+      });
+
+      function dropDownSurveyTitle() {
+        const elem = document.getElementById("survey-titles");
+        elem.addEventListener("change", function () {
+          document.getElementById("filter-form").submit();
+        });
+      }
+    </script>
+  </body>
+</html>
