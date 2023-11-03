@@ -192,10 +192,19 @@ def survey_manager_view(request, survey_id):
                     if choicetext != None:
                         choice = Choice(questionid = question, choicetext = choicetext)
                         choice.save()
-
             return redirect(f'/survey-faculty/manager/{survey_id}/')
+        elif 'DeleteQuestion' in request.POST:
+            # look for deleteQuestion value in POST request
+            # get all the questions in the survey
+            question = Question.objects.get(questionid = int(request.POST.get('DeleteQuestion')))
+            #make sure question != None else return the error
+            if question is None:
+                return HttpResponse('Error, question to delete not found!', status=418)
+            else:
+                question.delete()
+                return redirect(f'/survey-faculty/manager/{survey_id}/')
         else:
-            return HttpResponse('<h1>Custom Error</h1>', status=418)
+            return HttpResponse('<h1>No correct button was clicked.</h1>', status=418)
     else:
         # survey gets filtered
         if 'titles' in request.GET:
