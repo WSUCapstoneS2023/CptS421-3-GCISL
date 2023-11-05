@@ -1,3 +1,5 @@
+{% load static %}
+
 <!-- base.html file -->
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +15,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/static/css/landing.css" />
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}" />
   </head>
   <style>
     .link{
@@ -28,7 +30,7 @@
       <nav>
         <div class="nav__container">
           <div class="logo__wrapper">
-            <img src="/static/assets/logo/GCISL_logo_fullcolor.png" alt="" class="header_logo"/>
+            <img src="{% static 'assets/logo/GCISL_logo_fullcolor.png'%}" alt="" class="header_logo"/>
           </div>
           <ul class="nav__links">
             {% if user.is_superuser or user.is_staff %}
@@ -98,7 +100,7 @@
                   <div class="image__wrapper">
                     <figure class="image__container--wrapper">
                       <img
-                        src="/static/assets/relative pictures/12.JPG"
+                        src="{%static 'assets/relative pictures/12.JPG' %}"
                         alt=""
                         class="image"
                       />
@@ -109,7 +111,7 @@
                   <div class="image__wrapper">
                     <figure class="image__container--wrapper">
                       <img
-                        src="/static/assets/relative pictures/13.JPG"
+                        src="{%static 'assets/relative pictures/13.JPG' %}"
                         alt=""
                         class="image"
                       />
@@ -120,7 +122,7 @@
                   <div class="image__wrapper">
                     <figure class="image__container--wrapper">
                       <img
-                        src="/static/assets/relative pictures/14.JPG"
+                        src="{% static 'assets/relative pictures/14.JPG' %}"
                         alt=""
                         class="image"
                       />
@@ -131,7 +133,7 @@
                   <div class="image__wrapper">
                     <figure class="image__container--wrapper">
                       <img
-                        src="/static/assets/relative pictures/15.JPG"
+                        src="{%static 'assets/relative pictures/15.JPG' %}"
                         alt=""
                         class="image"
                       />
@@ -142,7 +144,7 @@
                   <div class="image__wrapper">
                     <figure class="image__container--wrapper">
                       <img
-                        src="/static/assets/relative pictures/16.JPG"
+                        src="{%static 'assets/relative pictures/16.JPG' %}"
                         alt=""
                         class="image"
                       />
