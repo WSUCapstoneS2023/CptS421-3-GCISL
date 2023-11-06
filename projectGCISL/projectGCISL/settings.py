@@ -122,7 +122,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'LocalDBGCI',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': 'Amat3rasu',
         'HOST': 'localhost',
         'PORT': 5432,
     }
@@ -172,5 +172,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static"
+    BASE_DIR / 'static'
 ]
+
+STATIC_ROOT = BASE_DIR / 'static-cdn'
