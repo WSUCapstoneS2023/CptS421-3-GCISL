@@ -126,6 +126,12 @@
         });
       }
 
+      function handleViewResponse(){
+        document.getElementById("viewResponse").addEventListener("click", function() {
+            window.location.href = 'response/';
+        });
+      }
+
     </script>
     <form method="post" id="question-form">
       {% csrf_token %}
