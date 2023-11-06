@@ -1,6 +1,6 @@
 from django.forms import ValidationError
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import Http404, HttpResponse
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.views.generic import TemplateView, CreateView
@@ -31,37 +31,39 @@ def getinvolved_view(request):
 
 # Survey
 def survey_view(request):
-    # not sure how we are planning on identifying the current survey.
-    survey = getCurrentSurvey()
-    questions = getQuestions(survey)
-    count = 0
-    
-    # create a count for number of questions
-    for question in questions:
-        count = count + 1
-    
-    # get all choices in a dictionary
+    # You need to get the survey with the given ID
+    try:
+        survey = Survey.objects.get(status=True)
+        
+    except Survey.DoesNotExist:
+        raise Http404("Survey does not exist")
+
+    questions = getQuestions(survey)  # You need to get questions for this survey
+
+    # Count the number of questions
+    count = len(questions)
+
+    # Get choices for each question
     choices = {}
     for question in questions:
         choices[question.questionid] = filter_choice(question.questionid)
-    # will hold all forms required for each question
+
+    # Create response forms for each question
     rforms = [ResponseForm({'surveyid': survey, 'respondentname': request.user.first_name + " " + request.user.last_name, 'respondentemail': request.user.email}) for _ in range(count)]
-    # handle post methods
+
     if request.method == "POST":
-        # map responses to the database responses
+        # Handle form submissions (map responses to the database responses)
         mapResponses(request, questions, choices)
         return redirect('get_involved')
-    # handle get request
-    elif request.method == "GET":
-        # passing in the current survey, questions related to the survey, and an array of
-        # checks also if user is authenticated and user is resident
-        if request.user.is_authenticated and request.user.is_resident:
-            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'choices': choices})
-        elif request.user.is_authenticated and request.user.is_staff:
-            return render(request, 'survey-landing.html')
-    else:
-        return HttpResponse("User doesn't have privileges.")
+
+    # Check user's authentication and role
+    if request.user.is_authenticated:
+        if request.user.is_resident:
+            return render(request, 'survey.html', {'survey': survey, 'questions': questions, 'choices': choices, 'rforms': rforms})
+        elif request.user.is_staff:
+            redirect('set_active_survey', survey_id=survey.pk)
     
+    return HttpResponse("User doesn't have privileges.")
 
 
 # Contact
@@ -168,6 +170,9 @@ def survey_manager_view(request, survey_id):
                 return redirect(f'/survey-faculty/manager/{survey.surveyid}/', survey=survey)
             else:
                 print(sform.errors)
+        if 'Set-Active-Button' in request.POST:
+            set_active_survey(request, survey_id)
+            return redirect(f'/survey-faculty/manager/{survey_id}/')
         elif 'CreateQuestionButton' in request.POST:
             # create new question form with request data
             qform = QuestionForm(request.POST)
@@ -187,10 +192,19 @@ def survey_manager_view(request, survey_id):
                     if choicetext != None:
                         choice = Choice(questionid = question, choicetext = choicetext)
                         choice.save()
-
             return redirect(f'/survey-faculty/manager/{survey_id}/')
+        elif 'DeleteQuestion' in request.POST:
+            # look for deleteQuestion value in POST request
+            # get all the questions in the survey
+            question = Question.objects.get(questionid = int(request.POST.get('DeleteQuestion')))
+            #make sure question != None else return the error
+            if question is None:
+                return HttpResponse('Error, question to delete not found!', status=418)
+            else:
+                question.delete()
+                return redirect(f'/survey-faculty/manager/{survey_id}/')
         else:
-            return HttpResponse('<h1>Custom Error</h1>', status=418)
+            return HttpResponse('<h1>No correct button was clicked.</h1>', status=418)
     else:
         # survey gets filtered
         if 'titles' in request.GET:
@@ -247,6 +261,28 @@ def response_view(request, survey_id):
             else:
                 # user is not faculty, should not be able to view the survey customize screen!
                 return render(request, 'getinvolved-logged.html')
+
+def set_active_survey(request, survey_id):
+    # Just decided to embed it into the survey manager view to help
+    if survey_id:
+        try:
+            selected_survey = Survey.objects.get(pk=survey_id)
+            Survey.objects.exclude(pk=survey_id).update(status=False)
+            selected_survey.status = True
+            selected_survey.save()
+            return selected_survey
+        except Survey.DoesNotExist:
+            raise Http404("Survey does not exist")
+    else:
+        return HttpResponse("Invalid survey ID.")
+    
+
+# def your_view_function(request):
+#     # Retrieve the active survey
+#     active_survey = Survey.objects.filter(status=True).first()
+
+#     # Pass the active survey to the template
+#     return render(request, 'getinvolved-logged.html', {'active_survey': active_survey})
 
 ## helpers
 # function returns survey with specific id
@@ -323,12 +359,13 @@ def mapResponses(request, questions, choice_dict):
                 response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=checkbox_string)
                 response.save()
         elif question.questiontype == "multiple_choice":
-            for choice in choice_dict[question.pk]:
                 if f'question_{question.pk}' in request.POST:
-                    choicet = Choice.objects.get(choiceid=choice.pk)
-                    response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=choicet.choicetext, choiceid=choice)
+                    # get the choice from the db
+                    choicet = Choice.objects.get(choiceid=int(request.POST.get(f'question_{question.pk}')))
+                    response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsetext=choicet.choicetext, choiceid=choicet)
                     response.save()
-                    break
+                else:
+                    return Exception("Multiple choice not answered.")
         else:
             # numeric
             if f'question_{question.pk}' in request.POST:
