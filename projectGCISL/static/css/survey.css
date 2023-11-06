@@ -415,6 +415,14 @@ body {
   margin-right: auto; /* Add this line to move them to the left */
 }
 
+/* RESPONSES */
+.responses__table--wrapper {
+  background-color: #fff;
+  margin: 50px auto;
+  padding: 20px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
 
 /* ... Add more styles as needed ... */
 
