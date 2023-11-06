@@ -106,7 +106,7 @@
             <h3 class="question-label">
               Survey Description: {{survey.description}}         
             </h3>
-            <button id="viewResponse">View Response</button>
+            <button id="viewResponse" onclick="handleViewResponse()">View Response</button>
           </div>
         </div>
       </div>
@@ -123,6 +123,12 @@
         const elem = document.getElementById("survey-titles");
         elem.addEventListener("change", function () {
           document.getElementById("filter-form").submit();
+        });
+      }
+
+      function handleViewResponse(){
+        document.getElementById("viewResponse").addEventListener("click", function() {
+            window.location.href = 'response/';
         });
       }
 
