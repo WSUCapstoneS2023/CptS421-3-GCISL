@@ -55,11 +55,11 @@
               </select>
             </form>
             <h1>Survey Title: {{survey.title}}</h1>
-            <table border="1">
+            <div class="responses__table--wrapper">
+            <table border="1" class="responses__table">
               <thead>
                   <tr>
                       <th>Response ID</th>
-                      <th>Survey Name</th>
                       <th>Question</th>
                       <th>Respondent Name</th>
                       <th>Respondent Email</th>
@@ -73,7 +73,6 @@
                   {% if response.surveyid.pk == survey.pk %}
                   <tr>
                       <td>{{ response.responseid }}</td>
-                      <td>{{ response.surveyid.title }}</td>
                       <td>{{ response.questionid.questiontext }}</td>
                       <td>{{ response.respondentname }}</td>
                       <td>{{ response.respondentemail }}</td>
@@ -89,6 +88,7 @@
                   {% endfor %}
               </tbody>
           </table>
+        </div>
           </div>
         </div>
       </div>
