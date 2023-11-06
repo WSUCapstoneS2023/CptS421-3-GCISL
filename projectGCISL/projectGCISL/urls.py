@@ -32,7 +32,7 @@ urlpatterns = [
     path('survey-faculty/builder/', view=views.survey_faculty_view, name='custom_survey'),
     path('survey-faculty/manager/<int:survey_id>/', view=views.survey_manager_view, name='survey_manager'),
     path('survey-faculty/', view=views.survey_landing_view, name='survey_landing'),
-    path('survey-faculty/manager/<int:survey_id>/response', view=views.response_view, name='response')
+    path('survey-faculty/manager/<int:survey_id>/response/', view=views.response_view, name='response')
 ]
 
 # 
