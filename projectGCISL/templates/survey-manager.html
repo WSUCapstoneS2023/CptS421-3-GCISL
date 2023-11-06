@@ -144,7 +144,7 @@
       <h2>Question Choice Editor</h2>
       {% for question in questions %}
       <h3>Question {{forloop.counter}}: {{question.questiontext}}</h3>
-      <button id="deleteQuestion">Delete Question</button>
+      <button type="submit" name="DeleteQuestion" id="deleteQuestion" value="{{question.pk}}">Delete Question</button>
       {% if question.questiontype != "text" and question.questiontype != "numeric" %}
       <label class="question-label">Choices:</label>
         {% for choice in choices %} 
