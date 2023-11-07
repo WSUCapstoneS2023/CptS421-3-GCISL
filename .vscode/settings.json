@@ -1,3 +1,5 @@
 {
-    "liveServer.settings.port": 5502
+    "liveServer.settings.port": 5502,
+    "appService.defaultWebAppToDeploy": "/subscriptions/b09bdaaf-020f-4a18-a59c-2928c72957f2/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/gciConnectAzure",
+    "appService.deploySubpath": "."
 }
