@@ -109,12 +109,16 @@ WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 DATABASES = {
     'default': {
          'ENGINE': 'django.db.backends.postgresql',
-         'NAME': 'iakvhaso',
-         'USER' : 'iakvhaso',
-         'PASSWORD': '3aXyp7AwTBHNVElrCP00AGcvBVM2FWHf',
-         'HOST': 'jelani.db.elephantsql.com',
-         'PORT' : '5432'
+         'NAME': 'gciConnect',
+         'USER' : 'postgres',
+         'PASSWORD': 'test123',
+         'HOST': 'localhost',
+         'PORT' : '5433'
     }
+}
+
+DATABASES = {
+    
 }
 
 # Password validation

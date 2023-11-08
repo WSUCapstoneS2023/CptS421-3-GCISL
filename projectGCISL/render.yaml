@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: appGCISL
+    buildCommand: "./build.sh"
+    env: python
+    startCommand: "gunicorn appGCISL.wsgi:application"
