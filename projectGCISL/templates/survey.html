@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Survey</title>
     <link rel="stylesheet" href="{% static 'css/survey.css' %}" />
-    <style>
+    <!-- <style>
       /* Style the body of the form */
       .body1 {
         padding-top: 15px;
@@ -79,7 +79,7 @@
         vertical-align: middle;
         margin-left: 5px; /* Add some spacing between the checkbox/radio and label text */
       }
-    </style>
+    </style> -->
   </head>
   <body>
     <section id="survey">
@@ -167,17 +167,11 @@
           {% endfor %} {% endif %} {% endfor %}
         </ul>
         {% elif question.questiontype == 'numeric' %}
-        <!-- <ul>
-                        <li>
-                            <label> -->
         <input
           type="number"
           name="question_{{ question.questionid }}"
           required
         />
-        <!-- </label>
-                        </li>
-                    </ul> -->
         {% elif question.questiontype == 'text' %}
         <textarea name="question_{{ question.questionid }}" required></textarea>
         {% endif %}
