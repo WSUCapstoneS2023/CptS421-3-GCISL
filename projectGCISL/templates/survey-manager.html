@@ -23,55 +23,63 @@
           </a>
           <ul class="nav__links">
             {% if user.is_superuser or user.is_staff %}
-              <li>
-                <a href="/admin" class="nav__link">Admin</a>
-                <li><a href="/survey-faculty/" class="nav__link active">Survey Manager</a></li>
-                <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
-                <li><a href="/about" class="nav__link">About</a></li>
-                <li><a href="/logout" class="nav__link logout">Logout</a></li>
-          </ul>
-              </li>
+            <li><a href="/admin" class="nav__link">Admin</a></li>
+            <li>
+              <a href="/survey-faculty/" class="nav__link active"
+                >Survey Manager</a
+              >
+            </li>
+            <li>
+              <a href="/get_involved/" class="nav__link">Get Involved!</a>
+            </li>
+            <li><a href="/about" class="nav__link">About</a></li>
+            <li><a href="/logout" class="nav__link logout">Logout</a></li>
             {% endif %}
-          {% comment %} <li>
-            <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
-          </li>
-            <li><a href="/contact" class="nav__link">Contact Us</a></li>
-            <li><a href="/about" class="nav__link">About</a></li> {% endcomment %}
           </ul>
         </div>
       </nav>
     </section>
-    
+
     <section id="surveymanager">
       <div class="section__container">
         <div class="section__row">
           <!-- Create Form -->
           <h1 class="section__title">Survey Editor</h1>
           <p class="section__para">Edit your surveys below</p>
-         
+
           <!-- The survey title thats active -->
           <div>
             <form method="post" action="">
               {% csrf_token %}
-              <button type="submit" class="set-active-button" name="Set-Active-Button">Set as Active</button>
+              <button
+                type="submit"
+                class="set-active-button"
+                name="Set-Active-Button"
+              >
+                Set as Active
+              </button>
             </form>
             <form id="filter-form" method="GET">
               {% csrf_token %}
               <label for="survey-titles">Survey List</label>
               <select name="titles" id="survey-titles">
                 <option value="{{survey.pk}}">{{survey.title}}</option>
-                {% for survey_piece in allSurveys %}
+                {% for survey_piece in allSurveys %} 
                   {% if survey_piece.pk != survey.pk %}
-                    <option value="{{survey_piece.pk}}">{{survey_piece.title}}</option>
-                  {% endif %} 
+                <option value="{{survey_piece.pk}}">
+                    {{survey_piece.title}}
+                </option>
+                  {% endif %}
                 {% endfor %}
               </select>
             </form>
             <h1>Survey Title: {{survey.title}}</h1>
             <h3 class="question-label">
-              Survey Description: {{survey.description}}         
+              Survey Description: {{survey.description}}
             </h3>
-            <button id="viewResponse" onclick="handleViewResponse()">View Response</button>
+            <button id="viewResponse" onclick="handleViewResponse()">
+              View Response
+            </button>
           </div>
         </div>
       </div>
@@ -91,12 +99,13 @@
         });
       }
 
-      function handleViewResponse(){
-        document.getElementById("viewResponse").addEventListener("click", function() {
-            window.location.href = 'response/';
-        });
+      function handleViewResponse() {
+        document
+          .getElementById("viewResponse")
+          .addEventListener("click", function () {
+            window.location.href = "response/";
+          });
       }
-
     </script>
     <form method="post" id="question-form">
       {% csrf_token %}
@@ -114,25 +123,36 @@
       {% csrf_token %}
       <h2>Question Choice Editor</h2>
       {% for question in questions %}
-      <h3>Question {{forloop.counter}}: {{question.questiontext}}</h3>
-      <button type="submit" name="DeleteQuestion" id="deleteQuestion" value="{{question.pk}}">Delete Question</button>
-      {% if question.questiontype != "text" and question.questiontype != "numeric" %}
+        <h3>Question {{forloop.counter}}: {{question.questiontext}}</h3>
+      <button
+        type="submit"
+        name="DeleteQuestion"
+        id="deleteQuestion"
+        value="{{question.pk}}"
+      >
+        Delete Question
+      </button>
+        {% if question.questiontype != "text" and question.questiontype != "numeric" %}
       <label class="question-label">Choices:</label>
-        {% for choice in choices %} 
-          {% if choice.questionid.pk == question.pk %}
-            <!-- For some reason its not formattiong correctly so I just did this for now - Luke -->
-            <li>- {{choice.choicetext}}</li>
-          {% endif %} 
-        {% endfor %}
+          {% for choice in choices %} 
+            {% if choice.questionid.pk == question.pk %}
+      <!-- For some reason its not formattiong correctly so I just did this for now - Luke -->
+        <li>- {{choice.choicetext}}</li>
+            {% endif %}
+          {% endfor %}
       <label>Add choice:</label>
-      <input type="text" name="choicetext_{{question.pk}}">
-      <input type="hidden" name="questionid_{{question.pk}}" value="{{question.pk}}" />
-      {% else %}
-      <div style="margin-bottom: 20px;">
-        Question type {{question.questiontype}} doesn't take choices.
+      <input type="text" name="choicetext_{{question.pk}}" />
+      <input
+        type="hidden"
+        name="questionid_{{question.pk}}"
+        value="{{question.pk}}"
+      />
+        {% else %}
+      <div style="margin-bottom: 20px">
+          Question type {{question.questiontype}} doesn't take choices.
       </div>
-      {% endif %}
-      <br>
+        {% endif %}
+      <br />
       {% endfor %}
       <button type="submit" name="CreateChoiceButton" id="createchoicebutton">
         Create New Choice
@@ -143,10 +163,14 @@
       <div class="section__container">
         <div class="section__row">
           <div class="footer__wrapper">
-              <a href="/" class="footer__logo">
-                <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
-              </a>
+            <a href="/" class="footer__logo">
+              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+              <img
+                src="{% static 'assets/logo/GCISL_logo_white.png' %}"
+                alt=""
+                class="logo"
+              />
+            </a>
             <div class="footer__list">
               <a href="/get_involved" class="footer__link">Get Involved!</a>
               <a href="/contact" class="footer__link">Contact Us</a>

@@ -72,14 +72,6 @@ TEMPLATES = [
             ],
         },
     },
-    # {
-    #     'BACKEND': 'django.template.backends.jinja2.Jinja2',
-    #     'DIRS': [],
-    #     'APP_DIRS': True,
-    #     'OPTIONS': {
-    #         'environment': 'projectGCISL.jinja2.environment',
-    #     },
-    # },
 ]
 
 AUTH_USER_MODEL = 'appGCISL.GCISLUser'
@@ -114,7 +106,7 @@ DATABASES = {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'LocalDBGCI',
 #         'USER': 'postgres',
-#         'PASSWORD': 'Amat3rasu',
+#         'PASSWORD': '',
 #         'HOST': 'localhost',
 #         'PORT': 5432,
 #     }

@@ -9,80 +9,96 @@
     <title>Create Survey</title>
     <link rel="stylesheet" href="{% static 'css/survey.css' %}" />
   </head>
-<body>
-
+  <body>
     <section id="survey">
-        <nav>
-          <div class="nav__container">
-            <a href="/" class="logo__wrapper">
-                <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}" alt="" class="header_logo"/>
-            </a>
-            <ul class="nav__links">
-              {% if user.is_superuser or user.is_staff %}
-                <li><a href="/admin" class="nav__link">Admin</a></li>
-                <li><a href="/survey-faculty/" class="nav__link active">Survey Manager</a></li>
-                <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
-                <li><a href="/about" class="nav__link">About</a></li>
-                <li><a href="/logout" class="nav__link logout">Logout</a></li>
-          </ul>
-            {% endif %}
-            {% comment %} <li>
-              <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
+      <nav>
+        <div class="nav__container">
+          <a href="/" class="logo__wrapper">
+            <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+            <img
+              src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}"
+              alt=""
+              class="header_logo"
+            />
+          </a>
+          <ul class="nav__links">
+            {% if user.is_superuser or user.is_staff %}
+            <li><a href="/admin" class="nav__link">Admin</a></li>
+            <li>
+              <a href="/survey-faculty/" class="nav__link active"
+                >Survey Manager</a
+              >
             </li>
-              <li><a href="/contact" class="nav__link">Contact Us</a></li>
-              <li><a href="/about" class="nav__link">About</a></li>
-              <li><a href="/logout" class="nav__link logout">Logout</a></li> {% endcomment %}
-            </ul>
-          </div>
-        </nav>
-      </section>
+            <li>
+              <a href="/get_involved/" class="nav__link">Get Involved!</a>
+            </li>
+            <li><a href="/about" class="nav__link">About</a></li>
+            <li><a href="/logout" class="nav__link logout">Logout</a></li>
+          </ul>
+          {% endif %}
+        </div>
+      </nav>
+    </section>
 
     <section id="createform">
       <div class="section__container">
         <div class="section__row">
-    <h1 class="section__title">Create Your Form</form></h1>
-    <p class="section__para"></p>
+          <h1 class="section__title">Create Your Form</h1>
+          <p class="section__para"></p>
 
-    <form method="post" id="survey-form">
-        {% csrf_token %}
-        <!-- New Survey Creation -->
-        <div class="form__wrapper">
-          <div class="question-label">Survey Title: {{sform.title}}</div>
-          <div class="question-label" type="date">Survey End Date: {{sform.enddate}}</div>
-          <div class="question-label">Survey Description: {{sform.description}}</div>
-        </div>
-        <button type="submit" name="CreateSurveyButton" id="createnewsurvey">Create New Survey</button>
-    </form>
+          <form method="post" id="survey-form">
+            {% csrf_token %}
+            <!-- New Survey Creation -->
+            <div class="form__wrapper">
+              <div class="question-label">Survey Title: {{sform.title}}</div>
+              <div class="question-label" type="date">
+                Survey End Date: {{sform.enddate}}
+              </div>
+              <div class="question-label">
+                Survey Description: {{sform.description}}
+              </div>
+            </div>
+            <button
+              type="submit"
+              name="CreateSurveyButton"
+              id="createnewsurvey"
+            >
+              Create New Survey
+            </button>
+          </form>
         </div>
       </div>
-</section>
-    
+    </section>
+
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         // survey function call after the file is loaded
         dropDownSurveyTitle();
       });
 
       function dropDownSurveyTitle() {
         // get the dropdown element
-        const elem = document.getElementById('survey-titles');
+        const elem = document.getElementById("survey-titles");
         // look for a change in the selection
-        elem.addEventListener('change', function() {
-          // submit the form after the change  
-          document.getElementById('filter-form').submit();
+        elem.addEventListener("change", function () {
+          // submit the form after the change
+          document.getElementById("filter-form").submit();
         });
       }
     </script>
-    
+
     <footer>
       <div class="section__container">
         <div class="section__row">
           <div class="footer__wrapper">
-              <a href="/" class="footer__logo">
-                <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
-              </a>
+            <a href="/" class="footer__logo">
+              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+              <img
+                src="{% static 'assets/logo/GCISL_logo_white.png' %}"
+                alt=""
+                class="logo"
+              />
+            </a>
             <div class="footer__list">
               <a href="/get_involved" class="footer__link">Get Involved!</a>
               <a href="/contact" class="footer__link">Contact Us</a>
@@ -92,5 +108,5 @@
         </div>
       </div>
     </footer>
-</body>
+  </body>
 </html>

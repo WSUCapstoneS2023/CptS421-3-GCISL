@@ -23,21 +23,18 @@
           </a>
           <ul class="nav__links">
             {% if user.is_superuser or user.is_staff %}
-              <li>
-                <a href="/admin" class="nav__link">Admin</a>
-                <li><a href="/survey-faculty/" class="nav__link active">Survey Manager</a></li>
-                <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
-                <li><a href="/about" class="nav__link">About</a></li>
-                <li><a href="/logout" class="nav__link logout">Logout</a></li>
-          </ul>
-              </li>
-            {% endif %}
-            {% comment %} <li>
-              <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
+            <li><a href="/admin" class="nav__link">Admin</a></li>
+            <li>
+              <a href="/survey-faculty/" class="nav__link active"
+                >Survey Manager</a
+              >
             </li>
-            <li><a href="/contact" class="nav__link">Contact Us</a></li>
-            <li><a href="/about" class="nav__link">About</a></li> {% endcomment %}
-  
+            <li>
+              <a href="/get_involved/" class="nav__link">Get Involved!</a>
+            </li>
+            <li><a href="/about" class="nav__link">About</a></li>
+            <li><a href="/logout" class="nav__link logout">Logout</a></li>
+            {% endif %}
           </ul>
         </div>
       </nav>
@@ -49,8 +46,12 @@
           <!-- Create Form -->
           <h1 class="section__title">Welcome to Survey Manager</h1>
           <p class="section__para">Manage your surveys below</p>
-          <button id="createSurvey" onclick="handleCreateSurvey()">Create New Survey</button>
-          <button id="editSurvey" onclick="handleEditSurvey()">Edit Survey</button>
+          <button id="createSurvey" onclick="handleCreateSurvey()">
+            Create New Survey
+          </button>
+          <button id="editSurvey" onclick="handleEditSurvey()">
+            Edit Survey
+          </button>
           <!-- <button>Delete Survey</button> -->
         </div>
       </div>
@@ -70,35 +71,43 @@
         });
       }
 
-      function handleCreateSurvey(){
-        document.getElementById("createSurvey").addEventListener("click", function() {
-            window.location.href = 'builder/';
-        });
+      function handleCreateSurvey() {
+        document
+          .getElementById("createSurvey")
+          .addEventListener("click", function () {
+            window.location.href = "builder/";
+          });
       }
-      
-      function handleEditSurvey(){
-        document.getElementById("editSurvey").addEventListener("click", function() {
-            window.location.href = 'manager/1';
-        });
+
+      function handleEditSurvey() {
+        document
+          .getElementById("editSurvey")
+          .addEventListener("click", function () {
+            window.location.href = "manager/1";
+          });
       }
     </script>
 
-<footer>
-  <div class="section__container">
-    <div class="section__row">
-      <div class="footer__wrapper">
-          <a href="/" class="footer__logo">
-            <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-            <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
-          </a>
-        <div class="footer__list">
-          <a href="/get_involved" class="footer__link">Get Involved!</a>
-          <a href="/contact" class="footer__link">Contact Us</a>
-          <a href="/about" class="footer__link">About</a>
+    <footer>
+      <div class="section__container">
+        <div class="section__row">
+          <div class="footer__wrapper">
+            <a href="/" class="footer__logo">
+              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+              <img
+                src="{% static 'assets/logo/GCISL_logo_white.png' %}"
+                alt=""
+                class="logo"
+              />
+            </a>
+            <div class="footer__list">
+              <a href="/get_involved" class="footer__link">Get Involved!</a>
+              <a href="/contact" class="footer__link">Contact Us</a>
+              <a href="/about" class="footer__link">About</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</footer>
+    </footer>
   </body>
 </html>
