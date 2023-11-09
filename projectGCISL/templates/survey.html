@@ -119,71 +119,70 @@
     <!-- Create Form -->
     <form id="form" action="" method="post">
       {% csrf_token %}
-      <h2>{{survey.title}}</h2>
-      {% for question in questions %}
-      <div class="question">
-        <input
-          type="hidden"
-          name="question_text_{{ question.questionid }}"
-          value="{{ question.questiontext }}"
-        />
-        <input
-          type="hidden"
-          name="question_type_{{ question.questionid }}"
-          value="{{ question.questiontype }}"
-        />
-        <p>{{ question.questiontext }}</p>
-        {% if question.questiontype == 'multiple_choice' %}
-        <ul>
-          {% for key, choices_list in choices.items %} 
-            {% if key == question.pk%} 
-              {% for choice in choices_list %}
-                <li class="choice-container">
-                <label>
-                <input
-                  type="radio"
-                  name="question_{{ question.questionid }}"
-                  value="{{ choice.choiceid }}"
-                  required
-                />
-                {{ choice.choicetext }}
-                </label>
-                </li>
-              {% endfor %}
-            {% endif %}
-          {% endfor %}
-        </ul>
-        {% elif question.questiontype == 'checkbox' %}
-        <ul>
-          {% for key, choices_list in choices.items %}
-            {% if key == question.pk %}
-              {% for choice in choices_list %}
-                <li class="choice-container">
-                <label>
-                <input
-                  type="checkbox"
-                  name="question_{{ question.questionid }}"
-                  value="{{ choice.choiceid }}"
-                />
-                {{ choice.choicetext }}
-                </label>
-                </li>
-              {% endfor %}
-            {% endif %}
-          {% endfor %}
-        </ul>
-        {% elif question.questiontype == 'numeric' %}
-        <input
-          type="number"
-          name="question_{{ question.questionid }}"
-          required
-        />
-        {% elif question.questiontype == 'text' %}
-        <textarea name="question_{{ question.questionid }}" required></textarea>
-        {% endif %}
-      </div>
-      {% endfor %}
-
+        <h2>{{survey.title}}</h2>
+        {% for question in questions %}
+          <div class="question">
+            <input
+              type="hidden"
+              name="question_text_{{ question.questionid }}"
+              value="{{ question.questiontext }}"
+            />
+            <input
+              type="hidden"
+              name="question_type_{{ question.questionid }}"
+              value="{{ question.questiontype }}"
+            />
+            <p>{{ question.questiontext }}</p>
+          {% if question.questiontype == 'multiple_choice' %}
+            <ul>
+            {% for key, choices_list in choices.items %} 
+              {% if key == question.pk %} 
+                {% for choice in choices_list %}
+                  <li class="choice-container">
+                  <label>
+                  <input
+                    type="radio"
+                    name="question_{{ question.questionid }}"
+                    value="{{ choice.choiceid }}"
+                    required
+                  />
+                  {{ choice.choicetext }}
+                  </label>
+                  </li>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+            </ul>
+          {% elif question.questiontype == 'checkbox' %}
+            <ul>
+            {% for key, choices_list in choices.items %}
+              {% if key == question.pk %}
+                {% for choice in choices_list %}
+                  <li class="choice-container">
+                  <label>
+                  <input
+                    type="checkbox"
+                    name="question_{{ question.questionid }}"
+                    value="{{ choice.choiceid }}"
+                  />
+                  {{ choice.choicetext }}
+                  </label>
+                  </li>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+            </ul>
+          {% elif question.questiontype == 'numeric' %}
+            <input
+              type="number"
+              name="question_{{ question.questionid }}"
+              required
+            />
+          {% elif question.questiontype == 'text' %}
+            <textarea name="question_{{ question.questionid }}" required></textarea>
+          {% endif %}
+          </div>
+        {% endfor %}
       <input type="submit" value="Submit" />
     </form>
     <footer>
