@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
-    <link rel="stylesheet" href="/static/css/about.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}" />
   </head>
   <style>
     .section__para {
@@ -29,7 +31,7 @@
         <div class="nav__container">
           <a href="/" class="logo__wrapper">
             <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-            <img src="/static/assets/logo/GCISL_logo_fullcolor.png" alt="" class="header_logo"/>
+            <img src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}" alt="" class="header_logo"/>
           </a>
           <ul class="nav__links">
             <li><a href="/get_involved" class="nav__link">Get Involved!</a></li>
@@ -40,12 +42,12 @@
         </div>
       </nav>
       <img
-        src="/static/assets/general/circle.svg"
+        src="{% static 'assets/general/circle.svg' %}"
         alt=""
         class="shape shape--0"
       />
       <img
-        src="/static/assets/general/circle.svg"
+        src="{% static 'assets/general/circle.svg' %}"
         alt=""
         class="shape shape--1"
       />
@@ -69,7 +71,7 @@
             <div class="section__row--left">
               <figure class="logo__wrapper">
                 <img
-                  src="/static/assets/logo/GCISL_logo_fullcolor.png"
+                  src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}"
                   alt=""
                   class="logo"
                 />
@@ -84,7 +86,7 @@
             >
               <figure class="logo__wrapper">
                 <img
-                  src="/static/assets/logo/GatherLab_logo.png"
+                  src="{% static 'assets/logo/GatherLab_logo.png' %}"
                   alt=""
                   class="logo"
                 />
@@ -130,7 +132,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/1.png"
+                src="{% static 'assets/relative pictures/1.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -140,7 +142,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/2.png"
+                src="{% static 'assets/relative pictures/2.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -150,7 +152,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/3.png"
+                src="{% static 'assets/relative pictures/3.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -160,7 +162,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/4.png"
+                src="{% static 'assets/relative pictures/4.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -170,7 +172,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/5.png"
+                src="{% static 'assets/relative pictures/5.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -180,7 +182,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/6.png"
+                src="{% static 'assets/relative pictures/6.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -190,7 +192,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/7.png"
+                src="{% static 'assets/relative pictures/7.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -200,7 +202,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/8.png"
+                src="{% static 'assets/relative pictures/8.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -210,7 +212,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/9.png"
+                src="{% static 'assets/relative pictures/9.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -220,7 +222,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/10.png"
+                src="{% static 'assets/relative pictures/10.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -230,7 +232,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/11.png"
+                src="{% static 'assets/relative pictures/11.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -247,7 +249,7 @@
           <div class="footer__wrapper">
               <a href="/" class="footer__logo">
                 <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="/static/assets/logo/GCISL_logo_white.png" alt="" class="footer__gci__logo"/>
+                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
               </a>
             <div class="footer__list">
               <a href="/get_involved" class="footer__link">Get Involved!</a>

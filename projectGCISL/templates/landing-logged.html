@@ -1,3 +1,5 @@
+{% load static %}
+
 <!-- base.html file -->
 <!DOCTYPE html>
 <html lang="en">
@@ -13,22 +15,14 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/static/css/landing.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}" />
   </head>
-  <style>
-    .link{
-      color: white;
-      font-weight: bold;
-      text-decoration: underline;
-    }
-    
-  </style>
   <body>
     <section id="landing">
       <nav>
         <div class="nav__container">
           <div class="logo__wrapper">
-            <img src="/static/assets/logo/GCISL_logo_fullcolor.png" alt="" class="header_logo"/>
+            <img src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}" alt="" class="header_logo"/>
           </div>
           <ul class="nav__links">
             {% if user.is_superuser or user.is_staff %}
@@ -222,12 +216,12 @@
       <div class="section__container">
         <div class="section__row">
           <div class="footer__wrapper">
-              <a href="/" class="logo__wrapper">
+              <a href="/" class="footer__logo">
                 <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="/static/assets/logo/GCISL_logo_white.png" alt="" class="logo"/>
+                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
               </a>
             <div class="footer__list">
-              <a href="/get_involved/" class="footer__link">Get Involved!</a>
+              <a href="/get_involved" class="footer__link">Get Involved!</a>
               <a href="/contact" class="footer__link">Contact Us</a>
               <a href="/about" class="footer__link">About</a>
             </div>

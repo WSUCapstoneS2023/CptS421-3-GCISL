@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get Involved!</title>
-    <link rel="stylesheet" href="/static/css/getinvolved.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/getinvolved.css' %}" />
     <style>
     .popup {
       position: fixed;
@@ -113,7 +115,7 @@
         <div class="nav__container">
           <a href="/" class="logo__wrapper">
             <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-            <img src="/static/assets/logo/GCISL_logo_fullcolor.png" alt="" class="header_logo"/>
+            <img src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}" alt="" class="header_logo"/>
           </a>
           <ul class="nav__links">
             {% if user.is_superuser or user.is_staff %}
@@ -144,12 +146,12 @@
         </div>
       </nav>
       <img
-        src="/static/assets/general/circle.svg"
+        src="{% static 'assets/general/circle.svg' %}"
         alt=""
         class="shape shape--0"
       />
       <img
-        src="/static/assets/general/circle.svg"
+        src="{% static 'assets/general/circle.svg' %}"
         alt=""
         class="shape shape--1"
       />
@@ -205,12 +207,12 @@
         </div>
       </div>
       <img
-        src="/static/assets/general/circle.svg"
+        src="{% static 'assets/general/circle.svg' %}"
         alt=""
         class="shape shape--0"
       />
       <img
-        src="/static/assets/general/circle.svg"
+        src="{% static 'assets/general/circle.svg' %}"
         alt=""
         class="shape shape--1"
       />
@@ -248,12 +250,12 @@
         </div>
       </div>
       <img
-        src="/static/assets/general/circle.svg"
+        src="{% static 'assets/general/circle.svg' %}"
         alt=""
         class="shape shape--0"
       />
       <img
-        src="/static/assets/general/circle.svg"
+        src="{% static 'assets/general/circle.svg' %}"
         alt=""
         class="shape shape--1"
       />
@@ -285,12 +287,12 @@
         </div>
       </div>
       <img
-        src="/static/assets/general/circle.svg"
+        src="{% static 'assets/general/circle.svg' %}"
         alt=""
         class="shape shape--0"
       />
       <img
-        src="/static/assets/general/circle.svg"
+        src="{% static 'assets/general/circle.svg' %}"
         alt=""
         class="shape shape--1"
       />
@@ -330,10 +332,10 @@
           <div class="footer__wrapper">
               <a href="/" class="footer__logo">
                 <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="/static/assets/logo/GCISL_logo_white.png" alt="" class="logo"/>
+                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
               </a>
             <div class="footer__list">
-              <a href="/get_involved/" class="footer__link">Get Involved!</a>
+              <a href="/get_involved" class="footer__link">Get Involved!</a>
               <a href="/contact" class="footer__link">Contact Us</a>
               <a href="/about" class="footer__link">About</a>
             </div>

@@ -136,6 +136,12 @@ button:hover {
   transition: all 300ms ease;
 }
 
+.link{
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 /* FOR LOGGED VIEW */
 .profile__picture--wrapper {
   height: 0px;

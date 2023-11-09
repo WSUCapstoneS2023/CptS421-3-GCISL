@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
-    <link rel="stylesheet" href="/static/css/about.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}" />
   </head>
   <style>
     .section__para {
@@ -14,13 +16,14 @@
       max-width: 600px;
       font-weight: 600;
       font-size: 20px;
-  }
-  .gatherlab__logo {
-    width: 50%;
-    margin-top: 24px;
-    padding-top: 24px;
-    text-align: center;
-}
+    }
+
+    .gatherlab__logo {
+      width: 50%;
+      margin-top: 24px;
+      padding-top: 24px;
+      text-align: center;
+    }
 
   </style>
   <body>
@@ -29,7 +32,7 @@
         <div class="nav__container">
           <a href="/" class="logo__wrapper">
             <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-            <img src="/static/assets/logo/GCISL_logo_fullcolor.png" alt="" class="header_logo"/>
+            <img src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}" alt="" class="header_logo"/>
           </a>
           <ul class="nav__links">
             {% if user.is_superuser or user.is_staff %}
@@ -50,7 +53,6 @@
             </li>
             <li><a href="/contact" class="nav__link">Contact Us</a></li>
             <li><a href="/about" class="nav__link active">About</a></li> {% endcomment %}
-
         </div>
       </nav>
       <img
@@ -144,7 +146,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/1.png"
+                src="{% static 'assets/relative pictures/1.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -154,7 +156,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/2.png"
+                src="{% static 'assets/relative pictures/2.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -164,7 +166,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/3.png"
+                src="{% static 'assets/relative pictures/3.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -174,7 +176,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/4.png"
+                src="{% static 'assets/relative pictures/4.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -184,7 +186,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/5.png"
+                src="{% static 'assets/relative pictures/5.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -194,7 +196,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/6.png"
+                src="{% static 'assets/relative pictures/6.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -204,7 +206,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/7.png"
+                src="{% static 'assets/relative pictures/7.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -214,7 +216,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/8.png"
+                src="{% static 'assets/relative pictures/8.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -224,7 +226,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/9.png"
+                src="{% static 'assets/relative pictures/9.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -234,7 +236,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/10.png"
+                src="{% static 'assets/relative pictures/10.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -244,7 +246,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="/static/assets/relative pictures/11.png"
+                src="{% static 'assets/relative pictures/11.png' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -254,16 +256,17 @@
         </div>
       </div>
     </section>
+    
     <footer>
       <div class="section__container">
         <div class="section__row">
           <div class="footer__wrapper">
               <a href="/" class="footer__logo">
                 <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="/static/assets/logo/GCISL_logo_white.png" alt="" class="footer__gci__logo"/>
+                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
               </a>
             <div class="footer__list">
-              <a href="/get_involved/" class="footer__link">Get Involved!</a>
+              <a href="/get_involved" class="footer__link">Get Involved!</a>
               <a href="/contact" class="footer__link">Contact Us</a>
               <a href="/about" class="footer__link">About</a>
             </div>
