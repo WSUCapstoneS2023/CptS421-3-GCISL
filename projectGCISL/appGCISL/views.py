@@ -31,7 +31,13 @@ def getinvolved_view(request):
 
 # Survey
 def survey_view(request):
-    survey = Survey.objects.get(status=True)
+    # You need to get the survey with the given ID
+    try:
+        survey = Survey.objects.get(status=True)
+        
+    except Survey.DoesNotExist:
+        raise Http404("Survey does not exist")
+
     questions = getQuestions(survey)  # You need to get questions for this survey
 
     # Count the number of questions
