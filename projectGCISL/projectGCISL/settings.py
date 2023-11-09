@@ -83,6 +83,7 @@ WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DB for Deployment (RENDER)
 # DATABASES = {
 #     'default': dj_database_url.config(
 #         default='postgres://gciconnect:lUpVj7PFTUuFzVSnkHSbb2hJP0ydAdw0@dpg-cl5itrk72pts73emq9n0-a/gciconnect_cvbw',
@@ -90,16 +91,29 @@ WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 #     )
 # }
 
+# ElephantSQL DB
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'LocalDBGCI',
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': 5432,
+         'ENGINE': 'django.db.backends.postgresql',
+         'NAME': 'iakvhaso',
+         'USER' : 'iakvhaso',
+         'PASSWORD': '3aXyp7AwTBHNVElrCP00AGcvBVM2FWHf',
+         'HOST': 'jelani.db.elephantsql.com',
+         'PORT' : '5432'
     }
 }
+
+# Local DB (Set as you like)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'LocalDBGCI',
+#         'USER': 'postgres',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': 5432,
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
