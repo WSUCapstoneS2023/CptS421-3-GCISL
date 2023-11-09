@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* basic initlization for the body of the html file */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat;
+}
+
+/* makes sure that everything within this class stays in the middle */ 
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* create the square shape */
+.card-deck{
+  position: relative;
+  width: 50rem;
+  max-width: 390px;
+  height: 50rem;
+  max-height: 390px;
+  background-color: #4d4d4d;
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding-top: 30px;
+  display: flex; /* Use flex */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-top: -10px;
+}
+
+/* :after does this after the initial element */
+.square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+/* the content of the page */
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0 1px 0;
+  padding-bottom: 5px; /* Adjust the padding here */
+  margin-top: 10px;
+}
+
+/* hold the image for the login icon */
+.imgcontainer {
+  text-align: center;
+  margin: 190px 0 40px 0;
+}
+
+/* creates the circle shape for the login*/ 
+img.avatar {
+  width:150px;
+  border-radius: 50%;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+}
+
+/* input box for the username and login along with styling */
+input[type=text], input[type=password] {
+  width: 250px;
+  height: 50%;
+  padding: 5px 5px;
+  box-sizing: border-box;
+  border: 2px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 18px auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #a60f2d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+/* changes the opacity of the button when the cursor is resting on it */
+button:hover {
+  opacity: 0.8;
+}
+
+.signin {
+  text-align: center;
+  font-family: Ubuntu;
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+
+.space{
+  padding-top: 80px;
+}
+
+
+@media (max-width: 767px) {
+  /* adjust square dimensions */
+  .card-deck{
+    width: 100;
+    height: 90%;
+    padding-top: 30px;
+  }
+
+  input[type=text], input[type=password] {
+    width: 90%;
+    max-width: 250px;
+    margin: 18px auto;
+  }
+
+  .button-container {
+    bottom: 10%;
+    position: fixed;
+  }
+}
+
+@media (max-width: 480px) {
+  /* adjust square dimensions */
+  .card-deck {
+    width: 40rem;
+    height: 40rem;
+    padding-top: 10px;
+  }
+
+  /* adjust input dimensions and center */
+  input[type=text], input[type=password] {
+    width: 100%;
+    max-width: 250px;
+    margin: 12px auto;
+  }
+
+  .button-container {
+    bottom: 10px;
+    right: 10px;
+    position: fixed;
+  }
+}
+
+
+
+
+
