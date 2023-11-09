@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Survey</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/survey.css' %}" />
     <style>
       /* Style the body of the form */
       .body1 {
@@ -14,40 +15,40 @@
         margin: 20px 0;
         font-size: 18px;
       }
-
+  
       .body2 {
         font-size: 16px;
         margin-bottom: 20px;
       }
-
+  
       /* Style the questions and inputs */
       .question {
         margin-bottom: 20px;
         text-align: left;
       }
-
+  
       .choice {
         margin-bottom: 20px;
         text-align: left;
       }
-
+  
       label {
         display: block;
         margin-top: 10px;
       }
-
+  
       input[type="radio"],
       input[type="checkbox"] {
         margin-right: 10px;
       }
-
+  
       textarea {
         width: 100%;
         height: 100px;
         padding: 10px;
         border: 1px solid #ccc;
       }
-
+  
       /* Style the submit button */
       input[type="submit"] {
         background-color: #ca1237;
@@ -57,21 +58,21 @@
         cursor: pointer;
         border-radius: 15px;
       }
-
+  
       /* Style the choice container */
       .choice-container {
         display: flex; /* Use flexbox for alignment */
         align-items: center; /* Align items vertically */
         margin-bottom: 10px; /* Add some spacing between each choice */
       }
-
+  
       /* Style the checkbox and radio input */
       .choice-container input[type="checkbox"],
       .choice-container input[type="radio"] {
         margin: 0; /* Reset margin */
         vertical-align: middle; /* Align the checkbox/radio vertically with the label text */
       }
-
+  
       /* Style the label text for choices */
       .choice-container label {
         font-size: 16px;
@@ -79,7 +80,6 @@
         margin-left: 5px; /* Add some spacing between the checkbox/radio and label text */
       }
     </style>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/survey.css' %}" />
   </head>
   <body>
     <section id="survey">
