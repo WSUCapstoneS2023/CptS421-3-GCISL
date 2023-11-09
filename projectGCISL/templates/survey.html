@@ -135,36 +135,42 @@
         <p>{{ question.questiontext }}</p>
         {% if question.questiontype == 'multiple_choice' %}
         <ul>
-          {% for key, choices_list in choices.items %} {% if key == question.pk
-          %} {% for choice in choices_list %}
-          <li class="choice-container">
-            <label>
-              <input
-                type="radio"
-                name="question_{{ question.questionid }}"
-                value="{{ choice.choiceid }}"
-                required
-              />
-              {{ choice.choicetext }}
-            </label>
-          </li>
-          {% endfor %} {% endif %} {% endfor %}
+          {% for key, choices_list in choices.items %} 
+            {% if key == question.pk%} 
+              {% for choice in choices_list %}
+                <li class="choice-container">
+                <label>
+                <input
+                  type="radio"
+                  name="question_{{ question.questionid }}"
+                  value="{{ choice.choiceid }}"
+                  required
+                />
+                {{ choice.choicetext }}
+                </label>
+                </li>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
         </ul>
         {% elif question.questiontype == 'checkbox' %}
         <ul>
-          {% for key, choices_list in choices.items %} {% if key == question.pk
-          %} {% for choice in choices_list %}
-          <li class="choice-container">
-            <label>
-              <input
-                type="checkbox"
-                name="question_{{ question.questionid }}"
-                value="{{ choice.choiceid }}"
-              />
-              {{ choice.choicetext }}
-            </label>
-          </li>
-          {% endfor %} {% endif %} {% endfor %}
+          {% for key, choices_list in choices.items %}
+            {% if key == question.pk %}
+              {% for choice in choices_list %}
+                <li class="choice-container">
+                <label>
+                <input
+                  type="checkbox"
+                  name="question_{{ question.questionid }}"
+                  value="{{ choice.choiceid }}"
+                />
+                {{ choice.choicetext }}
+                </label>
+                </li>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
         </ul>
         {% elif question.questiontype == 'numeric' %}
         <input
