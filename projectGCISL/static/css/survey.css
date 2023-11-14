@@ -416,13 +416,56 @@ body {
 }
 
 /* RESPONSES */
-.responses__table--wrapper {
-  background-color: #fff;
-  margin: 50px auto;
-  padding: 20px;
-  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
+.responses__table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border: none;
 }
+
+thead tr {
+  background-color: #ca1237;
+  color: #ffffff;
+  text-align: left;
+}
+
+th, td {
+  padding: 20px 24px;
+  font-size: 16px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+tbody tr:last-of-type {
+  border-bottom: 2px solid #ca1237;
+}
+
+/* table {
+  padding: 10px;
+  border: #fff;
+}
+
+th {
+  background-color: #A60F2D;
+  color: #fff;
+}
+
+
+thead, th, tbody, tr, td {
+  padding: 10px;
+} */
 
 /* ... Add more styles as needed ... */
 
