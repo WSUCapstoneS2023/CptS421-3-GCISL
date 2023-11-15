@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/submitsurvey.css' %}" />
+</head>
+<body>
+    <nav>
+        <div class="nav__container">
+          <div class="logo__wrapper">
+            <img src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}" alt="" class="header_logo"/>
+          </div>
+          <ul class="nav__links">
+            <li>
+              <a href="get_involved/" class="nav__link">Get Involved!</a>
+            </li>
+            <li><a href="contact/" class="nav__link">Contact Us</a></li>
+            <li><a href="about/" class="nav__link">About</a></li>
+            <li>
+              <a href="login/" class="nav__link">Log in</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </br>
+    <h1>Thank You for Submitting Your Survey!</h1>
+    </br>
+    <p>We appreciate your feedback and will contact you as soon as possible.</p>
+    </br>
+    <form method="GET" action="/">
+        <div class = "spacing">
+        <button type="submit" class="gallery__button">
+          Return To Homepage
+        </button>
+        </div>
+      </form>
+</body>
+</html>
