@@ -295,53 +295,51 @@ button:hover {
 
 /* FOOTER */
 footer {
-  background-color: #1f1f1f;
+  background-color: #1f1f1f !important;
 }
 
 .footer__logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .gciConnect__logo {
-  color: #a60f2d;
+  color: #a60f2d !important;
 }
 
 .footer__logo .gciConnect__logo {
-  color: #fff;
-}
-
-.footer__gci__logo {
-  margin-left: 20px;
-  max-width: 35%;
+  color: #fff !important;
 }
 
 .logo {
-  margin-left: 20px;
-  max-width: 100%;
+  margin-left: 20px !important;
+  max-width: 35% !important;
 }
 
 .footer__wrapper {
-  margin: 50px 0;
+  margin: 50px 0 !important;
 }
 
 .footer__link {
-  color: #fff;
-  font-weight: 600;
-  padding: 0 8px;
+  color: #fff !important;
+  font-weight: 600 !important;
+  padding: 0 8px !important;
 }
 
 .footer__link:hover {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 .footer__list {
-  margin: 20px 0 24px 0;
-  display: flex;
-  justify-content: center;
+  margin: 20px 0 24px 0 !important;
+  display: flex !important;
+  justify-content: center !important;
 }
 
+.logo {
+  width: 100% !important;
+}
 /* SHAPES */
 
 .shape {

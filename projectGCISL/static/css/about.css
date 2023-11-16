@@ -183,7 +183,6 @@ nav {
 }
 
 /* FOOTER */
-
 footer {
   background-color: #1f1f1f;
 }
@@ -225,6 +224,10 @@ footer {
   margin: 20px 0 24px 0;
   display: flex;
   justify-content: center;
+}
+
+.logo {
+  width: 100%;
 }
 
 .space {
