@@ -296,7 +296,30 @@ button:hover {
 /* FOOTER */
 footer {
   background-color: #1f1f1f;
-  position: relative;
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gciConnect__logo {
+  color: #a60f2d;
+}
+
+.footer__logo .gciConnect__logo {
+  color: #fff;
+}
+
+.footer__gci__logo {
+  margin-left: 20px;
+  max-width: 35%;
+}
+
+.logo {
+  margin-left: 20px;
+  max-width: 100%;
 }
 
 .footer__wrapper {
@@ -304,13 +327,13 @@ footer {
 }
 
 .footer__link {
-  color: #fff !important;
+  color: #fff;
   font-weight: 600;
   padding: 0 8px;
 }
 
 .footer__link:hover {
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 
 .footer__list {

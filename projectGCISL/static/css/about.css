@@ -183,6 +183,7 @@ nav {
 }
 
 /* FOOTER */
+
 footer {
   background-color: #1f1f1f;
 }
@@ -201,14 +202,9 @@ footer {
   color: #fff;
 }
 
-.footer__gci__logo {
-  margin-left: 20px;
-  max-width: 35%;
-}
-
 .logo {
   margin-left: 20px;
-  max-width: 100%;
+  max-width: 35%;
 }
 
 .footer__wrapper {
@@ -229,6 +225,12 @@ footer {
   margin: 20px 0 24px 0;
   display: flex;
   justify-content: center;
+}
+
+.space {
+  padding-top: 50px;
+  text-align: center;
+  color: black;
 }
 
 /* SHAPES */
