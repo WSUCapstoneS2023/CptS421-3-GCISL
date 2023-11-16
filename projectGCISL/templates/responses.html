@@ -7,7 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>View Responses</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/survey.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/survey.css' %}"
+    />
   </head>
   <body>
     <section id="survey">
@@ -81,7 +85,8 @@
                 {% endfor %}
               </tbody>
           </table>
-        </div>
+            <button type="button" onclick="tableToCSV()">Download CSV</button>
+          </div>
         </div>
       </div>
     </section>
@@ -90,10 +95,14 @@
       <div class="section__container">
         <div class="section__row">
           <div class="footer__wrapper">
-              <a href="/" class="footer__logo">
-                <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
-              </a>
+            <a href="/" class="footer__logo">
+              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+              <img
+                src="{% static 'assets/logo/GCISL_logo_white.png' %}"
+                alt=""
+                class="logo"
+              />
+            </a>
             <div class="footer__list">
               <a href="/get_involved" class="footer__link">Get Involved!</a>
               <a href="/contact" class="footer__link">Contact Us</a>
@@ -114,6 +123,61 @@
         elem.addEventListener("change", function () {
           document.getElementById("filter-form").submit();
         });
+      }
+
+      function tableToCSV() {
+        // Variable to store the final csv data
+        var csv_data = [];
+
+        // Get each row data
+        var rows = document.getElementsByTagName("tr");
+        for (var i = 0; i < rows.length; i++) {
+          // Get each column data
+          var cols = rows[i].querySelectorAll("td,th");
+
+          // Stores each csv row data
+          var csvrow = [];
+          for (var j = 0; j < cols.length; j++) {
+            // Get the text data of each cell
+            // of a row and push it to csvrow
+            csvrow.push(cols[j].innerHTML);
+          }
+
+          // Combine each column value with comma
+          csv_data.push(csvrow.join(","));
+        }
+
+        // Combine each row data with new line character
+        csv_data = csv_data.join("\n");
+
+        // Call this function to download csv file
+        downloadCSVFile(csv_data);
+      }
+
+      function downloadCSVFile(csv_data) {
+        // Create CSV file object and feed
+        // our csv_data into it
+        CSVFile = new Blob([csv_data], {
+          type: "text/csv",
+        });
+
+        // Create to temporary link to initiate
+        // download process
+        var temp_link = document.createElement("a");
+
+        // Download csv file
+        temp_link.download = "Response.csv";
+        var url = window.URL.createObjectURL(CSVFile);
+        temp_link.href = url;
+
+        // This link should not be displayed
+        temp_link.style.display = "none";
+        document.body.appendChild(temp_link);
+
+        // Automatically click the link to
+        // trigger download
+        temp_link.click();
+        document.body.removeChild(temp_link);
       }
     </script>
   </body>
