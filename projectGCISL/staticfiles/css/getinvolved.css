@@ -281,6 +281,20 @@ footer {
   background-color: #1f1f1f;
 }
 
+.footer__container {
+  padding: 80px 0;
+}
+
+.footer__row {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .footer__logo {
   display: flex;
   align-items: center;
@@ -295,9 +309,10 @@ footer {
   color: #fff;
 }
 
-.logo {
+.gcisl__logo {
   margin-left: 20px;
   max-width: 35%;
+  width: 100%;
 }
 
 .footer__wrapper {
@@ -318,12 +333,6 @@ footer {
   margin: 20px 0 24px 0;
   display: flex;
   justify-content: center;
-}
-
-.space {
-  padding-top: 50px;
-  text-align: center;
-  color: black;
 }
 
 /* RESPONSIVE DESIGN */

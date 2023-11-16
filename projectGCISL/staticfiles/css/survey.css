@@ -321,25 +321,39 @@ footer {
   background-color: #1f1f1f;
 }
 
+.footer__container {
+  padding: 80px 0;
+}
+
+.footer__row {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .footer__logo {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.gciConnect__logo{
-  color: #A60F2D;
+.gciConnect__logo {
+  color: #a60f2d;
 }
 
-.footer__logo .gciConnect__logo{
+.footer__logo .gciConnect__logo {
   color: #fff;
 }
 
-.logo {
+.gcisl__logo {
   margin-left: 20px;
   max-width: 35%;
+  width: 100%;
 }
-
 
 .footer__wrapper {
   margin: 50px 0;
@@ -361,9 +375,6 @@ footer {
   justify-content: center;
 }
 
-.logo {
-  width: 100%;
-}
 
 /* Add your CSS styles here */
 /* Example styles */

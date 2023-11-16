@@ -295,36 +295,51 @@ button:hover {
 
 /* FOOTER */
 footer {
-  background-color: #1f1f1f !important;
+  background-color: #1f1f1f;
+}
+
+.footer__container {
+  padding: 80px 0;
+}
+
+.footer__row {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .footer__logo {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .gciConnect__logo {
-  color: #a60f2d !important;
+  color: #a60f2d;
 }
 
 .footer__logo .gciConnect__logo {
-  color: #fff !important;
+  color: #fff;
 }
 
-.logo {
-  margin-left: 20px !important;
-  max-width: 35% !important;
+.gcisl__logo {
+  margin-left: 20px;
+  max-width: 35%;
+  width: 100%;
 }
 
 .footer__wrapper {
-  margin: 50px 0 !important;
+  margin: 50px 0;
 }
 
 .footer__link {
   color: #fff !important;
-  font-weight: 600 !important;
-  padding: 0 8px !important;
+  font-weight: 600;
+  padding: 0 8px;
 }
 
 .footer__link:hover {
@@ -332,13 +347,9 @@ footer {
 }
 
 .footer__list {
-  margin: 20px 0 24px 0 !important;
-  display: flex !important;
-  justify-content: center !important;
-}
-
-.logo {
-  width: 100% !important;
+  margin: 20px 0 24px 0;
+  display: flex;
+  justify-content: center;
 }
 /* SHAPES */
 
