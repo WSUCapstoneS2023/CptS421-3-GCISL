@@ -139,7 +139,6 @@ button:hover {
 .link{
   color: white;
   font-weight: bold;
-  text-decoration: underline;
 }
 
 /* FOR LOGGED VIEW */
@@ -340,10 +339,6 @@ footer {
   color: #fff !important;
   font-weight: 600;
   padding: 0 8px;
-}
-
-.footer__link:hover {
-  text-decoration: underline !important;
 }
 
 .footer__list {

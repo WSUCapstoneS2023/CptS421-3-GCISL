@@ -310,10 +310,6 @@ footer {
   padding: 0 8px;
 }
 
-.footer__link:hover {
-  text-decoration: underline;
-}
-
 .footer__list {
   margin: 20px 0 24px 0;
   display: flex;
