@@ -56,7 +56,6 @@ ul {
 li {
   list-style-type: none;
 }
-
 .nav__container {
   width: 100%;
   max-width: 1400px;
@@ -70,6 +69,16 @@ li {
 nav {
   height: 80px;
   display: flex;
+}
+
+.header_logo {
+  height: 8vh;
+  padding-left: 20px;
+}
+
+.logo__wrapper {
+  display: flex;
+  align-items: center;
 }
 
 .nav__links {
@@ -101,16 +110,6 @@ nav {
   background-color: #1f1f1f;
   color: #fff;
   border-radius: 10px;
-}
-
-.header_logo {
-  height: 8vh;
-  margin-left: 20px;
-}
-
-.logo__wrapper {
-  display: flex;
-  align-items: center;
 }
 
 /* GET INVOLVED! */

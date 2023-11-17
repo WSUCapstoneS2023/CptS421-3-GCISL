@@ -253,6 +253,14 @@ footer {
   color: black;
 }
 
+.link__hover-effect:hover::after {
+  left: 0;
+  width: 100%;
+}
+
+.link__hover-effect--white::after {
+  background-color: #fffbf8;
+}
 /* SHAPES */
 
 .shape {
