@@ -358,7 +358,7 @@ footer {
   opacity: 1;
   max-width: 150px;
   max-height: 150px;
-  z-index: 1;
+  z-index: -1;
 }
 
 .shape--0 {
