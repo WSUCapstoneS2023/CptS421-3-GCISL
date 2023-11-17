@@ -64,6 +64,15 @@ class RegistrationForm(UserCreationForm):
                 code='password_mismatch',
             )
         return password2
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        email2 = self.cleaned_data.get('email2')
+
+        if email and email2 and email != email2:
+            raise forms.ValidationError("Usernames/emails do not match.")
+
+        return email2
 
     def save(self):
         #checking for faculty email/ may use different method later but for iteration 1 this is the main method
