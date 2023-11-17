@@ -93,29 +93,26 @@ nav {
   border-radius: 10px;
 }
 
-button {
-  cursor: pointer;
-  background-color: #ca1237;
-  color: white;
-  font-size: 16px;
-  border-radius: 12px;
-  border: none;
-  font-weight: 600;
+/* FOR LOGGED VIEW */
+.profile__picture--wrapper {
+  height: 0px;
+  width: 40px;
+  margin-left: 16px;
 }
 
-button:hover {
-  opacity: 0.8;
-  transition: all 300ms ease;
+.profile__picture {
+  width: 100%;
+  border-radius: 50%;
 }
 
-/* SUBMITSURVEY */
+/* WHO ARE WE */
 .section__container {
   padding: 80px 0;
 }
 
 .section__row {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -124,45 +121,70 @@ button:hover {
 }
 
 .section__title {
-  color: #a60f2d;
-  font-size: 48px;
-  margin: 20px;
-  text-align: center;
+  margin-bottom: 20px;
 }
 
 .section__para {
-  margin: 20px;
+  margin-top: 20px;
   text-align: center;
   max-width: 600px;
   font-weight: 600;
 }
 
-.button__wrapper{
-  margin: 20px;
+.section__wrapper {
+  display: flex;
 }
 
-.submit__button {
-  padding: 12px 80px;
+.section__left {
+  width: 50%;
+}
+
+.section__right {
+  width: 50%;
+}
+
+.gatherlab__logo {
+  width: 50%;
+  margin-top: 24px;
+  padding-top: 24px;
+}
+
+/* VISION */
+
+/* MISSION */
+
+/* GALLERY */
+#gallery {
+  position: relative;
+}
+.gallery__wrapper {
+  display: flex;
+  margin: 48px;
+}
+
+.gallery__image--wrapper {
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery__image {
+  max-width: 100%;
+  border-radius: 12px;
+  transition: all 600ms ease;
+}
+
+.gallery__image--wrapper:hover .gallery__image {
+  transform: scale(1.07);
 }
 
 /* FOOTER */
-
 footer {
   background-color: #1f1f1f;
-}
-
-.footer__container {
-  padding: 80px 0;
-}
-
-.footer__row {
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 }
 
 .footer__logo {
@@ -179,10 +201,14 @@ footer {
   color: #fff;
 }
 
-.gcisl__logo {
+.footer__gci__logo {
   margin-left: 20px;
   max-width: 35%;
-  width: 100%;
+}
+
+.logo {
+  margin-left: 20px;
+  max-width: 100%;
 }
 
 .footer__wrapper {
@@ -190,39 +216,19 @@ footer {
 }
 
 .footer__link {
-  color: #fff !important;
+  color: #fff;
   font-weight: 600;
   padding: 0 8px;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
 }
 
 .footer__list {
   margin: 20px 0 24px 0;
   display: flex;
   justify-content: center;
-}
-
-.link__hover-effect {
-  position: relative;
-}
-
-.link__hover-effect::after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  height: 3px;
-  width: 0;
-  right: 0;
-  background-color: black;
-  transition: all 300ms ease;
-}
-
-.link__hover-effect:hover::after {
-  left: 0;
-  width: 100%;
-}
-
-.link__hover-effect--white::after {
-  background-color: #fffbf8;
 }
 
 /* SHAPES */
@@ -362,4 +368,37 @@ footer {
     width: 50%;
     height: 4vh;
   }
+}
+.gallery__button {
+    padding: 12px 80px;
+  }
+button {
+    cursor: pointer;
+    background-color: #ca1237;
+    color: white;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    width: 50%;
+  }
+  
+button:hover {
+    opacity: 0.8;
+    transition: all 300ms ease;
+  }
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.spacing{
+    padding-top: 100px;;
+}
+
+h1 {
+    padding-top: 150px;
+    color: #ca1237;
+    font-size: 40px;
 }
