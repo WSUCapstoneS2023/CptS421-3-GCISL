@@ -54,7 +54,7 @@ def survey_view(request):
     if request.method == "POST":
         # Handle form submissions (map responses to the database responses)
         mapResponses(request, questions, choices)
-        return redirect('get_involved')
+        return render(request, 'submit_survey.html')
 
     # Check user's authentication and role
     if request.user.is_authenticated:
