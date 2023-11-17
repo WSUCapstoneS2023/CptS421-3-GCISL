@@ -6,6 +6,7 @@ from django.apps import apps
 from django.contrib.auth.forms import UserCreationForm 
 from .models import GCISLUser, UserManager, Survey, Question, Choice, Response
 from django.core.exceptions import ValidationError
+import re
 
 GCISLUser = apps.get_model('appGCISL', 'GCISLUser')
 Survey = apps.get_model('appGCISL', 'Survey')
@@ -70,9 +71,22 @@ class RegistrationForm(UserCreationForm):
         email2 = self.cleaned_data.get('email2')
 
         if email and email2 and email != email2:
-            raise forms.ValidationError("Usernames/emails do not match.")
+            raise forms.ValidationError("Usernames/emails do not match.", code='email_mismatch')
 
         return email2
+    
+    def clean_password(self):
+        password = self.cleaned_data['password1']
+        
+        # Check if password contains at least one uppercase letter
+        if not any(char.isupper() for char in password):
+            raise forms.ValidationError("Password must contain at least one uppercase letter.", code='no_uppercase')
+
+        # Check if password contains at least one special character
+        if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+            raise forms.ValidationError("Password must contain at least one special character.", code='no_special_character')
+
+        return password
 
     def save(self):
         #checking for faculty email/ may use different method later but for iteration 1 this is the main method

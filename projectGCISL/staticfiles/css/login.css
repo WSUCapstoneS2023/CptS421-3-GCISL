@@ -44,7 +44,7 @@ html, body {
 .wrapper form .field {
   height: 50px;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 5px;
   position: relative;
 }
 
@@ -150,5 +150,9 @@ form .signup-link a:hover {
 }
 
 input[type=text], input[type=password] {
-  margin: -10px auto;
+  margin: 0px auto;
+}
+
+label .details {
+  align-items: center;
 }
