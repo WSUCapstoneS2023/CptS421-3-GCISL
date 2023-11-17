@@ -125,7 +125,6 @@ nav {
 }
 
 .section__para {
-  margin-top: 20px;
   text-align: center;
   max-width: 600px;
   font-weight: 600;
@@ -133,6 +132,9 @@ nav {
 
 .section__wrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .section__left {
@@ -144,9 +146,13 @@ nav {
 }
 
 .gatherlab__logo {
-  width: 50%;
-  margin-top: 24px;
-  padding-top: 24px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.about__logo {
+  width: 100%;
 }
 
 /* VISION */
