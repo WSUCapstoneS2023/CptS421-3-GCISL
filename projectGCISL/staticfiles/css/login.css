@@ -148,3 +148,7 @@ form .pass-link a:hover,
 form .signup-link a:hover {
   text-decoration: underline;
 }
+
+input[type=text], input[type=password] {
+  margin: -10px auto;
+}
