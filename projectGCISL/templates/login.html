@@ -52,6 +52,7 @@
 </html>
  {% endcomment %}
 
+{% load static %}
 <!DOCTYPE html>
 <!-- Created By CodingNepal -->
 <html lang="en" dir="ltr">
@@ -59,7 +60,7 @@
       <meta charset="utf-8">
       <title>Login</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-YU6DRH0y3fUz+NCU8YwY6HtsGZfQ2lmc1AnQ2D+u5X9e5MQ5ct5S5+LS7Vv5mNNa4/bVJ/cbs4BNf6/0U6Xopg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
    </head>
    <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
@@ -192,6 +193,19 @@ form .pass-link a:hover,
 form .signup-link a:hover{
   text-decoration: underline;
 }
+input[type=text], input[type=password] {
+  width: 250px;
+  height: 50%;
+  padding: 5px 5px;
+  box-sizing: border-box;
+  border: 2px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: -10px auto;
+}
 
    </style>
    <body>
@@ -204,11 +218,13 @@ form .signup-link a:hover{
           {% for message in messages %}
             {{message}}
           {% endfor %}
+            <label for="email" class="details">Username/Email</label>
             <div class="field">
-               {{lform.email}}
+              {{lform.email}}
             </div>
+            <label for="password" class="details">Password</label>
             <div class="field">
-               {{lform.password}}  
+              {{lform.password}}  
             </div>
             <br />
             <div class="field">

@@ -96,7 +96,7 @@ input[type=text], input[type=password] {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 18px auto;
+  margin: -10px auto;
 }
 
 .button-container {
@@ -151,7 +151,7 @@ button:hover {
   input[type=text], input[type=password] {
     width: 90%;
     max-width: 250px;
-    margin: 18px auto;
+    margin: -10px auto;
   }
 
   .button-container {
