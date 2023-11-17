@@ -135,13 +135,12 @@
             <li><a href="/about" class="nav__link">About</a></li>
             <li><a href="/logout" class="nav__link logout">Logout</a></li>
             {% endif %}
-            <li>
-              {% comment %} <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
+            {% comment %} <li>
+              <li><a href="/get_involved/" class="nav__link active">Get Involved!</a></li>
             </li>
             <li><a href="/contact" class="nav__link">Contact Us</a></li>
-            <li><a href="/about" class="nav__link">About</a></li> {% endcomment %}
-            
-            {% comment %} <li><a href="/logout" class="nav__link logout">Logout</a></li> {% endcomment %}
+            <li><a href="/about" class="nav__link">About</a></li>
+            <li><a href="/logout" class="nav__link logout">Logout</a></li> {% endcomment %}
           </ul>
         </div>
       </nav>
@@ -326,13 +325,14 @@
   </div> 
     </section>
     {% endif %}
+    
     <footer>
-      <div class="section__container">
-        <div class="section__row">
+      <div class="footer__container">
+        <div class="footer__row">
           <div class="footer__wrapper">
               <a href="/" class="footer__logo">
                 <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
+                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="gcisl__logo"/>
               </a>
             <div class="footer__list">
               <a href="/get_involved" class="footer__link">Get Involved!</a>
