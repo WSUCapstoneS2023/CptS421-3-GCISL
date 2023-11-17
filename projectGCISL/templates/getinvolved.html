@@ -118,14 +118,18 @@
       </a>
       <ul class="nav__links">
         {% if user.is_superuser or user.is_staff %}
-            <li><a href="/admin" class="nav__link">Admin</a></li>
+          <li>
+            <a href="/admin" class="nav__link">Admin</a>
             <li><a href="/survey-faculty/" class="nav__link">Survey Manager</a></li>
             <li><a href="/get_involved/" class="nav__link active">Get Involved!</a></li>
             <li><a href="/about" class="nav__link">About</a></li>
             <li><a href="/logout" class="nav__link logout">Logout</a></li>
       </ul>
+          </li>
         {% else %}
-        <li><a href="/get_involved/" class="nav__link active">Get Involved!</a></li>
+        <li>
+          <li><a href="/get_involved/" class="nav__link active">Get Involved!</a></li>
+        </li>
         <li><a href="/contact" class="nav__link">Contact Us</a></li>
         <li><a href="/about" class="nav__link">About</a></li>
         <li><a href="/logout" class="nav__link logout">Logout</a></li>
@@ -134,7 +138,9 @@
           <li><a href="/get_involved/" class="nav__link active">Get Involved!</a></li>
         </li>
         <li><a href="/contact" class="nav__link">Contact Us</a></li>
-        <li><a href="/about" class="nav__link">About</a></li> {% endcomment %}
+        <li><a href="/about" class="nav__link">About</a></li>
+        <li><a href="/logout" class="nav__link logout">Logout</a></li> {% endcomment %}
+      </ul>
     </div>
   </nav>
   <img
