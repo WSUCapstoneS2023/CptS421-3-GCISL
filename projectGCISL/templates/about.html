@@ -58,7 +58,7 @@
         <div class="section__row">
           <h1 class="section__title">Who are we?</h1>
           <div class="section__wrapper">
-            <div class="section__right">
+            <div class="section__left">
               <br />
               <p class="section__para">
                 Initiated by the Granger Cobb Institute of Senior Living,
@@ -68,12 +68,12 @@
               </p>
               <br />
             </div>
-            <div class="section__row--left">
+            <div class="section__right">
               <figure class="logo__wrapper">
                 <img
                   src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}"
                   alt=""
-                  class="logo"
+                  class="about__logo"
                 />
               </figure>
             </div>
@@ -88,7 +88,7 @@
                 <img
                   src="{% static 'assets/logo/GatherLab_logo.png' %}"
                   alt=""
-                  class="logo"
+                  class="about__logo"
                 />
               </figure>
             </a>
@@ -132,7 +132,7 @@
           <div class="gallery__wrapper">
             <div class="gallery__image--wrapper">
               <img
-                src="{% static 'assets/relative pictures/1.png' %}"
+                src="{% static 'assets/relative pictures/16.jpg' %}"
                 alt=""
                 class="gallery__image"
               />
@@ -229,32 +229,22 @@
               <div class="gallery__wrapper--background"></div>
             </div>
           </div>
-          <div class="gallery__wrapper">
-            <div class="gallery__image--wrapper">
-              <img
-                src="{% static 'assets/relative pictures/11.png' %}"
-                alt=""
-                class="gallery__image"
-              />
-              <div class="gallery__wrapper--background"></div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <footer>
-      <div class="section__container">
-        <div class="section__row">
+      <div class="footer__container">
+        <div class="footer__row">
           <div class="footer__wrapper">
               <a href="/" class="footer__logo">
                 <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
+                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="gcisl__logo"/>
               </a>
             <div class="footer__list">
-              <a href="/get_involved" class="footer__link">Get Involved!</a>
-              <a href="/contact" class="footer__link">Contact Us</a>
-              <a href="/about" class="footer__link">About</a>
+              <a href="/get_involved" class="footer__link link__hover-effect link__hover-effect--white">Get Involved!</a>
+              <a href="/contact" class="footer__link link__hover-effect link__hover-effect--white">Contact Us</a>
+              <a href="/about" class="footer__link link__hover-effect link__hover-effect--white">About</a>
             </div>
           </div>
         </div>

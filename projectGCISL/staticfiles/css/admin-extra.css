@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+* {
+    box-sizing: border-box !important;
+    font-family: "Montserrat", sans-serif !important;
+    padding: 0;
+    margin: 0;
+    z-index: 2;
+}
+
+.ubuntu {
+    font-family: 48px, 'Ubuntu', sans-serif !important;
+}
+
+#header {
+    background-color: #ca1237; /* Your desired background color */
+    font-family: "Ubuntu", sans-serif !important;
+    color: black;
+}
+
+#site-name h1 a {
+    font-family: "Ubuntu", sans-serif !important; 
+    color: white; 
+    font-size: 48px !important;
+    font-weight: 700 !important; 
+}
+
+#branding h1.ubuntu a:link, #branding h1 a:visited {
+    color: var(--accent);
+}
+
+#branding h1 {
+    padding: 0;
+    margin: 0 20px 0 0;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--header-branding-color);
+}
+
+a{
+    font-family: "Ubuntu", sans-serif !important;
+    color:white;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: grey;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: var(--button-fg);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+:root {
+    --primary: #79aec8;
+    --secondary: #417690;
+    --accent: #000000;
+    --primary-fg: #fff;
+    --body-fg: #333;
+    --body-bg: #fff;
+    --body-quiet-color: #666;
+    --body-loud-color: #000;
+    --header-color: #ffc;
+    --header-branding-color: var(--accent);
+    --header-bg: var(--secondary);
+    --header-link-color: var(--primary-fg);
+    --breadcrumbs-fg: #c4dce8;
+    --breadcrumbs-link-fg: var(--body-bg);
+    --breadcrumbs-bg: var(--primary);
+    --link-fg: #447e9b;
+    --link-hover-color: #036;
+    --link-selected-fg: #5b80b2;
+    --hairline-color: #e8e8e8;
+    --border-color: #ccc;
+    --error-fg: #ba2121;
+    --message-success-bg: #dfd;
+    --message-warning-bg: #ffc;
+    --message-error-bg: #ffefef;
+    --darkened-bg: #f8f8f8;
+    --selected-bg: #e4e4e4;
+    --selected-row: #ffc;
+    --button-fg: #fff;
+    --button-bg: var(--primary);
+    --button-hover-bg: rgb(70, 70, 70);
+    --default-button-bg: var(--secondary);
+    --default-button-hover-bg: #205067;
+    --close-button-bg: #888;
+    --close-button-hover-bg: #747474;
+    --delete-button-bg: #ba2121;
+    --delete-button-hover-bg: #a41515;
+    --object-tools-fg: var(--button-fg);
+    --object-tools-bg: var(--close-button-bg);
+    --object-tools-hover-bg: var(--close-button-hover-bg);
+}
+
+#user-tools, #logout-form button {
+    padding: 5px;
+    font-weight: 300;
+    font-size: 0.6875rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    margin: 0;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    text-align: left;
+    background: #ca1237;
+    color: var(--header-link-color);
+}
+
+a:link, a:visited {
+    color: var(--link-fg);
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s;
+}
+
+div.breadcrumbs {
+    background: grey;
+    padding: 10px 40px;
+    border: none;
+    color: black;
+    text-align: left;
+}
+
+a:link, a:visited {
+    color: crimson;
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s;
+}
