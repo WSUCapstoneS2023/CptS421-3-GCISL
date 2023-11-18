@@ -15,14 +15,22 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/landing.css' %}"
+    />
   </head>
   <body>
     <section id="landing">
       <nav>
         <div class="nav__container">
           <div class="logo__wrapper">
-            <img src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}" alt="" class="header_logo"/>
+            <img
+              src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}"
+              alt=""
+              class="header_logo"
+            />
           </div>
           <ul class="nav__links">
             <li>
@@ -45,22 +53,30 @@
               class="carousel slide"
               data-ride="carousel"
             >
-            <div class="header__description">
-              <h1>Welcome to <a class="crimson ubuntu">gciConnect!</a></h1>
-              <p> GCI Connect is part of Washington State University’s (WSU) <a class = "link"
-                href="https://business.wsu.edu/departments/hospitality/institute-for-senior-living/">Granger Cobb Institute</a>
-                  for Senior Living (GCI) and serves as an innovative resource to keep the community
-                  informed and connected to WSU. 
-              </p>
-              <br />
-              <p>
-                WSU’s GCI is among the few universities in the nation that offers a Senior Living Management major to:  
-              </p>
-              &bull; Promote the field of senior living management as a rewarding career path for students.
-              <br />&bull; Partner with industry leaders to help maintain current evidence-based practices.
-              <br />&bull; Help improve the quality of life for older adults in Washington and beyond.
-              <br />
-            </div>
+              <div class="header__description">
+                <h1>Welcome to <a class="crimson ubuntu">gciConnect!</a></h1>
+                <p>
+                  GCI Connect is part of Washington State University’s (WSU)
+                  <a
+                    class="link"
+                    href="https://business.wsu.edu/departments/hospitality/institute-for-senior-living/"
+                    >Granger Cobb Institute</a
+                  >
+                  for Senior Living (GCI) and serves as an innovative resource
+                  to keep the community informed and connected to WSU.
+                </p>
+                <br />
+                <p>
+                  WSU’s GCI is among the few universities in the nation that
+                  offers a Senior Living Management major to:
+                </p>
+                &bull; Promote the field of senior living management as a
+                rewarding career path for students.
+                <br />&bull; Partner with industry leaders to help maintain
+                current evidence-based practices. <br />&bull; Help improve the
+                quality of life for older adults in Washington and beyond.
+                <br />
+              </div>
               <ol class="carousel-indicators">
                 <li
                   data-target="#landing__carousel"
@@ -105,7 +121,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -183,15 +198,31 @@
       <div class="footer__container">
         <div class="footer__row">
           <div class="footer__wrapper">
-              <a href="/" class="footer__logo">
-                <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="gcisl__logo"/>
-              </a>
-              <div class="footer__list">
-                <a href="/get_involved" class="footer__link link__hover-effect link__hover-effect--white">Get Involved!</a>
-                <a href="/contact" class="footer__link link__hover-effect link__hover-effect--white">Contact Us</a>
-                <a href="/about" class="footer__link link__hover-effect link__hover-effect--white">About</a>
-              </div>
+            <a href="/" class="footer__logo">
+              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+              <img
+                src="{% static 'assets/logo/GCISL_logo_white.png' %}"
+                alt=""
+                class="gcisl__logo"
+              />
+            </a>
+            <div class="footer__list">
+              <a
+                href="/get_involved"
+                class="footer__link link__hover-effect link__hover-effect--white"
+                >Get Involved!</a
+              >
+              <a
+                href="/contact"
+                class="footer__link link__hover-effect link__hover-effect--white"
+                >Contact Us</a
+              >
+              <a
+                href="/about"
+                class="footer__link link__hover-effect link__hover-effect--white"
+                >About</a
+              >
+            </div>
           </div>
         </div>
       </div>
