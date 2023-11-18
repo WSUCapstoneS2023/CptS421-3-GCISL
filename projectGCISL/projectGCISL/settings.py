@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 DEBUG = 'RENDER' not in os.environ
 # DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -152,24 +152,24 @@ USE_TZ = True
 # This setting tells Django at which URL static files are going to be served to the user.
 # Here, they well be accessible at your-domain.onrender.com/static/...
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [
-        BASE_DIR / "static"
-    ]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-# Following settings only make sense on production and may break development environments.
-# if not DEBUG:
-#     STATICFILES_DIRS = [
+# STATICFILES_DIRS = [
 #         BASE_DIR / "static"
 #     ]
-#     # Tell Django to copy statics to the `staticfiles` directory
-#     # in your application directory on Render.
-#     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-#     # Turn on WhiteNoise storage backend that takes care of compressing static files
-#     # and creating unique names for each version so they can safely be cached forever.
-#     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# Following settings only make sense on production and may break development environments.
+if not DEBUG:
+    STATICFILES_DIRS = [
+        BASE_DIR / "static"
+    ]
+    # Tell Django to copy statics to the `staticfiles` directory
+    # in your application directory on Render.
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+    # Turn on WhiteNoise storage backend that takes care of compressing static files
+    # and creating unique names for each version so they can safely be cached forever.
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
