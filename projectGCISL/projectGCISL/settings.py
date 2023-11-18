@@ -26,7 +26,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
-# DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -83,7 +82,6 @@ WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DB for Deployment (RENDER)
 DATABASES = {
     'default': dj_database_url.config(
         default='postgres://gciconnect:lUpVj7PFTUuFzVSnkHSbb2hJP0ydAdw0@dpg-cl5itrk72pts73emq9n0-a/gciconnect_cvbw',
@@ -91,19 +89,17 @@ DATABASES = {
     )
 }
 
-# ElephantSQL DB
 # DATABASES = {
 #     'default': {
 #          'ENGINE': 'django.db.backends.postgresql',
-#          'NAME': 'iakvhaso',
-#          'USER' : 'iakvhaso',
-#          'PASSWORD': '3aXyp7AwTBHNVElrCP00AGcvBVM2FWHf',
-#          'HOST': 'jelani.db.elephantsql.com',
+#          'NAME': 'gciconnect-database',
+#          'USER' : 'gciconnect',
+#          'PASSWORD': 'lUpVj7PFTUuFzVSnkHSbb2hJP0ydAdw0',
+#          'HOST': 'gciconnect',
 #          'PORT' : '5432'
 #     }
 # }
 
-# Local DB (Set as you like)
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
@@ -114,6 +110,7 @@ DATABASES = {
 #         'PORT': 5432,
 #     }
 # }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -152,11 +149,6 @@ USE_TZ = True
 # This setting tells Django at which URL static files are going to be served to the user.
 # Here, they well be accessible at your-domain.onrender.com/static/...
 STATIC_URL = "/static/"
-# STATICFILES_DIRS = [
-#         BASE_DIR / "static"
-#     ]
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Following settings only make sense on production and may break development environments.
 if not DEBUG:
