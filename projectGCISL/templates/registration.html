@@ -15,13 +15,16 @@
     <div class="content">
       <form action="" method = "POST">
         {% csrf_token %}
+        {% for message in messages %}
+          <ol>{{message}}</ol>
+        {% endfor %}
         <div class="user-details">
           <div class="input-box">
             <span class="details">First Name*</span>
             {{ rform.first_name }}
           </div>
           <div class="input-box">
-            <span class="details">Last Initial*</span>
+            <span class="details">Last Name*</span>
             {{ rform.last_name }}
           </div>
           <div class="input-box">

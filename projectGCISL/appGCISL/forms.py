@@ -6,6 +6,7 @@ from django.apps import apps
 from django.contrib.auth.forms import UserCreationForm 
 from .models import GCISLUser, UserManager, Survey, Question, Choice, Response
 from django.core.exceptions import ValidationError
+import re
 
 GCISLUser = apps.get_model('appGCISL', 'GCISLUser')
 Survey = apps.get_model('appGCISL', 'Survey')
@@ -38,24 +39,44 @@ class RegistrationForm(UserCreationForm):
         self.fields['age_range'].widget.attrs.update({'placeholder':('Age Range')})       
         self.fields['phone'].widget.attrs.update({'placeholder':('Phone Number')})
 
-    def check_phone(self):
+    def clean(self):
+        cleaned_data = super().clean()
+        password1 = cleaned_data.get('password1')
+        password2 = cleaned_data.get('password2')
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError(
+                self.error_messages['password_mismatch'],
+                code='password_mismatch',
+            )
+        
+        # Check if password contains at least one uppercase letter
+        if not any(char.isupper() for char in password1):
+            raise forms.ValidationError("Password must contain at least one uppercase letter.", code='no_uppercase')
+
+        # Check if password contains at least one special character
+        if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password1):
+            raise forms.ValidationError("Password must contain at least one special character.", code='no_special_character')
+        
+        return password1
+    
+    def clean_phone2(self):
         phone1 = self.cleaned_data['phone']
         phone2 = self.cleaned_data['phone2']
-        if phone1 == phone2:
-            return True
-        else:
-            return False
+        if phone1 is not None and phone2 is not None and phone1 != phone2:
+            raise ValidationError("Phone numbers do not match!", code='phone_mismatch')
+        
+        return phone1
     
-    def username_clean(self):
+    def clean_username(self):
         # username and password should be the same
-        email = self.cleaned_data['email2'].lower()
-        user = GCISLUser.objects.filter(email = email)
-        if user.count():
-            return False
-        else:
-            return True
-
-    def clean_password2(self):
+        email = self.cleaned_data['email'].lower()
+        user = GCISLUser.objects.get(email = email)
+        if user != None:
+            raise ValidationError("User with username exists.", code='user_exists')
+        
+        return email
+    
+    def clean_password(self):
         password1 = self.cleaned_data['password1']
         password2 = self.cleaned_data['password2']
         if password1 and password2 and password1 != password2:
@@ -63,7 +84,26 @@ class RegistrationForm(UserCreationForm):
                 self.error_messages['password_mismatch'],
                 code='password_mismatch',
             )
-        return password2
+        
+        # Check if password contains at least one uppercase letter
+        if not any(char.isupper() for char in password1):
+            raise forms.ValidationError("Password must contain at least one uppercase letter.", code='no_uppercase')
+
+        # Check if password contains at least one special character
+        if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password1):
+            raise forms.ValidationError("Password must contain at least one special character.", code='no_special_character')
+        
+        return password1
+    
+    def clean_email2(self):
+        email = self.cleaned_data['email']
+        email2 = self.cleaned_data['email2']
+
+        if email is not None and email2 is not None and email != email2:
+            raise forms.ValidationError("Usernames/emails do not match.", code='email_mismatch')
+
+        return email
+    
 
     def save(self):
         #checking for faculty email/ may use different method later but for iteration 1 this is the main method
