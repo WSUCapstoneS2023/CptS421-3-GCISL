@@ -316,6 +316,11 @@ textarea {
   flex-direction: column;
 }
 
+/* CONFIRMATION MESSAGE */
+.submit__button {
+  padding: 12px 80px;
+}
+
 /* FOOTER */
 footer {
   background-color: #1f1f1f;
