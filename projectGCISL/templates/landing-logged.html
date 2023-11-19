@@ -84,15 +84,13 @@
                 ></li>
                 <li data-target="#landing__carousel" data-slide-to="1"></li>
                 <li data-target="#landing__carousel" data-slide-to="2"></li>
-                <li data-target="#landing__carousel" data-slide-to="3"></li>
-                <li data-target="#landing__carousel" data-slide-to="4"></li>
               </ol>
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <div class="image__wrapper">
                     <figure class="image__container--wrapper">
                       <img
-                        src="/static/assets/relative pictures/12.JPG"
+                        src="{% static 'assets/relative pictures/1.jpg' %}"
                         alt=""
                         class="image"
                       />
@@ -103,7 +101,7 @@
                   <div class="image__wrapper">
                     <figure class="image__container--wrapper">
                       <img
-                        src="/static/assets/relative pictures/13.JPG"
+                        src="{% static 'assets/relative pictures/13.JPG' %}"
                         alt=""
                         class="image"
                       />
@@ -114,29 +112,7 @@
                   <div class="image__wrapper">
                     <figure class="image__container--wrapper">
                       <img
-                        src="/static/assets/relative pictures/14.JPG"
-                        alt=""
-                        class="image"
-                      />
-                    </figure>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="image__wrapper">
-                    <figure class="image__container--wrapper">
-                      <img
-                        src="/static/assets/relative pictures/15.JPG"
-                        alt=""
-                        class="image"
-                      />
-                    </figure>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="image__wrapper">
-                    <figure class="image__container--wrapper">
-                      <img
-                        src="/static/assets/relative pictures/16.JPG"
+                        src="{% static 'assets/relative pictures/15.JPG' %}"
                         alt=""
                         class="image"
                       />
@@ -144,6 +120,7 @@
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -213,18 +190,18 @@
     </main>
 
     <footer>
-      <div class="section__container">
-        <div class="section__row">
+      <div class="footer__container">
+        <div class="footer__row">
           <div class="footer__wrapper">
               <a href="/" class="footer__logo">
                 <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
+                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="gcisl__logo"/>
               </a>
-            <div class="footer__list">
-              <a href="/get_involved" class="footer__link">Get Involved!</a>
-              <a href="/contact" class="footer__link">Contact Us</a>
-              <a href="/about" class="footer__link">About</a>
-            </div>
+              <div class="footer__list">
+                <a href="/get_involved" class="footer__link link__hover-effect link__hover-effect--white">Get Involved!</a>
+                <a href="/contact" class="footer__link link__hover-effect link__hover-effect--white">Contact Us</a>
+                <a href="/about" class="footer__link link__hover-effect link__hover-effect--white">About</a>
+              </div>
           </div>
         </div>
       </div>
