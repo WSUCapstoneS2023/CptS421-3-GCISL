@@ -109,7 +109,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'gciconnectdbtest',
         'USER': 'postgres',
-        'PASSWORD': 'Sounder$08',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': 5432,
     }
