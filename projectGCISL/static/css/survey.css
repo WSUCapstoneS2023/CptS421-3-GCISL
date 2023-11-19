@@ -317,6 +317,10 @@ textarea {
 }
 
 /* CONFIRMATION MESSAGE */
+#submitsurvey form {
+  box-shadow: none;
+}
+
 #submitsurvey .section__container {
   padding: 80px 0;
 }
