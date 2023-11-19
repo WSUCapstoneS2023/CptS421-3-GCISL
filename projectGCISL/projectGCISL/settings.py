@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://gciconnect:lUpVj7PFTUuFzVSnkHSbb2hJP0ydAdw0@dpg-cl5itrk72pts73emq9n0-a/gciconnect_cvbw',
+        default='postgres://gciconnect:U5JswQNtBEuDCxjWcTU6tpWp6Goeo3G9@dpg-clc72fug1b2c73es8ph0-a/gciconnect_7igs',
         conn_max_age=600
     )
 }
