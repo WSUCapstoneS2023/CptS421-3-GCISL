@@ -54,7 +54,7 @@ def survey_view(request):
     if request.method == "POST":
         # Handle form submissions (map responses to the database responses)
         mapResponses(request, questions, choices)
-        return render(request, 'submit_survey.html')
+        return redirect('get_involved')
 
     # Check user's authentication and role
     if request.user.is_authenticated:
@@ -373,4 +373,3 @@ def mapResponses(request, questions, choice_dict):
                 response = Response(surveyid=question.surveyid, questionid=question, respondentname = request.user.last_name + ", " + request.user.first_name,  respondentemail=request.user.email, responsenumeric=int(num))
                 response.save()
     return
-
