@@ -21,18 +21,17 @@ from appGCISL import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.landing_view, name='landing'),
-    path('login/registration/', views.registration_view, name='register'),
+    path('registration/', views.registration_view, name='register'),
     path('login/', views.login_view, name='login'),
     path('about/', views.about_view, name='about'),
     path('contact/', views.contact_view, name='contact'),
     path('get_involved/', views.getinvolved_view, name='get_involved'),
     path('survey/', views.survey_view, name='survey'),
-    path('get_involved/survey/', views.survey_view, name='survey2'),
     path('logout/', view=views.logout_view, name='logout'),
-    path('survey-faculty/builder/', view=views.survey_faculty_view, name='custom_survey'),
-    path('survey-faculty/manager/<int:survey_id>/', view=views.survey_manager_view, name='survey_manager'),
-    path('survey-faculty/', view=views.survey_landing_view, name='survey_landing'),
-    path('survey-faculty/manager/<int:survey_id>/response/', view=views.response_view, name='response')
+    path('survey/builder/', view=views.survey_faculty_view, name='custom_survey'),
+    path('survey/editor/<int:survey_id>/', view=views.survey_manager_view, name='survey_manager'),
+    path('survey/', view=views.survey_landing_view, name='survey_landing'),
+    path('survey/editor/<int:survey_id>/response/', view=views.response_view, name='response')
 ]
 
 # 

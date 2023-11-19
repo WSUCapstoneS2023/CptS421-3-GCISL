@@ -88,8 +88,10 @@ def registration_view(request):
             form.save()     
             return redirect('login')
         else:
-            messages.error(request, form.errors, form.non_field_errors())
-            return redirect('login')
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, error)
+            return redirect('register')
     else:
         form = RegistrationForm()
         return render(request, 'registration.html', {'rform': form})
@@ -136,7 +138,7 @@ def survey_faculty_view(request):
                 # form is valid save the new survey and redirect to the new survey screen!
                 sform.instance.startdate = datetime.date.today()
                 survey = sform.save()
-                return redirect(f'/survey-faculty/manager/{survey.surveyid}/', survey=survey)
+                return redirect(f'/survey/editor/{survey.surveyid}/', survey=survey)
             else:
                 print(sform.errors)
         else:
@@ -147,7 +149,7 @@ def survey_faculty_view(request):
             selected_survey_id = request.GET.get('titles')
             # check for None case
             if selected_survey_id != None:
-                return redirect(f'/survey-faculty/manager/{selected_survey_id}')
+                return redirect(f'/survey/editor/{selected_survey_id}')
         # normal get request to render the page
         else:
             sform = SurveyForm()
@@ -167,12 +169,12 @@ def survey_manager_view(request, survey_id):
                 # form is valid save the new survey and redirect to the new survey screen!
                 sform.instance.startdate = datetime.date.today()
                 survey = sform.save()
-                return redirect(f'/survey-faculty/manager/{survey.surveyid}/', survey=survey)
+                return redirect(f'/survey/editor/{survey.surveyid}/', survey=survey)
             else:
                 print(sform.errors)
         if 'Set-Active-Button' in request.POST:
             set_active_survey(request, survey_id)
-            return redirect(f'/survey-faculty/manager/{survey_id}/')
+            return redirect(f'/survey/editor/{survey_id}/')
         elif 'CreateQuestionButton' in request.POST:
             # create new question form with request data
             qform = QuestionForm(request.POST)
@@ -180,7 +182,7 @@ def survey_manager_view(request, survey_id):
             if qform.is_valid():
                 qform.instance.surveyid = Survey.objects.get(surveyid=survey_id)
                 question = qform.save()
-                return redirect(f'/survey-faculty/manager/{survey_id}/')
+                return redirect(f'/survey/editor/{survey_id}/')
         elif 'CreateChoiceButton' in request.POST:
             choicetext = ""
             # get the question with the text input and get the text from that choice
@@ -192,7 +194,7 @@ def survey_manager_view(request, survey_id):
                     if choicetext != None:
                         choice = Choice(questionid = question, choicetext = choicetext)
                         choice.save()
-            return redirect(f'/survey-faculty/manager/{survey_id}/')
+            return redirect(f'/survey/editor/{survey_id}/')
         elif 'DeleteQuestion' in request.POST:
             # look for deleteQuestion value in POST request
             # get all the questions in the survey
@@ -202,7 +204,7 @@ def survey_manager_view(request, survey_id):
                 return HttpResponse('Error, question to delete not found!', status=418)
             else:
                 question.delete()
-                return redirect(f'/survey-faculty/manager/{survey_id}/')
+                return redirect(f'/survey/editor/{survey_id}/')
         else:
             return HttpResponse('<h1>No correct button was clicked.</h1>', status=418)
     else:
@@ -211,7 +213,7 @@ def survey_manager_view(request, survey_id):
             selected_survey_id = request.GET.get('titles')
             # check for None case
             if selected_survey_id != None:
-                return redirect(f'/survey-faculty/manager/{selected_survey_id}')
+                return redirect(f'/survey/editor/{selected_survey_id}')
         # normal get request to render the page
         else:
             sform = SurveyForm()
@@ -247,7 +249,7 @@ def response_view(request, survey_id):
             selected_survey_id = request.GET.get('titles')
             # check for None case
             if selected_survey_id != None:
-                return redirect(f'/survey-faculty/manager/{selected_survey_id}/response')
+                return redirect(f'/survey/editor/{selected_survey_id}/response')
         # normal get request to render the page
         else:
             if request.user.is_authenticated and request.user.is_staff:
