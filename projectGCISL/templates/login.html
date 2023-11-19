@@ -19,9 +19,11 @@
           {% for message in messages %}
             {{message}}
           {% endfor %}
+          <label for="email" class="details">Email</label>
             <div class="field">
                {{lform.email}}
             </div>
+            <label for="password" class="details">Password</label>
             <div class="field">
                {{lform.password}}  
             </div>
