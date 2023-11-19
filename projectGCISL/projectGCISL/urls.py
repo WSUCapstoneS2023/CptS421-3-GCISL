@@ -30,7 +30,7 @@ urlpatterns = [
     path('logout/', view=views.logout_view, name='logout'),
     path('survey/builder/', view=views.survey_faculty_view, name='custom_survey'),
     path('survey/editor/<int:survey_id>/', view=views.survey_manager_view, name='survey_manager'),
-    path('survey/', view=views.survey_landing_view, name='survey_landing'),
+    path('survey/editor/', view=views.survey_landing_view, name='survey_landing'),
     path('survey/editor/<int:survey_id>/response/', view=views.response_view, name='response')
 ]
 
