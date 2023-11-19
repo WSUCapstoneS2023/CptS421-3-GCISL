@@ -57,7 +57,7 @@ class RegistrationForm(UserCreationForm):
         if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password1):
             raise forms.ValidationError("Password must contain at least one special character.", code='no_special_character')
         
-        return password1
+        return self.cleaned_data
     
     def clean_phone2(self):
         phone1 = self.cleaned_data['phone']
