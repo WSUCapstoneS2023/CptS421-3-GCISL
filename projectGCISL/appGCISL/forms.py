@@ -39,22 +39,22 @@ class RegistrationForm(UserCreationForm):
         self.fields['age_range'].widget.attrs.update({'placeholder':('Age Range')})       
         self.fields['phone'].widget.attrs.update({'placeholder':('Phone Number')})
 
-    def check_phone(self):
+    def clean_phone2(self):
         phone1 = self.cleaned_data['phone']
         phone2 = self.cleaned_data['phone2']
-        if phone1 == phone2:
-            return True
-        else:
-            return False
+        if phone1 is not None and phone2 is not None and phone1 != phone2:
+            raise ValidationError("Phone numbers do not match!", code='phone_mismatch')
+        
+        return phone1
     
-    def username_clean(self):
+    def clean_username(self):
         # username and password should be the same
-        email = self.cleaned_data['email2'].lower()
-        user = GCISLUser.objects.filter(email = email)
-        if user.count():
-            return False
-        else:
-            return True
+        email = self.cleaned_data['email'].lower()
+        user = GCISLUser.objects.get(email = email)
+        if user != None:
+            raise ValidationError("User with username exists.", code='user_exists')
+        
+        return email
 
     def clean_password2(self):
         password1 = self.cleaned_data['password1']
@@ -66,16 +66,16 @@ class RegistrationForm(UserCreationForm):
             )
         return password2
     
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        email2 = self.cleaned_data.get('email2')
+    def clean_email2(self):
+        email = self.cleaned_data['email']
+        email2 = self.cleaned_data['email2']
 
-        if email and email2 and email != email2:
+        if email is not None and email2 is not None and email != email2:
             raise forms.ValidationError("Usernames/emails do not match.", code='email_mismatch')
 
-        return email2
+        return email
     
-    def clean_password(self):
+    def clean_passwordSpecialCaps(self):
         password = self.cleaned_data['password1']
         
         # Check if password contains at least one uppercase letter
