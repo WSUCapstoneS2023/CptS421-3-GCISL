@@ -26,9 +26,10 @@
             />
           </a>
           <ul class="nav__links">
+            {% if user.is_superuser or user.is_staff %}
             <li><a href="/admin" class="nav__link">Admin</a></li>
             <li>
-              <a href="/survey-faculty/" class="nav__link active"
+              <a href="/survey/editor/" class="nav__link active"
                 >Survey Manager</a
               >
             </li>
@@ -38,6 +39,7 @@
             <li><a href="/about" class="nav__link">About</a></li>
             <li><a href="/logout" class="nav__link logout">Logout</a></li>
           </ul>
+          {% endif %}
         </div>
       </nav>
     </section>
