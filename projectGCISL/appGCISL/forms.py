@@ -39,6 +39,26 @@ class RegistrationForm(UserCreationForm):
         self.fields['age_range'].widget.attrs.update({'placeholder':('Age Range')})       
         self.fields['phone'].widget.attrs.update({'placeholder':('Phone Number')})
 
+    def clean(self):
+        cleaned_data = super().clean()
+        password1 = cleaned_data.get('password1')
+        password2 = cleaned_data.get('password2')
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError(
+                self.error_messages['password_mismatch'],
+                code='password_mismatch',
+            )
+        
+        # Check if password contains at least one uppercase letter
+        if not any(char.isupper() for char in password1):
+            raise forms.ValidationError("Password must contain at least one uppercase letter.", code='no_uppercase')
+
+        # Check if password contains at least one special character
+        if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password1):
+            raise forms.ValidationError("Password must contain at least one special character.", code='no_special_character')
+        
+        return password1
+    
     def clean_phone2(self):
         phone1 = self.cleaned_data['phone']
         phone2 = self.cleaned_data['phone2']
@@ -55,8 +75,8 @@ class RegistrationForm(UserCreationForm):
             raise ValidationError("User with username exists.", code='user_exists')
         
         return email
-
-    def clean_password2(self):
+    
+    def clean_password(self):
         password1 = self.cleaned_data['password1']
         password2 = self.cleaned_data['password2']
         if password1 and password2 and password1 != password2:
@@ -64,7 +84,16 @@ class RegistrationForm(UserCreationForm):
                 self.error_messages['password_mismatch'],
                 code='password_mismatch',
             )
-        return password2
+        
+        # Check if password contains at least one uppercase letter
+        if not any(char.isupper() for char in password1):
+            raise forms.ValidationError("Password must contain at least one uppercase letter.", code='no_uppercase')
+
+        # Check if password contains at least one special character
+        if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password1):
+            raise forms.ValidationError("Password must contain at least one special character.", code='no_special_character')
+        
+        return password1
     
     def clean_email2(self):
         email = self.cleaned_data['email']
@@ -75,18 +104,6 @@ class RegistrationForm(UserCreationForm):
 
         return email
     
-    def clean_passwordSpecialCaps(self):
-        password = self.cleaned_data['password1']
-        
-        # Check if password contains at least one uppercase letter
-        if not any(char.isupper() for char in password):
-            raise forms.ValidationError("Password must contain at least one uppercase letter.", code='no_uppercase')
-
-        # Check if password contains at least one special character
-        if not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
-            raise forms.ValidationError("Password must contain at least one special character.", code='no_special_character')
-
-        return password
 
     def save(self):
         #checking for faculty email/ may use different method later but for iteration 1 this is the main method

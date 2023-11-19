@@ -16,7 +16,7 @@
       <form action="" method = "POST">
         {% csrf_token %}
         {% for message in messages %}
-          {{message}}
+          <ol>{{message}}</ol>
         {% endfor %}
         <div class="user-details">
           <div class="input-box">

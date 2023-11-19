@@ -17,7 +17,7 @@
          <form action="/login/" method="post">
           {% csrf_token %}
           {% for message in messages %}
-            <div>{{message}}</div>
+            {{message}}
           {% endfor %}
           <label for="email" class="details">Username/Email</label>
             <div class="field">
