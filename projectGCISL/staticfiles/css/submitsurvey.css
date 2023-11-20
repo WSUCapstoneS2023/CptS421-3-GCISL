@@ -93,21 +93,6 @@ nav {
   border-radius: 10px;
 }
 
-<<<<<<< HEAD
-/* FOR LOGGED VIEW */
-.profile__picture--wrapper {
-  height: 0px;
-  width: 40px;
-  margin-left: 16px;
-}
-
-.profile__picture {
-  width: 100%;
-  border-radius: 50%;
-}
-
-/* WHO ARE WE */
-=======
 button {
   cursor: pointer;
   background-color: #ca1237;
@@ -124,18 +109,13 @@ button:hover {
 }
 
 /* SUBMITSURVEY */
->>>>>>> a50d11acbc70e2090186196c3fa965f2c105ecd6
 .section__container {
   padding: 80px 0;
 }
 
 .section__row {
   width: 100%;
-<<<<<<< HEAD
-  max-width: 1000px;
-=======
   max-width: 800px;
->>>>>>> a50d11acbc70e2090186196c3fa965f2c105ecd6
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -144,13 +124,6 @@ button:hover {
 }
 
 .section__title {
-<<<<<<< HEAD
-  margin-bottom: 20px;
-}
-
-.section__para {
-  margin-top: 20px;
-=======
   color: #a60f2d;
   font-size: 48px;
   margin: 20px;
@@ -159,66 +132,11 @@ button:hover {
 
 .section__para {
   margin: 20px;
->>>>>>> a50d11acbc70e2090186196c3fa965f2c105ecd6
   text-align: center;
   max-width: 600px;
   font-weight: 600;
 }
 
-<<<<<<< HEAD
-.section__wrapper {
-  display: flex;
-}
-
-.section__left {
-  width: 50%;
-}
-
-.section__right {
-  width: 50%;
-}
-
-.gatherlab__logo {
-  width: 50%;
-  margin-top: 24px;
-  padding-top: 24px;
-}
-
-/* VISION */
-
-/* MISSION */
-
-/* GALLERY */
-#gallery {
-  position: relative;
-}
-.gallery__wrapper {
-  display: flex;
-  margin: 48px;
-}
-
-.gallery__image--wrapper {
-  position: relative;
-  border-radius: 20px;
-  box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.45);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.gallery__image {
-  max-width: 100%;
-  border-radius: 12px;
-  transition: all 600ms ease;
-}
-
-.gallery__image--wrapper:hover .gallery__image {
-  transform: scale(1.07);
-}
-
-/* FOOTER */
-=======
 .button__wrapper{
   margin: 20px;
 }
@@ -229,13 +147,10 @@ button:hover {
 
 /* FOOTER */
 
->>>>>>> a50d11acbc70e2090186196c3fa965f2c105ecd6
 footer {
   background-color: #1f1f1f;
 }
 
-<<<<<<< HEAD
-=======
 .footer__container {
   padding: 80px 0;
 }
@@ -250,7 +165,6 @@ footer {
   flex-direction: column;
 }
 
->>>>>>> a50d11acbc70e2090186196c3fa965f2c105ecd6
 .footer__logo {
   display: flex;
   align-items: center;
@@ -265,21 +179,10 @@ footer {
   color: #fff;
 }
 
-<<<<<<< HEAD
-.footer__gci__logo {
-  margin-left: 20px;
-  max-width: 35%;
-}
-
-.logo {
-  margin-left: 20px;
-  max-width: 100%;
-=======
 .gcisl__logo {
   margin-left: 20px;
   max-width: 35%;
   width: 100%;
->>>>>>> a50d11acbc70e2090186196c3fa965f2c105ecd6
 }
 
 .footer__wrapper {
@@ -287,30 +190,17 @@ footer {
 }
 
 .footer__link {
-<<<<<<< HEAD
-  color: #fff;
-=======
   color: #fff !important;
->>>>>>> a50d11acbc70e2090186196c3fa965f2c105ecd6
   font-weight: 600;
   padding: 0 8px;
 }
 
-<<<<<<< HEAD
-.footer__link:hover {
-  text-decoration: underline;
-}
-
-=======
->>>>>>> a50d11acbc70e2090186196c3fa965f2c105ecd6
 .footer__list {
   margin: 20px 0 24px 0;
   display: flex;
   justify-content: center;
 }
 
-<<<<<<< HEAD
-=======
 .link__hover-effect {
   position: relative;
 }
@@ -335,7 +225,6 @@ footer {
   background-color: #fffbf8;
 }
 
->>>>>>> a50d11acbc70e2090186196c3fa965f2c105ecd6
 /* SHAPES */
 
 .shape {
@@ -473,41 +362,4 @@ footer {
     width: 50%;
     height: 4vh;
   }
-<<<<<<< HEAD
 }
-.gallery__button {
-    padding: 12px 80px;
-  }
-button {
-    cursor: pointer;
-    background-color: #ca1237;
-    color: white;
-    font-size: 16px;
-    border-radius: 12px;
-    border: none;
-    font-weight: 600;
-    width: 50%;
-  }
-  
-button:hover {
-    opacity: 0.8;
-    transition: all 300ms ease;
-  }
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
-}
-
-.spacing{
-    padding-top: 100px;;
-}
-
-h1 {
-    padding-top: 150px;
-    color: #ca1237;
-    font-size: 40px;
-}
-=======
-}
->>>>>>> a50d11acbc70e2090186196c3fa965f2c105ecd6

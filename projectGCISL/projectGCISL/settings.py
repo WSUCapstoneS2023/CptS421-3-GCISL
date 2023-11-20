@@ -107,7 +107,7 @@ WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gciconnectdbtest',
+        'NAME': 'LocalDBGCI',
         'USER': 'postgres',
         'PASSWORD': '',
         'HOST': 'localhost',
