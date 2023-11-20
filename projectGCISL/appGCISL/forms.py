@@ -100,7 +100,7 @@ class RegistrationForm(UserCreationForm):
         email2 = self.cleaned_data['email2']
 
         if email is not None and email2 is not None and email != email2:
-            raise forms.ValidationError("Usernames/emails do not match.", code='email_mismatch')
+            raise forms.ValidationError("Emails do not match.", code='email_mismatch')
 
         return email
     

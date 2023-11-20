@@ -316,6 +316,47 @@ textarea {
   flex-direction: column;
 }
 
+/* CONFIRMATION MESSAGE */
+#submitsurvey form {
+  box-shadow: none;
+}
+
+#submitsurvey .section__container {
+  padding: 80px 0;
+}
+
+#submitsurvey .section__row {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#submitsurvey .section__title {
+  color: #a60f2d;
+  font-size: 48px;
+  margin: 20px;
+  text-align: center;
+}
+
+#submitsurvey .section__para {
+  margin: 20px;
+  text-align: center;
+  max-width: 600px;
+  font-weight: 600;
+}
+
+#submitsurvey .button__wrapper{
+  margin: 20px;
+}
+
+#submitsurvey .submit__button {
+  padding: 12px 80px;
+}
+
 /* FOOTER */
 footer {
   background-color: #1f1f1f;
