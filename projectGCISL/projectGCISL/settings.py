@@ -25,14 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'RENDER' not in os.environ
-DEBUG = True
+DEBUG = 'RENDER' not in os.environ
 
 ALLOWED_HOSTS = []
 
-# RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-# if RENDER_EXTERNAL_HOSTNAME:
-#     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
 
@@ -83,37 +82,35 @@ WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DB for Deployment (RENDER)
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default='postgres://gciconnect:lUpVj7PFTUuFzVSnkHSbb2hJP0ydAdw0@dpg-cl5itrk72pts73emq9n0-a/gciconnect_cvbw',
-#         conn_max_age=600
-#     )
-# }
+DATABASES = {
+    'default': dj_database_url.config(
+        default='postgres://gciconnect:U5JswQNtBEuDCxjWcTU6tpWp6Goeo3G9@dpg-clc72fug1b2c73es8ph0-a/gciconnect_7igs',
+        conn_max_age=600
+    )
+}
 
-# ElephantSQL DB
 # DATABASES = {
 #     'default': {
 #          'ENGINE': 'django.db.backends.postgresql',
-#          'NAME': 'iakvhaso',
-#          'USER' : 'iakvhaso',
-#          'PASSWORD': '3aXyp7AwTBHNVElrCP00AGcvBVM2FWHf',
-#          'HOST': 'jelani.db.elephantsql.com',
+#          'NAME': 'gciconnect-database',
+#          'USER' : 'gciconnect',
+#          'PASSWORD': 'lUpVj7PFTUuFzVSnkHSbb2hJP0ydAdw0',
+#          'HOST': 'gciconnect',
 #          'PORT' : '5432'
 #     }
 # }
 
-# Local DB (Set as you like)
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gciconnectdbtest',
-        'USER': 'postgres',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': 5432,
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'LocalDBGCI',
+#         'USER': 'postgres',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': 5432,
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -152,24 +149,19 @@ USE_TZ = True
 # This setting tells Django at which URL static files are going to be served to the user.
 # Here, they well be accessible at your-domain.onrender.com/static/...
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [
-        BASE_DIR / "static"
-    ]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Following settings only make sense on production and may break development environments.
-# if not DEBUG:
-#     STATICFILES_DIRS = [
-#         BASE_DIR / "static"
-#     ]
-#     # Tell Django to copy statics to the `staticfiles` directory
-#     # in your application directory on Render.
-#     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+if not DEBUG:
+    STATICFILES_DIRS = [
+        BASE_DIR / "static"
+    ]
+    # Tell Django to copy statics to the `staticfiles` directory
+    # in your application directory on Render.
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-#     # Turn on WhiteNoise storage backend that takes care of compressing static files
-#     # and creating unique names for each version so they can safely be cached forever.
-#     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    # Turn on WhiteNoise storage backend that takes care of compressing static files
+    # and creating unique names for each version so they can safely be cached forever.
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
