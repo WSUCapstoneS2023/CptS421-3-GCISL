@@ -135,7 +135,12 @@
             <li><a href="/about" class="nav__link">About</a></li>
             <li><a href="/logout" class="nav__link logout">Logout</a></li>
           </ul>
-          {% endif %}
+            {% else %}
+              <li><a href="/get_involved/" class="nav__link">Get Involved!</a></li>
+              <li><a href="/contact" class="nav__link">Contact Us</a></li>
+              <li><a href="/about" class="nav__link active">About</a></li>
+              <li><a href="/logout" class="nav__link logout">Logout</a></li>
+            {% endif %}
         </div>
       </nav>
       <img
