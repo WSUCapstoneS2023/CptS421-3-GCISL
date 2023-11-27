@@ -19,14 +19,18 @@
           {% for message in messages %}
             {{message}}
           {% endfor %}
+          <div class="field__wrapper">
           <label for="email" class="details">Email</label>
             <div class="field">
                {{lform.email}}
             </div>
+         </div>
+         <div class="field__wrapper">
             <label for="password" class="details">Password</label>
             <div class="field">
                {{lform.password}}  
             </div>
+         </div>
             <br />
             <div class="field">
               <input type="submit" value="Login">
