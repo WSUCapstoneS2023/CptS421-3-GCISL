@@ -55,7 +55,7 @@ html, body {
   font-size: 17px;
   padding-left: 20px;
   border: 1px solid lightgrey;
-  border-radius: 15px;
+  border-radius: 25px;
   transition: all 0.3s ease;
 }
 
@@ -147,9 +147,4 @@ form .signup-link a {
 form .pass-link a:hover,
 form .signup-link a:hover {
   text-decoration: underline;
-}
-
-.field__wrapper {
-  padding-bottom: 10px;
-  font-weight: 500
 }

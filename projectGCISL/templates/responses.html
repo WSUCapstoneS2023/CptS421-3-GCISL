@@ -7,7 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>View Responses</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/survey.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/survey.css' %}"
+    />
   </head>
   <body>
     <section id="survey">
@@ -22,9 +26,10 @@
             />
           </a>
           <ul class="nav__links">
+            {% if user.is_superuser or user.is_staff %}
             <li><a href="/admin" class="nav__link">Admin</a></li>
             <li>
-              <a href="/survey-faculty/" class="nav__link active"
+              <a href="/survey/editor/" class="nav__link active"
                 >Survey Manager</a
               >
             </li>
@@ -34,6 +39,7 @@
             <li><a href="/about" class="nav__link">About</a></li>
             <li><a href="/logout" class="nav__link logout">Logout</a></li>
           </ul>
+          {% endif %}
         </div>
       </nav>
     </section>
@@ -57,14 +63,11 @@
               </select>
             </form>
             <h1>Survey Title: {{survey.title}}</h1>
-            <div class="responses__table--wrapper">
             <table border="1" class="responses__table">
               <thead>
                   <tr>
-                      <th>Response ID</th>
-                      <th>Question</th>
-                      <th>Respondent Name</th>
                       <th>Respondent Email</th>
+                      <th>Question</th>
                       <th>Response Text</th>
                       <th>Response Numeric</th>
                       <th>Response Multiple Choice</th>
@@ -74,45 +77,39 @@
                 {% for response in responses %}
                   {% if response.surveyid.pk == survey.pk %}
                   <tr>
-                      <td>{{ response.responseid }}</td>
-                      <td>{{ response.questionid.questiontext }}</td>
-                      <td>{{ response.respondentname }}</td>
                       <td>{{ response.respondentemail }}</td>
+                      <td>{{ response.questionid.questiontext }}</td>
                       <td>{{ response.responsetext }}</td>
                       <td>{{ response.responsenumeric }}</td>
                       <td>{{ response.choiceid.choicetext }}</td>
                   </tr>
                   {% endif %}
-                  {% empty %}
-                  <tr>
-                      <td colspan="8">No responses available.</td>
-                  </tr>
-                  {% endfor %}
+                {% endfor %}
               </tbody>
           </table>
-        </div>
+            <button type="button" onclick="tableToCSV()">Download CSV</button>
           </div>
         </div>
       </div>
     </section>
 
     <footer>
-      <div class="section__container">
-        <div class="section__row">
+      <div class="footer__container">
+        <div class="footer__row">
           <div class="footer__wrapper">
               <a href="/" class="footer__logo">
                 <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="logo"/>
+                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="gcisl__logo"/>
               </a>
-            <div class="footer__list">
-              <a href="/get_involved" class="footer__link">Get Involved!</a>
-              <a href="/contact" class="footer__link">Contact Us</a>
-              <a href="/about" class="footer__link">About</a>
-            </div>
+              <div class="footer__list">
+                <a href="/survey/editor" class="footer__link link__hover-effect link__hover-effect--white">Survey Manager</a>
+                <a href="/get_involved" class="footer__link link__hover-effect link__hover-effect--white">Get Involved!</a>
+                <a href="/about" class="footer__link link__hover-effect link__hover-effect--white">About</a>
+              </div>
           </div>
         </div>
       </div>
-    </footer>
+    </footer>s
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Your code here
@@ -124,6 +121,61 @@
         elem.addEventListener("change", function () {
           document.getElementById("filter-form").submit();
         });
+      }
+
+      function tableToCSV() {
+        // Variable to store the final csv data
+        var csv_data = [];
+
+        // Get each row data
+        var rows = document.getElementsByTagName("tr");
+        for (var i = 0; i < rows.length; i++) {
+          // Get each column data
+          var cols = rows[i].querySelectorAll("td,th");
+
+          // Stores each csv row data
+          var csvrow = [];
+          for (var j = 0; j < cols.length; j++) {
+            // Get the text data of each cell
+            // of a row and push it to csvrow
+            csvrow.push(cols[j].innerHTML);
+          }
+
+          // Combine each column value with comma
+          csv_data.push(csvrow.join(","));
+        }
+
+        // Combine each row data with new line character
+        csv_data = csv_data.join("\n");
+
+        // Call this function to download csv file
+        downloadCSVFile(csv_data);
+      }
+
+      function downloadCSVFile(csv_data) {
+        // Create CSV file object and feed
+        // our csv_data into it
+        CSVFile = new Blob([csv_data], {
+          type: "text/csv",
+        });
+
+        // Create to temporary link to initiate
+        // download process
+        var temp_link = document.createElement("a");
+
+        // Download csv file
+        temp_link.download = "Response.csv";
+        var url = window.URL.createObjectURL(CSVFile);
+        temp_link.href = url;
+
+        // This link should not be displayed
+        temp_link.style.display = "none";
+        document.body.appendChild(temp_link);
+
+        // Automatically click the link to
+        // trigger download
+        temp_link.click();
+        document.body.removeChild(temp_link);
       }
     </script>
   </body>

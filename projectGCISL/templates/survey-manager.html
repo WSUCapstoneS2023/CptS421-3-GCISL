@@ -25,7 +25,7 @@
             {% if user.is_superuser or user.is_staff %}
             <li><a href="/admin" class="nav__link">Admin</a></li>
             <li>
-              <a href="/survey-faculty/" class="nav__link active"
+              <a href="/survey/editor/" class="nav__link active"
                 >Survey Manager</a
               >
             </li>
@@ -160,22 +160,18 @@
     </form>
 
     <footer>
-      <div class="section__container">
-        <div class="section__row">
+      <div class="footer__container">
+        <div class="footer__row">
           <div class="footer__wrapper">
-            <a href="/" class="footer__logo">
-              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-              <img
-                src="{% static 'assets/logo/GCISL_logo_white.png' %}"
-                alt=""
-                class="logo"
-              />
-            </a>
-            <div class="footer__list">
-              <a href="/get_involved" class="footer__link">Get Involved!</a>
-              <a href="/contact" class="footer__link">Contact Us</a>
-              <a href="/about" class="footer__link">About</a>
-            </div>
+              <a href="/" class="footer__logo">
+                <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="gcisl__logo"/>
+              </a>
+              <div class="footer__list">
+                <a href="/survey/editor" class="footer__link link__hover-effect link__hover-effect--white">Survey Manager</a>
+                <a href="/get_involved" class="footer__link link__hover-effect link__hover-effect--white">Get Involved!</a>
+                <a href="/about" class="footer__link link__hover-effect link__hover-effect--white">About</a>
+              </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/survey.css' %}"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="nav__container">
+        <a href="/" class="logo__wrapper">
+          <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+          <img
+            src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}"
+            alt=""
+            class="header_logo"
+          />
+        </a>
+        <ul class="nav__links">
+          <li><a href="/get_involved/" class="nav__link active">Get Involved!</a></li>
+          <li><a href="/contact" class="nav__link">Contact Us</a></li>
+          <li><a href="/about" class="nav__link">About</a></li>
+          <li><a href="/logout" class="nav__link logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="submitsurvey">
+      <div class="section__container">
+        <div class="section__row">
+          <h1 class="section__title">Thank You for Submitting Your Survey!</h1>
+          <p class="section__para">
+            We appreciate your feedback and will contact you as soon as
+            possible.
+          </p>
+          <div class="button__wrapper">
+            <form method="GET" action="/">
+              <button type="submit" class="submit__button">
+                Return To Homepage
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer__container">
+        <div class="footer__row">
+          <div class="footer__wrapper">
+            <a href="/" class="footer__logo">
+              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+              <img
+                src="{% static 'assets/logo/GCISL_logo_white.png' %}"
+                alt=""
+                class="gcisl__logo"
+              />
+            </a>
+            <div class="footer__list">
+              <a
+                href="/get_involved"
+                class="footer__link link__hover-effect link__hover-effect--white"
+                >Get Involved!</a
+              >
+              <a
+                href="/contact"
+                class="footer__link link__hover-effect link__hover-effect--white"
+                >Contact Us</a
+              >
+              <a
+                href="/about"
+                class="footer__link link__hover-effect link__hover-effect--white"
+                >About</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

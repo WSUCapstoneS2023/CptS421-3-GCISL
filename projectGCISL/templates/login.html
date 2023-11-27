@@ -1,199 +1,14 @@
-{% comment %} <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Import Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-YU6DRH0y3fUz+NCU8YwY6HtsGZfQ2lmc1AnQ2D+u5X9e5MQ5ct5S5+LS7Vv5mNNa4/bVJ/cbs4BNf6/0U6Xopg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/static/css/login.css">
-    <title>Login</title>
-  </head>
-  <body>  
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6 col-sm-8">
-          <div class="card-deck">
-            <div class="card-body">
-              <div class="text-center mb-4">
-                <div class = "imgcontainer">
-                  <img class="avatar" src="/static/assets/general/icon.png" alt="">
-                </div>
-              </div>
-              <form action="/login/" method="post">
-                {% csrf_token %}
-                {% for message in messages %}
-                  {{message}}
-                {% endfor %}
-                <div class="mb-3">
-                  {{lform.email}}
-                </div>
-                <div class="mb-3">
-                  {{lform.password}}  
-                </div>
-                <div class="d-grid gap-2 mb-3">
-                  <div class = "space">
-                  </div>
-                  <button class="btn btn-primary" type="submit" formmethod="post">Login</button>
-                </div>
-              </form>
-              <div class="text-center">
-                <p class="text-muted mb-0" style="display: inline-block; padding-top: 60px; font-family: Montserrat;">Don't have an account?</p>
-                <a href="/login/registration/" class="link-primary" style="display: inline-block; margin-left: 3px;">Sign up</a> now!
-              </div>             
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> 
-    <!-- Import Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/js/bootstrap.min.js" integrity="sha512-4H4vCxK9yToRKIYamYbH5A67l7d5UMoDZV7jK2W8H0oXNRMg0rhK7h1rsWbfxv+Hx2OZ42tA3FtW8PvKFm9Rbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  </body>
-</html>
- {% endcomment %}
+{% load static %}
 
 <!DOCTYPE html>
 <!-- Created By CodingNepal -->
 <html lang="en" dir="ltr">
    <head>
-      <meta charset="utf-8">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Login</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.1/css/bootstrap.min.css" integrity="sha512-YU6DRH0y3fUz+NCU8YwY6HtsGZfQ2lmc1AnQ2D+u5X9e5MQ5ct5S5+LS7Vv5mNNa4/bVJ/cbs4BNf6/0U6Xopg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/static/css/login.css">
+      <link rel="stylesheet" href="{% static 'css/login.css' %}">
    </head>
-   <style>
-    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-html,body{
-  display: grid;
-  height: 100%;
-  width: 100%;
-  place-items: center;
-  background: #f2f2f2;
-}
-::selection{
-  background: #4158d0;
-  color: #fff;
-}
-.wrapper{
-  width: 380px;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
-}
-.wrapper .title{
-  font-size: 35px;
-  font-weight: 600;
-  text-align: center;
-  line-height: 100px;
-  color: #fff;
-  user-select: none;
-  border-radius: 15px 15px 0 0;
-  background: #a60f2d;
-}
-.wrapper form{
-  padding: 10px 30px 50px 30px;
-}
-.wrapper form .field{
-  height: 50px;
-  width: 100%;
-  margin-top: 20px;
-  position: relative;
-}
-.wrapper form .field input{
-  height: 100%;
-  width: 100%;
-  outline: none;
-  font-size: 17px;
-  padding-left: 20px;
-  border: 1px solid lightgrey;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-.wrapper form .field input:focus,
-form .field input:valid{
-  border-color: #a60f2d;
-}
-.wrapper form .field label{
-  position: absolute;
-  top: 50%;
-  left: 20px;
-  color: #999999;
-  font-weight: 400;
-  font-size: 17px;
-  pointer-events: none;
-  transform: translateY(-50%);
-  transition: all 0.3s ease;
-}
-form .field input:focus ~ label,
-form .field input:valid ~ label{
-  top: 0%;
-  font-size: 16px;
-  color: #a60f2d;
-  background: #a60f2d;
-  transform: translateY(-50%);
-}
-form .content{
-  display: flex;
-  width: 100%;
-  height: 50px;
-  font-size: 16px;
-  align-items: center;
-  justify-content: space-around;
-}
-form .content .checkbox{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-form .content input{
-  width: 15px;
-  height: 15px;
-  background: red;
-}
-form .content label{
-  color: #a60f2d;
-  user-select: none;
-  padding-left: 5px;
-}
-form .content .pass-link{
-  color: "";
-}
-form .field input[type="submit"]{
-  color: #fff;
-  border: none;
-  padding-left: 0;
-  margin-top: -10px;
-  font-size: 20px;
-  font-weight: 500;
-  cursor: pointer;
-  background: #a60f2d;
-  transition: all 0.3s ease;
-}
-form .field input[type="submit"]:active{
-  transform: scale(0.95);
-}
-form .signup-link{
-  color: #262626;
-  margin-top: 20px;
-  text-align: center;
-}
-form .pass-link a,
-form .signup-link a{
-  color: #4158d0;
-  text-decoration: none;
-}
-form .pass-link a:hover,
-form .signup-link a:hover{
-  text-decoration: underline;
-}
-
-   </style>
    <body>
       <div class="wrapper">
          <div class="title">
@@ -204,18 +19,24 @@ form .signup-link a:hover{
           {% for message in messages %}
             {{message}}
           {% endfor %}
+          <div class="field__wrapper">
+          <label for="email" class="details">Email</label>
             <div class="field">
                {{lform.email}}
             </div>
+         </div>
+         <div class="field__wrapper">
+            <label for="password" class="details">Password</label>
             <div class="field">
                {{lform.password}}  
             </div>
+         </div>
             <br />
             <div class="field">
               <input type="submit" value="Login">
            </div>
             <div class="signup-link">
-               Not a member? <a href="/login/registration/">Signup now</a>
+               Not a member? <a href="/registration/">Signup now</a>
             </div>
          </form>
       </div>

@@ -93,26 +93,29 @@ nav {
   border-radius: 10px;
 }
 
-/* FOR LOGGED VIEW */
-.profile__picture--wrapper {
-  height: 0px;
-  width: 40px;
-  margin-left: 16px;
+button {
+  cursor: pointer;
+  background-color: #ca1237;
+  color: white;
+  font-size: 16px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
 }
 
-.profile__picture {
-  width: 100%;
-  border-radius: 50%;
+button:hover {
+  opacity: 0.8;
+  transition: all 300ms ease;
 }
 
-/* WHO ARE WE */
+/* SUBMITSURVEY */
 .section__container {
   padding: 80px 0;
 }
 
 .section__row {
   width: 100%;
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -121,74 +124,29 @@ nav {
 }
 
 .section__title {
-  margin-bottom: 20px;
+  color: #a60f2d;
+  font-size: 48px;
+  margin: 20px;
+  text-align: center;
 }
 
 .section__para {
+  margin: 20px;
   text-align: center;
   max-width: 600px;
   font-weight: 600;
 }
 
-.section__wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+.button__wrapper{
+  margin: 20px;
 }
 
-.section__left {
-  width: 50%;
-}
-
-.section__right {
-  width: 50%;
-}
-
-.gatherlab__logo {
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.about__logo {
-  width: 100%;
-}
-
-/* VISION */
-
-/* MISSION */
-
-/* GALLERY */
-#gallery {
-  position: relative;
-}
-.gallery__wrapper {
-  display: flex;
-  margin: 48px;
-}
-
-.gallery__image--wrapper {
-  position: relative;
-  border-radius: 20px;
-  box-shadow: 0 20px 80px 0 rgba(0, 0, 0, 0.45);
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.gallery__image {
-  max-width: 100%;
-  border-radius: 12px;
-  transition: all 600ms ease;
-}
-
-.gallery__image--wrapper:hover .gallery__image {
-  transform: scale(1.07);
+.submit__button {
+  padding: 12px 80px;
 }
 
 /* FOOTER */
+
 footer {
   background-color: #1f1f1f;
 }
@@ -232,7 +190,7 @@ footer {
 }
 
 .footer__link {
-  color: #fff;
+  color: #fff !important;
   font-weight: 600;
   padding: 0 8px;
 }
@@ -241,12 +199,6 @@ footer {
   margin: 20px 0 24px 0;
   display: flex;
   justify-content: center;
-}
-
-.space {
-  padding-top: 50px;
-  text-align: center;
-  color: black;
 }
 
 .link__hover-effect {
@@ -272,6 +224,7 @@ footer {
 .link__hover-effect--white::after {
   background-color: #fffbf8;
 }
+
 /* SHAPES */
 
 .shape {
