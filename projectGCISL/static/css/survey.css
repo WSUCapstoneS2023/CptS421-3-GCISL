@@ -542,7 +542,7 @@ thead, th, tbody, tr, td {
 /* ... Add more styles as needed ... */
 
 /* RESPONSIVE DESIGN */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
   .nav__container {
       flex-direction: column;
       align-items: center;
