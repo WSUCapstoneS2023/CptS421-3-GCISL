@@ -26,6 +26,10 @@ html, body {
   box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
 }
 
+.details {
+  padding-left: 20px;
+}
+
 .wrapper .title {
   font-size: 35px;
   font-weight: 600;
