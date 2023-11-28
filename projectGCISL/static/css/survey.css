@@ -588,6 +588,10 @@ thead, th, tbody, tr, td {
       margin-left: 8px;
   } 
 
+  .section__container {
+    padding: 40px 0;
+  }
+
   h1 {
     font-size: 36px;
   }
