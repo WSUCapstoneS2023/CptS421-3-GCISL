@@ -596,7 +596,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 450px) {
   .nav__container {
       flex-direction: column;
       align-items: center;

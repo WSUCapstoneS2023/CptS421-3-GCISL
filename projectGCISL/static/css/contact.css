@@ -406,6 +406,7 @@ footer {
     display: flex;
     flex-direction: column-reverse;
   }
+
   .nav__container {
     flex-direction: column;
     align-items: center;
@@ -455,13 +456,24 @@ footer {
   }
 }
 
-@media screen and (max-width: 390px) {
-  h1 {
-    font-size: 32px;
+@media screen and (max-width: 450px) {
+  .nav__container {
+      flex-direction: column;
+      align-items: center;
   }
 
-  .header_logo {
-    width: 50%;
-    height: 4vh;
+  .nav__links {
+      margin-top: 20px;
+  }
+
+  .nav__link {
+      font-size: 8px;
+      margin: 8px;
+      padding: 4px;
+  }
+
+  h1 {
+    font-size: 36px !important;
+    font-weight: 700 !important;
   }
 }
