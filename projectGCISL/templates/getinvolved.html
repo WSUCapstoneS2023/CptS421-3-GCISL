@@ -7,243 +7,272 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get Involved!</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/getinvolved.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/getinvolved.css' %}"
+    />
     <style>
-    .popup {
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.4);
-      display: none;
-  }
-  
-  .popup-content {
-      background-color: #4d4d4d;
-      margin: 10% auto;
-      padding: 40px;
-      padding-top: 50px;
-      padding-bottom: 180px;
-      border: 1px solid #888888;
-      width: 50%; /* Adjust the width as needed */
-      max-width: 600px; /* Add a maximum width to avoid excessive width on larger screens */
-      height: 45%;
-      font-weight: bolder;
-      color: white;
-      border-radius: 20px;
-      text-align: center; /* Center the content horizontally */
-      font-size: 16px;
-      font-family: ubuntu;
-  }
-  
-  .popup-content button {
-      display: block;
-      margin: 0 auto; /* Center the button horizontally */
-      width: 100px;
-      height: 40px;
-      color: #000;
-      font-weight: 600;
-      text-decoration: none;
-  }
+      .popup {
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: none;
+      }
 
-  .padding {
-    padding-top: 25px;
-  }
-  
-  .show {
-      display: block;
-  }
-  .research_list{
-    padding-left: 30px;
-    text-align: start; 
-    color: white;
-  }
+      .popup-content {
+        background-color: #4d4d4d;
+        margin: 10% auto;
+        padding: 40px;
+        padding-top: 50px;
+        padding-bottom: 180px;
+        border: 1px solid #888888;
+        width: 50%; /* Adjust the width as needed */
+        max-width: 600px; /* Add a maximum width to avoid excessive width on larger screens */
+        height: 45%;
+        font-weight: bolder;
+        color: white;
+        border-radius: 20px;
+        text-align: center; /* Center the content horizontally */
+        font-size: 16px;
+        font-family: ubuntu;
+      }
 
-  .education_list{
-    padding-left: 30px;
-    text-align: start; 
-    color: white;
-  }
+      .popup-content button {
+        display: block;
+        margin: 0 auto; /* Center the button horizontally */
+        width: 100px;
+        height: 40px;
+        color: #000;
+        font-weight: 600;
+        text-decoration: none;
+      }
 
-  .section__para {
-    margin-top: 20px;
-    text-align: center;
-    max-width: 700px;
-    font-weight: 600;
-    font-size: 20px;
-  }
-  
-  .card__para1 {
-    margin: 20px;
-    max-width: 700px;
-    font-weight: 600;
-    text-align: start;
-  }
+      .padding {
+        padding-top: 25px;
+      }
 
-  .link{
-    color: white;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-</style>
-</head>
-<body>
-<section id="get-involved">
-  <nav>
-    <div class="nav__container">
-      <a href="/" class="logo__wrapper">
-        <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-        <img src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}" alt="" class="header_logo"/>
-      </a>
-      <ul class="nav__links">
-        <li><a href="/get_involved" class="nav__link active">Get Involved!</a></li>
-        <li><a href="/contact" class="nav__link">Contact Us</a></li>
-        <li><a href="/about" class="nav__link">About</a></li>
-        <li><a href="/login" class="nav__link">Log in</a></li>
-      </ul>
+      .show {
+        display: block;
+      }
+      .research_list {
+        padding-left: 30px;
+        text-align: start;
+        color: white;
+      }
+
+      .education_list {
+        padding-left: 30px;
+        text-align: start;
+        color: white;
+      }
+
+      .section__para {
+        margin-top: 20px;
+        text-align: center;
+        max-width: 700px;
+        font-weight: 600;
+        font-size: 20px;
+      }
+
+      .card__para1 {
+        margin: 20px;
+        max-width: 700px;
+        font-weight: 600;
+        text-align: start;
+      }
+
+      .link {
+        color: white;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="get-involved">
+      <nav>
+        <div class="nav__container">
+          <a href="/" class="logo__wrapper">
+            <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+            <img
+              src="{% static 'assets/logo/GCISL_logo_fullcolor.png' %}"
+              alt=""
+              class="header_logo"
+            />
+          </a>
+          <ul class="nav__links">
+            <li>
+              <a href="/get_involved" class="nav__link active">Get Involved!</a>
+            </li>
+            <li><a href="/contact" class="nav__link">Contact Us</a></li>
+            <li><a href="/about" class="nav__link">About</a></li>
+            <li><a href="/login" class="nav__link">Log in</a></li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
+    <section id="get-involved-now">
+      <div class="section__container">
+        <div class="section__row">
+          <h1 class="section__title">Get Involved now!</h1>
+          <p class="section__para">
+            We’re glad you’re here!
+            <br />
+            <br />
+            There are three ways that you can get involved at WSU via GCI
+            Connect:
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three Column Layout Starts Here -->
+    <div class="column-container">
+      <div class="column">
+        <section id="research-involvement">
+          <div class="section__container">
+            <div class="section__row">
+              <div class="card__wrapper--outer">
+                <div class="card__wrapper--inner">
+                  <h1 class="card__title">Research Involvement</h1>
+                  <p class="card__para1">
+                    Everyone is aging! We are living longer than ever before for
+                    the first time in the history of the world!
+                    <br />
+                    <br />
+                    The population shift will change our society and WSU
+                    researches are actively working to answer the many specific
+                    questions about how we will adapt, such as:
+                    <br />
+                  </p>
+                  <div class="research_list">
+                    <br />&bull; How can we support people to age with dignity?
+                    <br />
+                    <br />&bull; How can older adults stay engaged and
+                    connected?
+                    <br />
+                    <br />&bull; How will family relationships between older and
+                    younger generations be affected by increased longevity?
+                    <br />
+                    <br />&bull; How will we design and deliver services that
+                    best support older adults and their families?
+                    <br />
+                    <br />&bull; How will our communities adapt to an aging
+                    population?
+                  </div>
+                  <br />
+                  <br />
+                  <p class="card__para1">
+                    WSU researchers may need your opinion and perspective in
+                    addressing these research questions. Your participation in
+                    research can help others and contributes to advancing
+                    knowledge about aging. If you’d like to explore some of the
+                    current research labs focused on aging research, check
+                    <a
+                      class="link"
+                      href="https://hd.wsu.edu/research-labs/gather-lab/"
+                    >
+                      here.
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="column">
+        <section id="teaching-mentorship-learning">
+          <div class="section__container">
+            <div class="section__row">
+              <div class="card__wrapper--outer">
+                <div class="card__wrapper--inner">
+                  <h1 class="card__title">Education & Mentorship</h1>
+                  <p class="card__para1">
+                    WSU’s traditional slogan of “World Class, Face to Face”
+                    highlights the university’s commitment to helping students
+                    become more aware, engaged, creative, and skilled at
+                    addressing the big issues and problems of the world.
+                    <br />
+                    <br />
+                    Preparing for an aging society is a pressing social issue
+                    and gciCONNECT aims to leverage the expertise and experience
+                    of older people, support lifelong learning, and promote
+                    positive intergenerational connections.
+                  </p>
+                  <div class="education_list">
+                    <br />&bull; Do you have special skills, knowledge, or
+                    background/training that you want to share with WSU students
+                    or faculty?
+                    <br />
+                    <br />&bull; Do you want to connect with students to enhance
+                    their learning and stay engaged with a campus community
+                    (e.g., mentorship opportunities, guest speaker
+                    opportunities; participating in life history projects with
+                    undergraduate students)?
+                  </div>
+                  <br />
+                  <br />
+                  <p class="card__para1">
+                    We hope you will get involved with GCI Connect through
+                    Education and Mentorship opportunities!
+                  </p>
+                  <br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="column">
+        <section id="outreach-contributions">
+          <div class="section__container">
+            <div class="section__row">
+              <div class="card__wrapper--outer">
+                <div class="card__wrapper--inner">
+                  <h1 class="card__title">
+                    Outreach & Charitable Contributions
+                  </h1>
+                  <p class="card__para1">
+                    Engaging with community partners to address the needs of our
+                    changing world is a strategic goal of Washington State
+                    University and GCI.
+                  </p>
+                  <div class="education_list">
+                    <br />&bull; Do you want to stay informed of current GCI
+                    initiatives, research, and projects?
+                    <br />
+                    <br />&bull; Are you interested in funding experiential
+                    learning projects to support students or creating
+                    scholarships for students who pursue education, training,
+                    and careers that support older adults and their families?
+                  </div>
+                  <br />
+                  <br />
+                  <p class="card__para1">
+                    Contact us with additional questions or, if you’re ready to
+                    get involved, please submit your contact information and
+                    we’ll follow up with you soon.
+                    <br />
+                    <br />
+                    Thank you in advance for your time and important
+                    contributions. We look forward to working with you!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
-  </nav>
-</section>
-
-<section id="get-involved-now">
-<div class="section__container">
-  <div class="section__row">
-      <h1 class="section__title">Get Involved now!</h1>
-      <p class="section__para">
-          We’re glad you’re here!
-          <br/>
-          <br/>
-          There are three ways that you can get involved at WSU via GCI Connect:
-      </p>
-  </div>
-</div>
-</section>
-
-<!-- Three Column Layout Starts Here -->
-<div class="column-container">
-<div class="column">
-  <section id="research-involvement">
-      <div class="section__container">
-          <div class="section__row">
-              <div class="card__wrapper--outer">
-                  <div class="card__wrapper--inner">
-                      <h1 class="card__title">Research Involvement</h1>
-                      <p class="card__para1">
-                          Everyone is aging! We are living longer than ever before for the
-                          first time in the history of the world!
-                          <br/>
-                          <br/>
-                          The population shift will change our society and WSU researches are actively
-                          working to answer the many specific questions about how we will adapt, such as:
-                          <br/>
-                      </p>
-                      <div class="research_list">
-                          <br/>&bull; How can we support people to age with dignity?
-                          <br/>
-                          <br/>&bull; How can older adults stay engaged and connected?
-                          <br/>
-                          <br/>&bull; How will family relationships between older and younger generations be
-                          affected by increased longevity?
-                          <br/>
-                          <br/>&bull; How will we design and deliver services that best support older adults and
-                          their families?
-                          <br/>
-                          <br/>&bull; How will our communities adapt to an aging population?
-                      </div>
-                      <br/>
-                      <br/>
-                      <p class="card__para1">
-                          WSU researchers may need your opinion and perspective in addressing these research
-                          questions. Your participation in research can help others and contributes to advancing
-                          knowledge about aging.
-                          If you’d like to explore some of the current research labs focused on aging research,
-                          check <a class="link"
-                                   href="https://hd.wsu.edu/research-labs/gather-lab/"> here. </a>
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-</div>
-<div class="column">
-  <section id="teaching-mentorship-learning">
-      <div class="section__container">
-          <div class="section__row">
-              <div class="card__wrapper--outer">
-                  <div class="card__wrapper--inner">
-                      <h1 class="card__title">Education & Mentorship</h1>
-                      <p class="card__para1">
-                          WSU’s traditional slogan of “World Class, Face to Face” highlights the university’s
-                          commitment to helping students become more aware, engaged, creative, and skilled at
-                          addressing the big issues and problems of the world.
-                          <br/>
-                          <br/>
-                          Preparing for an aging society is a pressing social issue and gciCONNECT aims to
-                          leverage the expertise and experience of older people, support lifelong learning,
-                          and promote positive intergenerational connections.
-                      </p>
-                      <div class="education_list">
-                          <br/>&bull; Do you have special skills, knowledge, or background/training that you
-                          want to share with WSU students or faculty?
-                          <br/>
-                          <br/>&bull; Do you want to connect with students to enhance their learning and stay
-                          engaged with a campus community (e.g., mentorship opportunities, guest speaker
-                          opportunities; participating in life history projects with undergraduate students)?
-                      </div>
-                      <br/>
-                      <br/>
-                      <p class="card__para1">
-                          We hope you will get involved with GCI Connect through Education and Mentorship
-                          opportunities!
-                      </p>
-                      <br/>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-</div>
-<div class="column">
-  <section id="outreach-contributions">
-      <div class="section__container">
-          <div class="section__row">
-              <div class="card__wrapper--outer">
-                  <div class="card__wrapper--inner">
-                      <h1 class="card__title">Outreach & Charitable Contributions</h1>
-                      <p class="card__para1">
-                          Engaging with community partners to address the needs of our changing world is a
-                          strategic goal of Washington State University and GCI.
-                      </p>
-                      <div class="education_list">
-                          <br/>&bull; Do you want to stay informed of current GCI initiatives, research,
-                          and projects?
-                          <br/>
-                          <br/>&bull; Are you interested in funding experiential learning projects to support
-                          students or creating scholarships for students who pursue education, training, and
-                          careers that support older adults and their families?
-                      </div>
-                      <br/>
-                      <br/>
-                      <p class="card__para1">
-                          Contact us with additional questions or, if you’re ready to get involved, please
-                          submit your contact information and we’ll follow up with you soon.
-                          <br/>
-                          <br/>
-                          Thank you in advance for your time and important contributions. We look forward to
-                          working with you!
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-</div>
-</div>
-<!-- Three Column Layout Ends Here -->
+    <!-- Three Column Layout Ends Here -->
 
     <section id="get-started">
       <div class="section__container">
@@ -255,51 +284,70 @@
             <h1 class="crimson get-started__title">
               Click the button below to start filling out our survey!
             </h1>
-            <button id="myButton" class = "get-started__button">
-                Take Survey!
+            <button id="myButton" class="get-started__button">
+              Take Survey!
             </button>
             <div id="myPopup" class="popup">
               <div class="popup-content">
-              <p>Sorry! You must login or register to take the survey!</p>
-              <div class = "padding">
-              <button id="closePopup">
-                <li><a href="/login" style="color: #fff;">Login</a></li>
-              </button>
+                <p>Sorry! You must login or register to take the survey!</p>
+                <div class="padding">
+                  <button id="closePopup">
+                    <li><a href="/login" style="color: #fff">Login</a></li>
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
       </div>
-  </div> 
     </section>
 
     <footer>
       <div class="footer__container">
         <div class="footer__row">
           <div class="footer__wrapper">
-              <a href="/" class="footer__logo">
-                <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
-                <img src="{% static 'assets/logo/GCISL_logo_white.png' %}" alt="" class="gcisl__logo"/>
-              </a>
-              <div class="footer__list">
-                <a href="/get_involved" class="footer__link link__hover-effect link__hover-effect--white">Get Involved!</a>
-                <a href="/contact" class="footer__link link__hover-effect link__hover-effect--white">Contact Us</a>
-                <a href="/about" class="footer__link link__hover-effect link__hover-effect--white">About</a>
-              </div>
+            <a href="/" class="footer__logo">
+              <h1 class="gciConnect__logo ubuntu">gciConnect!</h1>
+              <img
+                src="{% static 'assets/logo/GCISL_logo_white.png' %}"
+                alt=""
+                class="gcisl__logo"
+              />
+            </a>
+            <div class="footer__list">
+              <a
+                href="/get_involved"
+                class="footer__link link__hover-effect link__hover-effect--white"
+                >Get Involved!</a
+              >
+              <a
+                href="/contact"
+                class="footer__link link__hover-effect link__hover-effect--white"
+                >Contact Us</a
+              >
+              <a
+                href="/about"
+                class="footer__link link__hover-effect link__hover-effect--white"
+                >About</a
+              >
+            </div>
           </div>
         </div>
       </div>
     </footer>
     <script>
       // JavaScript code to handle the popup
-      const myButton = document.getElementById('myButton');
-      const myPopup = document.getElementById('myPopup');
-      const closePopup = document.getElementById('closePopup');
-  
-      myButton.addEventListener('click', function () {
-          myPopup.style.display = 'block'; // Display the popup when the button is clicked
+      const myButton = document.getElementById("myButton");
+      const myPopup = document.getElementById("myPopup");
+      const closePopup = document.getElementById("closePopup");
+
+      myButton.addEventListener("click", function () {
+        myPopup.style.display = "block"; // Display the popup when the button is clicked
       });
-  
-      closePopup.addEventListener('click', function () {
-          myPopup.style.display = 'none'; // Close the popup when the close button is clicked
+
+      closePopup.addEventListener("click", function () {
+        myPopup.style.display = "none"; // Close the popup when the close button is clicked
       });
-  </script>
+    </script>
   </body>
 </html>
