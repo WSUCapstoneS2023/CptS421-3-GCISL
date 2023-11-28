@@ -104,14 +104,25 @@ WSGI_APPLICATION = 'projectGCISL.wsgi.application'
 # }
 
 # Local DB (Set as you like)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'LocalDBGCI',
+#         'USER': 'postgres',
+#         'PASSWORD': '',
+#         'HOST': 'localhost',
+#         'PORT': 5432,
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'LocalDBGCI',
+        'NAME': 'gcislDB',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': 'test123',
         'HOST': 'localhost',
-        'PORT': 5432,
+        'PORT': 5433,
     }
 }
 
