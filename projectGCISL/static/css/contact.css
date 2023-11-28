@@ -403,7 +403,8 @@ footer {
 
 @media screen and (max-width: 550px) {
   .logo__wrapper {
-    margin: 10px;
+    display: flex;
+    flex-direction: column-reverse;
   }
   .nav__container {
     flex-direction: column;
