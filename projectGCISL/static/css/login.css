@@ -154,6 +154,14 @@ form .signup-link a:hover {
 }
 
 .field__wrapper {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   font-weight: 500
+}
+
+.messages {
+  color: red;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
 }

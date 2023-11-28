@@ -16,9 +16,7 @@
          </div>
          <form action="/login/" method="post">
           {% csrf_token %}
-          {% for message in messages %}
-            {{message}}
-          {% endfor %}
+          
           <div class="field__wrapper">
           <label for="email" class="details">Email</label>
             <div class="field">
@@ -31,7 +29,11 @@
                {{lform.password}}  
             </div>
          </div>
-            <br />
+         <div class="messages">
+         {% for message in messages %}
+            {{message}}
+         {% endfor %}
+         </div>
             <div class="field">
               <input type="submit" value="Login">
            </div>
