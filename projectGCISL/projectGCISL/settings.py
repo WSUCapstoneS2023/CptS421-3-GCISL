@@ -115,6 +115,29 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'gcislDB',
+#         'USER': 'postgres',
+#         'PASSWORD': 'test123',
+#         'HOST': 'localhost',
+#         'PORT': 5433,
+#     }
+# }
+
+#Lukes Database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'gciconnectdbtest',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Sounder$08',
+#         'HOST': 'localhost',
+#         'PORT': 5432,
+#     }
+# }
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
