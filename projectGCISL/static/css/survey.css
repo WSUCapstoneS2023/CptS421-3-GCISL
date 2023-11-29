@@ -277,7 +277,6 @@ nav {
 .form__wrapper {
   text-align: left;
   justify-content: space-between;
-  height: calc(30vh);
 }
  
 
@@ -287,7 +286,7 @@ input, select, textarea {
   border-top: none;
   border-left: none;
   border-right: none;
-  height: 40px;
+  height: 25px;
 }
 
 label{
