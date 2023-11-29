@@ -286,7 +286,7 @@ input, select, textarea {
   border-top: none;
   border-left: none;
   border-right: none;
-  height: 25px;
+  height: 20px;
 }
 
 label{
@@ -294,7 +294,6 @@ label{
 }
 textarea {
   resize: vertical;
-  height: 100px;
   margin-top: 8px;
 }
 
