@@ -293,7 +293,7 @@ footer {
 }
 
 /* RESPONSIVE DESIGN */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
   nav {
     height: auto;
   }
@@ -324,6 +324,7 @@ footer {
   .section__wrapper {
     flex-direction: column;
   }
+  
 
   .section__right {
     width: 100%;
@@ -352,6 +353,10 @@ footer {
 }
 
 @media screen and (max-width: 550px) {
+  .logo__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+  }
   .nav__container {
     flex-direction: column;
     align-items: center;
@@ -378,6 +383,10 @@ footer {
   .section__row {
     max-width: 350px;
   }
+  
+  .section__container {
+    padding: 40px 0;
+  }
 
   .shape {
     opacity: 0.3;
@@ -400,13 +409,24 @@ footer {
   }
 }
 
-@media screen and (max-width: 390px) {
-  h1 {
-    font-size: 32px;
-  }
+@media screen and (max-width: 450px) {
+  .nav__container {
+    flex-direction: column;
+    align-items: center;
+}
 
-  .header_logo {
-    width: 50%;
-    height: 4vh;
-  }
+.nav__links {
+    margin-top: 20px;
+}
+
+.nav__link {
+    font-size: 8px;
+    margin: 8px;
+    padding: 4px;
+}
+
+h1 {
+  font-size: 36px !important;
+  font-weight: 700 !important;
+}
 }

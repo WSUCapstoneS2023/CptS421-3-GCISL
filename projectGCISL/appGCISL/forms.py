@@ -108,7 +108,7 @@ class RegistrationForm(UserCreationForm):
     def save(self):
         #checking for faculty email/ may use different method later but for iteration 1 this is the main method
         create = UserManager()
-        if '@wsu.edu' in self.cleaned_data['email'] and self.clean_password2() and self.username_clean():
+        if '@wsu.edu' in self.cleaned_data['email'] and self.clean_password2():
             user = create.create_Faculty(email=self.cleaned_data['email'], password=self.cleaned_data['password2'], first_name = self.cleaned_data['first_name'], last_name = self.cleaned_data['last_name'], age_range = self.cleaned_data['age_range'], phone = self.cleaned_data['phone'])
         else:
             user = create.create_Resident(email=self.cleaned_data['email'], password=self.cleaned_data['password2'], first_name = self.cleaned_data['first_name'], last_name = self.cleaned_data['last_name'], age_range = self.cleaned_data['age_range'], phone = self.cleaned_data['phone'])
