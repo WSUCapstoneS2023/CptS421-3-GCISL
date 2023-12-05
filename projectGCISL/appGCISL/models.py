@@ -51,9 +51,10 @@ class GCISLUser(AbstractBaseUser,PermissionsMixin):
     
     # added age choices for age range
     class Ages(models.TextChoices):
-        FIRST = "1", "55-65"
-        SECOND = "2", "66-75"
-        THIRD = "3", "75+"
+        FIRST = "1", "<55"
+        SECOND = "2", "55-65"
+        THIRD = "3", "66-75"
+        FOURTH = "4", "75+"
     
     age_range = models.CharField(verbose_name="age", choices=Ages.choices, max_length=10)
     phone = models.CharField(verbose_name="phone", max_length=20)
