@@ -541,36 +541,121 @@ thead, th, tbody, tr, td {
 
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 1024px) {
+  nav {
+    height: auto;
+  }
+
   .nav__container {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .nav__links {
-      margin-top: 20px;
+    margin: 20px;
   }
 
   .nav__link {
-      font-size: 16px;
-      margin-left: 12px;
-      padding: 4px;
+    font-size: 16px;
+    margin-left: 12px;
+    padding: 4px;
   }
 
   .profile__picture--wrapper {
-      margin-left: 12px;
-  } 
+    margin-left: 12px;
+  }
 
-  .body1 {
-    margin-top: 40px;
+  .section__row {
+    max-width: 100vw;
+    display: block;
+  }
+
+  .contact__wrapper {
+    flex-direction: column;
+    height: 70vh;
+    max-width: 100vw;
+  }
+
+  .contact__half {
+    width: 100%;
+  }
+
+  .contact__left {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact__right {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .contact__title {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+
+  .contact__para {
+    font-size: 20px;
+    font-weight: 600;
   }
 }
-
 
 @media screen and (max-width: 550px) {
   .logo__wrapper {
     display: flex;
     flex-direction: column-reverse;
   }
+
+  .nav__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav__links {
+    margin-top: 20px;
+  }
+
+  .nav__link {
+    font-size: 8px;
+    margin: 8px;
+    padding: 4px;
+  }
+
+  .profile__picture--wrapper {
+    margin-left: 8px;
+  }
+
+  .section__row {
+    max-width: 100vw;
+  }
+
+  .section__container {
+    padding: 40px 0;
+  }
+
+  .contact__wrapper {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .contact__half {
+    width: 100%;
+  }
+  .contact__left {
+    width: 100%;
+  }
+
+  .contact__right {
+    width: 100%;
+    height: 100vh;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 450px) {
   .nav__container {
       flex-direction: column;
       align-items: center;
@@ -586,15 +671,8 @@ thead, th, tbody, tr, td {
       padding: 4px;
   }
 
-  .profile__picture--wrapper {
-      margin-left: 8px;
-  } 
-
-  .section__container {
-    padding: 40px 0;
-  }
-
   h1 {
-    font-size: 36px;
+    font-size: 36px !important;
+    font-weight: 700 !important;
   }
 }
