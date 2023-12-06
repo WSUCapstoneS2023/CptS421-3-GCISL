@@ -360,10 +360,6 @@ footer {
     height: auto;
   }
 
-.logo__wrapper {
-  margin: 10px;
-}
-
   .nav__container {
     flex-direction: column;
     align-items: center;
