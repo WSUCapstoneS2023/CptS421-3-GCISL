@@ -420,7 +420,7 @@ footer {
   }
 
   .header__container {
-    margin-top: 80px;
+    height: auto;
   }
 
   .nav__container {
@@ -513,9 +513,6 @@ footer {
     text-align: center;
   }
 
-  .header__container {
-    height: auto;
-  }
 
   .header_logo {
     width: 100%;
