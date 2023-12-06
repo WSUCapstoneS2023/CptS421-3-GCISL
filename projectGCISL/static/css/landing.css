@@ -54,7 +54,7 @@ li {
 }
 
 nav {
-  height: 80px;
+  height: auto;
   display: flex;
   margin-bottom: 20px;
 }
