@@ -291,10 +291,13 @@ input, select, textarea {
 label{
   vertical-align: middle;
 }
+<<<<<<< HEAD
 textarea {
   resize: vertical;
   margin-top: 8px;
 }
+=======
+>>>>>>> cbb7bd93f94b2269522fd160c60b8ffe6e45b32d
 
 .question-label {
   font-size: 16px;
