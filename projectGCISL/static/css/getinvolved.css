@@ -186,7 +186,7 @@ nav {
   margin: 0 20px 20px 0;
   border-radius: 20px;
   color: #fff;
-  max-width: 1000px;
+  max-width: 900px;
   text-align: center;
 }
 
@@ -206,7 +206,7 @@ nav {
   margin: 0 20px 20px 0;
   border-radius: 20px;
   color: #fff;
-  max-width: 1000px;
+  max-width: 900px;
   text-align: center;
 }
 
@@ -236,7 +236,7 @@ nav {
   margin: 0 0 20px 20px;
   border-radius: 20px;
   color: #fff;
-  max-width: 1000px;
+  max-width: 900px;
   text-align: center;
 }
 
@@ -359,10 +359,6 @@ footer {
   nav {
     height: auto;
   }
-
-.logo__wrapper {
-  margin: 10px;
-}
 
   .nav__container {
     flex-direction: column;
