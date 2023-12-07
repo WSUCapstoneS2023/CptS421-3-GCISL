@@ -291,7 +291,6 @@ input, select, textarea {
 label{
   vertical-align: middle;
 }
-
 textarea {
   resize: vertical;
   margin-top: 8px;
