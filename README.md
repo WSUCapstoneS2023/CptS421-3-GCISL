@@ -21,7 +21,7 @@ https://gciconnect.onrender.com/
 5) Lastly, run the command 'python manage.py runserver'
 6) Open the link with a control-click to navigate to the devolpment site.
 
-### Get Schema Information
+### Get schema Information
 1) Open a terminal where you open the project
 2) Write the command 'cd projectGCISL'
 3) Run 'python manage.py inspectdb'
