@@ -11,11 +11,17 @@ Kristen Leanne Blue
 Luke Thorvilson
 
 ### gciConnect Deployment Site
-https://github.com/WSUCapstoneS2023/CptS421-3-GCISL.git
+https://gciconnect.onrender.com/
 
 ### How to run project from the source
 1) Open the project on your IDE of your own choice.
 2) Open a terminal where you open the project
 3) Write the command 'cd projectGCISL'
-4) Lastly, write the command 'python manage.py runserver'
-5) Open the link with a control-click to navigate to the devolpment site.
+4) Run 'python manage.py collectstatic'
+5) Lastly, run the command 'python manage.py runserver'
+6) Open the link with a control-click to navigate to the devolpment site.
+
+### Get Schema Information
+1) Open a terminal where you open the project
+2) Write the command 'cd projectGCISL'
+3) Run 'python manage.py inspectdb'
